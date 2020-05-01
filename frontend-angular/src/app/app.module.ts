@@ -24,13 +24,13 @@ import {
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './Auth/login/login.component';
-import { HomeComponent } from './home/home.component';
-import { NavComponent } from './Auth/nav/nav.component';
-import { UserlandingComponent } from './userlanding/userlanding.component';
-import { SidebarComponent } from './Auth/sidebar/sidebar.component';
-import { FooterComponent } from './Auth/footer/footer.component';
-import { RegisterUserComponent } from './Admin/register-user/register-user.component';
+import { LoginComponent } from './components/Auth/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavComponent } from './components/Auth/nav/nav.component';
+import { UserlandingComponent } from './components/userlanding/userlanding.component';
+import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
+import { FooterComponent } from './components/Auth/footer/footer.component';
+import { RegisterUserComponent } from './components/Admin/register-user/register-user.component';
 
 
 @NgModule({
