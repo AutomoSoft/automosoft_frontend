@@ -1,0 +1,24 @@
+<div>
+    <form style="background-color: white;">
+
+        
+        <div>
+            <mat-form-field appearance="standard" style="display: block;width: 30%;margin: auto;">
+                <mat-label>User ID</mat-label>
+                <input matInput name="userid" [(ngModel)]="userid"
+                    placeholder=" i.e : 17001112">
+                <mat-icon matSuffix>person</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="standard" style="display: block;width: 30%;margin: auto;">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" name="password" [(ngModel)]="password"
+                    placeholder="i.e : abc@123">
+                <mat-icon matSuffix>lock</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <button mat-button  type="submit" style="display: block;width: 10%;margin: auto;background-color: blue;height: 30px;"
+            (click)="userLogin()">Sign in</button>
+        </div>
+    </form>
+</div>
