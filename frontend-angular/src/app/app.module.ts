@@ -29,8 +29,14 @@ import { NavComponent } from './components/Auth/nav/nav.component';
 import { UserlandingComponent } from './components/userlanding/userlanding.component';
 import { FooterComponent } from './components/Auth/footer/footer.component';
 import { RegisterUserComponent } from './components/Admin/register-user/register-user.component';
+<<<<<<< HEAD
 import { MainComponent } from './components/main/main.component';
 import { HomeComponent } from './components/main/home/home.component';
+=======
+import { MainnavigationComponent } from './components/Auth/mainnavigation/mainnavigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material/button';
+>>>>>>> 29e3d6ee340f324f53096725a42bef8126231605
 
 
 @NgModule({
@@ -43,6 +49,7 @@ import { HomeComponent } from './components/main/home/home.component';
     RegisterUserComponent,
     MainComponent,
     HomeComponent
+    MainnavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,9 @@ import { HomeComponent } from './components/main/home/home.component';
     MatInputModule,
     MatSnackBarModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    LayoutModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

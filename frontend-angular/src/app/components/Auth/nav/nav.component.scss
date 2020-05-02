@@ -1,24 +1,26 @@
 .nav-itm {
   padding-right: 0px;
-  font-size: 0.9em;
+  font-size: 0.3em;
+  // background-color: rgba($color: #c76b15, $alpha: 1.0);
 }
 .nav_item:hover {
-  border-bottom: solid 3px #2bb5f5;
+  border-bottom: solid 3px #c76b15;
   transition: 0.1s;
 }
-// @font-face {
-//   font-family: side_font;
-//   src: url(../../../../assets/Fonts/Roboto-Regular.ttf);
-// }
+@font-face {
+  font-family: side_font;
+  src: url(../../../../assets/fonts/ubuntu/Ubuntu-Regular.ttf);
+}
 
 .navbar_shadow {
   // box-shadow: 0px 5px 5px grey;
-  background-color:rgb(26, 26, 26);
+  background-color: rgba($color: #2b2a2a, $alpha: 1.0);
   // opacity: 0.2;
+  width: 100%;
 }
 
 .logo {
-  width: 25%;
+  width: 23%;
 }
 
 .logo:hover {
@@ -38,12 +40,12 @@
 }
 
 .btn {
-  color: #ffffff;
+  color: #c76b15;
   height: 62px;
   font-family: side_font;
 }
 .btn:hover{
-  color: #2bb5f5;
+  color: #339ccc;
   transition: 0.5s;
 }
 .usertype{

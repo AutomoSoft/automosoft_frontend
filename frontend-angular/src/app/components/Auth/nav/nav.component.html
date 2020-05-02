@@ -15,25 +15,35 @@
     <mat-toolbar-row>
       <span>
         <a class="navbar-brand">
-          <img src="../../assests/logo/cc.png" class="logo" routerLink="/">
+          <img src="../../../../assets/logo/cc.png" class="logo" routerLink="/">
         </a>
       </span>
       <span class="example-spacer"></span>
 
-      <nav>
-        <ul>
-          <li><a routerLink='/registerUser'>Test-Register</a></li>
-          <li><a routerLink='/login'>Test-Login</a></li>
-        </ul>
-      </nav>
-
-      <!-- <span class="nav-itm nav_item">
+      <span class="nav-itm nav_item" >
+        <button mat-button routerLink="/login" class="btn ">
+          <mat-icon>touch_app</mat-icon>Contact Us
+        </button>
+        <button mat-button routerLink="/registerUser" class="btn ">
+          <mat-icon>add_to_queue</mat-icon> Register
+        </button>
+      </span>
+      <!-- <button mat-button routerLink="/login" class="btn ">
+        <mat-icon>perm_identity</mat-icon>Login
+      </button> -->
+      <span class="nav-itm nav_item" *ngIf="!cookies.logingstatus">
+        <button  mat-button routerLink="/login" class="btn ">Login</button>
+      </span>
+      <span class="nav-itm nav_item" *ngIf="!cookies.logingstatus">
+        <button  mat-button (click)="logoutUser()" class="btn ">Logout</button>
+      </span>
+      <!-- <span class="nav-itm nav_item"></span>
 
         <button mat-button routerLink="/" class="navbtn ">
         <button mat-button routerLink="/" class="btn ">
           <mat-icon>home</mat-icon>
         </button>
-      </span> -->
+      -->
 
       <!-- <span class="nav-itm nav_item" *ngIf="cookies.logingstatus && cookies.userData.usertype != 'Administrator'" >
         <button mat-button routerLink="/menu" (click)="menu()" class="btn">
