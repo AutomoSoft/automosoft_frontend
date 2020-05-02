@@ -31,6 +31,9 @@ import { UserlandingComponent } from './components/userlanding/userlanding.compo
 import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
 import { FooterComponent } from './components/Auth/footer/footer.component';
 import { RegisterUserComponent } from './components/Admin/register-user/register-user.component';
+import { MainnavigationComponent } from './components/Auth/mainnavigation/mainnavigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -43,6 +46,7 @@ import { RegisterUserComponent } from './components/Admin/register-user/register
     SidebarComponent,
     FooterComponent,
     RegisterUserComponent,
+    MainnavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ import { RegisterUserComponent } from './components/Admin/register-user/register
     MatInputModule,
     MatSnackBarModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    LayoutModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
