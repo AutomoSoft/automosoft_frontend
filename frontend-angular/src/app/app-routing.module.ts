@@ -8,7 +8,7 @@ import { RegisterUserComponent } from './components/Admin/register-user/register
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:"",component:HomeComponent},
-  {path:"landing",component:UserlandingComponent},
+  {path:":id/landing",component:UserlandingComponent},
   {path:"registerUser",component:RegisterUserComponent}
 ];
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MycookiesService } from '../../Admin/mycookies.service';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +22,15 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     public snackBar: MatSnackBar,
+    private cookies: MycookiesService,
 
   ) { }
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.cookies.logingstatus===true){
+      var myCookie = JSON.parse(this.cookies.getCookie("userAuth"));
+      this.router.navigate([myCookie.userid,'landing']);
+    }
+  }
 
   userLogin() {
     // get user login details
@@ -48,12 +55,28 @@ export class LoginComponent implements OnInit {
       return "password empty";
     }
     else{
-      console.log(user)
+      //console.log(user)
       this.http.post<any>(url, user).subscribe(res => { //requested to data to the server to login
 
         if (res.state == true) {
-          
-          this.router.navigate(['/landing'])
+          this.cookies.setCookie("userAuth", JSON.stringify(res.user), 1);  //set cookeis, user data
+          var myCookie = JSON.parse(this.cookies.getCookie("userAuth"));  //userdata convert to  JSON array
+          var id = myCookie.usertype;                                     //get user type from the cookies
+          console.log(myCookie);
+          //this.router.navigate(['/landing']);
+          if(id=="Administrator"){
+            // this.router.navigate([myCookie.userid,'admin_dashboard']);
+            // let config = new MatSnackBarConfig();
+            // config.duration = true ? 2000 : 0;
+            // this.snackBar.open("Successfully Logged In..! ", true ? "Done" : undefined, config);
+            // return "Log as admin";
+          }else if(id=="normaluser"){   //if other user logd in redirecto the menu
+            this.router.navigate([myCookie.userid,'landing']);
+            return "Log as normal user";
+          }else{    //else redirected to the login form again
+            this.router.navigate(['/login']);
+            return "You are not a user"
+          }
         }
         else {
           //user login state false shows error message
