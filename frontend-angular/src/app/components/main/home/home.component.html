@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-  <h1>AUTOMOSOF</h1>
+  <h1>AUTOMOSOFT</h1>
 </div>
   <div class="container">
     <!--<owl-carousel-o [options]="customOptions">
@@ -108,7 +108,7 @@
   </div>
 </mat-card>
 
-<div>
+<!--<div>
   <mat-card class="map">
   <mat-card-title>Hello</mat-card-title>
   <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
@@ -116,6 +116,30 @@
 
   </agm-map>
 </mat-card>
+</div>-->
+
+<div class="container2">
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <!--<mat-card class="map">-->
+        <mat-card-title></mat-card-title>
+           <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+              <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+     <!-- </mat-card>-->
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class=address>
+        <h3>AUTOMOSOFT</h3>
+        <p>Preethi Motors</p>
+        <p>Kekanadura</p>
+        <p>Matara</p>
+        <p>Sri Lanka</p>
+        <button mat-raised-button color="warn" type="click" >REQUEST APPOINTEMENT</button>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
 
 
