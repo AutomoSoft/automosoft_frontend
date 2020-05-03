@@ -20,7 +20,7 @@ export class MycookiesService {
       var data=JSON.parse(this.getCookie("userAuth"));
       this.userData.userid=data.userid;
       this.userData.usertype=data.usertype;
-      var name=data.name.split(" ");
+      //var name=data.name.split(" ");
       this.profile=name[0] + " ("+data.usertype+")";
       this.logingstatus=true;
     }else{
@@ -52,9 +52,9 @@ export class MycookiesService {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     if(exdays!=-1){
       var data=JSON.parse(this.getCookie("userAuth"));
-      var name=data.name.split(" ");
+      //var name=data.name.split(" ");
       this.profile=name[0] + " ("+data.usertype+")";
-      console.log(name);
+      //console.log(name);
       this.userData.userid=data.userid;
       this.userData.usertype=data.usertype;
       // this.profile=name;
