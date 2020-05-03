@@ -1,1 +1,0 @@
-# automosoft_frontend
