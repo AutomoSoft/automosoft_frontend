@@ -1,0 +1,106 @@
+.container{
+  height: 350px;
+  width: 1473px;
+
+
+  background-color: #3d3d3b;
+}
+h1{
+    text-align: center;
+    color: rgb(255, 157, 0);
+    font-weight: 300;
+    padding-top: 50px;
+    font-family: topic_font;
+    font-weight: 300;
+
+}
+owl-carousel-o{
+  height: 100%;
+}
+ng-template {
+  height: 100%;
+  width: 500px;
+}
+
+
+
+
+.logo1{
+  width: 50%;
+  margin-top: 15rem;
+
+
+
+}
+.logo2{
+  width: 100%;
+  height: 270px;
+  margin-top: 15rem;
+
+
+
+}
+h2{
+
+  color: rgb(255, 157, 0);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+
+}
+.paragraph1{
+
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+.container2{
+  background-color: #d1d1c1;
+}
+.grid1{
+  background-color: rgb(253, 247, 247);
+  margin: 5rem;
+}
+.grid2{
+  background-color: rgb(253, 247, 247);
+  margin: 5rem;
+}
+.review{
+  background-color: #3d3d3b;
+}
+.container3{
+  height:450px;
+  background-size:cover;
+  width:auto;
+  background-position:50% 50%;
+  background-image: url("/../assets/images/car6.jpg");
+  //filter: blur(2px);
+  //-webkit-filter: blur(2px);
+
+}
+.bg-text {
+  background-color: rgb(230, 88, 23); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 1px solid #b5b683;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+button{
+  color: rgb(255, 81, 0);
+}
+agm-map{
+  height:400px;
+  width: 900px;
+}
+
+
