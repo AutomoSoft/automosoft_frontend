@@ -25,27 +25,30 @@ import {
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/Auth/login/login.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/Auth/nav/nav.component';
 import { UserlandingComponent } from './components/userlanding/userlanding.component';
-import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
 import { FooterComponent } from './components/Auth/footer/footer.component';
 import { RegisterUserComponent } from './components/Admin/register-user/register-user.component';
+
+import { MainComponent } from './components/main/main.component';
+import { HomeComponent } from './components/main/home/home.component';
+
 import { MainnavigationComponent } from './components/Auth/mainnavigation/mainnavigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     NavComponent,
     UserlandingComponent,
-    SidebarComponent,
     FooterComponent,
     RegisterUserComponent,
+    MainComponent,
+    HomeComponent,
     MainnavigationComponent,
   ],
   imports: [
