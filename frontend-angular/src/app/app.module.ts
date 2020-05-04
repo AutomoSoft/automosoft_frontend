@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AgmCoreModule } from '@agm/core'
 
 
 
@@ -18,6 +20,7 @@ import {
   MatTabsModule,
   MatSnackBarModule,
   MatCardModule,
+  MatGridListModule,
 
 } from '@angular/material';
 
@@ -70,7 +73,12 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     MatCardModule,
     MatTabsModule,
     LayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    CarouselModule,
+    MatGridListModule,
+    AgmCoreModule.forRoot({
+    apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

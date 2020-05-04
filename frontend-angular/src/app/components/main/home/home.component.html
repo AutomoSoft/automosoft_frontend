@@ -1,1 +1,147 @@
-<p>home works!</p>
+<div class="jumbotron text-center">
+  <h1>AUTOMOSOFT</h1>
+</div>
+  <div class="container">
+    <!--<owl-carousel-o [options]="customOptions">
+    <ng-container>
+      <ng-template carouselSlide [width]="300">
+        <img src="../assets/images/car1.jpg">
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../assets/images/car2.jpg">
+
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../assets/images/car3.jpg">
+
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../assets/images/car4.jpg">
+
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>-->
+  </div>
+
+
+<div class="container2">
+
+<div>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <img mat-card-image src="../assets/logo/cc.png" class="logo1">
+  </mat-grid-tile>
+  <mat-grid-tile >
+    <div>
+      <h2>Your complete satisfaction is our top priority</h2>
+      <p class="paragraph1">
+          Preethi Motors is one of the leading car repairing and maintenance garages in the Southern
+          Province of Sri Lanka. It was founded by the Mr. Ranjan Preethi Palliyaguru, an automobile
+          engineer on 26th of March 1982. At the inception of the business there were only 8 people to
+          work and it was a small car repairing garage in a small plot of land. With the expertise of Mr.
+          Preethi Palliyaguru and his strong public relations, he was able to expand the garage into a large
+          scale car repairing center with a 3 storied building and a larger space in the mid of the Matara
+          town area in 1998. Moreover, he expanded his business through opening up a spare part trading
+          shop and also by entering into public transportation sector. Preethi Motors is regarded as an “A
+          grade” garage and it also operates in issuing valuation reports and fitness reports. Preethi Motors
+          comprises a labour force of 40 people.
+  </p>
+</div>
+</mat-grid-tile>
+
+</mat-grid-list>
+</div>
+<div>
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <mat-card class="grid1">
+
+        <div>
+          <h3>Highly Qualified–ASE Certified Technicians</h3>
+          <p>
+            We have a team that works on all makes and models of vehicles. West Automotive Group’s ASE Certified
+            technicians use the industry’s most advanced tools and equipment for all services. Our team stays abreast
+            of all of the latest technologies to make sure your vehicle receives the best service possible.
+            When you visit one of our West Automotive Group locations, you get an expert diagnosis before performing
+            any repairs. We’re the transmission specialists you can trust for both automatic and manual transmission repairs
+            and service. We strive to make your automotive and transmission repair service as convenient as possible.
+            Auto services are an interruption to your already busy day, so we offer our shuttle service to help you stay
+            on schedule. Let West Automotive Group’s techs in Escondido, El Cajon or Kearny Mesa handle your auto
+            and transmission services today! We stand behind our expert services with a 24,000 mile nationwide warranty.
+            For transmission repairs and service we offer an industry-leading 3 Year / 100,000 Mile warranty.
+          </p>
+        </div>
+
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile >
+      <mat-card class="grid2">
+        <div>
+          <h3>Schedule Your Auto and Transmission Service Today!</h3>
+            <p>
+              We have a team that’s waiting for your call! West Automotive Group is the go-to facility for all of
+              your transmission repairs and auto services. Your vehicle is always in good hands at our shop, and our
+              techs remain at the top of their craft. Give us a call today at any of our 4 locations! Our hassle-free
+              services are quick and easy. To schedule your appointment right now, go ahead and use our convenient
+              online scheduling system. Pencil yourself in by picking the time that works best for you. Our techs
+              will be here using our state-of-the-art tools and equipment.
+            </p>
+            <!--<img mat-card-image src="../assets/images/car1.jpg" class="logo">-->
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+
+    </mat-grid-list>
+</div>
+</div>
+<mat-card class="review">
+  <div class= "container3">
+
+    <div class="bg-text">
+      <h1> WHAT OUR CUSTOMERS ARE SAYING</h1>
+      <p>We would love to hear your reviews so that we can give you the best service in your next appointment</p>
+      <button
+         mat-raised-button color="warn" type="click" >REVIEW</button>
+    </div>
+
+  </div>
+</mat-card>
+
+<!--<div>
+  <mat-card class="map">
+  <mat-card-title>Hello</mat-card-title>
+  <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+
+  </agm-map>
+</mat-card>
+</div>-->
+
+<div class="container2">
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <!--<mat-card class="map">-->
+        <mat-card-title></mat-card-title>
+           <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+              <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+     <!-- </mat-card>-->
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class=address>
+        <h3>AUTOMOSOFT</h3>
+        <p>Preethi Motors</p>
+        <p>Kekanadura</p>
+        <p>Matara</p>
+        <p>Sri Lanka</p>
+        <button mat-raised-button color="warn" type="click" >REQUEST APPOINTEMENT</button>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+
+
