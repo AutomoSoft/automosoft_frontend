@@ -65,11 +65,11 @@ export class LoginComponent implements OnInit {
           console.log(myCookie);
           //this.router.navigate(['/landing']);
           if(id=="Administrator"){
-            // this.router.navigate([myCookie.userid,'admin_dashboard']);
-            // let config = new MatSnackBarConfig();
-            // config.duration = true ? 2000 : 0;
-            // this.snackBar.open("Successfully Logged In..! ", true ? "Done" : undefined, config);
-            // return "Log as admin";
+            this.router.navigate([myCookie.userid,'admin_dashboard']);
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Successfully Logged In..! ", true ? "Done" : undefined, config);
+            return "Log as admin";
           }else if(id=="normaluser"){   //if other user logd in redirecto the menu
             this.router.navigate([myCookie.userid,'landing']);
             return "Log as normal user";

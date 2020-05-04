@@ -26,7 +26,7 @@ import {
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/Auth/login/login.component';
 import { NavComponent } from './components/Auth/nav/nav.component';
-import { UserlandingComponent } from './components/userlanding/userlanding.component';
+import { UserlandingComponent } from './components/main/userlanding/userlanding.component';
 import { FooterComponent } from './components/Auth/footer/footer.component';
 import { RegisterUserComponent } from './components/Admin/register-user/register-user.component';
 
@@ -36,6 +36,7 @@ import { HomeComponent } from './components/main/home/home.component';
 import { MainnavigationComponent } from './components/Auth/mainnavigation/mainnavigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
+import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 
 
 
@@ -50,6 +51,7 @@ import { MatButtonModule } from '@angular/material/button';
     MainComponent,
     HomeComponent,
     MainnavigationComponent,
+    AdmindashboardComponent,
   ],
   imports: [
     BrowserModule,
