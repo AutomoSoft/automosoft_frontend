@@ -1,76 +1,44 @@
-<div class="row footer">
-  <div class="col-md-4 col-xs-4">
-      <div class="container" style="margin-left:120px">
-        footer edit this  
-          <!-- <div class="row" style="color: aliceblue; padding-top: 50px">
-              <div class="col-md-3   col-xs-3 footer_icn">
-                  <img src="../../../../assets/logo/school_logo.png" style="width: 80px">
-              </div>
-              <div class="col-md-9   col-xs-9 footer_txt">
-                  <h5><span style="font-weight: 500">St. John's College</span></h5>
-                  <p style="margin-top: -0px; text-align: justify">St. John's College, started in 1915 and is the only boys' school in Nugegoda, Sri Lanka. It contains two primary sections and upper school.</p>
-                  <p class="contact_us" routerLink="contact_us">Contact Us</p>
-              </div>
-          </div> -->
+<div class="container footer" 
+    fxLayout="row wrap" 
+    fxLayout.lt-md="column" 
+    fxLayoutAlign="center center" 
+    fxLayoutGap="1px">
+
+  <div fxFlex="100" fxFlex.gt-sm="50 ">
+    <div fxLayout="row">
+      <div fxFlex="50" fxFlexOffset="20px">
+        <h4>Links</h4>
+        <mat-list>
+            <span>
+          <mat-list-item><a mat-button routerLink='/home'>Home</a></mat-list-item></span>
+          <mat-list-item><a mat-button routerLink='/aboutus'>About</a></mat-list-item>
+          <mat-list-item><a mat-button routerLink='/menu'>Menu</a></mat-list-item>
+          <mat-list-item><a mat-button routerLink='/contactus'>Contact</a></mat-list-item>
+        </mat-list>
       </div>
-  </div>
-
-  <!-- social media links -->
-  <div class="col-md-4 col-xs-4">
-      <!-- <div class="container row" style="padding-top: 90px">
-          <div class="col-md-3  col-xs-3">
-          </div>
-          <div class="col-md-2  col-xs-2">
-              <a href="http://www.facebook.com"><img src="../../../../assets/icons/facebook-square-brands.svg"
-                      class="social_icn fb"></a>
-          </div>
-          <div class="col-md-2  col-xs-2">
-              <a href="http://www.instagram.com"><img src="../../../../assets/icons/instagram-brands.svg"
-                      class="social_icn insta"></a>
-          </div>
-          <div class="col-md-2  col-xs-2">
-              <a href="http://www.twitter.com"><img src="../../../../assets/icons/twitter-square-brands.svg"
-                      class="social_icn twit"></a>
-          </div>
-          <div class="col-md-3  col-xs-3">
-          </div>
-      </div> -->
-  </div>
-  <div class="col-md-4 col-xs-4">
-
-      <!-- <div class="row" style="color: aliceblue; padding-top: 50px">
-          <div class="col-md-1   col-xs-1 footer_icn">
-              <i class="material-icons">mail_outline </i>
-          </div>
-          <div class="col-md-10   col-xs-10 footer_txt">
-              <h5><span style="font-weight: 500">St. John's College</span></h5>
-              <p style="margin-top: -10px">176A High Level Rd,</p>
-              <p style="margin-top: -20px">Nugegoda </p>
-          </div>
+      <div fxFlex="55">
+        <h4>Our Address</h4>
+        <address style="text-size: 80%">
+          Automosoft<br> Reid Avenue<br>Colombo 07<br>Sri Lanka<br>
+          <i class="fa fa-phone"></i>: +852 1234 5678<br>
+          <i class="fa fa-fax"></i>: +852 8765 4321<br>
+          <i class="fa fa-envelope"></i>:
+          <a href="mailto:automosoft@gmail.com">automosoft@gmail.com</a>
+        </address>
       </div>
-
-      <div class="row" style="color: aliceblue">
-          <div class="col-md-1  col-xs-1 footer_icn">
-              <i class="material-icons">call </i>
-          </div>
-          <div class="col-md-10   col-xs-10 footer_txt">
-              <h5><span style="font-weight: 500">0112 123 456</span></h5>
-          </div>
-      </div> -->
-
-      <!-- <div class="row" style="color: aliceblue">
-          <div class="col-md-1  col-xs-1 footer_icn">
-              <fa-icon [icon]="faAt" style="font-size: 20px"></fa-icon>
-          </div>
-          <div class="col-md-10  col-xs-10 footer_txt">
-              <h5><span style="font-weight: 500">stjohncollege@gmail.com</span></h5>
-          </div>
-      </div> -->
-
+    </div>
   </div>
-  <hr>
-  <!-- <div class="container">
-      <p style="color: aliceblue; text-align: center"> &copy; 2019 St.John's College. All rights reserved.</p>
-      <p class="footer_design">WEB Designed by <a class="a">EH4 GROUP&reg;</a></p>
-  </div> -->
+  <div fxFlex="100" fxFlex.gt-sm="45">
+    <div style="text-align:center">
+      <a mat-icon-button class="btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
+      <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+      <a mat-icon-button class="btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+      <a mat-icon-button class="btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+      <a mat-icon-button class="btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+      <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+    </div>
+  </div>
+  <div>
+      <p></p>
+  </div>
 </div>

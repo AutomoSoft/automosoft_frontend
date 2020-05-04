@@ -65,7 +65,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatTabsModule,
     LayoutModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
