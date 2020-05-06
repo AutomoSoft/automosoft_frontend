@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    </head>
+    <body>
+      <div class="pimg2">
+        <div class="ptext">
+          <span class="border trans">
+              contact us
+
+
+          </span>
+
+        </div>
+      </div>
+
+
+      <section class="section section-dark">
+
+        <div class= "p1text">
+          <h2>Feel free to contact us and drop a message</h2>
+          <p class="p1">412A,<br>Galle Road,<br>Pamburana,<br>Matara Road,<br>Matara<br><i class="material-icons">call </i>
+          (041 222 3120)<br><i class="material-icons">email </i> preethi@gmail.com
+      </p>
+      </div>
+
+        <mat-grid-list cols="2" rowHeight="1:1">
+
+          <mat-grid-tile>
+
+            <!--<div class=address>
+              <h3>AUTOMOSOFT</h3>
+              <br>Preethi Motors<br>
+              Kekanadura<br>
+              Matara<br>
+              Sri Lanka<br>
+              <button mat-raised-button color="warn" type="click" >REQUEST APPOINTEMENT</button>
+            </div>-->
+            <mat-card class="First-card">
+              <form (submit)="onSubmit(contactUsForm)" #contactUsForm="ngForm">
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input
+                  matInput
+                  name="Name"
+                  ngModel
+                  type="text"
+                  placeholder= "Please enter Your Name"
+                  #nameInput="ngModel"
+                  required text>
+                <mat-error *ngIf="nameInput.invalid">Please enter a your name</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>E-mail</mat-label>
+                  <input
+                  matInput
+                  name="email"
+                  ngModel
+                  type="email"
+                  placeholder= "ex-yrh@gmail.com"
+                  #emailInput="ngModel"
+                  required email>
+                <mat-error *ngIf="emailInput.invalid">Please enter a valid e-mail</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Subject</mat-label>
+                  <input
+                  matInput
+                  name="subject"
+                  ngModel
+                  type="text"
+                  placeholder= "ex- regarding an appoitment"
+                  #subjectInput="ngModel"
+                  required email>
+                <mat-error *ngIf="emailInput.invalid">Please enter your subject</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Message</mat-label>
+                  <textarea
+                  matInput
+                  rows="4"
+                  formControlName="content"
+                  name="content"
+                  placeholder="Leave your message">
+                </textarea>
+                </mat-form-field><br>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="submit">SUBMIT</button>
+
+              </form>
+            </mat-card>
+
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <!--<mat-card class="map">-->
+              <mat-card-title></mat-card-title>
+                 <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" [zoom]="zoom">
+                    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                  </agm-map>
+
+           <!-- </mat-card>-->
+          </mat-grid-tile>
+        </mat-grid-list>
+
+      </section>
+    </body>
+

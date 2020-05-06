@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core'
+
 
 
 
@@ -18,6 +20,7 @@ import {
   MatTabsModule,
   MatSnackBarModule,
   MatCardModule,
+  MatGridListModule,
 
 } from '@angular/material';
 
@@ -37,6 +40,9 @@ import { MainnavigationComponent } from './components/Auth/mainnavigation/mainna
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
+import { ContactComponent } from './components/main/contact/contact.component';
+
+
 
 
 
@@ -52,6 +58,7 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     HomeComponent,
     MainnavigationComponent,
     AdmindashboardComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +77,11 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     MatCardModule,
     MatTabsModule,
     LayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
+      })
   ],
   providers: [],
   bootstrap: [AppComponent]
