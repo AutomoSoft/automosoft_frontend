@@ -10,7 +10,7 @@
   </div>
 </header> -->
 
-<div class="row">
+<div class="row" style="position: fixed; z-index: 10001; width: 100%;">
   <mat-toolbar class="navbar_shadow">
     <mat-toolbar-row>
       <span>
@@ -20,8 +20,8 @@
       </span>
       <span class="example-spacer"></span>
 
-      <span class="nav-itm nav_item" *ngIf="!cookies.logingstatus">
-        <button mat-button routerLink="/login" class="btn ">
+      <span class="nav-itm nav_item" >
+        <button mat-button routerLink="/contact" class="btn ">
           <mat-icon>touch_app</mat-icon>Contact Us
         </button>
       </span>
