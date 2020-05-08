@@ -45,11 +45,6 @@ import { RegisterUserComponent } from './components/Admin/register-user/register
 import { MainComponent } from './components/main/main.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { ContactComponent } from './components/main/contact/contact.component';
-
-
-
-
-import { MainnavigationComponent } from './components/Auth/mainnavigation/mainnavigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
@@ -67,7 +62,6 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     RegisterUserComponent,
     MainComponent,
     HomeComponent,
-    MainnavigationComponent,
     AdmindashboardComponent,
     ContactComponent
   ],
