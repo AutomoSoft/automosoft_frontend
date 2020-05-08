@@ -1,0 +1,100 @@
+.pimg2{
+  background-image:url('../../../../assets/images/parallax/image2.jpg');
+  min-height:550px;
+}
+.ptext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+  font-weight: bolder;
+}
+
+.ptext .border{
+  background-color:rgb(0, 0, 0);
+  color:#fff;
+  padding:20px;
+}
+
+.ptext .border.trans{
+  background-color:rgb(41, 39, 39);
+}
+@media(max-width:568px){
+  .pimg1, .pimg2, .pimg3{
+    background-attachment:scroll;
+  }
+}
+
+body, html{
+  height:100%;
+  margin:0;
+  font-size:16px;
+  font-family:"Lato", sans-serif;
+  font-weight:400;
+  line-height:1.8em;
+  color:#666;
+}
+
+.pimg1, .pimg2, .pimg3{
+  position:relative;
+  opacity:0.9;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  /*
+    fixed = parallax
+    scroll = normal
+  */
+  background-attachment:fixed;
+}
+.section-dark{
+  //background-color:#282e34;
+  background-color: #333;
+  color:#ddd;
+  width: 1500px;
+}
+/*.section{
+  text-align:center;
+  padding:80px 80px;
+}*/
+agm-map{
+  height:500px;
+  width: 700px;
+}
+
+.First-card{
+  width:600px;
+  height:465px;
+  background-color: #f3efb3;
+}
+mat-form-field,
+textarea{
+  width: 100%;
+}
+mat-form-field{
+  width:70%
+}
+
+.call_icn{
+  text-align: center;
+}
+
+.contact_txt{
+  text-align: center;
+}
+.p1text{
+  text-align: left;
+  font-size: 16px;
+  letter-spacing:0px;
+  text-transform:none;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  margin-left: 4rem;
+  height:150px
+
+}
