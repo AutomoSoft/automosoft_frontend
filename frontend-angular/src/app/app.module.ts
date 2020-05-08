@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -18,6 +21,7 @@ import {
   MatTabsModule,
   MatSnackBarModule,
   MatCardModule,
+
 
 } from '@angular/material';
 
@@ -70,7 +74,10 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     MatCardModule,
     MatTabsModule,
     LayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
