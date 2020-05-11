@@ -188,36 +188,36 @@ body, html{
     line-height:1.8em;
     color:#666;
   }
-  
+
   .pimg1, .pimg2, .pimg3{
     position:relative;
     opacity:0.70;
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
-  
+
     /*
       fixed = parallax
       scroll = normal
     */
     background-attachment:fixed;
   }
-  
+
   .pimg1{
     background-image:url('../../../../assets/images/parallax/image1.jpg');
     min-height:100%;
   }
-  
+
   .pimg2{
     background-image:url('../../../../assets/images/parallax/image2.jpg');
     min-height:400px;
   }
-  
+
   .pimg3{
     background-image:url('../../../../assets/images/parallax/image3.jpg');
     min-height:400px;
   }
-  
+
   .section{
     text-align:center;
     padding:80px 80px;
@@ -227,18 +227,18 @@ body, html{
     text-align:center;
     padding:10px 10px;
   }
-  
+
   .section-light{
     background-color:#f4f4f4;
     color:#666;
   }
-  
+
   .section-dark{
     //background-color:#282e34;
     background-color: #333;
     color:#ddd;
   }
-  
+
   .ptext{
     position:absolute;
     top:50%;
@@ -249,24 +249,24 @@ body, html{
     letter-spacing:8px;
     text-transform:uppercase;
   }
-  
+
   .ptext .border{
     background-color:#111;
     color:#fff;
     padding:20px;
   }
-  
+
   .ptext .border.trans{
     background-color:transparent;
   }
-  
+
   @media(max-width:568px){
     .pimg1, .pimg2, .pimg3{
       background-attachment:scroll;
     }
   }
-  
-  
+
+
 
 // Flip card CSS
 // *{
@@ -357,7 +357,7 @@ body, html{
     margin:0 auto;
     transform: translate(-50%, -50%);
   }
-  
+
   #cf img {
     position:absolute;
     left:0;
@@ -366,7 +366,7 @@ body, html{
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
   }
-  
+
   @keyframes cf3FadeInOut {
     0% {
     opacity:1;
@@ -381,7 +381,7 @@ body, html{
   opacity:0;
   }
   }
-  
+
   #cf img.top {
   animation-name: cf3FadeInOut;
   animation-timing-function: ease-in-out;
@@ -389,4 +389,3 @@ body, html{
   animation-duration: 7s;   //adjust transition speed here
   animation-direction: alternate;
   }
-  
