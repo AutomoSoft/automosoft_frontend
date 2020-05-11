@@ -1,0 +1,68 @@
+.tct {
+  background-color: #2b2a2a;
+  margin-top: 10px;
+  width: 200px;
+  height: 80px;
+  border-radius: 20px;
+  // padding-left: 10px;
+}
+
+.frist_div {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  color: #c76b15;
+  border: 1.55px solid #c76b15;
+  padding-top: 3px;
+  padding-bottom: 13px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+
+}
+
+.frist_div:hover {
+  background-color: #e0e0e0;
+  transition: 0.5s;
+}
+
+.btn_icn {
+  padding-left: 10px;
+  font-size: 35px;
+  padding-top: 6px;
+}
+
+.btn_txt {
+  color: #c76b15;
+  font-size: 17px;
+  padding-top: 10px;
+  // margin-left: -20px;
+}
+
+
+.notice_label {
+  color: white;
+  background-color: rgb(191, 4, 4);
+  width: 20px;
+  font-size: 10px;
+  position: absolute;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 3px;
+}
+
+.circle_read {
+  color: #008b23;
+}
+
+.circle_not_read {
+  color: rgb(219, 0, 0);
+}
+
+.notice_matCard {
+  height: 50px;
+  margin-bottom: 10px;
+}
+.notice_div{
+    padding-top: 10px;
+}
