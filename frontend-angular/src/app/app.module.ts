@@ -7,6 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
+<<<<<<< Updated upstream
+=======
+import { AgmCoreModule } from '@agm/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+>>>>>>> Stashed changes
 
 
 
@@ -44,6 +50,11 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +67,10 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     HomeComponent,
     MainnavigationComponent,
     AdmindashboardComponent,
+<<<<<<< Updated upstream
+=======
+    ContactComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -77,7 +92,17 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     MatButtonModule,
     MatSlideToggleModule,
     MatSelectModule,
+<<<<<<< Updated upstream
     FlexLayoutModule
+=======
+    FlexLayoutModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
+      })
+>>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
