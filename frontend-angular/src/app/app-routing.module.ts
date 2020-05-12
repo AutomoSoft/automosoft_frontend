@@ -7,6 +7,7 @@ import { HomeComponent } from './components/main/home/home.component';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { ContactComponent } from './components/main/contact/contact.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
+import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
 
   {path:":id/admin_dashboard",component:AdmindashboardComponent},
   {path:"registerEmployee",component:RegisterEmployeeComponent},
+  {path:"registerSupplier",component:RegisterSupplierComponent},
 
   {
     path: ":id/landing", component:MainComponent,

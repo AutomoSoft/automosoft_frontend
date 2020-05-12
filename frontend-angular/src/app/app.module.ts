@@ -48,6 +48,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
+import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 
 
 
@@ -63,7 +64,8 @@ import { RegisterEmployeeComponent } from './components/Admin/register-employee/
     HomeComponent,
     AdmindashboardComponent,
     ContactComponent,
-    RegisterEmployeeComponent
+    RegisterEmployeeComponent,
+    RegisterSupplierComponent
   ],
   imports: [
     BrowserModule,
