@@ -1,8 +1,9 @@
 .tct {
   background-color: #2b2a2a;
-  // margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 10px;
   width: 275px;
-  height: 100px;
+  // height: 100px;
   border-radius: 20px;
   border: 1.55px solid #000000;
 
@@ -13,7 +14,7 @@
   background-color: #5e5555;
   margin-left: 50px;
   margin-right: 50px;
-  height: 100%;
+  height: 180px;
   border-radius: 10px;
   padding-top: 10px;
 }
@@ -33,7 +34,8 @@
 }
 
 .frist_div:hover {
-  background-color: #e0e0e0;
+  background-color:rgb(37, 36, 39);
+  color: #339ccc;
   transition: 0.5s;
 }
 
@@ -42,6 +44,13 @@
   font-size: 35px;
   padding-top: 6px;
 }
+
+.btn_icn:hover {
+  transition: 0.5s;
+  color: #339ccc;
+}
+
+
 
 .btn_txt {
   color: #c76b15;
@@ -62,18 +71,9 @@
   margin-left: 3px;
 }
 
-.circle_read {
-  color: #008b23;
-}
-
-.circle_not_read {
-  color: rgb(219, 0, 0);
-}
-
-.notice_matCard {
-  height: 50px;
-  margin-bottom: 10px;
-}
-.notice_div{
-    padding-top: 10px;
+.topic {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding-top: 10px;
+  font-family: topic_font;
 }
