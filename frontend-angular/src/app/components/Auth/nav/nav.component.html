@@ -20,9 +20,14 @@
       </span>
       <span class="example-spacer"></span>
 
-      <span class="nav-itm nav_item" >
+      <span class="nav-itm nav_item" *ngIf="!cookies.logingstatus">
         <button mat-button routerLink="/contact" class="btn ">
           <mat-icon>touch_app</mat-icon>Contact Us
+        </button>
+      </span>
+      <span class="nav-itm nav_item" *ngIf="!cookies.logingstatus">
+        <button mat-button routerLink="/" class="btn ">
+          <mat-icon>home</mat-icon> Home
         </button>
       </span>
       <!-- //insert click here for normal user-->
@@ -33,7 +38,7 @@
       </span>
       <!-- insert click here for admin -->
       <span class="nav-itm nav_item" *ngIf="cookies.logingstatus && cookies.userData.usertype == 'Administrator'" >
-        <button mat-button routerLink="/menu"  class="btn">
+        <button mat-button (click)="dashboard()"  class="btn">
           <mat-icon>menu</mat-icon>&nbsp;Portal
         </button>
       </span>
@@ -51,7 +56,9 @@
         </button>
       </span>
       <span class="nav-itm nav_item" *ngIf="cookies.logingstatus">
-        <button  mat-button (click)="logoutUser()" class="btn ">Logout</button>
+        <button  mat-button (click)="logoutUser()" class="btn ">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
       </span>
 
 

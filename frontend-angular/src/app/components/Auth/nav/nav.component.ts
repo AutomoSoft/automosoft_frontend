@@ -33,4 +33,10 @@ export class NavComponent implements OnInit {
 
   }
 
+  dashboard() {
+    var id = this.cookies.userData.userid;
+    this.router.navigate([id,'admin_dashboard']);
+
+  }
+
 }

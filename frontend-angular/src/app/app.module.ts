@@ -40,7 +40,6 @@ import { LoginComponent } from './components/Auth/login/login.component';
 import { NavComponent } from './components/Auth/nav/nav.component';
 import { UserlandingComponent } from './components/main/userlanding/userlanding.component';
 import { FooterComponent } from './components/Auth/footer/footer.component';
-import { RegisterUserComponent } from './components/Admin/register-user/register-user.component';
 
 import { MainComponent } from './components/main/main.component';
 import { HomeComponent } from './components/main/home/home.component';
@@ -48,6 +47,7 @@ import { ContactComponent } from './components/main/contact/contact.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
+import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
 
 
 
@@ -59,11 +59,11 @@ import { AdmindashboardComponent } from './components/Admin/admindashboard/admin
     NavComponent,
     UserlandingComponent,
     FooterComponent,
-    RegisterUserComponent,
     MainComponent,
     HomeComponent,
     AdmindashboardComponent,
-    ContactComponent
+    ContactComponent,
+    RegisterEmployeeComponent
   ],
   imports: [
     BrowserModule,
