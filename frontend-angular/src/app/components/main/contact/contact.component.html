@@ -27,6 +27,8 @@
           (041 222 3120)<br><i class="material-icons">email </i> preethi@gmail.com
       </p>
       </div>
+        <br>
+        <div>
 
         <mat-grid-list cols="2" rowHeight="1:1">
 
@@ -95,11 +97,13 @@
                   required>
                 </textarea>
                 <mat-error *ngIf="contentInput.invalid">Please enter your subject</mat-error>
-                </mat-form-field><br>
+                </mat-form-field>
+                <br>
                 <button
                   mat-raised-button
-                  color="primary"
-                  type="submit">SUBMIT</button>
+                  type="submit"
+                  style="display: block;width: 10%;margin: 0;background-color: #339ccc;height: 40px;">SUBMIT</button>
+
 
               </form>
             </mat-card>
@@ -115,6 +119,7 @@
            <!-- </mat-card>-->
           </mat-grid-tile>
         </mat-grid-list>
+      </div>
 
       </section>
     </body>
