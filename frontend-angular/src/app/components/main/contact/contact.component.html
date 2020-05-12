@@ -32,18 +32,27 @@
 
           <mat-grid-tile>
 
+            <!--<div class=address>
+              <h3>AUTOMOSOFT</h3>
+              <br>Preethi Motors<br>
+              Kekanadura<br>
+              Matara<br>
+              Sri Lanka<br>
+              <button mat-raised-button color="warn" type="click" >REQUEST APPOINTEMENT</button>
+            </div>-->
             <mat-card class="First-card">
-              <form (submit)="onSubmit(contactUsForm)" #contactUsForm="ngForm">
+              <form (submit)="onSubmit(contactForm)" #contactForm = "ngForm" >
                 <mat-form-field>
                   <mat-label>Name</mat-label>
                   <input
                   matInput
-                  name="Name"
+                  name="name"
                   ngModel
                   type="text"
-                  placeholder= "Please enter Your Name"
                   #nameInput="ngModel"
-                  required text>
+                  placeholder= "Please enter Your Name"
+                  required
+                  >
                 <mat-error *ngIf="nameInput.invalid">Please enter a your name</mat-error>
                 </mat-form-field>
 
@@ -54,9 +63,11 @@
                   name="email"
                   ngModel
                   type="email"
-                  placeholder= "ex-yrh@gmail.com"
                   #emailInput="ngModel"
-                  required email>
+                  placeholder= "ex-yrh@gmail.com"
+                  required
+                  email
+                  >
                 <mat-error *ngIf="emailInput.invalid">Please enter a valid e-mail</mat-error>
                 </mat-form-field>
                 <mat-form-field>
@@ -66,20 +77,24 @@
                   name="subject"
                   ngModel
                   type="text"
-                  placeholder= "ex- regarding an appoitment"
                   #subjectInput="ngModel"
-                  required email>
-                <mat-error *ngIf="emailInput.invalid">Please enter your subject</mat-error>
+                  placeholder= "ex- regarding an appoitment"
+                  required
+                  >
+                <mat-error *ngIf="subjectInput.invalid">Please enter your subject</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>Message</mat-label>
                   <textarea
                   matInput
                   rows="4"
-                  formControlName="content"
                   name="content"
-                  placeholder="Leave your message">
+                  ngModel
+                  #contentInput="ngModel"
+                  placeholder="Leave your message"
+                  required>
                 </textarea>
+                <mat-error *ngIf="contentInput.invalid">Please enter your subject</mat-error>
                 </mat-form-field><br>
                 <button
                   mat-raised-button
