@@ -13,10 +13,87 @@
       background-color: $background-pale;
       @include zero-margin(px, 10px);
   }
-  
+  .btn {
+    color: #c76b15;
+    height: 62px;
+    font-family: side_font;
+  }
+  .btn:hover{
+    color: #339ccc;
+    transition: 0.5s;
+  }
   .btn-facebook {color:#fff!important; background-color:#3b5998!important;}
   .btn-google-plus{color:#fff!important;background-color:#dd4b39!important;}
   .btn-youtube{color:#fff!important;background-color:#ff4b39!important;}
   .btn-linkedin{color:#fff!important;background-color:#007bb6!important;}
   .btn-twitter{color:#fff!important;background-color:#55acee!important;}
   .btn-mail{color:#fff!important;background-color:#512DA8!important;}
+
+  body, html {
+    height: 100%;
+     margin: 0 auto;
+  }
+  
+  body {
+    font-family: 'Montserrat';
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+  
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.3em;
+    display: grid;
+    grid-template-columns: 30% auto;
+  
+    a {
+      color:#c76b15;
+    }
+  }
+  
+  section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em;
+  }
+  
+  
+  html, body { height: 100%; }
+  body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  $lt-gray: #ddd;
+  $background-dark: #512DA8;
+  $background-light: #9575CD;
+  $background-pale: #D1C4E9;
+  $primary-color-dark:   #512DA8;
+  $primary-color:        #673AB7;
+  $primary-color-light:  #D1C4E9;
+  $primary-color-text:   rgb(255, 255, 255);
+  $accent-color:         #FFC107;
+  $primary-text-color:   #c76b15;
+  $secondary-text-color: #757575;
+  $divider-color:        #BDBDBD;
+  
+  @mixin zero-margin($pad-up-down, $pad-left-right) {
+      margin: 0px auto;
+      padding: $pad-up-down $pad-left-right;
+  }
+  
+  
+  .background-primary {
+      background-color: $background-dark!important;
+    }
+  .background-accent {
+      background-color: $accent-color!important;
+    }
+  .text-floral-white {
+      color: floralwhite!important;
+    }
+  
+    .flex-spacer {
+      flex: 1 1 auto;
+    }
