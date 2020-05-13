@@ -57,6 +57,7 @@ body, html{
   background-color: #333;
   color:#ddd;
   width: auto;
+  margin: auto;
 }
 /*.section{
   text-align:center;
@@ -97,4 +98,12 @@ mat-form-field{
   margin-left: 4rem;
   height:150px
 
+}
+.part{
+  background-color: #333;
+}
+section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em;
 }
