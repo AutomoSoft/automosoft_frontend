@@ -6,13 +6,37 @@
 
   <div fxFlex="100" fxFlex.gt-sm="50">
     <div fxLayout="row">
-      <div fxFlex="40" fxFlexOffset="20px">
-        <h4>Links</h4>
+      <div fxFlex="40" fxFlexOffset="20px">  
         <mat-list>
-          <mat-list-item><a mat-button>Home</a></mat-list-item>
-          <mat-list-item><a mat-button>About</a></mat-list-item>
-          <mat-list-item><a mat-button>Services</a></mat-list-item>
-          <mat-list-item><a mat-button>Contact</a></mat-list-item>
+           <mat-list-item><h4>Links</h4></mat-list-item>
+          <mat-list-item>
+            <span class="nav-itm nav_item" >
+              <button mat-button routerLink="" class="btn ">
+              Home
+              </button>
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="nav-itm nav_item" >
+              <button mat-button routerLink="/contact" class="btn ">
+              Contact
+              </button>
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="nav-itm nav_item" >
+              <button mat-button routerLink="//" class="btn ">
+              Services
+              </button>
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="nav-itm nav_item" >
+              <button mat-button routerLink="login" class="btn ">
+              Login
+              </button>
+            </span>
+          </mat-list-item>
         </mat-list>
       </div>
       <div fxFlex="55">
