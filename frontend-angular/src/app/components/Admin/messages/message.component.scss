@@ -5,7 +5,10 @@
   width: 70%;
   text-align:center;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 0;
+  height: 300px;
+  margin-bottom: 2rem;
+
 
 }
 .card1{
@@ -21,4 +24,35 @@
   position: absolute;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+.card-header{
+  background-color: rgb(235, 144, 59);
+  margin-top: 0;
+  padding-top: 0em;
+  font-size: 14px;
+  height: 60px;
+  border-radius: 20px;
+}
+.btn{
+
+  margin-top: 80px;
+  margin-right: -70px;
+  border-radius: 15px;
+  background-color: #333ccc;
+
+}
+.grid-list{
+  margin-top: 2rem;
+  padding-top: 0em;
+
+}
+h2{
+  color: rgb(255, 157, 0);
+  font-weight: 300;
+  font-size: 30px;
+  padding-top: 20px;
+  font-family: topic_font;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 300px;
 }

@@ -5,14 +5,14 @@
       <div class="container-fluid " >
         <div>
          <div class="container" style="padding-top: 50px">
-            <!--<h2 class="topic">USER REGISTRATION</h2>-->
+            <h2 class="topic">MAIL-BOX</h2>
           </div>
             <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
-              <div class="First-card" style="background-color: azure;">
-                <mat-grid-list cols="1" rowHeight="2:1" style="margin-top: 2rem; padding-top: 0em;" >
-                  <mat-grid-tile *ngFor="let mail of filteredEmails">
+              <div class="First-card" *ngFor="let mail of filteredEmails" >
+                <mat-grid-list cols="1" rowHeight="2:1" class="grid-list" >
+                  <mat-grid-tile >
                     <mat-card class="card1">
-                      <mat-card-header style="background-color: rgb(235, 144, 59); margin-top: 0; padding-top: 0em; font-size: 14px; height: 60px;">
+                      <mat-card-header class="card-header">
                         <table>
                         <tr>
                           <td><i class="material-icons">account_circle </i></td>
@@ -20,7 +20,7 @@
                         </tr>
                         <tr>
                           <td><i class="material-icons">email </i></td>
-                          <td>{{mail.email}}</td>
+                          <td><a href="mailto:someone@example.com">{{mail.email}}</a></td>
                         </tr>
                       </table>
 
@@ -30,14 +30,14 @@
 
                         <table style="width: 100%;">
                           <tr>
-                            <td style="width:70%; text-align: left; background-color: burlywood; height: 110px; " >
+                            <td style="width:70%; text-align: left; background-color: rgb(245, 204, 150); height: 60px; " >
                               <p style="margin-left: 20px">
-                                {{mail._id}}
+                                {{mail.content}}
                               </p>
                             </td>
-                            <td style="width:30%; background-color: cornflowerblue;">
-                              <button style="margin-top: 20px; margin-right: -70px;" mat-raised-button color="accent" (click)="markAsRead(mail._id)">Mark As Read</button>
-                              <div style="bottom: 10px;position: absolute; right: 10px; height: 20px; background-color: crimson;">Date</div>
+                            <td style="width:30%; background-color:rgb(245, 204, 150);height: 60px;">
+                              <button class="btn" mat-raised-button color="accent" (click)="markAsRead(mail._id)">Mark As Read</button>
+                              <!--<div style="bottom: 10px;position: absolute; right: 10px; height: 20px; background-color: crimson;">Date</div>-->
 
                             </td>
 
