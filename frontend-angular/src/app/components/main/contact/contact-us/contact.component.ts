@@ -41,6 +41,7 @@ export class ContactComponent implements OnInit {
       form.value.email,
       form.value.subject,
       form.value.content);
+    window.location.reload();
 
 
   }
