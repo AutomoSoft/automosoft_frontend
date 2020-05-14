@@ -5,9 +5,10 @@ import { UserlandingComponent } from './components/main/userlanding/userlanding.
 import { MainComponent } from './components/main/main.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
-import { ContactComponent } from './components/main/contact/contact.component';
+import { ContactComponent } from './components/main/contact/contact-us/contact.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
+import { MessageComponent } from './components/Admin/messages/message.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   {path:":id/admin_dashboard",component:AdmindashboardComponent},
   {path:"registerEmployee",component:RegisterEmployeeComponent},
   {path:"registerSupplier",component:RegisterSupplierComponent},
+  {path:"messages",component:MessageComponent},
+
 
   {
     path: ":id/landing", component:MainComponent,
