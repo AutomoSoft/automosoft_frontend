@@ -17,110 +17,113 @@
 
         </div>
       </div>
+      <div class="part">
+        <section class="section section-dark">
+
+          <div class= "p1text">
+            <h2>Feel free to talk to us and drop a message</h2>
+            <p class="p1">412A,<br>Galle Road,<br>Pamburana,<br>Matara Road,<br>Matara<br><i class="material-icons">call </i>
+            (041 222 3120)<br><i class="material-icons">email </i> preethi@gmail.com
+        </p>
+        </div>
+          <br>
+          <div>
+
+          <mat-grid-list cols="2" rowHeight="1:1">
+
+            <mat-grid-tile>
+
+              <!--<div class=address>
+                <h3>AUTOMOSOFT</h3>
+                <br>Preethi Motors<br>
+                Kekanadura<br>
+                Matara<br>
+                Sri Lanka<br>
+                <button mat-raised-button color="warn" type="click" >REQUEST APPOINTEMENT</button>
+              </div>-->
+              <mat-card class="First-card">
+                <form (submit)="onSubmit(contactForm)" #contactForm = "ngForm" >
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input
+                    matInput
+                    name="name"
+                    ngModel
+                    type="text"
+                    #nameInput="ngModel"
+                    placeholder= "Please enter Your Name"
+                    required
+                    >
+                  <mat-error *ngIf="nameInput.invalid">Please enter a your name</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>E-mail</mat-label>
+                    <input
+                    matInput
+                    name="email"
+                    ngModel
+                    type="email"
+                    #emailInput="ngModel"
+                    placeholder= "ex-yrh@gmail.com"
+                    required
+                    email
+                    >
+                  <mat-error *ngIf="emailInput.invalid">Please enter a valid e-mail</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Subject</mat-label>
+                    <input
+                    matInput
+                    name="subject"
+                    ngModel
+                    type="text"
+                    #subjectInput="ngModel"
+                    placeholder= "ex- regarding an appoitment"
+                    required
+                    >
+                  <mat-error *ngIf="subjectInput.invalid">Please enter your subject</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Message</mat-label>
+                    <textarea
+                    matInput
+                    rows="4"
+                    name="content"
+                    ngModel
+                    #contentInput="ngModel"
+                    placeholder="Leave your message"
+                    required>
+                  </textarea>
+                  <mat-error *ngIf="contentInput.invalid">Please enter your subject</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <button
+                    mat-raised-button
+                    type="submit"
+                    style="display: block;width: 10%;margin: 0;background-color: #339ccc;height: 40px;">SUBMIT</button>
 
 
-      <section class="section section-dark">
+                </form>
+              </mat-card>
 
-        <div class= "p1text">
-          <h2>Feel free to talk to us and drop a message</h2>
-          <p class="p1">412A,<br>Galle Road,<br>Pamburana,<br>Matara Road,<br>Matara<br><i class="material-icons">call </i>
-          (041 222 3120)<br><i class="material-icons">email </i> preethi@gmail.com
-      </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <!--<mat-card class="map">-->
+                <mat-card-title></mat-card-title>
+                   <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" [zoom]="zoom">
+                      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                    </agm-map>
+
+             <!-- </mat-card>-->
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+
+        </section>
       </div>
-        <br>
-        <div>
-
-        <mat-grid-list cols="2" rowHeight="1:1">
-
-          <mat-grid-tile>
-
-            <!--<div class=address>
-              <h3>AUTOMOSOFT</h3>
-              <br>Preethi Motors<br>
-              Kekanadura<br>
-              Matara<br>
-              Sri Lanka<br>
-              <button mat-raised-button color="warn" type="click" >REQUEST APPOINTEMENT</button>
-            </div>-->
-            <mat-card class="First-card">
-              <form (submit)="onSubmit(contactForm)" #contactForm = "ngForm" >
-                <mat-form-field>
-                  <mat-label>Name</mat-label>
-                  <input
-                  matInput
-                  name="name"
-                  ngModel
-                  type="text"
-                  #nameInput="ngModel"
-                  placeholder= "Please enter Your Name"
-                  required
-                  >
-                <mat-error *ngIf="nameInput.invalid">Please enter a your name</mat-error>
-                </mat-form-field>
-
-                <mat-form-field>
-                  <mat-label>E-mail</mat-label>
-                  <input
-                  matInput
-                  name="email"
-                  ngModel
-                  type="email"
-                  #emailInput="ngModel"
-                  placeholder= "ex-yrh@gmail.com"
-                  required
-                  email
-                  >
-                <mat-error *ngIf="emailInput.invalid">Please enter a valid e-mail</mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Subject</mat-label>
-                  <input
-                  matInput
-                  name="subject"
-                  ngModel
-                  type="text"
-                  #subjectInput="ngModel"
-                  placeholder= "ex- regarding an appoitment"
-                  required
-                  >
-                <mat-error *ngIf="subjectInput.invalid">Please enter your subject</mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Message</mat-label>
-                  <textarea
-                  matInput
-                  rows="4"
-                  name="content"
-                  ngModel
-                  #contentInput="ngModel"
-                  placeholder="Leave your message"
-                  required>
-                </textarea>
-                <mat-error *ngIf="contentInput.invalid">Please enter your subject</mat-error>
-                </mat-form-field>
-                <br>
-                <button
-                  mat-raised-button
-                  type="submit"
-                  style="display: block;width: 10%;margin: 0;background-color: #339ccc;height: 40px;">SUBMIT</button>
 
 
-              </form>
-            </mat-card>
 
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <!--<mat-card class="map">-->
-              <mat-card-title></mat-card-title>
-                 <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" [zoom]="zoom">
-                    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                  </agm-map>
-
-           <!-- </mat-card>-->
-          </mat-grid-tile>
-        </mat-grid-list>
-      </div>
-
-      </section>
     </body>
 

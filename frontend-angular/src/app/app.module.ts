@@ -27,6 +27,7 @@ import {
   MatSnackBarModule,
   MatCardModule,
   MatGridListModule,
+  MatCheckboxModule,
 
 
 
@@ -49,6 +50,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
 import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
+import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 
 
 
@@ -65,7 +67,8 @@ import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
     AdmindashboardComponent,
     ContactComponent,
     RegisterEmployeeComponent,
-    SidebarComponent
+    SidebarComponent,
+    RegisterSupplierComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
     MatGridListModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
-      })
+      }),
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

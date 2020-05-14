@@ -1,0 +1,32 @@
+.row{
+  background-color: #333;
+}
+.First-card{
+  width: 70%;
+  text-align:center;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+}
+
+mat-card{
+  background-color: rgb(255, 240, 213);
+}
+mat-form-field,
+textarea{
+  width: 100%;
+}
+mat-form-field{
+  width:70%
+}
+mat-card-header{
+  color: rgb(255, 157, 0);
+  font-weight: 300;
+  font-size: 40px;
+  padding-top: 20px;
+  font-family: topic_font;
+  font-weight: 300;
+  text-align: center;
+  margin-left: 300px;
+}
+

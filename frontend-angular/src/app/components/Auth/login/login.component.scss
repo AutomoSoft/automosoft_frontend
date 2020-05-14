@@ -1,6 +1,36 @@
+/*parallax*//////////////////////////////////////////////
 
+.parallax{
+  background: url(../../../../assets/images/parallax/image0.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 600px;
 
-
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color:#c76b15;
+}
+.btn {
+  padding-left: 120px;
+  padding-right: 120px;
+  border-radius: 20px;
+  color: #333333;
+  height: 40px;
+  font-family: side_font;
+  font-weight: bolder;
+  background-color: #c76b15 ;
+}
+.btn:hover{
+  color: #339ccc;
+  transition: 0.5s;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -15,6 +45,7 @@
   src: url('../../../../assets/fonts/ubuntu/Ubuntu-Bold.ttf');
 
 }
+
 
 
 
@@ -52,7 +83,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #fff;
+  color: #c76b15;
 }
 
 /*---------------------------------------------*/
