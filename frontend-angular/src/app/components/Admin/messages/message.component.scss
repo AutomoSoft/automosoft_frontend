@@ -1,0 +1,24 @@
+.row{
+  background-color: #333;
+}
+.First-card{
+  width: 70%;
+  text-align:center;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+}
+.card1{
+  width: 70%;
+  height: 200px;
+  background-color: rgb(245, 204, 150);
+  margin-top: 0em;
+  padding: 0em;
+  border-radius: 20px;
+}
+.vertically-center{
+  margin:0;
+  position: absolute;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

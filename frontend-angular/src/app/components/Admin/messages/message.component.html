@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="container-fluid " >
+        <div>
+         <div class="container" style="padding-top: 50px">
+            <!--<h2 class="topic">USER REGISTRATION</h2>-->
+          </div>
+            <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+              <div class="First-card" style="background-color: azure;">
+                <mat-grid-list cols="1" rowHeight="2:1" style="margin-top: 2rem; padding-top: 0em;" >
+                  <mat-grid-tile *ngFor="let mail of filteredEmails">
+                    <mat-card class="card1">
+                      <mat-card-header style="background-color: rgb(235, 144, 59); margin-top: 0; padding-top: 0em; font-size: 14px; height: 60px;">
+                        <table>
+                        <tr>
+                          <td><i class="material-icons">account_circle </i></td>
+                          <td >{{mail.name}}</td>
+                        </tr>
+                        <tr>
+                          <td><i class="material-icons">email </i></td>
+                          <td>{{mail.email}}</td>
+                        </tr>
+                      </table>
+
+                      </mat-card-header>
+
+                      <mat-card-content >
+
+                        <table style="width: 100%;">
+                          <tr>
+                            <td style="width:70%; text-align: left; background-color: burlywood; height: 110px; " >
+                              <p style="margin-left: 20px">
+                                {{mail._id}}
+                              </p>
+                            </td>
+                            <td style="width:30%; background-color: cornflowerblue;">
+                              <button style="margin-top: 20px; margin-right: -70px;" mat-raised-button color="accent" (click)="markAsRead(mail._id)">Mark As Read</button>
+                              <div style="bottom: 10px;position: absolute; right: 10px; height: 20px; background-color: crimson;">Date</div>
+
+                            </td>
+
+                          </tr>
+                        </table>
+
+                      </mat-card-content>
+
+
+                    </mat-card>
+
+                  </mat-grid-tile>
+
+                </mat-grid-list>
+              </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

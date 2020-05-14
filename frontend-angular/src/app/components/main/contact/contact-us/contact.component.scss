@@ -1,5 +1,5 @@
 .pimg2{
-  background-image:url('../../../../assets/images/parallax/image2.jpg');
+  background-image:url('../../../../../assets/images/parallax/image2.jpg');
   min-height:550px;
 }
 .ptext{
@@ -57,7 +57,6 @@ body, html{
   background-color: #333;
   color:#ddd;
   width: auto;
-  margin: auto;
 }
 /*.section{
   text-align:center;
@@ -71,7 +70,7 @@ agm-map{
 .First-card{
   width:600px;
   height:465px;
-  background-color: #f5e6d4;
+  background-color: #f3efb3;
 }
 mat-form-field,
 textarea{
@@ -98,9 +97,6 @@ mat-form-field{
   margin-left: 4rem;
   height:150px
 
-}
-.part{
-  background-color: #333;
 }
 section {
   width: 80%;
