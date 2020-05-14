@@ -1,4 +1,65 @@
 <div style="padding-top: 50px;">
-  <p>register-employee works!</p>
+
+  <div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid" style="background-color: #414142; min-height: 700px;">
+              <div class="container" >
+                  <h2 class="topic">EMPLOYEE REGISTRATION</h2>
+              </div>
+
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+                <mat-tab-group class="p-5 reg-frm" [formGroup]="">
+                  <mat-tab label="SINGLE EMPLOYEE">
+                    <mat-card>
+                      <div class="form-row mb-4">
+                        <mat-form-field>
+                          <!-- <mat-label>Select User Type:</mat-label> -->
+                          <mat-select [(value)]="selected" placeholder="Select User Type:">
+                            <mat-option value="option1">Admin</mat-option>
+                            <mat-option value="option2">Accountant</mat-option>
+                            <mat-option value="option3">Forman</mat-option>
+                            <mat-option value="option3">Store-Keeper</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                          <mat-form-field >
+                            <mat-label>Name:</mat-label>
+                            <input matInput class="form-control box_border" >
+                            <mat-hint>Maximum Characters: 255</mat-hint>
+                          </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-label>NIC Number:</mat-label>
+                          <input matInput placeholder="96xxxxxxxV">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-label>Email:</mat-label>
+                          <input matInput placeholder="Ex. abc@example.com">
+                        </mat-form-field>
+                      </div>
+
+
+                      <button mat-raised-button type="submit" class="btn btn-info my-4 btn-block reg_btn box_border" >
+                        Submit
+                      </button>
+
+                      <button mat-raised-button type="submit" class="btn  my-4 btn-block btn_1  box_border" >
+                        Cancel
+                      </button>
+                    </mat-card>
+                  </mat-tab>
+                  <mat-tab label="ADD BULK">
+
+                  </mat-tab>
+
+                </mat-tab-group>
+
+              </div>
+
+        </div>
+    </div>
+</div>
 
 </div>
