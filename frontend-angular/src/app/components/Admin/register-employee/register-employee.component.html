@@ -1,11 +1,22 @@
-<div style="padding-top: 50px;">
+<div style="padding-top: 60px;">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened  >
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
 
-  <div class="row">
-    <div class="container-fluid">
-        <div class="row">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
             <div class="container-fluid" style="background-color: #414142; min-height: 700px;">
-              <div class="container" >
-                  <h2 class="topic">EMPLOYEE REGISTRATION</h2>
+              <!-- <span><mat-icon>menu
+                <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+
+              </mat-icon>
+              </span> -->
+              <br />
+              <div class="test">
+                <h2 class="topic">EMPLOYEE REGISTRATION</h2>
               </div>
 
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
@@ -15,7 +26,7 @@
                       <div class="form-row mb-4">
                         <mat-form-field>
                           <!-- <mat-label>Select User Type:</mat-label> -->
-                          <mat-select [(value)]="selected" placeholder="Select User Type:">
+                          <mat-select  placeholder="Select User Type:">
                             <mat-option value="option1">Admin</mat-option>
                             <mat-option value="option2">Accountant</mat-option>
                             <mat-option value="option3">Forman</mat-option>
@@ -23,11 +34,11 @@
                           </mat-select>
                         </mat-form-field>
 
-                          <mat-form-field >
-                            <mat-label>Name:</mat-label>
-                            <input matInput class="form-control box_border" >
-                            <mat-hint>Maximum Characters: 255</mat-hint>
-                          </mat-form-field>
+                        <mat-form-field >
+                          <mat-label>Name:</mat-label>
+                          <input matInput class="form-control box_border" >
+                          <mat-hint>Maximum Characters: 255</mat-hint>
+                        </mat-form-field>
 
                         <mat-form-field>
                           <mat-label>NIC Number:</mat-label>
@@ -58,8 +69,10 @@
 
               </div>
 
-        </div>
-    </div>
+            </div>
+          </div>
 </div>
 
 </div>
+</mat-sidenav-content>
+</mat-sidenav-container>
