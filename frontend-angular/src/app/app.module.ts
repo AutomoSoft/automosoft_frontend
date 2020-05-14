@@ -27,6 +27,7 @@ import {
   MatSnackBarModule,
   MatCardModule,
   MatGridListModule,
+  MatCheckboxModule,
 
 
 
@@ -91,7 +92,8 @@ import { RegisterSupplierComponent } from './components/Admin/register-supplier/
     MatGridListModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
-      })
+      }),
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
