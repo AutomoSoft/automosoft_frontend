@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="container-fluid " >
+        <div>
+         <div class="container" style="padding-top: 50px">
+            <!--<h2 class="topic">USER REGISTRATION</h2>-->
+          </div>
+            <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+              <div class="First-card">
+                <mat-card >
+                  <mat-card-header>Supplier Registration</mat-card-header>
+                  <form (submit)="onSubmit(contactForm)" #contactForm = "ngForm" >
+                    <mat-form-field>
+                      <mat-label>Supplier Name</mat-label>
+                      <input
+                      matInput
+                      name="name"
+                      ngModel
+                      type="text"
+                      #nameInput="ngModel"
+                      placeholder= "ex-Tharindu Wijethilake"
+                      required
+                      >
+                    <mat-error *ngIf="nameInput.invalid">Please enter a name</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-label>Supplier Id</mat-label>
+                      <input
+                      matInput
+                      name="id"
+                      ngModel
+                      type="text"
+                      #idInput="ngModel"
+                      placeholder= "ex- S0001"
+                      required
+                      >
+                    <mat-error *ngIf="idInput.invalid">Please enter your subject</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-label>Address</mat-label>
+                      <input
+                      matInput
+                      name="address"
+                      ngModel
+                      type="address"
+                      #addressInput="ngModel"
+                      placeholder= "ex-no.45, sri devamittha mawatha, Galle"
+                      required
+
+                      >
+                    <mat-error *ngIf="addressInput.invalid">Please enter an address</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Contact-Number</mat-label>
+                      <input
+                      matInput
+                      name="contact-number"
+                      ngModel
+                      type="number"
+                      #numberInput="ngModel"
+                      placeholder= "ex- 0778908901"
+                      required
+                      maxlength=10
+                      minlength=10
+                      >
+                    <mat-error *ngIf="numberInput.invalid">Please enter a valid contact number</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-label>Select Item Type</mat-label>
+                      <mat-select
+                        name="food"
+                        placeholder="Favorite food"
+                        ngModel
+                        #itemInput="ngModel"
+                        required>
+                        <mat-option *ngFor="let item of items" [value]="item.value">
+                          {{item.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="itemInput.invalid">Please select an Item type</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Item Id</mat-label>
+                      <input
+                      matInput
+                      name="itemId"
+                      ngModel
+                      type="text"
+                      #itemIdInput="ngModel"
+                      placeholder= "ex- SP0001"
+                      required
+                      >
+                    <mat-error *ngIf="itemIdInput.invalid">Please enter an Id</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Brand/Model</mat-label>
+                      <input
+                      matInput
+                      name="brand"
+                      ngModel
+                      type="text"
+                      #brandInput="ngModel"
+                      placeholder= "ex-Toyota"
+                      required
+                      >
+                    <mat-error *ngIf="brandInput.invalid">Please enter the brand or the model</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Special Note(If any)</mat-label>
+                      <textarea
+                      matInput
+                      rows="4"
+                      name="note"
+                      ngModel
+                      #contentInput="ngModel"
+                      placeholder="Leave your note"
+                      >
+                    </textarea>
+
+                    </mat-form-field><br>
+                    <button
+                      mat-raised-button
+                      color="accent"
+                      type="submit">SUBMIT</button>
+
+                  </form>
+                </mat-card>
+              </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
