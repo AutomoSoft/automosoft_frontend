@@ -49,10 +49,10 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
+import { RegisterCustomerComponent } from './components/Admin/register-customer/register-customer.component';
 import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
-
 
 
 
@@ -68,10 +68,10 @@ import { MessageComponent } from './components/Admin/messages/message.component'
     AdmindashboardComponent,
     ContactComponent,
     RegisterEmployeeComponent,
+    RegisterCustomerComponent,
     RegisterSupplierComponent,
     MessageComponent,
     SidebarComponent,
-
   ],
   imports: [
     BrowserModule,
