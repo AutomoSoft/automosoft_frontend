@@ -10,6 +10,7 @@ import { RegisterEmployeeComponent } from './components/Admin/register-employee/
 import { RegisterCustomerComponent} from './components/Admin/register-customer/register-customer.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
+import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"registerEmployee",component:RegisterEmployeeComponent},
   {path:"registerSupplier",component:RegisterSupplierComponent},
   {path:"messages",component:MessageComponent},
+  {path:"AddItems", component:AddItemsComponent},
 
 
   {

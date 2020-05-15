@@ -10,11 +10,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core'
 
 
-
-
-
-
-
 //material
 import {
   MatToolbarModule,
@@ -28,8 +23,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatCheckboxModule,
-
-
+  MatDatepickerModule,
 
 
 } from '@angular/material';
@@ -53,6 +47,7 @@ import { RegisterCustomerComponent } from './components/Admin/register-customer/
 import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
+import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 
 
 
@@ -72,6 +67,7 @@ import { MessageComponent } from './components/Admin/messages/message.component'
     RegisterSupplierComponent,
     MessageComponent,
     SidebarComponent,
+    AddItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +91,7 @@ import { MessageComponent } from './components/Admin/messages/message.component'
     MatSelectModule,
     FlexLayoutModule,
     MatGridListModule,
+    MatDatepickerModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),
