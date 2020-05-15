@@ -1,0 +1,48 @@
+<div class= "parallax">
+    <div style="padding-top: 90px;padding-left: 380px;padding-right: 380px;">
+      <mat-card>
+        <mat-card-title  style="display: block;width: 55%;margin: auto;">Customer Registration</mat-card-title>
+        <form style="background-color: white;">
+                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                    <mat-label>User ID</mat-label>
+                    <input matInput name="User ID" [(ngModel)]="userid"
+                        placeholder="User ID">
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                    <mat-label>First name</mat-label>
+                    <input matInput name="firstName" [(ngModel)]="firstName"
+                        placeholder="First name">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+            <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                <mat-label>Last name</mat-label>
+                <input matInput name="lastName" [(ngModel)]="lastName"
+                    placeholder="Last name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+                <mat-form-field appearance="outline"  style="display: block;width: 60%;margin: auto;">
+                    <mat-label>Email address</mat-label>
+                    <input matInput name="email" [(ngModel)]="email"
+                        placeholder="Email address">
+                    <mat-icon matSuffix>all_inbox</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline"  style="display: block;width: 60%;margin: auto;">
+                    <mat-label>Contact number</mat-label>
+                    <input matInput name="contactNo" [(ngModel)]="contactNo"
+                        placeholder="Contact number">
+                    <mat-icon matSuffix>phone_in_talk</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline"  style="display: block;width: 60%;margin: auto;">
+                    <mat-label>Vehicle registration number</mat-label>
+                    <input matInput name="vehicleRegNo" [(ngModel)]="vehicleRegNo"
+                        placeholder="Vehicle registration number">
+                    <mat-icon matSuffix>directions_car</mat-icon>
+                </mat-form-field>        
+             <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
+                (click)="userLogin()">Sign up</button>
+       </form>
+</mat-card>
+</div>
+</div>
+    

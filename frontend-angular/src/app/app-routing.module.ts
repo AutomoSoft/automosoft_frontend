@@ -7,8 +7,10 @@ import { HomeComponent } from './components/main/home/home.component';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { ContactComponent } from './components/main/contact/contact-us/contact.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
+import { RegisterCustomerComponent} from './components/Admin/register-customer/register-customer.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
+
 
 
 const routes: Routes = [
@@ -16,7 +18,7 @@ const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:'contact',component:ContactComponent},
 
-
+  {path:'registerCustomer',component:RegisterCustomerComponent},
   {path:":id/admin_dashboard",component:AdmindashboardComponent},
   {path:"registerEmployee",component:RegisterEmployeeComponent},
   {path:"registerSupplier",component:RegisterSupplierComponent},
