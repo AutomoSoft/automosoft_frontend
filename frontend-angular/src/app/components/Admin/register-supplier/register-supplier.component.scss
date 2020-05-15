@@ -1,16 +1,19 @@
-.row{
-  background-color: #333;
-}
+//.row{
+ // background-color: rgb(61, 58, 66);
+//}
 .First-card{
-  width: 70%;
+  width: 50%;
   text-align:center;
   margin: 0 auto;
   margin-top: 3rem;
+  border-radius: 20px;
 
 }
 
 mat-card{
-  background-color: rgb(255, 240, 213);
+  background-color: rgb(231, 227, 241);
+  border-radius: 20px;
+  border-style: solid;
 }
 mat-form-field,
 textarea{
@@ -20,13 +23,38 @@ mat-form-field{
   width:70%
 }
 mat-card-header{
-  color: rgb(255, 157, 0);
+  color: #5c6372;
   font-weight: 300;
-  font-size: 40px;
+  font-size: 20px;
   padding-top: 20px;
   font-family: topic_font;
-  font-weight: 300;
-  text-align: center;
-  margin-left: 300px;
+  font-weight: 520;
+  text-align: right;
+  background-color: green($color: #d33f3f);
+
+}
+.btn1{
+  background-color:#c76b15;
+  border-radius: 20px;
+  margin-right: 2rem;
+}
+.btn2{
+  background-color: rgb(47, 47, 51);
+  border-radius: 20px;
+  margin-left: 2rem;
+}
+.parallax{
+  background: url(../../../../assets/images/parallax/image9.jpg) no-repeat center ;
+  background-size: cover;
+  background-attachment: fixed;
+  height: auto;
+  opacity: 0.9px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
 }
 
