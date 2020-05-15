@@ -3,12 +3,12 @@
   $background-dark: #512DA8;
   $background-light: rgb(37, 32, 32);
   $background-pale: rgb(37, 36, 39);
-  
+
   @mixin zero-margin($pad-up-down, $pad-left-right) {
       margin: 0px auto;
       padding: $pad-up-down $pad-left-right;
   }
-  
+
   .footer{
       background-color: $background-pale;
       @include zero-margin(px, 10px);
@@ -33,36 +33,36 @@
     height: 100%;
      margin: 0 auto;
   }
-  
+
   body {
     font-family: 'Montserrat';
     font-size: 18px;
   }
-  
+
   a {
     text-decoration: none;
-  
+
   }
-  
+
   .container {
     width: 100%;
     margin: 0 auto;
     padding: 1.3em;
     display: grid;
     grid-template-columns: 30% auto;
-  
+
     a {
       color:#c76b15;
     }
   }
-  
+
   section {
     width: 80%;
     margin: 0 auto;
     padding: 2em;
   }
-  
-  
+
+
   html, body { height: 100%; }
   body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   $lt-gray: #ddd;
@@ -77,13 +77,13 @@
   $primary-text-color:   #c76b15;
   $secondary-text-color: #757575;
   $divider-color:        #BDBDBD;
-  
+
   @mixin zero-margin($pad-up-down, $pad-left-right) {
       margin: 0px auto;
       padding: $pad-up-down $pad-left-right;
   }
-  
-  
+
+
   .background-primary {
       background-color: $background-dark!important;
     }
@@ -93,7 +93,7 @@
   .text-floral-white {
       color: floralwhite!important;
     }
-  
+
     .flex-spacer {
       flex: 1 1 auto;
     }

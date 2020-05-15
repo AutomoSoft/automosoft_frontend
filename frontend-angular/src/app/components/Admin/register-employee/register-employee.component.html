@@ -20,26 +20,48 @@
               </div>
               <mat-divider></mat-divider>
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
                 <mat-tab-group class="p-5 reg-frm" [formGroup]="">
+
+                  <!-- ***************************************************ADD ONE USER************************************************************************** -->
                   <mat-tab label="SINGLE EMPLOYEE">
                     <mat-card>
-                      <img  src="../../../../assets/logo/cc_croped.png" style="width:35%; margin-bottom: 5px"  />
+                      <img  src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px"  />
 
                       <div class="form-row mb-4">
                         <mat-form-field>
                           <!-- <mat-label>Select User Type:</mat-label> -->
-                          <mat-select  placeholder="Select User Type:">
+                          <mat-select  placeholder="Select Employee Category:">
                             <mat-option value="option1">Admin</mat-option>
                             <mat-option value="option2">Accountant</mat-option>
                             <mat-option value="option3">Forman</mat-option>
                             <mat-option value="option3">Store-Keeper</mat-option>
+                            <mat-option value="option3">Technician</mat-option>
                           </mat-select>
                         </mat-form-field>
 
                         <mat-form-field >
-                          <mat-label>Name:</mat-label>
+                          <mat-label>Employee ID:</mat-label>
+                          <input matInput class="form-control box_border" >
+                          <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                        </mat-form-field>
+
+                        <mat-form-field >
+                          <mat-label>Full Name:</mat-label>
                           <input matInput class="form-control box_border" >
                           <mat-hint>Maximum Characters: 255</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-select  placeholder="Gender">
+                            <mat-option value="option1">Male</mat-option>
+                            <mat-option value="option2">Female</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-label>Address:</mat-label>
+                          <textarea matInput></textarea>
                         </mat-form-field>
 
                         <mat-form-field>
@@ -51,11 +73,32 @@
                           <mat-label>Email:</mat-label>
                           <input matInput placeholder="Ex. abc@example.com">
                         </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-label>Password:</mat-label>
+                          <input matInput placeholder="Ex. abc@example.com">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-label>Contact Number:</mat-label>
+                          <input matInput placeholder="Ex. abc@example.com">
+                        </mat-form-field>
+
                       </div>
+                      <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
+                      accept="image/*" [uploader]="uploader" (change)="selectImage($event)"
+                      #fileInput> -->
 
-
+                      <div class="form-row mb-4">
+                        <button class="btn btn-secondary" type="button"  accept="image/*">Choose Profile Picture</button>
+                        <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                            Resolution : (320 x 280)p / 8 : 7
+                        </small>
+                      </div>
+                <br>
+                <br>
                       <button mat-raised-button type="submit" class="btn btn-info my-4 btn-block reg_btn box_border" >
-                        Submit
+                        Register
                       </button>
 
                       <button mat-raised-button type="submit" class="btn  my-4 btn-block btn_1  box_border" >
@@ -63,8 +106,13 @@
                       </button>
                     </mat-card>
                   </mat-tab>
-                  <mat-tab label="ADD BULK">
 
+<!-- ***************************************************ADD BULK************************************************************************** -->
+
+                  <mat-tab label="ADD BULK">
+                    <mat-card>
+                      <img  src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px"  />
+                    </mat-card>
                   </mat-tab>
 
                 </mat-tab-group>
