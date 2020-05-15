@@ -77,7 +77,7 @@ addCustomer() {
       this.http.post<any>(url, registerCustomer).subscribe(res => {
         if (res.state) {
           console.log(res.msg);
-
+          window.location.reload();
           // this.customerForm.reset();
         } else {
           console.log(res.msg);
@@ -109,3 +109,43 @@ addCustomer() {
         vehicleRegNo : "",
     }
 }*/
+
+
+//DONOT DELETEEE
+
+// customerForm = this.fb.group({
+//   customerDetails: this.fb.group({
+//     userid: ["", Validators.required],
+//     password: ["", Validators.required],
+//     firstName: ["", Validators.required],
+//     lastName: ["", Validators.required],
+//     email: ["", Validators.required],
+//     contactNo: ["", Validators.required],
+//   }),
+//   vehicles: this.fb.array([this.vehicles]),
+
+// });
+
+// get vehicles(): FormGroup {
+//   return this.fb.group({
+//     // vehicleType: ["", Validators.required],
+//     vehicleRegNo: ["", Validators.required],
+//   });
+// }
+
+// addVehicle() {
+//   (this.customerForm.get("vehicles") as FormArray).push(this.vehicles);
+// }
+
+// addCustomer() {
+//   const registerCustomer = {
+//     usertype : "Customer",
+//     userid: this.customerForm.value.customerDetails.userid,
+//     password: this.customerForm.value.customerDetails.password,
+//     firstName: this.customerForm.value.customerDetails.firstName,
+//     lastname: this.customerForm.value.customerDetails.lastname,
+//     email: this.customerForm.value.customerDetails.email,
+//     contactnumber: this.customerForm.value.customerDetails.contactNo,
+//     // date: this.customerForm.value.date,
+//     vehicles: this.customerForm.value.vehicles,
+//   };
