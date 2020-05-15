@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import {  NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { contactService } from '../contact.service';
 
 
 
@@ -35,12 +35,19 @@ export class ContactComponent implements OnInit {
     if(form.invalid){
       return;
     }
+    this.contactService.newMessage(
+
+      form.value.name,
+      form.value.email,
+      form.value.subject,
+      form.value.content);
+    window.location.reload();
 
 
   }
 
 
-  constructor() { }
+  constructor(public contactService: contactService) { }
 
   ngOnInit() {
 

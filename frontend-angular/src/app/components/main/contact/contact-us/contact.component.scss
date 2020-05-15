@@ -1,5 +1,5 @@
 .pimg2{
-  background-image:url('../../../../assets/images/parallax/image2.jpg');
+  background-image:url('../../../../../assets/images/parallax/image2.jpg');
   min-height:550px;
 }
 .ptext{
@@ -70,7 +70,7 @@ agm-map{
 .First-card{
   width:600px;
   height:465px;
-  background-color: #f5e6d4;
+  background-color: #f3efb3;
 }
 mat-form-field,
 textarea{
@@ -97,4 +97,9 @@ mat-form-field{
   margin-left: 4rem;
   height:150px
 
+}
+section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em;
 }

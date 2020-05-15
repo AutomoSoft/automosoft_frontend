@@ -9,18 +9,18 @@
 }
 @font-face {
   font-family: side_font;
-  src: url(../../../../assets/fonts/ubuntu/Ubuntu-Regular.ttf);
+  src: url(../../../../assets/fonts/ubuntu/Ubuntu-Light.ttf);
 }
 
 .navbar_shadow {
-  // box-shadow: 0px 5px 5px grey;
+  // box-shadow: 0px 5px 5px grey; 1b2230
   background-color: rgba($color: #2b2a2a, $alpha: 1.0);
   // opacity: 0.2;
   width: 100%;
 }
 
 .logo {
-  width: 23%;
+  width: 28%;
 }
 
 .logo:hover {

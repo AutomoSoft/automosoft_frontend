@@ -27,8 +27,6 @@
           (041 222 3120)<br><i class="material-icons">email </i> preethi@gmail.com
       </p>
       </div>
-        <br>
-        <div>
 
         <mat-grid-list cols="2" rowHeight="1:1">
 
@@ -80,7 +78,7 @@
                   ngModel
                   type="text"
                   #subjectInput="ngModel"
-                  placeholder= "ex- regarding an appoitment"
+                  placeholder= "ex- regarding an appointment"
                   required
                   >
                 <mat-error *ngIf="subjectInput.invalid">Please enter your subject</mat-error>
@@ -97,13 +95,11 @@
                   required>
                 </textarea>
                 <mat-error *ngIf="contentInput.invalid">Please enter your subject</mat-error>
-                </mat-form-field>
-                <br>
+                </mat-form-field><br>
                 <button
                   mat-raised-button
-                  type="submit"
-                  style="display: block;width: 10%;margin: 0;background-color: #339ccc;height: 40px;">SUBMIT</button>
-
+                  color="primary"
+                  type="submit">SUBMIT</button>
 
               </form>
             </mat-card>
@@ -119,7 +115,6 @@
            <!-- </mat-card>-->
           </mat-grid-tile>
         </mat-grid-list>
-      </div>
 
       </section>
     </body>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-register-employee',
   templateUrl: './register-employee.component.html',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterEmployeeComponent implements OnInit {
 
+  opened: boolean;
   constructor() { }
 
   ngOnInit() {
