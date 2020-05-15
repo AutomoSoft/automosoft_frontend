@@ -5,10 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $fa-font-path : '../node_modules/font-awesome/fonts';
 @import '../node_modules/font-awesome/scss/font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-
-
-
-  @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 // some basic resets 
 
