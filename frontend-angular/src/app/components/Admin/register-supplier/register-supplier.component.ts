@@ -21,6 +21,7 @@ export class RegisterSupplierComponent implements OnInit {
   ];
 
   constructor() { }
+  reset(){}
 
   onSubmit(form: NgForm){
     console.log(form.value);
