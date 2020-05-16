@@ -24,6 +24,7 @@ import {
   MatGridListModule,
   MatCheckboxModule,
   MatDatepickerModule,
+  MatDialogModule,
 
 
 } from '@angular/material';
@@ -48,6 +49,7 @@ import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
+import { ConfirmationDialogComponent } from './components/Auth/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -68,6 +70,7 @@ import { AddItemsComponent } from './components/Admin/add-items/add-items.compon
     MessageComponent,
     SidebarComponent,
     AddItemsComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { AddItemsComponent } from './components/Admin/add-items/add-items.compon
     MatListModule,
     MatStepperModule,
     MatInputModule,
+    MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
     MatTabsModule,
@@ -98,6 +102,10 @@ import { AddItemsComponent } from './components/Admin/add-items/add-items.compon
     MatCheckboxModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  entryComponents: [
+    ConfirmationDialogComponent,
+  ],
 })
 export class AppModule { }

@@ -7,6 +7,10 @@
     height: 800px;
   }
 
+  .tt {
+    opacity: 0;
+
+  }
   /*.tt {
      * :{
       opacity: 1;
@@ -37,18 +41,30 @@
     color: #339ccc;
     transition: 0.5s;
   }
-  
+
+  .add_btn{
+    border-radius: 20px;
+    color: #ffffff;
+    height: 40px;
+    font-family: side_font;
+    font-weight: bolder;
+    background-color: #060820 ;
+  }
+
   /*//////////////////////////////////////////////////////////////////
   [ FONT ]*/
-  
+
   @font-face {
     font-family: Ubuntu-Regular;
     src: url('../../../../assets/fonts/ubuntu/Ubuntu-Regular.ttf');
   }
-  
+
   @font-face {
     font-family: Ubuntu-Bold;
     src: url('../../../../assets/fonts/ubuntu/Ubuntu-Bold.ttf');
-  
+
   }
-  
+
+
+
+

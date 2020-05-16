@@ -19,9 +19,9 @@ const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:'contact',component:ContactComponent},
 
-  {path:'registerCustomer',component:RegisterCustomerComponent},
   {path:":id/admin_dashboard",component:AdmindashboardComponent},
   {path:"registerEmployee",component:RegisterEmployeeComponent},
+  {path:"registerCustomer",component:RegisterCustomerComponent},
   {path:"registerSupplier",component:RegisterSupplierComponent},
   {path:"messages",component:MessageComponent},
   {path:"AddItems", component:AddItemsComponent},
