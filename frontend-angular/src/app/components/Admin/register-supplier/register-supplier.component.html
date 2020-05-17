@@ -15,134 +15,8 @@
 
                   <mat-card-header style="text-align: center;"> <div  style= "width: 100%;">SUPPLIER REGISTRATION</div></mat-card-header>
                   <br>
-                  <form (submit)="onSubmit(suppplierRegisterForm)" #suppplierRegisterForm = "ngForm"  >
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Supplier Name</mat-label>
-                      <input
-                      matInput
-                      name="name"
-                      ngModel
-                      type="text"
-                      #nameInput="ngModel"
-                      placeholder= "ex-Tharindu Wijethilake"
-                      required
-                      >
-                    <mat-error *ngIf="nameInput.invalid">Please enter a name</mat-error>
-                    <mat-icon matSuffix>perm_identity</mat-icon>
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Supplier ID</mat-label>
-                      <input
-                      matInput
-                      name="id"
-                      ngModel
-                      type="text"
-                      #idInput="ngModel"
-                      placeholder= "ex- S0001"
-                      required
-                      >
-                    <mat-error *ngIf="idInput.invalid">Please enter your subject</mat-error>
-                    <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Address</mat-label>
-                      <input
-                      matInput
-                      name="address"
-                      ngModel
-                      type="address"
-                      #addressInput="ngModel"
-                      placeholder= "ex-no.45, sri devamittha mawatha, Galle"
-                      required
-
-                      >
-                    <mat-error *ngIf="addressInput.invalid">Please enter an address</mat-error>
-                    <mat-icon matSuffix>home</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Contact-Number</mat-label>
-                      <input
-                      matInput
-                      name="contact-number"
-                      ngModel
-                      type="text"
-                      #numberInput="ngModel"
-                      placeholder= "ex- 0778908901"
-                      required
-                      maxlength=10
-                      minlength=10
-                      >
-                    <mat-error *ngIf="numberInput.invalid">Please enter a valid contact number</mat-error>
-                    <mat-icon matSuffix>phone_in_talk</mat-icon>
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Select Item Type</mat-label>
-                      <mat-select
-                        name="food"
-                        placeholder="Favorite food"
-                        ngModel
-                        #itemInput="ngModel"
-                        required>
-                        <mat-option *ngFor="let item of items" [value]="item.value">
-                          {{item.viewValue}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-error *ngIf="itemInput.invalid">Please select an Item type</mat-error>
-                      <mat-icon matSuffix>build</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Item ID</mat-label>
-                      <input
-                      matInput
-                      name="itemId"
-                      ngModel
-                      type="text"
-                      #itemIdInput="ngModel"
-                      placeholder= "ex- SP0001"
-                      required
-                      >
-                    <mat-error *ngIf="itemIdInput.invalid">Please enter an Id</mat-error>
-                    <mat-icon matSuffix>settings</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Brand/Model</mat-label>
-                      <input
-                      matInput
-                      name="brand"
-                      ngModel
-                      type="text"
-                      #brandInput="ngModel"
-                      placeholder= "ex-Toyota"
-                      required
-                      >
-                    <mat-error *ngIf="brandInput.invalid">Please enter the brand or the model</mat-error>
-                    <mat-icon matSuffix>input</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Special Note(If any)</mat-label>
-                      <textarea
-                      matInput
-                      rows="4"
-                      name="note"
-                      ngModel
-                      #contentInput="ngModel"
-                      placeholder="Leave your note"
-                      >
-                    </textarea>
-                    <mat-icon matSuffix>insert_comment</mat-icon>
-
-                    </mat-form-field><br>
-                    <button mat-raised-button class="btn1" type="submit">REGISTER</button>
-
-                    <button mat-raised-button class="btn2" (click)="reset(); suppplierRegisterForm.reset()">RESET</button>
-
-                  </form>
-
                   
-                  <!-- <form [formGroupName]="supplierForm"  >
+                  <form [formGroup]="supplierForm"  >
                     <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                       <mat-label>Supplier Name</mat-label>
                       <input
@@ -160,7 +34,7 @@
                       <mat-label>Supplier ID</mat-label>
                       <input
                       matInput
-                      name="supidid"
+                      name="supid"
                       formControlName="supid"
                       placeholder= "ex- S0001"
                       required
@@ -253,7 +127,8 @@
 
                     <button mat-raised-button class="btn2" (click)="reset()">RESET</button>
 
-                  </form> -->
+
+                  </form>
                 </mat-card>
               </div>
 
