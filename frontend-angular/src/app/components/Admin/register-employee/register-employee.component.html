@@ -8,7 +8,7 @@
       <div class="row">
         <div class="container-fluid">
           <div class="row">
-            <div class="container-fluid" style="background-color: #ddddec; min-height: 700px;">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
               <!-- <span><mat-icon>menu
                 <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
 
@@ -21,90 +21,103 @@
               <mat-divider></mat-divider>
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
 
-                <mat-tab-group class="p-5 reg-frm" [formGroup]="">
+                <mat-tab-group class="p-5 reg-frm" >
 
                   <!-- ***************************************************ADD ONE USER************************************************************************** -->
                   <mat-tab label="SINGLE EMPLOYEE">
-                    <mat-card>
+                  <form [formGroup]="employeeForm">
+
+                    <mat-card >
                       <img  src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px"  />
 
                       <div class="form-row mb-4">
-                        <mat-form-field>
+                        <mat-form-field appearance="outline" >
                           <!-- <mat-label>Select User Type:</mat-label> -->
-                          <mat-select  placeholder="Select Employee Category:">
-                            <mat-option value="option1">Admin</mat-option>
-                            <mat-option value="option2">Accountant</mat-option>
-                            <mat-option value="option3">Forman</mat-option>
-                            <mat-option value="option3">Store-Keeper</mat-option>
-                            <mat-option value="option3">Technician</mat-option>
+                          <mat-select  placeholder="Select Employee Category:" formControlName="usertype">
+                            <mat-option value="Administrator">Admin</mat-option>
+                            <mat-option value="Accountant">Accountant</mat-option>
+                            <mat-option value="Forman">Forman</mat-option>
+                            <mat-option value="Store-Keeper">Store-Keeper</mat-option>
+                            <mat-option value="Technician">Technician</mat-option>
                           </mat-select>
                         </mat-form-field>
 
-                        <mat-form-field >
+
+                        <mat-form-field appearance="outline" >
                           <mat-label>Employee ID:</mat-label>
-                          <input matInput class="form-control box_border" >
+                          <input matInput class="form-control box_border" formControlName="userid">
                           <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
                         </mat-form-field>
 
-                        <mat-form-field >
-                          <mat-label>Full Name:</mat-label>
-                          <input matInput class="form-control box_border" >
+
+                        <mat-form-field appearance="outline" >
+                          <mat-label>First Name:</mat-label>
+                          <input matInput class="form-control box_border" formControlName="firstName" >
                           <mat-hint>Maximum Characters: 255</mat-hint>
                         </mat-form-field>
 
-                        <mat-form-field>
-                          <mat-select  placeholder="Gender">
-                            <mat-option value="option1">Male</mat-option>
-                            <mat-option value="option2">Female</mat-option>
+                        <mat-form-field appearance="outline" >
+                          <mat-label>Last Name:</mat-label>
+                          <input matInput class="form-control box_border" formControlName="lastName">
+                          <mat-hint>Maximum Characters: 255</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" >
+                          <mat-select  placeholder="Gender" formControlName="gender">
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
                           </mat-select>
                         </mat-form-field>
 
-                        <mat-form-field>
-                          <mat-label>Address:</mat-label>
-                          <textarea matInput></textarea>
-                        </mat-form-field>
-
-                        <mat-form-field>
+                        <mat-form-field appearance="outline" >
                           <mat-label>NIC Number:</mat-label>
-                          <input matInput placeholder="96xxxxxxxV">
+                          <input matInput placeholder="96xxxxxxxV" formControlName="nic">
                         </mat-form-field>
 
-                        <mat-form-field>
-                          <mat-label>Email:</mat-label>
-                          <input matInput placeholder="Ex. abc@example.com">
+                        <mat-form-field appearance="outline" >
+                          <mat-label>Address:</mat-label>
+                          <textarea matInput formControlName="address"></textarea>
                         </mat-form-field>
 
-                        <mat-form-field>
-                          <mat-label>Password:</mat-label>
-                          <input matInput placeholder="Ex. abc@example.com">
-                        </mat-form-field>
-
-                        <mat-form-field>
+                        <mat-form-field appearance="outline" >
                           <mat-label>Contact Number:</mat-label>
-                          <input matInput placeholder="Ex. abc@example.com">
+                          <input matInput placeholder="Ex. 081xxxxxxx" maxlength=10 minlength=10 formControlName="contactNo">
                         </mat-form-field>
+
+                        <mat-form-field appearance="outline" >
+                          <mat-label>Email:</mat-label>
+                          <input matInput placeholder="Ex. abc@example.com" formControlName="email">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" >
+                          <mat-label>Password:</mat-label>
+                          <input matInput minlength=8 formControlName="password">
+                        </mat-form-field>
+
 
                       </div>
                       <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
-                      accept="image/*" [uploader]="uploader" (change)="selectImage($event)"
-                      #fileInput> -->
+                        accept="image/*" [uploader]="uploader" (change)="selectImage($event)"
+                        #fileInput> -->
 
-                      <div class="form-row mb-4">
-                        <button class="btn btn-secondary" type="button"  accept="image/*">Choose Profile Picture</button>
-                        <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                        <!-- <div class="form-row mb-4">
+                          <button class="btn btn-secondary" type="button"  accept="image/*">Choose Profile Picture</button>
+                          <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
                             Resolution : (320 x 280)p / 8 : 7
-                        </small>
-                      </div>
+                          </small>
+                        </div> -->
                 <br>
                 <br>
-                      <button mat-raised-button type="submit" class="btn btn-info my-4 btn-block reg_btn box_border" >
-                        Register
-                      </button>
+                <button mat-raised-button (click)=addEmployee() type="submit" class="my-4 btn-block reg_btn " >
+                  Register
+                </button>
 
-                      <button mat-raised-button type="submit" class="btn  my-4 btn-block btn_1  box_border" >
-                        Cancel
-                      </button>
-                    </mat-card>
+                <button mat-raised-button (click)=reset() type="submit" class="my-4 btn-block btn_1  " >
+                  Cancel
+                </button>
+              </mat-card>
+                {{employeeForm.value|json}}
+            </form>
                   </mat-tab>
 
 <!-- ***************************************************ADD BULK************************************************************************** -->

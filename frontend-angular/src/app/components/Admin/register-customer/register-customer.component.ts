@@ -90,6 +90,9 @@ addCustomer() {
   });
 
 }
+reset(){
+  this.customerForm.reset();
+}
 
   ngOnInit() {
   }
