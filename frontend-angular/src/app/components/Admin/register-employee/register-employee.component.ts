@@ -51,6 +51,8 @@ employeeForm = this.fb.group({
 });
 
 addEmployee() {
+
+  let date=Date();
   const registerEmployee = {
     usertype : this.employeeForm.value.usertype,
     userid: this.employeeForm.value.userid,
@@ -62,7 +64,8 @@ addEmployee() {
     contactnumber: this.employeeForm.value.contactNo,
     email: this.employeeForm.value.email,
     password: this.employeeForm.value.password,
-    // date: this.customerForm.value.date, //add added by and added on fields
+    addedby: this.cookie.userid,
+    addedon: date,
   };
 
 

@@ -47,6 +47,7 @@ customerForm = this.fb.group({
 });
 
 addCustomer() {
+  let date=Date();
   const registerCustomer = {
     usertype : "Customer",
     userid: this.customerForm.value.userid,
@@ -56,7 +57,8 @@ addCustomer() {
     email: this.customerForm.value.email,
     contactnumber: this.customerForm.value.contactNo,
     vehicleRegNo: this.customerForm.value.vehicleRegNo,
-    // date: this.customerForm.value.date,
+    addedby: this.cookie.userid,
+    addedon: date,
   };
 
   var url = "http://localhost:3000/users/register";

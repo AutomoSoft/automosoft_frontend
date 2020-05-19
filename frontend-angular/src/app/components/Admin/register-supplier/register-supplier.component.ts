@@ -63,6 +63,7 @@ export class RegisterSupplierComponent implements OnInit {
   });
 
   addSupplier() {
+    let date=Date();
     const registerSupplier = {
       usertype : "Supplier",
       supid: this.supplierForm.value.supid,
@@ -74,7 +75,8 @@ export class RegisterSupplierComponent implements OnInit {
       itemid: this.supplierForm.value.itemid,
       brand: this.supplierForm.value.brand,
       note: this.supplierForm.value.note,
-      // date: this.customerForm.value.date,
+      addedby: this.cookie.userid,
+      addedon: date,
     };
 
   var url = "http://localhost:3000/supplier/registerSupplier";
