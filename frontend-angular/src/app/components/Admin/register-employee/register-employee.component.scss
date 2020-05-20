@@ -42,7 +42,7 @@
   background-color: rgb(255, 255, 255);
   padding-top: 10px;
   width: 85%;
-  min-height: 1000px;
+  min-height: 1200px;
   text-align: center;
   margin: auto;
   margin-bottom: 10px;
@@ -56,28 +56,37 @@
   color: aliceblue;
   background-color: rgb(0, 140, 255);
   border-color: rgb(0, 140, 255);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   // box-shadow: 0px 5px 5px rgb(134, 132, 245);
 }
 
 .mat-form-field {
-  width: 90%;
+  width: 60%;
+  display:block;
+  margin: auto;
+
 }
 
 .mat-list-icon {
   color: rgba(0, 0, 0, 0.54);
 }
 
-// .mat-sidenav {
-//   width: 15%;
-//   // 090816
-//   background-color: #0a0929;
-//   color: white;
-// }
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
+}
 
 .btn_1 {
   color: aliceblue;
   background-color: rgb(221, 81, 112);
   border-color: rgb(221, 81, 112);
+  border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -85,6 +94,9 @@
 .pick_btn {
   color: aliceblue;
   background-color: rgb(0, 140, 255);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 
 }
 

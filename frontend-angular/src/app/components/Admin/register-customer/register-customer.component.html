@@ -17,6 +17,7 @@
       <mat-card>
         <mat-card-title  style="display: block;width: 55%;margin: auto;">Customer Registration</mat-card-title>
         <form style="background-color: white;" [formGroup]="customerForm">
+
                 <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
                     <mat-label>User ID</mat-label>
                     <input matInput name="User ID" formControlName="userid"
@@ -76,7 +77,7 @@
                 also theres a password field commented above, add that two  -->
 
 
-                
+
                 <!-- DONOT DELETE THISSSS -->
                 <!-- <div formArrayName="vehicles">
                   <button mat-raised-button type="button" class="add_btn" (click)="addVehicle()">
@@ -101,12 +102,9 @@
                 <!-- {{customerForm.value| json}} -->
              <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
 
-                (click)="userLogin()">Sign up</button>
-                 </form>
-         </mat-card>
-    </div>
-
                 (click)="addCustomer()">ADD CUSTOMER</button>
+              <!-- <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
+                (click)="reset()">Cancel</button> -->
        </form>
 </mat-card>
 </div>
