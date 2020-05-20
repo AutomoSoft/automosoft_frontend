@@ -44,9 +44,9 @@ employeeForm = this.fb.group({
   gender: ["", Validators.required],
   nic: ["", Validators.required],
   address: ["", Validators.required],
-  contactNo: ["", Validators.required],
-  email: ["", Validators.required],
-  password: ["", Validators.required],
+  contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
+  email: ["", [Validators.required, Validators.email]],
+  password: ["", [Validators.required, Validators.minLength(8)]],
 
 });
 

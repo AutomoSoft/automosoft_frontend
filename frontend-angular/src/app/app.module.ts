@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AgmCoreModule } from '@agm/core'
+import { AgmCoreModule } from '@agm/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 //material
@@ -96,6 +97,7 @@ import { ConfirmationDialogComponent } from './components/Auth/confirmation-dial
     FlexLayoutModule,
     MatGridListModule,
     MatDatepickerModule,
+    MatExpansionModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),

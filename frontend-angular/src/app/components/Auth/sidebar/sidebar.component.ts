@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  collapsed=true;
   constructor() { }
 
   ngOnInit() {
   }
+
+  toggle(){
+    this.collapsed=!this.collapsed;
+  }
+
 
 }
