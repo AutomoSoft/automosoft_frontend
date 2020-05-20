@@ -1,1 +1,49 @@
-<p>approve-orders works!</p>
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+              <!-- <span><mat-icon>menu
+                  <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+  
+                </mat-icon>
+                </span> -->
+              <br />
+              <div class="test">
+                <h2 class="topic">PURCHASE ORDERS</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+                  <!-- ***************************************************PENDING APPROVAL************************************************************************** -->
+                  <mat-tab label="PENDING APPROVAL">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                    </mat-card>
+                  </mat-tab>
+
+                  <!-- ***************************************************APPROVED ORDERS************************************************************************** -->
+
+                  <mat-tab label="APPROVED ORDERS">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                    </mat-card>
+                  </mat-tab>
+
+                </mat-tab-group>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
