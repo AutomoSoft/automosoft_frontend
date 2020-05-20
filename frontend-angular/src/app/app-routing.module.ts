@@ -26,13 +26,8 @@ const routes: Routes = [
   {path:"messages",component:MessageComponent},
   {path:"AddItems", component:AddItemsComponent},
 
+  {path:":id/landing", component:UserlandingComponent},
 
-  {
-    path: ":id/landing", component:MainComponent,
-    children: [
-      {path:"", component:UserlandingComponent}
-    ]
-  },
 ];
 
 @NgModule({

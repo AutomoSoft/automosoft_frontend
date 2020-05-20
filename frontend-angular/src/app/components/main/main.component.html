@@ -1,8 +1,150 @@
-<mat-sidenav-container>
-  <mat-sidenav>
-    Hello World
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div [ngClass]="collapsed ?'collapsed':'opened'">
+  <br>
+
+
+  <div  style="background-color: #28343a; height: 53px;" class="mb-15px">
+    <div class="row">
+      <div class="col-md-9">
+        <button mat-button (click)=toggle() class="sidebar_button">
+        <mat-icon>list</mat-icon>
+             <!-- HOME -->
+        </button>
+        </div>
+      </div>
+  </div>
+  <br>
+  <div  style="background-color: #28343a; height: 52px;" class="mb-15px">
+    <div class="row">
+      <div class="col-md-9">
+        <mat-icon class="sidebar_items">account_circle</mat-icon>
+             <!-- HOME -->
+        </div>
+      </div>
+  </div>
+  <br>
+  <div  style="background-color: #28343a; height: 52px;" class="mb-15px">
+    <div class="row">
+      <div class="col-md-9">
+        <mat-icon class="sidebar_items">home</mat-icon>
+             <!-- HOME -->
+        </div>
+      </div>
+  </div>
+  <br>
+  <div  style="background-color: #28343a; height: 52px;" class="mb-15px">
+    <div class="row">
+      <div class="col-md-9">
+        <mat-icon class="sidebar_items">menu</mat-icon>
+             <!-- HOME -->
+        </div>
+      </div>
+  </div>
+  <br>
+  <!-- <div>
+    <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true">
+      <mat-expansion-panel-header>PORTAL
+        <mat-panel-description style="color: #c76b15">
+          <mat-icon >menu</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </div>
+  <br> -->
+  <mat-accordion >
+
+
+    <div>
+      <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #x>
+        <mat-expansion-panel-header >REGISTRATION
+          <mat-panel-description style="color: #c76b15">
+            <mat-icon *ngIf="!x.expanded">people</mat-icon>
+            <mat-icon *ngIf="x.expanded">arrow_drop_down</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="row">
+            <div class="col-md-9">
+
+              <mat-nav-list>
+                <a mat-list-item [routerLink]="'/registerEmployee'" routerLinkActive="selected">
+                  <mat-icon mat-list-icon>person_add</mat-icon>
+                  <h4 mat-line> EMPLOYEE </h4>
+                </a>
+              </mat-nav-list>
+
+              <mat-nav-list>
+                <a mat-list-item [routerLink]="'/registerCustomer'" routerLinkActive="selected">
+                  <mat-icon mat-list-icon>person_add</mat-icon>
+                  <h4 mat-line> CUSTOMER </h4>
+                </a>
+              </mat-nav-list>
+
+              <mat-nav-list>
+                <a mat-list-item [routerLink]="'/registerSupplier'" routerLinkActive="selected">
+                  <mat-icon mat-list-icon>person_add</mat-icon>
+                  <h4 mat-line> SUPPLIER </h4>
+                </a>
+              </mat-nav-list>
+
+            </div>
+          </div>
+      </mat-expansion-panel >
+    </div>
+    <br>
+    <div>
+      <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #y>
+        <mat-expansion-panel-header>STORE
+          <mat-panel-description style="color: #c76b15">
+            <mat-icon *ngIf="!y.expanded">store</mat-icon>
+            <mat-icon *ngIf="y.expanded">arrow_drop_down</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="row">
+            <div class="col-md-9">
+
+              <mat-nav-list>
+                <a mat-list-item [routerLink]="" routerLinkActive="selected">
+                  <mat-icon mat-list-icon>search</mat-icon>
+                  <h4 mat-line> SEARCH </h4>
+                </a>
+              </mat-nav-list>
+
+              <mat-nav-list>
+                <a mat-list-item [routerLink]="" routerLinkActive="selected">
+                  <mat-icon mat-list-icon>add_to_queue</mat-icon>
+                  <h4 mat-line> ADD </h4>
+                </a>
+              </mat-nav-list>
+
+            </div>
+          </div>
+      </mat-expansion-panel>
+    </div>
+    <br>
+    <div>
+      <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #z>
+        <mat-expansion-panel-header>ORDERS
+          <mat-panel-description style="color: #c76b15">
+            <mat-icon *ngIf="!z.expanded">add_shopping_cart</mat-icon>
+            <mat-icon *ngIf="z.expanded">arrow_drop_down</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="row">
+            <div class="col-md-9">
+
+              <mat-nav-list>
+                <a mat-list-item [routerLink]="" routerLinkActive="selected">
+                  <mat-icon mat-list-icon>shop</mat-icon>
+                  <h4 mat-line> ORDERS </h4>
+                </a>
+              </mat-nav-list>
+              
+            </div>
+          </div>
+      </mat-expansion-panel>
+    </div>
+    <br>
+
+
+  </mat-accordion>
+
+</div>

@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "frontend-angular"
+  "defaultProject": "frontend-angular",
+  "cli": {
+    "analytics": "cf965ff6-29e3-4d29-9be7-5d5f3d9e45a9"
+  }
 }
