@@ -1,29 +1,21 @@
 <div class= "parallax">
     <div style="padding-top: 90px;padding-left: 380px;padding-right: 380px;">
 
-         <mat-card>
+        <mat-card>
             <mat-card-title  style="display: block;width: 55%;margin: auto;">Customer Registration</mat-card-title>
-                 <form style="background-color: white;">
+            <form style="background-color: white;" [formGroup]="customerForm">
+    
                     <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
                         <mat-label>User ID</mat-label>
-                        <input matInput name="User ID" [(ngModel)]="userid" placeholder="User ID">
-                       
+                        <input matInput name="User ID" formControlName="userid"
+                            placeholder="User ID">
                         <mat-icon matSuffix>perm_identity</mat-icon>
                     </mat-form-field>
                     <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
                         <mat-label>First name</mat-label>
                     
                     <input matInput name="firstName" [(ngModel)]="firstName">
-      <mat-card>
-        <mat-card-title  style="display: block;width: 55%;margin: auto;">Customer Registration</mat-card-title>
-        <form style="background-color: white;" [formGroup]="customerForm">
-
-                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                    <mat-label>User ID</mat-label>
-                    <input matInput name="User ID" formControlName="userid"
-                        placeholder="User ID">
-                    <mat-icon matSuffix>perm_identity</mat-icon>
-                </mat-form-field>
+  
 
                 <!-- <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
                   <mat-label>Password</mat-label>
@@ -105,8 +97,9 @@
                 (click)="addCustomer()">ADD CUSTOMER</button>
               <!-- <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
                 (click)="reset()">Cancel</button> -->
-       </form>
-</mat-card>
+                    </mat-form-field>
+            </form>
+        </mat-card>
+    </div>
 </div>
 
-</div>
