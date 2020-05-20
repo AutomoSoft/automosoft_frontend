@@ -15,7 +15,7 @@
 
                   <mat-card-header style="text-align: center;"> <div  style= "width: 100%;">SUPPLIER REGISTRATION</div></mat-card-header>
                   <br>
-                  
+
                   <form [formGroup]="supplierForm"  >
                     <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                       <mat-label>Supplier Name</mat-label>
@@ -41,6 +41,18 @@
                       >
 
                     <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                      <mat-label>E-mail</mat-label>
+                      <input
+                      matInput
+                      name="email"
+                      formControlName="email"
+                      placeholder= "ex-abc@mail.com"
+                      required
+                      >
+
+                    <mat-icon matSuffix>email</mat-icon>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">

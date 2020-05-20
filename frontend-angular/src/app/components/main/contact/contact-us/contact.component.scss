@@ -1,6 +1,7 @@
 .pimg2{
-  background-image:url('../../../../../assets/images/parallax/image2.jpg');
-  min-height:550px;
+  background-image:url('../../../../../assets/images/contactUs.jpg');
+  min-height:700px;
+  width: auto;
 }
 .ptext{
   position:absolute;
@@ -12,6 +13,12 @@
   letter-spacing:8px;
   text-transform:uppercase;
   font-weight: bolder;
+}
+.ptext1{
+  text-transform: none;
+  font-size: 20px;
+  color:#fff;
+  letter-spacing:0px;
 }
 
 .ptext .border{
@@ -65,12 +72,14 @@ body, html{
 agm-map{
   height:500px;
   width: 700px;
+  border-radius: 20px;
 }
 
 .First-card{
   width:600px;
   height:465px;
-  background-color: #f3efb3;
+  background-color: #ffffff;
+  border-radius: 20px;
 }
 mat-form-field,
 textarea{
@@ -102,4 +111,22 @@ section {
   width: 80%;
   margin: 0 auto;
   padding: 2em;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
+}
+.btn1{
+  background-color:#c76b15;
+  border-radius: 20px;
+  margin-left: 10rem;
+
+}
+.btn2{
+  background-color: rgb(47, 47, 51);
+  border-radius: 20px;
+  margin-left: 6rem;
 }
