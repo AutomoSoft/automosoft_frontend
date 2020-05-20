@@ -50,6 +50,7 @@ import { RegisterSupplierComponent } from './components/Admin/register-supplier/
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 import { ConfirmationDialogComponent } from './components/Auth/confirmation-dialog/confirmation-dialog.component';
+import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 
 
 
@@ -70,6 +71,7 @@ import { ConfirmationDialogComponent } from './components/Auth/confirmation-dial
     MessageComponent,
     AddItemsComponent,
     ConfirmationDialogComponent,
+    ApproveOrdersComponent,
   ],
   imports: [
     BrowserModule,
