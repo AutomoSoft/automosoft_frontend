@@ -6,6 +6,7 @@
     background-attachment: fixed;
     height: 800px;
   }
+
   .tt {
     opacity: 0;
 
@@ -21,6 +22,7 @@
   }
   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
     color:#c76b15!important;
+    
   }
   ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
     background-color:#c76b15;

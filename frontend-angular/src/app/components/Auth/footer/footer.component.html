@@ -8,40 +8,44 @@
     <div fxLayout="row">
       <div fxFlex="40" fxFlexOffset="20px">  
         <mat-list>
-           <mat-list-item><h4>Links</h4></mat-list-item>
+           <h4 style="padding-left: 35px;">Links</h4>
           <mat-list-item>
             <span class="nav-itm nav_item" >
               <button mat-button routerLink="" class="btn ">
-              Home
+                <mat-icon>home</mat-icon>
+              <span>Home</span>
               </button>
             </span>
           </mat-list-item>
           <mat-list-item>
             <span class="nav-itm nav_item" >
               <button mat-button routerLink="/contact" class="btn ">
-              Contact
+                <mat-icon>call</mat-icon>
+              <span>Contact</span>
               </button>
             </span>
           </mat-list-item>
           <mat-list-item>
             <span class="nav-itm nav_item" >
               <button mat-button routerLink="//" class="btn ">
-              Services
+                <mat-icon>build</mat-icon>
+              <span>Services</span>
               </button>
             </span>
           </mat-list-item>
           <mat-list-item>
             <span class="nav-itm nav_item" >
               <button mat-button routerLink="login" class="btn ">
-              Login
+                <mat-icon>account_box</mat-icon>
+              <span>Login</span>
               </button>
             </span>
           </mat-list-item>
         </mat-list>
       </div>
-      <div fxFlex="55">
-        <h4>Our Address</h4>
-        <address style="text-size: 80%">
+      <div fxFlex="150">
+        <h4 style="padding-top: 10px;padding-bottom: 10px;">Our Address</h4>
+        <address style="text-size: 80%;line-height: 25px;">
           AutomoSoft<br> Reid Avenue,Colombo 07<br>Sri Lanka<br>
           <i class="fa fa-phone"></i>: +942 1234 5678<br>
           <i class="fa fa-fax"></i>: +942 8765 4321<br>
@@ -53,6 +57,7 @@
 </div>
 <div fxFlex="100" fxFlex.gt-sm="45">
   <div style="text-align:center">
+    <h4>Follow us on Social Media</h4>
     <a mat-icon-button class="btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
     <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
     <a mat-icon-button class="btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
@@ -60,5 +65,9 @@
     <a mat-icon-button class="btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
     <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
   </div>
+</div>
+<div style="width:100%">
+  <hr style="border-top: white">
+  <p style="color:white;text-align: center;">© Copyright 2020 AutomoSoft</p>
 </div>
 </div>
