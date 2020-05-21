@@ -53,6 +53,7 @@ import { ConfirmationDialogComponent } from './components/Auth/confirmation-dial
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
 import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
+import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 
 
 
@@ -76,6 +77,7 @@ import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orde
     SearchUserComponent,
     ViewStoreComponent,
     AddOrdersComponent,
+    ApproveOrdersComponent,
   ],
   imports: [
     BrowserModule,

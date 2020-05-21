@@ -13,6 +13,7 @@ import { MessageComponent } from './components/Admin/messages/message.component'
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
+import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:"registerEmployee",component:RegisterEmployeeComponent},
   {path:"registerCustomer",component:RegisterCustomerComponent},
   {path:"registerSupplier",component:RegisterSupplierComponent},
+  {path:"approveOrders", component:ApproveOrdersComponent},
   {path:"messages",component:MessageComponent},
   {path:"AddItems", component:AddItemsComponent},
 
