@@ -1,6 +1,6 @@
 .pimg2{
   background-image:url('../../../../../assets/images/contactUs.jpg');
-  min-height:500px;
+  min-height:600px;
   width: auto;
 }
 .row{
@@ -27,7 +27,7 @@
 .form{
   text-transform: none;
   font-size: 20px;
-  color:#fff;
+  color:rgb(163, 201, 233);
   letter-spacing:0px;
   //margin-left:450px;
   //margin-top:140px;
@@ -36,6 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 
 }
 
@@ -96,7 +97,7 @@ agm-map{
 .First-card{
   width:450px;
   height:465px;
-  background-color: #ffffff;
+  background-color: #e8dcf8;
   border-radius: 10px;
   margin-top: 3rem;
 
@@ -166,4 +167,21 @@ mat-form-field{
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
+}
+h2{
+  color: #f78847;
+  font-weight: 300;
+  font-size: 30px;
+  padding-top: 20px;
+  font-family: topic_font;
+  font-weight: 520;
+  text-align: right;
+}
+mat-card-header{
+  font-size: 25px;
+  color: #e6964b;
+  font-family: topic_font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
