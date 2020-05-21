@@ -1,6 +1,11 @@
 .pimg2{
-  background-image:url('../../../../../assets/images/parallax/image2.jpg');
-  min-height:550px;
+  background-image:url('../../../../../assets/images/contactUs.jpg');
+  min-height:600px;
+  width: auto;
+}
+.row{
+  height: 1000px;
+  background-color:rgb(26, 24, 34);
 }
 .ptext{
   position:absolute;
@@ -12,6 +17,27 @@
   letter-spacing:8px;
   text-transform:uppercase;
   font-weight: bolder;
+}
+.ptext1{
+  text-transform: none;
+  font-size: 20px;
+  color:#fff;
+  letter-spacing:0px;
+}
+.form{
+  text-transform: none;
+  font-size: 20px;
+  color:rgb(163, 201, 233);
+  letter-spacing:0px;
+  //margin-left:450px;
+  //margin-top:140px;
+  letter-spacing:0px;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
 }
 
 .ptext .border{
@@ -54,7 +80,7 @@ body, html{
 }
 .section-dark{
   //background-color:#282e34;
-  background-color: #333;
+  background-color:rgb(26, 24, 34);
   color:#ddd;
   width: auto;
 }
@@ -65,12 +91,17 @@ body, html{
 agm-map{
   height:500px;
   width: 700px;
+  border-radius: 20px;
 }
 
 .First-card{
-  width:600px;
+  width:450px;
   height:465px;
-  background-color: #f3efb3;
+  background-color: #e8dcf8;
+  border-radius: 10px;
+  margin-top: 3rem;
+
+
 }
 mat-form-field,
 textarea{
@@ -87,7 +118,7 @@ mat-form-field{
 .contact_txt{
   text-align: center;
 }
-.p1text{
+/*.p1text{
   text-align: left;
   font-size: 16px;
   letter-spacing:0px;
@@ -97,9 +128,60 @@ mat-form-field{
   margin-left: 4rem;
   height:150px
 
-}
+}*/
 section {
   width: 80%;
   margin: 0 auto;
   padding: 2em;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
+}
+mat-form-field{
+  width: 420px;
+  font-size: 12px;
+
+}
+.btn1{
+
+  border-radius: 20px;
+  margin-left: 10rem;
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+.btn2{
+
+  border-radius: 20px;
+  color: aliceblue;
+  background-color: rgb(221, 81, 112);
+  border-color: rgb(221, 81, 112);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+h2{
+  color: #f78847;
+  font-weight: 300;
+  font-size: 30px;
+  padding-top: 20px;
+  font-family: topic_font;
+  font-weight: 520;
+  text-align: right;
+}
+mat-card-header{
+  font-size: 25px;
+  color: #e6964b;
+  font-family: topic_font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

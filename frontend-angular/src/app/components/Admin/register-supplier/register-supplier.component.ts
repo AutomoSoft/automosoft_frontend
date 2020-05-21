@@ -52,6 +52,7 @@ export class RegisterSupplierComponent implements OnInit {
   supplierForm = this.fb.group({
     supid: ["", Validators.required],
     supname: ["", Validators.required],
+    email:["", Validators.required],
     address: ["", Validators.required],
     contactNo: ["", Validators.required],
     // email: ["", Validators.required],
