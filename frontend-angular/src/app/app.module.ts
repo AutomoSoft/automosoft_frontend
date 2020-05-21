@@ -46,11 +46,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
 import { RegisterCustomerComponent } from './components/Admin/register-customer/register-customer.component';
-import { SidebarComponent } from './components/Auth/sidebar/sidebar.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 import { ConfirmationDialogComponent } from './components/Auth/confirmation-dialog/confirmation-dialog.component';
+import { SearchUserComponent } from './components/main/search-user/search-user.component';
+import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
+import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
+import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 
 
 
@@ -69,9 +72,12 @@ import { ConfirmationDialogComponent } from './components/Auth/confirmation-dial
     RegisterCustomerComponent,
     RegisterSupplierComponent,
     MessageComponent,
-    SidebarComponent,
     AddItemsComponent,
     ConfirmationDialogComponent,
+    SearchUserComponent,
+    ViewStoreComponent,
+    AddOrdersComponent,
+    ApproveOrdersComponent,
   ],
   imports: [
     BrowserModule,

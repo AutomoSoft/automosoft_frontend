@@ -1,163 +1,101 @@
 <div style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav  class="example-container" #sidenav mode="side" opened  >
-      <app-sidebar></app-sidebar>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+      <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
-<div class= "parallax" >
-<div class="row">
-  <div class="container-fluid">
-    <div class="row">
+      <div class="parallax">
+        <div class="row">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="container-fluid ">
+                <div>
+                  <div class="container" style="padding-top: 50px">
+                    <!--<h2 class="topic">USER REGISTRATION</h2>-->
+                  </div>
+                  <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+                    <div class="First-card">
+                      <mat-card>
+                        <mat-card-header style="text-align: center;">
+                          <div style="width: 100%;">SUPPLIER REGISTRATION</div>
+                        </mat-card-header>
+                        <br>
 
-      <div class="container-fluid " >
-        <div>
-         <div class="container" style="padding-top: 50px">
-            <!--<h2 class="topic">USER REGISTRATION</h2>-->
-          </div>
-            <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
-              <div class="First-card">
+                        <form [formGroup]="supplierForm">
 
-                <mat-card >
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Supplier Name</mat-label>
+                            <input matInput name="supname" formControlName="supname"
+                              placeholder="ex-Tharindu Wijethilake" required>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                          </mat-form-field>
 
-                  <mat-card-header style="text-align: center;"> <div  style= "width: 100%;">SUPPLIER REGISTRATION</div></mat-card-header>
-                  <br>
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Supplier ID</mat-label>
+                            <input matInput name="supid" formControlName="supid" placeholder="ex- S0001" required>
+                            <mat-icon matSuffix>person</mat-icon>
+                          </mat-form-field>
 
-                  <form [formGroup]="supplierForm"  >
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Supplier Name</mat-label>
-                      <input
-                      matInput
-                      name="supname"
-                      formControlName="supname"
-                      placeholder= "ex-Tharindu Wijethilake"
-                      required
-                      >
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Address</mat-label>
+                            <input matInput name="address" formControlName="address"
+                              placeholder="ex-no.45, sri devamittha mawatha, Galle" required>
+                            <mat-icon matSuffix>home</mat-icon>
+                          </mat-form-field>
 
-                    <mat-icon matSuffix>perm_identity</mat-icon>
-                    </mat-form-field>
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Contact-Number</mat-label>
+                            <input matInput name="contactNo" formControlName="contactNo" placeholder="ex- 0778908901"
+                              required maxlength=10 minlength=10>
+                            <mat-icon matSuffix>phone_in_talk</mat-icon>
+                          </mat-form-field>
 
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Supplier ID</mat-label>
-                      <input
-                      matInput
-                      name="supid"
-                      formControlName="supid"
-                      placeholder= "ex- S0001"
-                      required
-                      >
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Select Item Type</mat-label>
+                            <mat-select name="itemtype" placeholder="Select Item" formControlName="itemtype" required>
+                              <mat-option *ngFor="let item of items" [value]="item.value">
+                                {{item.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                            <mat-icon matSuffix>build</mat-icon>
+                          </mat-form-field>
 
-                    <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>E-mail</mat-label>
-                      <input
-                      matInput
-                      name="email"
-                      formControlName="email"
-                      placeholder= "ex-abc@mail.com"
-                      required
-                      >
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Item ID</mat-label>
+                            <input matInput name="itemid" formControlName="itemid" placeholder="ex- SP0001" required>
+                            <mat-icon matSuffix>settings</mat-icon>
+                          </mat-form-field>
 
-                    <mat-icon matSuffix>email</mat-icon>
-                    </mat-form-field>
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Brand/Model</mat-label>
+                            <input matInput name="brand" formControlName="brand" placeholder="ex-Toyota" required>
+                            <mat-icon matSuffix>input</mat-icon>
+                          </mat-form-field>
 
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Address</mat-label>
-                      <input
-                      matInput
-                      name="address"
-                      formControlName="address"
-                      placeholder= "ex-no.45, sri devamittha mawatha, Galle"
-                      required
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+                            <mat-label>Special Note(If any)</mat-label>
+                            <textarea matInput rows="4" name="note" formControlName="note"
+                              placeholder="Leave your note">
+                            </textarea>
+                            <mat-icon matSuffix>insert_comment</mat-icon>
+                          </mat-form-field>
 
-                      >
+                          <br>
 
-                    <mat-icon matSuffix>home</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Contact-Number</mat-label>
-                      <input
-                      matInput
-                      name="contactNo"
-                      formControlName="contactNo"
-                      placeholder= "ex- 0778908901"
-                      required
-                      maxlength=10
-                      minlength=10
-                      >
+                          <button mat-raised-button class="btn1 my-4 btn-block" type="submit"(click)="addSupplier()">Register</button>
 
-                    <mat-icon matSuffix>phone_in_talk</mat-icon>
-                    </mat-form-field>
+                          <button mat-raised-button class="btn2 my-4 btn-block" (click)="reset()">Cancel </button>
 
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Select Item Type</mat-label>
-                      <mat-select
-                        name="itemtype"
-                        placeholder="Select Item"
-                        formControlName="itemtype"
-                        required>
-                        <mat-option *ngFor="let item of items" [value]="item.value">
-                          {{item.viewValue}}
-                        </mat-option>
-                      </mat-select>
-
-                      <mat-icon matSuffix>build</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Item ID</mat-label>
-                      <input
-                      matInput
-                      name="itemid"
-                      formControlName="itemid"
-                      placeholder= "ex- SP0001"
-                      required
-                      >
-
-                    <mat-icon matSuffix>settings</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Brand/Model</mat-label>
-                      <input
-                      matInput
-                      name="brand"
-                      formControlName="brand"
-                      placeholder= "ex-Toyota"
-                      required
-                      >
-
-                    <mat-icon matSuffix>input</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                      <mat-label>Special Note(If any)</mat-label>
-                      <textarea
-                      matInput
-                      rows="4"
-                      name="note"
-                      formControlName="note"
-                      placeholder="Leave your note"
-                      >
-                    </textarea>
-                    <mat-icon matSuffix>insert_comment</mat-icon>
-
-
-                    </mat-form-field><br>
-                    <button mat-raised-button class="btn1 my-4 btn-block" type="submit" (click)="addSupplier()">Register</button>
-
-                    <button mat-raised-button class="btn2 my-4 btn-block" (click)="reset()">Cancel </button>
-
-
-                  </form>
-                </mat-card>
+                        </form>
+                      </mat-card>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
-</div>
-</mat-sidenav-content>
-</mat-sidenav-container>

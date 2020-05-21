@@ -1,0 +1,44 @@
+.opened {
+    margin-top: 8px;
+    width: 250px;
+    background-color: #3d4549;
+
+    color: black;
+  }
+
+  .collapsed {
+    margin-top: 8px;
+    width: 90px;
+    background-color: #3d4549;
+
+    color: black;
+  }
+
+  .sidebar_button {
+    height: 48px;
+    margin-left: 2px;
+    margin-top: 2px;
+    background-color: #3d4549;
+    color: #c76b15;
+    text-align: center;
+  }
+
+  .sidebar_button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: #28343a;
+  }
+
+  .icn {
+    color: #c76b15;
+    padding-left: 30px;
+  }
+
+  .sidebar_items {
+    margin-top: 14px;
+    margin-left: 30px;
+    color: #c76b15;
+  }
+
+
+

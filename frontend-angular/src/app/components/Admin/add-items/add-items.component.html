@@ -1,37 +1,43 @@
-<div class= "parallax">
-    <div style="padding-top: 90px;padding-left: 380px;padding-right: 380px;">
-      <mat-card>
-        <mat-card-title  style="display: block;width: 55%;margin: auto;">ADD NEW STORE ITEMS</mat-card-title>
-        <form style="background-color: white;">
-                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                    <mat-label>Item ID</mat-label>
-                    <input matInput name="Item No" [(ngModel)]="itemNo"
-                        placeholder="Item No">
-                    <mat-icon matSuffix>settings</mat-icon>
-                </mat-form-field>
-                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                    <mat-label>Item name</mat-label>
-                    <input matInput name="itemName" [(ngModel)]="itemName"
-                        placeholder="Item name">
-                    <mat-icon matSuffix>build</mat-icon>
-                </mat-form-field>
-                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                    <mat-label>Supplier ID</mat-label>
-                    <input matInput name="supplierID" [(ngModel)]="supplierID"
-                        placeholder="Supplier ID">
-                    <mat-icon matSuffix>perm_identity</mat-icon>
-                </mat-form-field>
-                <!-- <mat-form-field>
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="parallax">
+        <div style="padding-top: 90px;padding-left: 380px;padding-right: 380px;">
+          <mat-card>
+            <mat-card-title style="display: block;width: 55%;margin: auto;">ADD NEW STORE ITEMS</mat-card-title>
+            <form style="background-color: white;">
+              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                <mat-label>Item ID</mat-label>
+                <input matInput name="Item No" [(ngModel)]="itemNo" placeholder="Item No">
+                <mat-icon matSuffix>settings</mat-icon>
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                <mat-label>Item name</mat-label>
+                <input matInput name="itemName" [(ngModel)]="itemName" placeholder="Item name">
+                <mat-icon matSuffix>build</mat-icon>
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                <mat-label>Supplier ID</mat-label>
+                <input matInput name="supplierID" [(ngModel)]="supplierID" placeholder="Supplier ID">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+              </mat-form-field>
+              <!-- <mat-form-field>
                     <mat-label>Choose a date</mat-label>
                     <input matInput [matDatepicker]="picker">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field> -->
- 
-             <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
+
+              <button mat-button type="submit" class="btn" style="display: block;margin: auto;"
                 (click)="userLogin()">ADD</button>
-       </form>
-</mat-card>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
-</div>
-    

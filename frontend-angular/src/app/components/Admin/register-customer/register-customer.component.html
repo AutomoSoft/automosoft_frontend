@@ -1,17 +1,23 @@
 <div class= "parallax">
     <div style="padding-top: 90px;padding-left: 380px;padding-right: 380px;">
-      <mat-card>
-        <mat-card-title  style="display: block;width: 55%;margin: auto;">Customer Registration</mat-card-title>
-        <form style="background-color: white;" [formGroup]="customerForm">
 
-                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                    <mat-label>User ID</mat-label>
-                    <input matInput name="User ID" formControlName="userid"
-                        placeholder="User ID">
-                    <mat-icon matSuffix>perm_identity</mat-icon>
-                </mat-form-field>
+        <mat-card>
+            <mat-card-title  style="display: block;width: 55%;margin: auto;">Customer Registration</mat-card-title>
+            <form style="background-color: white;" [formGroup]="customerForm">
+    
+                    <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                        <mat-label>User ID</mat-label>
+                        <input matInput name="User ID" formControlName="userid"
+                            placeholder="User ID">
+                        <mat-icon matSuffix>perm_identity</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                        <mat-label>First name</mat-label>
+                    
+                    <input matInput name="firstName" [(ngModel)]="firstName">
+  
 
-                <!-- <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+              <!-- <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
                   <mat-label>Password</mat-label>
                   <input matInput  formControlName="userid"
                       placeholder="User ID">
@@ -20,39 +26,50 @@
 
                 <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
                     <mat-label>First name</mat-label>
-                    <input matInput name="firstName" formControlName="firstName"
-                        placeholder="First name">
+                    <input matInput name="firstName" formControlName="firstName"  placeholder="First name">
+                      
+                        
                     <mat-icon matSuffix>person</mat-icon>
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                     <mat-label>Last name</mat-label>
+                        <input matInput name="lastName" [(ngModel)]="lastName" placeholder="Last name">
+                         <mat-icon matSuffix>person</mat-icon>
+                     </mat-form-field>
+                     <mat-form-field appearance="outline"  style="display: block;width: 60%;margin: auto;">
+                    <mat-label>Email address</mat-label>
+                    <input matInput name="email" [(ngModel)]="email" placeholder="Email address"  [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                    <mat-label>Last name</mat-label>
-                    <input matInput name="lastName" formControlName="lastName"
-                        placeholder="Last name">
-                    <mat-icon matSuffix>person</mat-icon>
-                </mat-form-field>
+              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
+                <mat-label>Last name</mat-label>
+                <input matInput name="lastName" formControlName="lastName" placeholder="Last name">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
 
                 <mat-form-field appearance="outline"  style="display: block;width: 60%;margin: auto;">
                     <mat-label>Email address</mat-label>
                     <input matInput name="email" formControlName="email"
                         placeholder="Email address">
+
                     <mat-icon matSuffix>all_inbox</mat-icon>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline"  style="display: block;width: 60%;margin: auto;">
-                    <mat-label>Contact number</mat-label>
-                    <input matInput name="contactNo" formControlName="contactNo"
-                        placeholder="Contact number">
-                    <mat-icon matSuffix>phone_in_talk</mat-icon>
-                </mat-form-field>
+              <mat-form-field appearance="outline" style="display: block;width: 60%;margin: auto;">
+                <mat-label>Contact number</mat-label>
+                <input matInput name="contactNo" formControlName="contactNo" placeholder="Contact number">
+                <mat-icon matSuffix>phone_in_talk</mat-icon>
+              </mat-form-field>
 
-                <!-- bzz add here a button (Add Vehicle) and two input fields vehicle type and vehicle registration number
+              <!-- bzz add here a button (Add Vehicle) and two input fields vehicle type and vehicle registration number
                 also theres a password field commented above, add that two  -->
 
 
 
-                <!-- DONOT DELETE THISSSS -->
-                <!-- <div formArrayName="vehicles">
+              <!-- DONOT DELETE THISSSS -->
+              <!-- <div formArrayName="vehicles">
                   <button mat-raised-button type="button" class="add_btn" (click)="addVehicle()">
                   Add Vehicle
                 </button>
@@ -74,10 +91,13 @@
 
                 <!-- {{customerForm.value| json}} -->
              <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
-                (click)="addCustomer()">Register</button>
+
+                (click)="addCustomer()">ADD CUSTOMER</button>
               <!-- <button mat-button  type="submit" class="btn" style="display: block;margin: auto;"
                 (click)="reset()">Cancel</button> -->
-       </form>
-</mat-card>
+                    </mat-form-field>
+            </form>
+        </mat-card>
+    </div>
 </div>
-</div>
+
