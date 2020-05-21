@@ -1,7 +1,11 @@
 .pimg2{
   background-image:url('../../../../../assets/images/contactUs.jpg');
-  min-height:700px;
+  min-height:500px;
   width: auto;
+}
+.row{
+  height: 1000px;
+  background-color:#333;
 }
 .ptext{
   position:absolute;
@@ -19,6 +23,20 @@
   font-size: 20px;
   color:#fff;
   letter-spacing:0px;
+}
+.form{
+  text-transform: none;
+  font-size: 20px;
+  color:#fff;
+  letter-spacing:0px;
+  //margin-left:450px;
+  //margin-top:140px;
+  letter-spacing:0px;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .ptext .border{
@@ -76,10 +94,13 @@ agm-map{
 }
 
 .First-card{
-  width:600px;
+  width:450px;
   height:465px;
   background-color: #ffffff;
-  border-radius: 20px;
+  border-radius: 10px;
+  margin-top: 3rem;
+
+
 }
 mat-form-field,
 textarea{
@@ -96,7 +117,7 @@ mat-form-field{
 .contact_txt{
   text-align: center;
 }
-.p1text{
+/*.p1text{
   text-align: left;
   font-size: 16px;
   letter-spacing:0px;
@@ -106,7 +127,7 @@ mat-form-field{
   margin-left: 4rem;
   height:150px
 
-}
+}*/
 section {
   width: 80%;
   margin: 0 auto;
@@ -119,14 +140,30 @@ section {
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
   color:#c76b15!important;
 }
+mat-form-field{
+  width: 420px;
+  font-size: 12px;
+
+}
 .btn1{
-  background-color:#c76b15;
+
   border-radius: 20px;
   margin-left: 10rem;
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 
 }
 .btn2{
-  background-color: rgb(47, 47, 51);
+
   border-radius: 20px;
-  margin-left: 6rem;
+  color: aliceblue;
+  background-color: rgb(221, 81, 112);
+  border-color: rgb(221, 81, 112);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
