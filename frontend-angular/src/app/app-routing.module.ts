@@ -11,14 +11,21 @@ import { RegisterCustomerComponent} from './components/Admin/register-customer/r
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
+import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
+import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 
 
 
 const routes: Routes = [
+
+  /****************************************** General Routes **************************************** */
   {path:'login',component:LoginComponent},
   {path:"",component:HomeComponent},
   {path:'contact',component:ContactComponent},
+  {path:":id/landing", component:UserlandingComponent},
 
+
+  /****************************************** Admin Routes ********************************************** */
   {path:":id/admin_dashboard",component:AdmindashboardComponent},
   {path:"registerEmployee",component:RegisterEmployeeComponent},
   {path:"registerCustomer",component:RegisterCustomerComponent},
@@ -26,8 +33,10 @@ const routes: Routes = [
   {path:"messages",component:MessageComponent},
   {path:"AddItems", component:AddItemsComponent},
 
-  {path:":id/landing", component:UserlandingComponent},
 
+  /****************************************** StoreKeeper Routes **************************************** */
+  {path:"viewStore", component:ViewStoreComponent},
+  {path:"addOrder", component:AddOrdersComponent},
 ];
 
 @NgModule({
