@@ -50,6 +50,9 @@ import { RegisterSupplierComponent } from './components/Admin/register-supplier/
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 import { ConfirmationDialogComponent } from './components/Auth/confirmation-dialog/confirmation-dialog.component';
+import { SearchUserComponent } from './components/main/search-user/search-user.component';
+import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
+import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 
 
@@ -71,6 +74,9 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
     MessageComponent,
     AddItemsComponent,
     ConfirmationDialogComponent,
+    SearchUserComponent,
+    ViewStoreComponent,
+    AddOrdersComponent,
     ApproveOrdersComponent,
   ],
   imports: [

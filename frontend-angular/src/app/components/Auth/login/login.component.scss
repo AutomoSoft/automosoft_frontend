@@ -1,20 +1,12 @@
 /*parallax*//////////////////////////////////////////////
 
 .parallax{
-  background: url(../../../../assets/images/parallax/image0.jpg) no-repeat center;
+  background: url(../../../../assets/images/parallax/image1.jpg) no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   height: 600px;
 }
-.tt {
-  opacity: 0;
 
-} 
-/*.tt {
-   * :{
-    opacity: 1;
-  }
-}*/
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #c76b15!important;
   // opacity: 1!important;
@@ -36,7 +28,7 @@
   background-color: #c76b15 ;
 }
 .btn:hover{
-  color: #339ccc;
+  color: black;
   transition: 0.5s;
 }
 
