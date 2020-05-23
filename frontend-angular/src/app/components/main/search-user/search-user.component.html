@@ -1,1 +1,58 @@
-<p>search-user works!</p>
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec;">
+              <br />
+              <div class="test">
+                <h2 class="topic">SEARCH USER</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+                <mat-tab label="USER PROFILE">
+                    <form>
+
+                      <mat-card>
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+
+                        <h3 class="topic" >Enter User ID:</h3>
+                        <div class="form-row mb-4">
+                          <mat-form-field appearance="outline">
+                            <mat-label>USER ID:</mat-label>
+                            <input matInput class="form-control box_border" >
+                          </mat-form-field>
+                        </div>
+                        <br>
+                        <br>
+                        <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">
+                          Search
+                        </button>
+
+                        <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  ">
+                          Cancel
+                        </button>
+                      </mat-card>
+                    </form>
+                  </mat-tab>
+
+                </mat-tab-group>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

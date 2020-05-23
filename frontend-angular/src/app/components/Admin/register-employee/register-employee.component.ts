@@ -78,7 +78,7 @@ addEmployee() {
         ok: "Yes",
         cancel: "No"
       }
-    }
+    },
   });
 
   dialogRef.afterClosed().subscribe((confirmed: boolean) => {
