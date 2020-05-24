@@ -19,7 +19,7 @@
                 <mat-tab-group class="p-5 reg-frm">
 
                 <mat-tab label="USER PROFILE">
-                    <form [formGroup] = userSearchForm>
+                    <form [formGroup] = userSearchForm *ngIf="!dataform">
 
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
@@ -45,6 +45,106 @@
 
                     <div class="container" *ngIf="dataform">
                       Hello
+                      <form [formGroup] = UserDataForm>
+
+                          <div class="form-row mb-4">
+                            <mat-form-field appearance="outline">
+                              <!-- <mat-label>Select User Type:</mat-label> -->
+                              <mat-select placeholder="User Category:" formControlName="usertype" [(ngModel)]="userdata.usertype">
+                                <mat-option value="Administrator">Admin</mat-option>
+                                <mat-option value="Accountant">Accountant</mat-option>
+                                <mat-option value="Forman">Forman</mat-option>
+                                <mat-option value="Store-Keeper">Store-Keeper</mat-option>
+                                <mat-option value="Technician">Technician</mat-option>
+                                <mat-option value="Customer">Customer</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Employee ID:</mat-label>
+                              <input matInput class="form-control box_border" formControlName="userid" [(ngModel)]="userdata.userid">
+                              <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                            </mat-form-field>
+
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>First Name:</mat-label>
+                              <input matInput class="form-control box_border" formControlName="firstName" [(ngModel)]="userdata.firstname">
+
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Last Name:</mat-label>
+                              <input matInput class="form-control box_border" formControlName="lastName" [(ngModel)]="userdata.lastname">
+
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-select placeholder="Gender" formControlName="gender" [(ngModel)]="userdata.gender">
+                                <mat-option value="Male">Male</mat-option>
+                                <mat-option value="Female">Female</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>NIC Number:</mat-label>
+                              <input matInput placeholder="96xxxxxxxV" formControlName="nic" [(ngModel)]="userdata.nicnumber">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Address:</mat-label>
+                              <textarea matInput formControlName="address" [(ngModel)]="userdata.address"></textarea>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Contact Number:</mat-label>
+                              <input matInput placeholder="Ex. 081xxxxxxx" formControlName="contactNo" [(ngModel)]="userdata.contactnumber">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Email:</mat-label>
+                              <input matInput placeholder="Ex. abc@example.com" formControlName="email" [(ngModel)]="userdata.email">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-label>Addedon:</mat-label>
+                              <input matInput readonly formControlName="addedon" [(ngModel)]="userdata.addedon">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" *ngIf="userflag">
+                              <mat-label>Vehicle Registration Number:</mat-label>
+                              <input matInput  formControlName="vehiclenumber" [(ngModel)]="userdata.vehiclenumber">
+                            </mat-form-field>
+
+                            <!-- <mat-form-field appearance="outline">
+                              <mat-label>Password:</mat-label>
+                              <input matInput minlength=8  formControlName="password" [(ngModel)]="userdata.password">
+                            </mat-form-field> -->
+
+
+                          </div>
+                          <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
+                          accept="image/*" [uploader]="uploader" (change)="selectImage($event)"
+                          #fileInput> -->
+
+                          <!-- <div class="form-row mb-4">
+                            <button class="btn btn-secondary" type="button"  accept="image/*">Choose Profile Picture</button>
+                            <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                              Resolution : (320 x 280)p / 8 : 7
+                            </small>
+                          </div> -->
+                          <br>
+                          <!-- <br>
+                          <button mat-raised-button (click)=addEmployee() type="submit" class="my-4 btn-block reg_btn ">
+                            Register
+                          </button>
+
+                          <button mat-raised-button (click)=reset() type="submit" class="my-4 btn-block btn_1  ">
+                            Cancel
+                          </button> -->
+                        <!-- {{employeeForm.value|json}} -->
+                      </form>
                     </div>
                   </mat-tab>
 

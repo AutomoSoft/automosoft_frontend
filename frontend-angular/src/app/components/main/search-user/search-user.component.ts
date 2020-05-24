@@ -13,11 +13,13 @@ interface user {
   firstname: String;
   lastname: String;
   gender: String;
-  nic: String;
+  nicnumber: String;
   address: String;
   contactnumber: String;
   email: String;
   password: String;
+  addedon: String;
+  vehiclenumber: String;
 
   // filepath: String;
 }
@@ -40,8 +42,10 @@ export class SearchUserComponent implements OnInit {
 
   userdata: user[] = [];
   userSearchForm: FormGroup;
+  UserDataForm: FormGroup;
   userid;
   dataform: Boolean = false;
+  userflag = false;   //to obtain usertype to show/hide customer fields
 
   ngOnInit() {
     var temp = this.cookies.getCookie("userAuth");
@@ -51,6 +55,21 @@ export class SearchUserComponent implements OnInit {
 
     this.userSearchForm = this.fb.group({
       userid: ['', Validators.required]
+    });
+
+    this.UserDataForm = this.fb.group({
+      usertype: ["", Validators.required],
+      userid: ["", Validators.required],
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      gender: ["", Validators.required],
+      nic: ["", Validators.required],
+      address: ["", Validators.required],
+      contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
+      email: ["", [Validators.required, Validators.email]],
+      addedon: ["", Validators.required],
+      vehiclenumber: ["", Validators.required],
+      password: ["", [Validators.required, Validators.minLength(8)]],
     });
   }
 
@@ -63,10 +82,14 @@ export class SearchUserComponent implements OnInit {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
-        this.snackBar.open("Error find in user..! ", true ? "Retry" : undefined, config);
+        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
+        if(res.data.usertype=="Customer"){
+          this.userflag = true;
+        }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
+
         console.log(this.userdata);
 
       }
