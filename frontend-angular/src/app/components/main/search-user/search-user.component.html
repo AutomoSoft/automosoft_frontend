@@ -19,21 +19,21 @@
                 <mat-tab-group class="p-5 reg-frm">
 
                 <mat-tab label="USER PROFILE">
-                    <form>
+                    <form [formGroup] = userSearchForm>
 
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
-                        <h3 class="topic" >Enter User ID:</h3>
+                        <h3 class="topic" style="margin-left: -600px;" >ENTER USER ID:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
                             <mat-label>USER ID:</mat-label>
-                            <input matInput class="form-control box_border" >
+                            <input matInput class="form-control box_border" formControlName = "userid" >
                           </mat-form-field>
                         </div>
                         <br>
                         <br>
-                        <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">
+                        <button mat-raised-button type="submit" (click)="searchUser()" class="my-4 btn-block reg_btn ">
                           Search
                         </button>
 
@@ -42,6 +42,10 @@
                         </button>
                       </mat-card>
                     </form>
+
+                    <div class="container" *ngIf="dataform">
+                      Hello
+                    </div>
                   </mat-tab>
 
                 </mat-tab-group>
