@@ -105,6 +105,10 @@ reset(){
   this.employeeForm.reset();
 }
   ngOnInit() {
+    var temp = this.cookies.getCookie("userAuth");
+    if(temp==""){
+      this.router.navigate(['/login']);
+    }
   }
 
 }

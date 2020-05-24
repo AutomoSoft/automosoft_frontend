@@ -125,6 +125,10 @@ export class RegisterSupplierComponent implements OnInit {
   }
 
   ngOnInit() {
+    var temp = this.cookies.getCookie("userAuth");
+    if(temp==""){
+      this.router.navigate(['/login']);
+    }
   }
 
 }

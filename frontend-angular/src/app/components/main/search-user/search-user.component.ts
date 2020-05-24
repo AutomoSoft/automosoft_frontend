@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MycookiesService } from "../../Admin/mycookies.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-search-user',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cookies: MycookiesService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+    var temp = this.cookies.getCookie("userAuth");
+    if(temp==""){
+      this.router.navigate(['/login']);
+    }
   }
 
 }
