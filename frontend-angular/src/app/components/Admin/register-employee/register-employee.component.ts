@@ -24,12 +24,15 @@ export class RegisterEmployeeComponent implements OnInit {
 
   opened: boolean;
   cookie;
+  images;
+  filename;
   constructor(
     private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
     private cookies: MycookiesService,
     private dialog: MatDialog,
+    public snackBar: MatSnackBar,
   ) {
     if (this.cookies.getCookie("userAuth") != "") {
       this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
@@ -50,10 +53,20 @@ employeeForm = this.fb.group({
 
 });
 
+selectImage(event) {
+  if (event.target.files.length > 0) {  // check the file is select or not.
+    const file = event.target.files[0];
+    this.images = file;
+    this.filename = file.name;
+    //console.log(file);
+  }
+}
+
 addEmployee() {
 
   let date=Date();
   const registerEmployee = {
+    profileImage: this.images,
     usertype : this.employeeForm.value.usertype,
     userid: this.employeeForm.value.userid,
     firstName: this.employeeForm.value.firstName,
@@ -71,33 +84,42 @@ addEmployee() {
 
   var url = "http://localhost:3000/users/register";
 
-  const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-    data: {
-      message: "Are you sure want to Add?",
-      buttonText: {
-        ok: "Yes",
-        cancel: "No"
-      }
-    },
-  });
-
-  dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-
-    if (confirmed) {
-      this.http.post<any>(url, registerEmployee).subscribe(res => {
-        if (res.state) {
-          console.log(res.msg);
-          window.location.reload();
-          // this.customerForm.reset();
-        } else {
-          console.log(res.msg);
-          alert("Error!! Try Again");
-          this.router.navigate([this.cookie.userid,'registerEmployee']);
+  if (this.images == null) {  //check profile image select or not
+    let config = new MatSnackBarConfig();
+    config.duration = true ? 2000 : 0;
+    this.snackBar.open("Please select a profile picture..! ", true ? "Ok" : undefined, config);
+  }else {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: "Are you sure want to Add?",
+        buttonText: {
+          ok: "Yes",
+          cancel: "No"
         }
-      });
-      console.log(registerEmployee);
-    }
-  });
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+      if (confirmed) {
+        this.http.post<any>(url, registerEmployee).subscribe(res => {
+          if (res.state) {
+            console.log(res.msg);
+            window.location.reload();
+            // this.customerForm.reset();
+          } else {
+            console.log(res.msg);
+            alert("Error!! Try Again");
+            this.router.navigate([this.cookie.userid,'registerEmployee']);
+          }
+        });
+        console.log(registerEmployee);
+      }
+    });
+
+  }
+
+
 }
 
 
