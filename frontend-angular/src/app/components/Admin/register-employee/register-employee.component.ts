@@ -53,8 +53,9 @@ employeeForm = this.fb.group({
 
 });
 
+//button event to upload profile image
 selectImage(event) {
-  if (event.target.files.length > 0) {  // check the file is select or not.
+  if (event.target.files.length > 0) {  // check if file selected.
     const file = event.target.files[0];
     this.images = file;
     this.filename = file.name;
@@ -64,60 +65,70 @@ selectImage(event) {
 
 addEmployee() {
 
-  let date=Date();
-  const registerEmployee = {
-    profileImage: this.images,
-    usertype : this.employeeForm.value.usertype,
-    userid: this.employeeForm.value.userid,
-    firstName: this.employeeForm.value.firstName,
-    lastName: this.employeeForm.value.lastName,
-    gender: this.employeeForm.value.gender,
-    nic: this.employeeForm.value.nic,
-    address: this.employeeForm.value.address,
-    contactnumber: this.employeeForm.value.contactNo,
-    email: this.employeeForm.value.email,
-    password: this.employeeForm.value.password,
-    addedby: this.cookie.userid,
-    addedon: date,
-  };
-
-
-  var url = "http://localhost:3000/users/register";
-
-  if (this.images == null) {  //check profile image select or not
+  if (this.employeeForm.invalid) {
     let config = new MatSnackBarConfig();
-    config.duration = true ? 2000 : 0;
-    this.snackBar.open("Please select a profile picture..! ", true ? "Ok" : undefined, config);
+    this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+    return;
   }else {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: {
-        message: "Are you sure want to Add?",
-        buttonText: {
-          ok: "Yes",
-          cancel: "No"
-        }
-      },
-    });
+    let date=Date();
+    const formData = new FormData();
+        //append the data to the form
+        formData.append('profileImage', this.images)
+        formData.append('usertype', this.employeeForm.value.usertype)
+        formData.append('userid', this.employeeForm.value.userid)
+        formData.append('firstName', this.employeeForm.value.firstName)
+        formData.append('lastName', this.employeeForm.value.lastName)
+        formData.append('gender', this.employeeForm.value.gender)
+        formData.append('nic', this.employeeForm.value.nicnumber)
+        formData.append('address', this.employeeForm.value.address)
+        formData.append('contactnumber', this.employeeForm.value.contactNo)
+        formData.append('email', this.employeeForm.value.email)
+        formData.append('password', this.employeeForm.value.password)
+        formData.append('addedby',  this.cookie.userid)
+        formData.append('addedon', date)
 
-    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 
-      if (confirmed) {
-        this.http.post<any>(url, registerEmployee).subscribe(res => {
-          if (res.state) {
-            console.log(res.msg);
-            window.location.reload();
-            // this.customerForm.reset();
-          } else {
-            console.log(res.msg);
-            alert("Error!! Try Again");
-            this.router.navigate([this.cookie.userid,'registerEmployee']);
+
+    var url = "http://localhost:3000/users/register";
+
+    if (this.images == null) {  //check profile image select or not
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Please select a profile picture..! ", true ? "OK" : undefined, config);
+    }else {
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        data: {
+          message: "Are you sure want to Add?",
+          buttonText: {
+            ok: "Yes",
+            cancel: "No"
           }
-        });
-        console.log(registerEmployee);
-      }
-    });
+        },
+      });
+
+      dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+        if (confirmed) {
+          this.http.post<any>(url, formData).subscribe(res => {
+            if (res.state) {
+              console.log(res.msg);
+              window.location.reload();
+
+            } else {
+              console.log(res.msg);
+              alert("Error!! Try Again");
+              this.router.navigate([this.cookie.userid,'registerEmployee']);
+            }
+          });
+          console.log(formData);
+        }
+      });
+
+    }
+
 
   }
+
 
 
 }
