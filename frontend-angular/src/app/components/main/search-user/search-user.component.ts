@@ -3,7 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatSnackBar, MatSnackBarConfig, MatDialog } from '@angular/material';
 import { Router } from "@angular/router";
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+
+import {
+  FormBuilder,
+  Validators,
+  FormControl,
+  FormGroup,
+  FormArray,
+  Form
+} from "@angular/forms";
 
 
 interface user {
@@ -19,6 +28,8 @@ interface user {
   email: String;
   password: String;
   addedon: String;
+  lastmodifiedon: String;
+  lastmodifiedby: String;
   vehiclenumber: String;
 
   // filepath: String;
@@ -31,6 +42,14 @@ interface user {
 })
 export class SearchUserComponent implements OnInit {
 
+  userdata: user[] = [];
+  userSearchForm: FormGroup;
+  UserDataForm: FormGroup;
+  userid;
+  cookie;
+  dataform: Boolean = false;
+  userflag = false;   //to obtain usertype to show/hide customer fields
+
   constructor(
     private http: HttpClient,
     private cookies: MycookiesService,
@@ -38,18 +57,14 @@ export class SearchUserComponent implements OnInit {
     private fb: FormBuilder,
     public snackBar: MatSnackBar,
     private dialog: MatDialog,
-  ) { }
+  ) {
+    this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
+  }
 
-  userdata: user[] = [];
-  userSearchForm: FormGroup;
-  UserDataForm: FormGroup;
-  userid;
-  dataform: Boolean = false;
-  userflag = false;   //to obtain usertype to show/hide customer fields
 
   ngOnInit() {
-    var temp = this.cookies.getCookie("userAuth");
-    if(temp==""){
+    var cookie = this.cookies.getCookie("userAuth");
+    if(cookie==""){
       this.router.navigate(['/login']);
     }
 
@@ -68,6 +83,8 @@ export class SearchUserComponent implements OnInit {
       contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
+      lastmodifiedon: ["", Validators.required],
+      lastmodifiedby: ["", Validators.required],
       vehiclenumber: ["", Validators.required],
       password: ["", [Validators.required, Validators.minLength(8)]],
     });
@@ -90,10 +107,93 @@ export class SearchUserComponent implements OnInit {
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
 
-        console.log(this.userdata);
+        //console.log(this.userdata);
 
       }
     });
+  }
+
+  resetSearch(){
+    this.userSearchForm.reset();
+  }
+
+  cancel(){
+    this.router.navigate(['/searchUser']);
+  }
+
+  //update user
+  updateUser() {
+    // if (this.UserDataForm.invalid) {
+    //   console.log("Methanaa")
+    //   return;
+    // }
+    // else {
+      let date=Date();
+    //   const formData = new FormData();
+    //   //append the data to the form
+    //  // formData.append('profileImage', this.images)
+    //   formData.append('usertype', this.UserDataForm.value.usertype)
+    //   formData.append('userid', this.UserDataForm.value.userid)
+    //   formData.append('firstName', this.UserDataForm.value.firstName)
+    //   formData.append('lastName', this.UserDataForm.value.lastName)
+    //   formData.append('gender', this.UserDataForm.value.gender)
+    //   formData.append('nic', this.UserDataForm.value.nicnumber)
+    //   formData.append('address', this.UserDataForm.value.address)
+    //   formData.append('contactnumber', this.UserDataForm.value.contactNo)
+    //   formData.append('email', this.UserDataForm.value.email)
+    //   formData.append('password', this.UserDataForm.value.password)
+    //   formData.append('lastmodifiedby',  this.cookie.userid)
+    //   formData.append('lastmodifiedon', date)
+
+    const formData ={
+      usertype:this.UserDataForm.value.usertype,
+      userid:this.UserDataForm.value.userid,
+      firstName:this.UserDataForm.value.firstName,
+      lastName:this.UserDataForm.value.lastName,
+      gender:this.UserDataForm.value.gender,
+      nic:this.UserDataForm.value.nicnumber,
+      address:this.UserDataForm.value.address,
+      contactnumber:this.UserDataForm.value.contactNo,
+      email:this.UserDataForm.value.email,
+      password:this.UserDataForm.value.password,
+      lastmodifiedby: this.cookie.userid,
+      lastmodifiedon:date,
+    };
+
+
+      console.log(formData);
+      /****************************************************** */
+      const url = 'http://localhost:3000/users/updateUser/';    //backend url
+
+      //popping dialog box for confirmaration
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        data: {
+          message: 'Are you sure want to update?',
+          buttonText: {
+            ok: 'Yes',
+            cancel: 'No'
+          }
+        }
+      });
+      dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+        if (confirmed) {
+
+          this.http.post<any>(url + this.userid, formData).subscribe(res => {
+            if (res.state) {
+              let config = new MatSnackBarConfig();
+              config.duration = true ? 2000 : 0;
+              this.snackBar.open("Successfully Updated..! ", true ? "Done" : undefined, config);
+            }
+            else {
+              let config = new MatSnackBarConfig();
+              config.duration = true ? 2000 : 0;
+              this.snackBar.open("Error in Update User..! ", true ? "Retry" : undefined, config);
+            }
+          });
+          window.location.reload();
+        }
+      })
+    // }
   }
 
 }

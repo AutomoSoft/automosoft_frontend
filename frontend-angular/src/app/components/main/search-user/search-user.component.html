@@ -37,7 +37,7 @@
                           Search
                         </button>
 
-                        <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  ">
+                        <button mat-raised-button (click)="resetSearch()()" type="submit" class="my-4 btn-block btn_1  ">
                           Cancel
                         </button>
                       </mat-card>
@@ -118,9 +118,19 @@
                               <input matInput readonly formControlName="addedon" [(ngModel)]="userdata.addedon">
                             </mat-form-field>
 
-                            <mat-form-field appearance="outline" *ngIf="userflag">
+                            <!-- <mat-form-field appearance="outline" *ngIf="userflag">
                               <mat-label>Vehicle Registration Number:</mat-label>
                               <input matInput  formControlName="vehiclenumber" [(ngModel)]="userdata.vehiclenumber">
+                            </mat-form-field> -->
+
+                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'" >
+                              <mat-label>Last Modified On:</mat-label>
+                              <input matInput readonly formControlName="lastmodifiedon" [(ngModel)]="userdata.lastmodifiedon">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'">
+                              <mat-label>Last Modified By:</mat-label>
+                              <input matInput readonly formControlName="lastmodifiedby" [(ngModel)]="userdata.lastmodifiedby">
                             </mat-form-field>
 
                             <!-- <mat-form-field appearance="outline">
@@ -141,14 +151,14 @@
                             </small>
                           </div> -->
                           <br>
-                          <!-- <br>
-                          <button mat-raised-button (click)=addEmployee() type="submit" class="my-4 btn-block reg_btn ">
-                            Register
+                          <br>
+                          <button mat-raised-button (click)=updateUser() type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
+                            Update
                           </button>
 
-                          <button mat-raised-button (click)=reset() type="submit" class="my-4 btn-block btn_1  ">
+                          <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
                             Cancel
-                          </button> -->
+                          </button>
                         <!-- {{employeeForm.value|json}} -->
                       </form>
                     </div>

@@ -86,6 +86,8 @@ addEmployee() {
         formData.append('password', this.employeeForm.value.password)
         formData.append('addedby',  this.cookie.userid)
         formData.append('addedon', date)
+        formData.append('lastmodifiedby',  "Never Modified")
+        formData.append('lastmodifiedon', date)
 
 
 
