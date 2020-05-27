@@ -18,7 +18,7 @@
 
                 <mat-tab-group class="p-5 reg-frm">
 
-                <mat-tab label="USER PROFILE">
+                <mat-tab label="SEARCH BY USER ID">
                     <form [formGroup] = userSearchForm *ngIf="!dataform">
 
                       <mat-card>
@@ -95,7 +95,7 @@
 
                             <mat-form-field appearance="outline">
                               <mat-label>NIC Number:</mat-label>
-                              <input matInput placeholder="96xxxxxxxV" formControlName="nic" [(ngModel)]="userdata.nicnumber">
+                              <input matInput placeholder="96xxxxxxxV" formControlName="nicnumber" [(ngModel)]="userdata.nicnumber">
                             </mat-form-field>
 
                             <mat-form-field appearance="outline">
@@ -118,10 +118,10 @@
                               <input matInput readonly formControlName="addedon" [(ngModel)]="userdata.addedon">
                             </mat-form-field>
 
-                            <!-- <mat-form-field appearance="outline" *ngIf="userflag">
+                            <mat-form-field appearance="outline" *ngIf="userflag">
                               <mat-label>Vehicle Registration Number:</mat-label>
                               <input matInput  formControlName="vehiclenumber" [(ngModel)]="userdata.vehiclenumber">
-                            </mat-form-field> -->
+                            </mat-form-field>
 
                             <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'" >
                               <mat-label>Last Modified On:</mat-label>
@@ -150,8 +150,7 @@
                               Resolution : (320 x 280)p / 8 : 7
                             </small>
                           </div> -->
-                          <br>
-                          <br>
+
                           <button mat-raised-button (click)=updateUser() type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
                             Update
                           </button>
@@ -159,9 +158,15 @@
                           <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
                             Cancel
                           </button>
-                        <!-- {{employeeForm.value|json}} -->
+                          <br>
+                          <br>
                       </form>
                     </div>
+                  </mat-tab>
+<!-- ***************************************************************************** View All Users ************************************************************************** -->
+
+                  <mat-tab label="VIEW ALL USERS">
+
                   </mat-tab>
 
                 </mat-tab-group>

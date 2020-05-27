@@ -54,6 +54,7 @@ import { SearchUserComponent } from './components/main/search-user/search-user.c
 import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
+import { ProfileComponent } from './components/main/profile/profile.component';
 
 
 
@@ -78,6 +79,7 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
     ViewStoreComponent,
     AddOrdersComponent,
     ApproveOrdersComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

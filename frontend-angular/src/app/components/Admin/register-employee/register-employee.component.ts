@@ -45,7 +45,7 @@ employeeForm = this.fb.group({
   firstName: ["", Validators.required],
   lastName: ["", Validators.required],
   gender: ["", Validators.required],
-  nic: ["", Validators.required],
+  nicnumber: ["", Validators.required],
   address: ["", Validators.required],
   contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
   email: ["", [Validators.required, Validators.email]],
@@ -79,7 +79,7 @@ addEmployee() {
         formData.append('firstName', this.employeeForm.value.firstName)
         formData.append('lastName', this.employeeForm.value.lastName)
         formData.append('gender', this.employeeForm.value.gender)
-        formData.append('nic', this.employeeForm.value.nicnumber)
+        formData.append('nicnumber', this.employeeForm.value.nicnumber)
         formData.append('address', this.employeeForm.value.address)
         formData.append('contactnumber', this.employeeForm.value.contactNo)
         formData.append('email', this.employeeForm.value.email)

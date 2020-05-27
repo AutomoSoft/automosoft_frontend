@@ -15,6 +15,7 @@ import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-sto
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
+import { ProfileComponent } from './components/main/profile/profile.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:":id/landing", component:UserlandingComponent},
   {path:"searchUser", component:SearchUserComponent},
+  {path:"viewProfile", component:ProfileComponent},
 
 
   /****************************************** Admin Routes ********************************************** */

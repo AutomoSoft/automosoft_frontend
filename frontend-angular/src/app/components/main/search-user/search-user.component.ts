@@ -78,15 +78,15 @@ export class SearchUserComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
       gender: ["", Validators.required],
-      nic: ["", Validators.required],
+      nicnumber: ["", Validators.required],
       address: ["", Validators.required],
       contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
       lastmodifiedon: ["", Validators.required],
       lastmodifiedby: ["", Validators.required],
-      vehiclenumber: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(8)]],
+      //vehiclenumber: ["", Validators.required],
+      //password: ["", [Validators.required, Validators.minLength(8)]],
     });
   }
 
@@ -102,7 +102,7 @@ export class SearchUserComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         if(res.data.usertype=="Customer"){
-          this.userflag = true;
+          this.userflag = true;  
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
@@ -118,16 +118,18 @@ export class SearchUserComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['/searchUser']);
+    this.UserDataForm.reset();
+    window.location.reload();
   }
 
   //update user
   updateUser() {
-    // if (this.UserDataForm.invalid) {
-    //   console.log("Methanaa")
-    //   return;
-    // }
-    // else {
+    if (this.UserDataForm.invalid) {
+      let config = new MatSnackBarConfig();
+      this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+      return;
+    }
+    else {
       let date=Date();
     //   const formData = new FormData();
     //   //append the data to the form
@@ -151,11 +153,11 @@ export class SearchUserComponent implements OnInit {
       firstName:this.UserDataForm.value.firstName,
       lastName:this.UserDataForm.value.lastName,
       gender:this.UserDataForm.value.gender,
-      nic:this.UserDataForm.value.nicnumber,
+      nicnumber:this.UserDataForm.value.nicnumber,
       address:this.UserDataForm.value.address,
       contactnumber:this.UserDataForm.value.contactNo,
       email:this.UserDataForm.value.email,
-      password:this.UserDataForm.value.password,
+      //password:this.UserDataForm.value.password,
       lastmodifiedby: this.cookie.userid,
       lastmodifiedon:date,
     };
@@ -193,7 +195,7 @@ export class SearchUserComponent implements OnInit {
           window.location.reload();
         }
       })
-    // }
+    }
   }
 
 }

@@ -21,7 +21,7 @@
       </span>
       <!-- //insert click here for normal user-->
       <span class="nav-itm nav_item" *ngIf="cookies.logingstatus && cookies.userData.usertype != 'Administrator'" >
-        <button mat-button routerLink="/menu"  class="btn">
+        <button mat-button (click)="menu()"  class="btn">
           <mat-icon>menu</mat-icon>&nbsp;Menu
         </button>
       </span>
@@ -33,7 +33,7 @@
       </span>
 
       <span class="nav-itm nav_item" *ngIf="cookies.logingstatus">
-        <button mat-button routerLink="/profile"  class="btn ">
+        <button mat-button routerLink="/viewProfile"  class="btn ">
           <mat-icon>person</mat-icon>&nbsp; {{cookies.userData.usertype}}
           <!-- {{cookies.profile}}(click)="userProfile()" -->
         </button>
