@@ -44,9 +44,15 @@
                     </form>
 
                     <div class="container" *ngIf="dataform">
-                      Hello
                       <form [formGroup] = UserDataForm>
-
+                        <br>
+                        <br>
+                        <div>
+                          <mat-card class="profile-card">
+                              <img class="profile-pic" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+                          </mat-card>
+                        </div>
+                        <br>
                           <div class="form-row mb-4">
                             <mat-form-field appearance="outline">
                               <!-- <mat-label>Select User Type:</mat-label> -->
