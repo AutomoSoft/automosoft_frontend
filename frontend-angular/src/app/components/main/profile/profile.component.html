@@ -33,7 +33,7 @@
                           <div class="form-row mb-4">
                             <mat-form-field appearance="outline">
                               <!-- <mat-label>Select User Type:</mat-label> -->
-                              <mat-select placeholder="User Category:" readonly name="usertype" [(ngModel)]="userdata.usertype">
+                              <mat-select placeholder="User Category:" disabled name="usertype" [(ngModel)]="userdata.usertype">
                                 <mat-option value="Administrator">Admin</mat-option>
                                 <mat-option value="Accountant">Accountant</mat-option>
                                 <mat-option value="Forman">Forman</mat-option>
@@ -64,7 +64,7 @@
                             </mat-form-field>
 
                             <mat-form-field appearance="outline" >
-                              <mat-select placeholder="Gender" name="gender" readonly [(ngModel)]="userdata.gender">
+                              <mat-select placeholder="Gender" disabled name="gender" readonly [(ngModel)]="userdata.gender">
                                 <mat-option value="Male">Male</mat-option>
                                 <mat-option value="Female">Female</mat-option>
                               </mat-select>

@@ -49,6 +49,7 @@ export class SearchUserComponent implements OnInit {
   cookie;
   dataform: Boolean = false;
   userflag = false;   //to obtain usertype to show/hide customer fields
+  propicName;  //profile picture name
 
   constructor(
     private http: HttpClient,
@@ -90,6 +91,8 @@ export class SearchUserComponent implements OnInit {
     });
   }
 
+/*************************************************** Search User  ***********************************************************/
+
   searchUser() {
     this.userid = this.userSearchForm.value.userid; //get user id
 
@@ -102,11 +105,11 @@ export class SearchUserComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         if(res.data.usertype=="Customer"){
-          this.userflag = true;  
+          this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
-
+        this.propicName = res.data.filepath;
         //console.log(this.userdata);
 
       }
@@ -118,11 +121,12 @@ export class SearchUserComponent implements OnInit {
   }
 
   cancel(){
-    this.UserDataForm.reset();
-    window.location.reload();
+    // this.UserDataForm.reset();
+     window.location.reload();
   }
 
-  //update user
+  /*************************************************** Update User  ***********************************************************/
+
   updateUser() {
     if (this.UserDataForm.invalid) {
       let config = new MatSnackBarConfig();
@@ -163,11 +167,10 @@ export class SearchUserComponent implements OnInit {
     };
 
 
-      console.log(formData);
-      /****************************************************** */
+      //console.log(formData);
       const url = 'http://localhost:3000/users/updateUser/';    //backend url
 
-      //popping dialog box for confirmaration
+
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
         data: {
           message: 'Are you sure want to update?',
@@ -198,4 +201,43 @@ export class SearchUserComponent implements OnInit {
     }
   }
 
+  /*************************************************** Delete User  ***********************************************************/
+
+  delete(){
+    const url1 = "http://localhost:3000/users/delprofImage/" //delete profile image
+    const url2 = "http://localhost:3000/users/deleteUser/"  //delete data from tha database
+
+    //confirmaration box
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Yes',
+          cancel: 'No'
+        }
+      }
+    });
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        if (this.propicName) {
+          this.http.delete<any>(url1 + this.propicName).subscribe(res => {
+            console.log(res);
+          })
+        }
+        this.http.delete<any>(url2 + this.userid).subscribe(res => {
+          if (res.state == true) {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Successfully Deleted..! ", true ? "Done" : undefined, config);
+          }
+          else {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Deletion Unsuccessfull..! ", true ? "Retry" : undefined, config);
+          }
+        })
+        window.location.reload();
+      }
+    });
+  }
 }

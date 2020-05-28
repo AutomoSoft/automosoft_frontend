@@ -158,6 +158,10 @@
                           <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
                             Cancel
                           </button>
+
+                          <button mat-raised-button (click)=delete() type="submit" class="my-4 btn-block del_btn">
+                            Delete
+                          </button>
                           <br>
                           <br>
                       </form>
@@ -165,8 +169,26 @@
                   </mat-tab>
 <!-- ***************************************************************************** View All Users ************************************************************************** -->
 
-                  <mat-tab label="VIEW ALL USERS">
+                  <mat-tab label="VIEW ALL USERS" *ngIf="!dataform">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
+                      <h3 class="topic" style="margin-left: -600px;" >SELECT USER CATEGORY:</h3>
+                      <div class="form-row mb-4">
+                        <mat-form-field appearance="outline">
+                          <mat-select placeholder="User Category:">
+                            <mat-option value="Administrator">Admin</mat-option>
+                            <mat-option value="Accountant">Accountant</mat-option>
+                            <mat-option value="Forman">Forman</mat-option>
+                            <mat-option value="Store-Keeper">Store-Keeper</mat-option>
+                            <mat-option value="Technician">Technician</mat-option>
+                            <mat-option value="Customer">Customer</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <br>
+                      <br>
+                    </mat-card>
                   </mat-tab>
 
                 </mat-tab-group>
