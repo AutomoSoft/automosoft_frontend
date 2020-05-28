@@ -9,11 +9,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
-              <!-- <span><mat-icon>menu
-                <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
 
-              </mat-icon>
-              </span> -->
               <br />
               <div class="test">
                 <h2 class="topic">EMPLOYEE REGISTRATION</h2>
@@ -71,7 +67,7 @@
 
                           <mat-form-field appearance="outline">
                             <mat-label>NIC Number:</mat-label>
-                            <input matInput placeholder="96xxxxxxxV" formControlName="nic">
+                            <input matInput placeholder="96xxxxxxxV" formControlName="nicnumber">
                           </mat-form-field>
 
                           <mat-form-field appearance="outline">
@@ -93,19 +89,17 @@
                             <mat-label>Password:</mat-label>
                             <input matInput minlength=8 formControlName="password">
                           </mat-form-field>
-
-
                         </div>
-                        <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
-                        accept="image/*" [uploader]="uploader" (change)="selectImage($event)"
-                        #fileInput> -->
+                        <input type="file" class="file_upload" style="display: none" name="profilepic"
+                        accept="image/*"  (change)="selectImage($event)"
+                        #fileInput>
 
-                        <!-- <div class="form-row mb-4">
-                          <button class="btn btn-secondary" type="button"  accept="image/*">Choose Profile Picture</button>
+                        <div class="form-row mb-4">
+                          <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Profile Picture</button>
                           <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
-                            Resolution : (320 x 280)p / 8 : 7
+                            Resolution : (320 x 280)p / 8 : 7 {{filename}}
                           </small>
-                        </div> -->
+                        </div>
                         <br>
                         <br>
                         <button mat-raised-button (click)=addEmployee() type="submit" class="my-4 btn-block reg_btn ">

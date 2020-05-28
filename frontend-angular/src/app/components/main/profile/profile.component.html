@@ -1,0 +1,136 @@
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec;">
+              <br />
+              <div class="test">
+                <h2 class="topic">USER PROFILE</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+<!-- ***************************************************************************** User Information************************************************************************************* -->
+
+                <mat-tab label="USER INFO">
+                    <div class="container">
+                      <form >
+                        <br>
+                        <br>
+                        <div>
+                          <mat-card class="profile-card">
+                              <img class="profile-pic" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+                          </mat-card>
+                        </div>
+                        <br>
+                          <div class="form-row mb-4">
+                            <mat-form-field appearance="outline">
+                              <!-- <mat-label>Select User Type:</mat-label> -->
+                              <mat-select placeholder="User Category:" disabled name="usertype" [(ngModel)]="userdata.usertype">
+                                <mat-option value="Administrator">Admin</mat-option>
+                                <mat-option value="Accountant">Accountant</mat-option>
+                                <mat-option value="Forman">Forman</mat-option>
+                                <mat-option value="Store-Keeper">Store-Keeper</mat-option>
+                                <mat-option value="Technician">Technician</mat-option>
+                                <mat-option value="Customer">Customer</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Employee ID:</mat-label>
+                              <input matInput readonly class="form-control box_border" name="userid" [(ngModel)]="userdata.userid">
+                              <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                            </mat-form-field>
+
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>First Name:</mat-label>
+                              <input matInput readonly class="form-control box_border" name="firstname" [(ngModel)]="userdata.firstname">
+
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Last Name:</mat-label>
+                              <input matInput readonly class="form-control box_border" name="lasntname" [(ngModel)]="userdata.lastname">
+
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-select placeholder="Gender" disabled name="gender" readonly [(ngModel)]="userdata.gender">
+                                <mat-option value="Male">Male</mat-option>
+                                <mat-option value="Female">Female</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>NIC Number:</mat-label>
+                              <input matInput readonly placeholder="96xxxxxxxV" name="nicnumber" [(ngModel)]="userdata.nicnumber">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Address:</mat-label>
+                              <textarea matInput readonly name="adress" [(ngModel)]="userdata.address"></textarea>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Contact Number:</mat-label>
+                              <input matInput readonly placeholder="Ex. 081xxxxxxx" name="contactnumber" [(ngModel)]="userdata.contactnumber">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Email:</mat-label>
+                              <input matInput readonly placeholder="Ex. abc@example.com" name="email" [(ngModel)]="userdata.email">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-label>Addedon:</mat-label>
+                              <input matInput readonly readonly name="addedon" [(ngModel)]="userdata.addedon">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-label>Vehicle Registration Number:</mat-label>
+                              <input matInput readonly  name="vehiclenumber" [(ngModel)]="userdata.vehiclenumber">
+                            </mat-form-field>
+                          </div>
+                          <br>
+                          <br>
+                      </form>
+                    </div>
+                  </mat-tab>
+<!-- ***************************************************************************** Service History (Customer) ************************************************************************** -->
+
+                  <mat-tab label="SERVICE HISTORY">
+                    hide this for non customers
+                  </mat-tab>
+
+<!-- ***************************************************************************** Job History (Technician - specific only) ************************************************************ -->
+
+                  <mat-tab label="JOB HISTORY">
+                      show this only for technicians
+                  </mat-tab>
+
+<!-- ***************************************************************************** Job History (Forman - all jobs) ********************************************************************* -->
+
+                  <mat-tab label="JOB HISTORY">
+                    show this only for forman
+                  </mat-tab>
+                </mat-tab-group>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

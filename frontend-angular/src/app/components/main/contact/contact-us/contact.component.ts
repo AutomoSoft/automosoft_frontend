@@ -20,6 +20,7 @@ export class ContactComponent implements OnInit {
   latitude:any;
   longitude:any;
   zoom = 4;
+  contactForm: any;
 
 
 
@@ -44,6 +45,9 @@ export class ContactComponent implements OnInit {
     window.location.reload();
 
 
+  }
+  reset(){
+    this.contactForm.reset();
   }
 
 
