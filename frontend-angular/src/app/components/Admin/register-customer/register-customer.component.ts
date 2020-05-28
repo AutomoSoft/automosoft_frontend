@@ -15,12 +15,14 @@ import {
 
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 
+
 @Component({
   selector: 'app-register-customer',
   templateUrl: './register-customer.component.html',
   styleUrls: ['./register-customer.component.scss']
 })
 export class RegisterCustomerComponent implements OnInit {
+
 
   cookie;
   constructor(
@@ -37,25 +39,40 @@ export class RegisterCustomerComponent implements OnInit {
 
 customerForm = this.fb.group({
   userid: ["", Validators.required],
-  password: ["", Validators.required],
   firstName: ["", Validators.required],
   lastName: ["", Validators.required],
   email: ["", Validators.required],
   contactNo: ["", Validators.required],
+  password: ["", Validators.required],
+  confirmPassword:["",Validators.required],
+  vehicles: this.fb.array([this.fb.control('')]),
   vehicleRegNo: ["", Validators.required],
+  picker:["",Validators.required],
+
 
 });
+
+get vehicles ()
+{
+  return this.customerForm.get('vehicles') as FormArray;
+}
+addVehicle ()
+{
+  this.vehicles.push(this.fb.control(''));
+}
 
 addCustomer() {
   let date=Date();
   const registerCustomer = {
     usertype : "Customer",
     userid: this.customerForm.value.userid,
-    password: this.customerForm.value.password,
     firstName: this.customerForm.value.firstName,
     lastname: this.customerForm.value.lastname,
     email: this.customerForm.value.email,
-    contactnumber: this.customerForm.value.contactNo,
+    password: this.customerForm.value.password,
+    confirmPassword:this.customerForm.value.comfirmPassword,
+    contactNo: this.customerForm.value.contactNo,
+    vehicles:this.customerForm.value.i,
     vehicleRegNo: this.customerForm.value.vehicleRegNo,
     addedby: this.cookie.userid,
     addedon: date,
@@ -80,7 +97,7 @@ addCustomer() {
         if (res.state) {
           console.log(res.msg);
           window.location.reload();
-          // this.customerForm.reset();
+          this.customerForm.reset();
         } else {
           console.log(res.msg);
           alert("Error!! Try Again");
@@ -104,20 +121,8 @@ reset(){
   }
 
 }
-/*.resetForm(form:NgForm)
-{
-  if(form != null)
 
- form.reset();
-    this.user = {
-        userid : "",
-        firstName : "",
-        lastName : "",
-        email : "",
-        contactNo : "",
-        vehicleRegNo : "",
-    }
-}*/
+
 
 
 //DONOT DELETEEE
@@ -145,6 +150,7 @@ reset(){
 // addVehicle() {
 //   (this.customerForm.get("vehicles") as FormArray).push(this.vehicles);
 // }
+
 
 // addCustomer() {
 //   const registerCustomer = {

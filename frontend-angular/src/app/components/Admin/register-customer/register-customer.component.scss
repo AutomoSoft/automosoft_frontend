@@ -5,7 +5,7 @@
     center;
   background-size: cover;
   background-attachment: fixed;
-  height: 800px;
+  min-height: 800px;
 }
 
 .mat-option.mat-selected {
@@ -39,6 +39,17 @@ mat-datepicker-toggle {
   padding-right: 120px;
   border-radius: 20px;
   color: #333333;
+  height: 40px;
+  font-family: side_font;
+  font-weight: bolder;
+  background-color: #c76b15;
+}
+.btn1 {
+  padding-left: 80px;
+  padding-right: 80px;
+  border-radius: 20px;
+  float:rig;
+  color:white;
   height: 40px;
   font-family: side_font;
   font-weight: bolder;
@@ -107,9 +118,9 @@ mat-datepicker-toggle {
   color: white;
 }
 
-  .example-container {
+.example-container {
     background-color: #414142;
-  }
+}
 .button-container .btn:hover {
   border-radius: 18px;
   background-color: #a35a16;
