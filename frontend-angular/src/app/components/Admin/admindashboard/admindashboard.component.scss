@@ -1,5 +1,5 @@
 .tct {
-  background-color: #479761;
+  background-color: #000000;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -7,7 +7,7 @@
   height: 70px;
   // height: 100px;
   border-radius: 20px;
-  border: 1.55px solid #000000;
+
   // padding-left: 10px;
 }
 
@@ -22,8 +22,8 @@
 }
 .frist_div {
   height: 50px;
-  color: #19181a;
-  border: 1.55px solid #19181a;
+  color: #a35a16;
+  border: 1.55px solid #a35a16;
   padding-top: 3px;
   padding-bottom: 13px;
   border-radius: 5px;
@@ -32,7 +32,7 @@
 }
 
 .frist_div:hover {
-  color: #9d8d8f;
+  color: white;
   transition: 0.5s;
 }
 
@@ -45,11 +45,11 @@
 
 .btn_icn:hover {
   transition: 0.5s;
-  color: #19181a;
+  color: white;
 }
 
 .btn_txt {
-  color: #19181a;
+  color: #a35a16;
   font-size: 15px;
   padding-top: 5px;
   // margin-left: -20px;
