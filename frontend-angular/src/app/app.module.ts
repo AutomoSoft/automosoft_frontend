@@ -11,6 +11,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
+
 //material
 import {
   MatToolbarModule,
@@ -27,8 +28,8 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   MatPaginatorModule,
-  MatTableModule
-
+  MatTableModule,
+  MatNativeDateModule,
 
 
 } from '@angular/material';
@@ -109,6 +110,7 @@ import { ProfileComponent } from './components/main/profile/profile.component';
     MatGridListModule,
     MatDatepickerModule,
     MatExpansionModule,
+    MatNativeDateModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),

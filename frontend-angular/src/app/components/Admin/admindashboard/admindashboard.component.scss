@@ -1,8 +1,10 @@
 .tct {
-  background-color: #2b2a2a;
+  background-color: #479761;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   width: 275px;
+  height: 70px;
   // height: 100px;
   border-radius: 20px;
   border: 1.55px solid #000000;
@@ -18,47 +20,40 @@
   padding-top: 10px;
   // opacity: 50%;
 }
-
 .frist_div {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 0px;
-  color: #c76b15;
-  border: 1.55px solid #c76b15;
+  height: 50px;
+  color: #19181a;
+  border: 1.55px solid #19181a;
   padding-top: 3px;
   padding-bottom: 13px;
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-
 }
 
 .frist_div:hover {
-  background-color:rgb(37, 36, 39);
-  color: #339ccc;
+  color: #9d8d8f;
   transition: 0.5s;
 }
 
 .btn_icn {
   padding-left: 10px;
-  font-size: 35px;
+  font-size: 27px;
   padding-top: 6px;
+  padding-right: 10px;
 }
 
 .btn_icn:hover {
   transition: 0.5s;
-  color: #339ccc;
+  color: #19181a;
 }
-
-
 
 .btn_txt {
-  color: #c76b15;
-  font-size: 17px;
-  padding-top: 10px;
+  color: #19181a;
+  font-size: 15px;
+  padding-top: 5px;
   // margin-left: -20px;
 }
-
 
 .notice_label {
   color: white;
