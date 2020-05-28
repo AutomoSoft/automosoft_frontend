@@ -16,6 +16,7 @@ import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orde
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
+import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:"approveOrders", component:ApproveOrdersComponent},
   {path:"messages",component:MessageComponent},
   {path:"AddItems", component:AddItemsComponent},
+  {path:"supplierInfo", component:SupplierInfoComponent},
 
 
   /****************************************** StoreKeeper Routes **************************************** */

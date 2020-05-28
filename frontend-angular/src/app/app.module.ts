@@ -56,6 +56,7 @@ import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-sto
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
+import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
 
 
 
@@ -81,6 +82,7 @@ import { ProfileComponent } from './components/main/profile/profile.component';
     AddOrdersComponent,
     ApproveOrdersComponent,
     ProfileComponent,
+    SupplierInfoComponent,
   ],
   imports: [
     BrowserModule,
