@@ -11,6 +11,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
+
 //material
 import {
   MatToolbarModule,
@@ -26,6 +27,7 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatNativeDateModule,
 
 
 } from '@angular/material';
@@ -104,6 +106,7 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
     MatGridListModule,
     MatDatepickerModule,
     MatExpansionModule,
+    MatNativeDateModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),
