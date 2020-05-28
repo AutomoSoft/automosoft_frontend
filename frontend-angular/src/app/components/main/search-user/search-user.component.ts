@@ -42,7 +42,7 @@ interface user {
   styleUrls: ['./search-user.component.scss']
 })
 export class SearchUserComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','action'];
+  displayedColumns: string[] = ['userid', 'firstname', 'email', 'contactno','action'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -250,20 +250,15 @@ export class SearchUserComponent implements OnInit {
 
 }
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  userid: string;
+  firstname: string;
+  email: string;
+  contactno: string;
   action: string;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', action: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', action: 'H'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', action: 'H'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', action: 'H'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B', action: 'H'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', action: 'H'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', action: 'H'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', action: 'H'},
+  {firstname: 'Yasindi', userid: 'U001', email: 'abc@gmail.com', contactno: '077123123123', action: ''},
+  {firstname: 'Lalinda', userid: 'A001', email: 'pqr@gmail.com', contactno: '077123123123', action: ''},
+
 
 ];

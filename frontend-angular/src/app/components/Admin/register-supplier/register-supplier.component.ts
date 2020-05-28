@@ -71,7 +71,7 @@ export class RegisterSupplierComponent implements OnInit {
       supname: this.supplierForm.value.supname,
       address: this.supplierForm.value.address,
       contactnumber: this.supplierForm.value.contactNo,
-      //email: this.supplierForm.value.email,
+      email: this.supplierForm.value.email,
       itemtype: this.supplierForm.value.itemtype,
       itemid: this.supplierForm.value.itemid,
       brand: this.supplierForm.value.brand,
