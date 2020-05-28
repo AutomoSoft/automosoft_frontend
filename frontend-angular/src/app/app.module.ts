@@ -26,6 +26,8 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatPaginatorModule,
+  MatTableModule,
   MatNativeDateModule,
 
 
@@ -111,7 +113,10 @@ import { ProfileComponent } from './components/main/profile/profile.component';
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
