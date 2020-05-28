@@ -26,6 +26,8 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatPaginatorModule,
+  MatTableModule,
   MatNativeDateModule,
 
 
@@ -113,7 +115,10 @@ import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
