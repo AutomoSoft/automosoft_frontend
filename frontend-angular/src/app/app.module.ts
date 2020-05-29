@@ -26,6 +26,8 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatPaginatorModule,
+  MatTableModule,
   MatNativeDateModule,
 
 
@@ -56,6 +58,7 @@ import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-sto
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
+import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
 
 
 
@@ -81,6 +84,7 @@ import { ProfileComponent } from './components/main/profile/profile.component';
     AddOrdersComponent,
     ApproveOrdersComponent,
     ProfileComponent,
+    SupplierInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +115,10 @@ import { ProfileComponent } from './components/main/profile/profile.component';
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

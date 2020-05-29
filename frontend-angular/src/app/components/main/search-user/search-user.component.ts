@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from "../../Admin/mycookies.service";
-import { MatSnackBar, MatSnackBarConfig, MatDialog } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+
 
 import {
   FormBuilder,
@@ -41,6 +42,11 @@ interface user {
   styleUrls: ['./search-user.component.scss']
 })
 export class SearchUserComponent implements OnInit {
+  displayedColumns: string[] = ['userid', 'firstname', 'email', 'contactno','action'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
 
   userdata: user[] = [];
   userSearchForm: FormGroup;
@@ -89,6 +95,7 @@ export class SearchUserComponent implements OnInit {
       //vehiclenumber: ["", Validators.required],
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
+    this.dataSource.paginator = this.paginator;
   }
 
 /*************************************************** Search User  ***********************************************************/
@@ -240,4 +247,18 @@ export class SearchUserComponent implements OnInit {
       }
     });
   }
+
 }
+export interface PeriodicElement {
+  userid: string;
+  firstname: string;
+  email: string;
+  contactno: string;
+  action: string;
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+  {firstname: 'Yasindi', userid: 'U001', email: 'abc@gmail.com', contactno: '077123123123', action: ''},
+  {firstname: 'Lalinda', userid: 'A001', email: 'pqr@gmail.com', contactno: '077123123123', action: ''},
+
+
+];
