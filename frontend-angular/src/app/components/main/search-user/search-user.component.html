@@ -188,39 +188,44 @@
                       </div>
                       <br>
                       <br>
-
                       <div class="mat-elevation-z8">
                         <table mat-table [dataSource]="dataSource">
 
                           <!-- User ID Column -->
                           <ng-container matColumnDef="userid">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-style: Bold;"> User ID </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-style: Bold;"> USER ID </th>
                             <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
+                          </ng-container>
+
+                          <!-- User Type Column -->
+                          <ng-container matColumnDef="usertype">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-style: Bold;"> USER TYPE </th>
+                            <td mat-cell *matCellDef="let element"> {{element.usertype}} </td>
                           </ng-container>
 
                           <!-- First Name Column -->
                           <ng-container matColumnDef="firstname">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;">  First Name </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center;">  FIRST NAME </th>
                             <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
                           </ng-container>
 
                           <!-- E-mail Column -->
                           <ng-container  matColumnDef="email">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> E-mail </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> EMAIL </th>
                             <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                           </ng-container>
 
                           <!-- contact No Column -->
-                          <ng-container matColumnDef="contactno">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Contact No </th>
-                            <td mat-cell *matCellDef="let element"> {{element.contactno}} </td>
+                          <ng-container matColumnDef="contactnumber">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> CONTACT NO: </th>
+                            <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
                           </ng-container>
 
                           <ng-container matColumnDef="action">
                             <th mat-header-cell  *matHeaderCellDef style="text-align: center;" > Actions </th>
                             <td mat-cell *matCellDef="let element" >
-                                 <button mat-raised-button (click)=updateUser() type="submit" class="my-4 btn-block reg_btn" style="width: 5%; border-radius: 25px;" >Edit</button>
-                                 <button  mat-raised-button (click)=delete() type="submit" class="my-4 btn-block del_btn "style="width: 5%; border-radius: 25px;" >Delete</button>
+                                 <button mat-raised-button  type="submit" class="my-4 btn-block table_btn"  >View</button>
+                                 <button  mat-raised-button  type="submit" class="my-4 btn-block del_btn " >Delete</button>
                             </td>
                           </ng-container>
 
@@ -229,7 +234,7 @@
                           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
 
-                        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
                       </div>
 
                     </mat-card>

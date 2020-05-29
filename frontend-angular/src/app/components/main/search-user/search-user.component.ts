@@ -36,17 +36,26 @@ interface user {
   // filepath: String;
 }
 
+//table data
+export interface PeriodicElement {
+  userid: String;
+  usertype: String;
+  firstname: String;
+  email: String;
+  contactnumber: String;
+  action: String;
+}
+
 @Component({
   selector: 'app-search-user',
   templateUrl: './search-user.component.html',
   styleUrls: ['./search-user.component.scss']
 })
 export class SearchUserComponent implements OnInit {
-  displayedColumns: string[] = ['userid', 'firstname', 'email', 'contactno','action'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
+  displayedColumns: string[] = ['userid', 'usertype','firstname', 'email', 'contactnumber','action'];
+  TABLE_DATA: PeriodicElement[] = [];
+  dataSource;
 
   userdata: user[] = [];
   userSearchForm: FormGroup;
@@ -95,7 +104,25 @@ export class SearchUserComponent implements OnInit {
       //vehiclenumber: ["", Validators.required],
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
-    this.dataSource.paginator = this.paginator;
+
+
+/*************************************************** Table Data  ***********************************************************/
+
+    const url = "http://localhost:3000/users/searchAllUsers"   //backend url
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error...! ", true ? "Retry" : undefined, config);
+      } else {
+        this.TABLE_DATA = res.data;   //add response data in to datadata array
+        //this.propicName = res.data.filepath;
+        console.log(this.TABLE_DATA);
+        this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+      }
+    });
+
   }
 
 /*************************************************** Search User  ***********************************************************/
@@ -249,16 +276,5 @@ export class SearchUserComponent implements OnInit {
   }
 
 }
-export interface PeriodicElement {
-  userid: string;
-  firstname: string;
-  email: string;
-  contactno: string;
-  action: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {firstname: 'Yasindi', userid: 'U001', email: 'abc@gmail.com', contactno: '077123123123', action: ''},
-  {firstname: 'Lalinda', userid: 'A001', email: 'pqr@gmail.com', contactno: '077123123123', action: ''},
 
 
-];

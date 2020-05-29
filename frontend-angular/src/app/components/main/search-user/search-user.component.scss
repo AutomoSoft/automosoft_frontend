@@ -125,10 +125,17 @@
   border-radius: 5px;
   background-color: #3d4549;
 }
+
 table {
   width: 100%;
 }
-ng-container{
-  text-align: center;
+
+.table_btn {
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
