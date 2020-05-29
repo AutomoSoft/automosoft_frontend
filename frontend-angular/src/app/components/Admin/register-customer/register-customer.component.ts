@@ -46,7 +46,6 @@ customerForm = this.fb.group({
   password: ["", Validators.required],
   confirmPassword:["",Validators.required],
   vehicles: this.fb.array([this.fb.control('')]),
-  vehicleRegNo: ["", Validators.required],
   picker:["",Validators.required],
 
 
@@ -73,7 +72,6 @@ addCustomer() {
     confirmPassword:this.customerForm.value.comfirmPassword,
     contactNo: this.customerForm.value.contactNo,
     vehicles:this.customerForm.value.i,
-    vehicleRegNo: this.customerForm.value.vehicleRegNo,
     addedby: this.cookie.userid,
     addedon: date,
   };
