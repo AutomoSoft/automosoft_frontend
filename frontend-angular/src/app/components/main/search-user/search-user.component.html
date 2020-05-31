@@ -37,7 +37,7 @@
                           Search
                         </button>
 
-                        <button mat-raised-button (click)="resetSearch()()" type="submit" class="my-4 btn-block btn_1  ">
+                        <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block btn_1  ">
                           Cancel
                         </button>
                       </mat-card>
@@ -193,39 +193,39 @@
 
                           <!-- User ID Column -->
                           <ng-container matColumnDef="userid">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-style: Bold;"> USER ID </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER ID </th>
                             <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
                           </ng-container>
 
                           <!-- User Type Column -->
                           <ng-container matColumnDef="usertype">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-style: Bold;"> USER TYPE </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER TYPE </th>
                             <td mat-cell *matCellDef="let element"> {{element.usertype}} </td>
                           </ng-container>
 
                           <!-- First Name Column -->
                           <ng-container matColumnDef="firstname">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;">  FIRST NAME </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  FIRST NAME </th>
                             <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
                           </ng-container>
 
                           <!-- E-mail Column -->
                           <ng-container  matColumnDef="email">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> EMAIL </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> EMAIL </th>
                             <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                           </ng-container>
 
                           <!-- contact No Column -->
                           <ng-container matColumnDef="contactnumber">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> CONTACT NO: </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CONTACT NO: </th>
                             <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
                           </ng-container>
 
                           <ng-container matColumnDef="action">
-                            <th mat-header-cell  *matHeaderCellDef style="text-align: center;" > Actions </th>
+                            <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
                             <td mat-cell *matCellDef="let element" >
-                                 <button mat-raised-button  type="submit" class="my-4 btn-block table_btn"  >View</button>
-                                 <button  mat-raised-button  type="submit" class="my-4 btn-block del_btn " >Delete</button>
+                                 <button mat-raised-button  (click)="viewUser(element.userid)" type="submit" class="my-4 btn-block table_btn"  >View</button>
+                                 <button  mat-raised-button (click)=deleteTable(element.userid,element.filepath) type="submit" class="my-4 btn-block del_btn " >Delete</button>
                             </td>
                           </ng-container>
 

@@ -4,38 +4,97 @@
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="parallax">
-        <div style="padding-top: 90px;padding-left: 380px;padding-right: 380px;">
-          <mat-card>
-            <mat-card-title style="display: block;width: 55%;margin: auto;">ADD NEW STORE ITEMS</mat-card-title>
-            <form style="background-color: white;">
-              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                <mat-label>Item ID</mat-label>
-                <input matInput name="Item No" [(ngModel)]="itemNo" placeholder="Item No">
-                <mat-icon matSuffix>settings</mat-icon>
-              </mat-form-field>
-              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                <mat-label>Item name</mat-label>
-                <input matInput name="itemName" [(ngModel)]="itemName" placeholder="Item name">
-                <mat-icon matSuffix>build</mat-icon>
-              </mat-form-field>
-              <mat-form-field appearance="outline" style="display:block; width:60%; margin: auto;">
-                <mat-label>Supplier ID</mat-label>
-                <input matInput name="supplierID" [(ngModel)]="supplierID" placeholder="Supplier ID">
-                <mat-icon matSuffix>perm_identity</mat-icon>
-              </mat-form-field>
-              <!-- <mat-form-field>
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field> -->
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
 
-              <button mat-button type="submit" class="btn" style="display: block;margin: auto;"
-                (click)="userLogin()">ADD</button>
-            </form>
-          </mat-card>
+              <br />
+              <div class="test">
+                <h2 class="topic">ADD NEW ITEM</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+                  <!-- ***************************************************ADD ITEM************************************************************************** -->
+                  <mat-tab label="ADD ITEM">
+                    <form [formGroup]="itemForm">
+
+                      <mat-card>
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+
+                        <div class="form-row mb-4">
+                          <mat-form-field appearance="outline">
+                            <!-- <mat-label>Select User Type:</mat-label> -->
+                            <mat-select placeholder="Select Item Category:" formControlName="itemtype">
+                              <mat-option value="Paints">Paints</mat-option>
+                              <mat-option value="Tools">Tools</mat-option>
+                              <mat-option value="Spare Parts">Spare Parts</mat-option>
+                              <mat-option value="Tyres">Tyres</mat-option>
+                              <mat-option value="Electric Parts">Electric Parts</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Item ID:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="itemid">
+                            <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                          </mat-form-field>
+
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Item Name:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="itemName">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Buying Price:</mat-label>
+                            <input matInput  formControlName="buying">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Selling Price:</mat-label>
+                            <input matInput  formControlName="selling">
+                          </mat-form-field>
+
+                          <!-- {{itemForm.value | json}} -->
+
+
+                        </div>
+                        <input type="file" class="file_upload" style="display: none" name="profilepic"
+                        accept="image/*"  (change)="selectImage($event)"
+                        #fileInput>
+
+                        <div class="form-row mb-4">
+                          <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Item Image</button>
+                          <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                            Resolution : (320 x 280)p / 8 : 7 {{filename}}
+                          </small>
+                        </div>
+                        <br>
+                        <br>
+                        <button mat-raised-button (click)=addItem() type="submit" class="my-4 btn-block reg_btn ">
+                          Register
+                        </button>
+
+                        <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  ">
+                          Cancel
+                        </button>
+                      </mat-card>
+                    </form>
+                  </mat-tab>
+
+                </mat-tab-group>
+
+              </div>
+
+            </div>
+          </div>
         </div>
+
       </div>
 
     </mat-sidenav-content>

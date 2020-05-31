@@ -43,6 +43,7 @@ export interface PeriodicElement {
   firstname: String;
   email: String;
   contactnumber: String;
+  filepath: String;
   action: String;
 }
 
@@ -159,6 +160,30 @@ export class SearchUserComponent implements OnInit {
      window.location.reload();
   }
 
+  
+  //view user from table
+  viewUser(id) {
+    const url = "http://localhost:3000/users/searchUsers"   //backend url
+
+    this.http.get<any>(url + "/" + id).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+      } else {
+        if(res.data.usertype=="Customer"){
+          this.userflag = true;
+        }
+        this.dataform = true; //data form div show
+        this.userdata = res.data;   //add response data in to datadata array
+        this.propicName = res.data.filepath;
+        //console.log(this.userdata);
+
+      }
+    });
+  }
+
+
   /*************************************************** Update User  ***********************************************************/
 
   updateUser() {
@@ -274,6 +299,48 @@ export class SearchUserComponent implements OnInit {
       }
     });
   }
+
+  //delete from table
+  deleteTable(id,propic){
+    //console.log(id);
+    const url1 = "http://localhost:3000/users/delprofImage/" //delete profile image
+    const url2 = "http://localhost:3000/users/deleteUser/"  //delete data from tha database
+
+    //confirmaration box
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Yes',
+          cancel: 'No'
+        }
+      }
+    });
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        if (propic) {
+          this.http.delete<any>(url1 + propic).subscribe(res => {
+            console.log(res);
+          })
+        }
+        this.http.delete<any>(url2 + id).subscribe(res => {
+          if (res.state == true) {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Successfully Deleted..! ", true ? "Done" : undefined, config);
+          }
+          else {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Deletion Unsuccessfull..! ", true ? "Retry" : undefined, config);
+          }
+        })
+        window.location.reload();
+      }
+    });
+  }
+
+
 
 }
 
