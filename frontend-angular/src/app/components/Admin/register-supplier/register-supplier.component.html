@@ -1,28 +1,31 @@
 <div style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="parallax">
-        <div class="row">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="container-fluid ">
-                <div>
-                  <div class="container" style="padding-top: 50px">
-                    <!--<h2 class="topic">USER REGISTRATION</h2>-->
-                  </div>
-                  <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
-                    <div class="First-card">
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+
+              <br />
+              <div class="test">
+                <h2 class="topic">SUPPLIER REGISTRATION</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+<!-- ***************************************************ADD SUPPLIER************************************************************************** -->
+                  <mat-tab label="ADD SUPPLIER">
+
+                    <form [formGroup]="supplierForm">
                       <mat-card>
-                        <mat-card-header style="text-align: center;">
-                          <div style="width: 100%;">SUPPLIER REGISTRATION</div>
-                        </mat-card-header>
-                        <br>
-
-                        <form [formGroup]="supplierForm">
-
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                        <div class="form-row mb-4">
                           <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                             <mat-label>Supplier Name</mat-label>
                             <input matInput name="supname" formControlName="supname"
@@ -86,22 +89,25 @@
                             <mat-icon matSuffix>insert_comment</mat-icon>
                           </mat-form-field>
 
-                          <br>
+                        </div>
+                        <button mat-raised-button class="my-4 btn-block reg_btn " type="submit"(click)="addSupplier()">Register</button>
 
-                          <button mat-raised-button class="btn1 my-4 btn-block" type="submit"(click)="addSupplier()">Register</button>
-
-                          <button mat-raised-button class="btn2 my-4 btn-block" (click)="reset()">Cancel </button>
-
-                        </form>
+                        <button mat-raised-button class="my-4 btn-block btn_1  " (click)="reset()">Cancel </button>
                       </mat-card>
-                    </div>
-                  </div>
-                </div>
+                    </form>
+                    <!-- {{supplierForm.value|json}} -->
+                  </mat-tab>
+
+                </mat-tab-group>
+
               </div>
+
             </div>
           </div>
         </div>
+
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+

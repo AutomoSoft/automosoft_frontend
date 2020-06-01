@@ -43,6 +43,7 @@ export class RegisterSupplierComponent implements OnInit {
     private fb: FormBuilder,
     private cookies: MycookiesService,
     private dialog: MatDialog,
+    public snackBar: MatSnackBar,
   ) {
     if (this.cookies.getCookie("userAuth") != "") {
       this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
@@ -55,7 +56,6 @@ export class RegisterSupplierComponent implements OnInit {
     email:["", Validators.required],
     address: ["", Validators.required],
     contactNo: ["", Validators.required],
-    //email: ["", Validators.required],
     itemtype: ["", Validators.required],
     itemid: ["", Validators.required],
     brand: ["", Validators.required],
@@ -82,6 +82,11 @@ export class RegisterSupplierComponent implements OnInit {
 
   var url = "http://localhost:3000/supplier/registerSupplier";
 
+  if (this.supplierForm.invalid) {
+    let config = new MatSnackBarConfig();
+    this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+    return;
+  }else {
   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
     data: {
       message: "Are you sure want to Add?",
@@ -109,6 +114,7 @@ export class RegisterSupplierComponent implements OnInit {
       console.log(registerSupplier);
     }
   });
+}
   }
   reset(){
     this.supplierForm.reset();
