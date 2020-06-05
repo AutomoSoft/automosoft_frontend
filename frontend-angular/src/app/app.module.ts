@@ -9,7 +9,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 //material
 import {
@@ -22,13 +22,14 @@ import {
   MatTabsModule,
   MatSnackBarModule,
   MatCardModule,
-  MatGridListModule,
   MatCheckboxModule,
   MatDatepickerModule,
   MatDialogModule,
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
+
+
 
 
 } from '@angular/material';
@@ -117,7 +118,8 @@ import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier
       }),
     MatCheckboxModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+
 
   ],
   providers: [],

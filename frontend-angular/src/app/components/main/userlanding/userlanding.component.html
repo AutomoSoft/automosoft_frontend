@@ -1,72 +1,203 @@
-<!-- <div style="padding-top: 60px;">
+<!-- <div; style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+    <mat-sidenav; class="example-container"; #sidenav; mode="side"; opened>
       <app-main></app-main>
-    </mat-sidenav>
+    </mat-sidenav;>
     <mat-sidenav-content> -->
-      <div class="OuterContainer">
-        <div class="container">
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img src="design.png"> // Add material icons
-                <h3>Register a Vehicle</h3>
-              </div>
-            </div>
-            <div class="face face2">
-              <div class="content">
-                <p>Description goes here</p>>
-                <a href="#">Button</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img src="design.png"> // Add material icons
-                <h3>New Job Task</h3>
-              </div>
-            </div>
-            <div class="face face2">
-              <div class="content">
-                <p>Description goes here</p>>
-                <a href="#">Button</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img src="design.png"> // Add material icons
-                <h3>View my Tasks</h3>
-              </div>
-            </div>
-            <div class="face face2">
-              <div class="content">
-                <p>Description goes here</p>>
-                <a href="#">Button</a>
-              </div>
-            </div>
-          </div>
+      <mat-grid-list class="gridcolor"cols="17">
 
-          <div class="card">
-            <div class="face face1">
-              <div class="content">
-                <img src="design.png"> // Add material icons
-                <h3>View my Tasks</h3>
-              </div>
-            </div>
-            <div class="face face2">
-              <div class="content">
-                <p>Description goes here</p>>
-                <a href="#">Button</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- </mat-sidenav-content>
+        <mat-grid-tile colspan=17 ></mat-grid-tile>
+        <mat-grid-tile colspan=17 ></mat-grid-tile>
+
+
+           <mat-grid-tile  rowspan=7 > </mat-grid-tile>
+                     <div class="bgimage">
+                       <mat-grid-tile colspan=4 rowspan="2">
+                         <mat-card class="example-card ">
+                               <div  class=card-content>
+                                <mat-card-content>
+                                  <h2>Job tracking</h2>
+
+                             </mat-card-content>
+
+                             <mat-card-actions>
+
+                             </mat-card-actions>
+
+                               </div>
+
+                         </mat-card>
+                       </mat-grid-tile>
+                       <mat-grid-tile colspan=4 rowspan="2" >
+                        <mat-card class="example-card ">
+                          <div  class=card-content>
+                           <mat-card-content>
+                            <h2>Make Reservation</h2>
+                        </mat-card-content>
+
+                        <mat-card-actions>
+
+                        </mat-card-actions>
+
+                          </div>
+
+                    </mat-card>
+                       </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2">
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>Job history</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2" >
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2><!--<i class="material-icons btn_icn">add</i>-->New Job</h2>
+
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2" >
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>Ongoing jobs</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan=4  rowspan="2">
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>View Technicians</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2">
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>View Store</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan=4  rowspan="2">
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>Stock Status</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card> </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2" >
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>Request Stock</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                       <mat-grid-tile colspan=4 rowspan="2" >
+                        <mat-card class="example-card ">
+                          <div  class=card-content>
+                           <mat-card-content>
+                          <h2><!--<i class="material-icons btn_icn">add</i>-->New Purchase Order</h2>
+                        </mat-card-content>
+
+                        <mat-card-actions>
+
+                        </mat-card-actions>
+
+                          </div>
+
+                    </mat-card>
+                       </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2" >
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>Sales</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+
+                            </div>
+
+                      </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan=4 rowspan="2" >
+                          <mat-card class="example-card ">
+                            <div  class=card-content>
+                             <mat-card-content>
+                              <h2>Invoice</h2>
+                          </mat-card-content>
+
+                          <mat-card-actions>
+
+                          </mat-card-actions>
+                            </div>
+                      </mat-card> </mat-grid-tile>
+                      </div>
+                      <mat-grid-tile colspan=1 ></mat-grid-tile>
+         <mat-grid-tile colspan=17 ></mat-grid-tile>
+
+      </mat-grid-list>
+
+          <!-- </mat-sidenav-content>
   </mat-sidenav-container>
 </div> -->

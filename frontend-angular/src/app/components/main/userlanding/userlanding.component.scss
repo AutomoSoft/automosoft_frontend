@@ -1,6 +1,17 @@
 .OuterContainer{
   background: #333;
-  width: 100%;
+
+
+}
+mat-grid-tile{
+  background: #333;
+}
+.gridcolor{
+  background:  #333;
+}
+.center{
+  background:#e47a0f9d;
+
 }
 
 .container{
@@ -10,50 +21,53 @@
   justify-content: space-between;
   background: #333;
   height:100%;
-  padding-top: 11%;
+  padding: 10%;
+  background-size:cover;
+
   padding-bottom: 12%;
 }
 
-.container .card{
+ .card{
   position: relative;
   padding:1%;
 }
 
-.container .card .face{
+ .card .face{
   width: 300px;
   height: 200px;
   transition: 0.5s;
 }
 
-.container .card .face.face1{
+ .card .face.face1{
   position: relative;
   background: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
+
   transform: translateY(100px);
 }
 
-.container .card:hover .face.face1{
+ .card:hover .face.face1{
   transform: translateY(0px);
   background: #E47A0F;
 }
 
-.container .card .face.face1 .content{
-  opacity: 0.2;
+ .card .face.face1 .content{
+  opacity: 0.6;
   transition: 0.5s;
 }
 
-.container .card:hover .face.face1 .content{
-  opacity: 1;
+ .card:hover .face.face1 .content{
+  opacity: 0.6;
 }
 
-.container .card .face.face1 .content img{
+ .card .face.face1 .content img{
   max-width: 100px;
 }
 
-.container .card .face.face1 .content h3{
+ .card .face.face1 .content h3{
   margin: 10px 0 0;
   padding:0;
   color:#fff;
@@ -61,7 +75,7 @@
   font-size:1.5em;
 }
 
-.container .card .face.face2{
+ .card .face.face2{
   position: relative;
   background: #fff;
   display: flex;
@@ -73,16 +87,17 @@
   transform: translateY(-100px);
 }
 
-.container .card:hover .face.face2{
+ .card:hover .face.face2{
   transform: translateY(0px);
 }
 
-.container .card .face.face2 .content p{
+ .card .face.face2 .content p{
   margin:0;
   padding:0;
 }
 
-.container .card .face.face2 .content a{
+
+ .card .face.face2 .content a{
   margin: 15px 0 0;
   display: inline-block;
   text-decoration:none;
@@ -92,7 +107,7 @@
   border:1px solid #333;
 }
 
-.container .card .face.face2 .content a:hover{
+ .card .face.face2 .content a:hover{
   background:#333;
   color:#fff;
 }
@@ -100,3 +115,31 @@
 .example-container {
   background-color: #414142;
 }
+.example-card {
+  min-width:300px;
+
+  max-height: min-content;
+  border-radius:50px;
+
+  background-color:#e47a0f;
+  opacity: 0.9;
+
+
+
+
+}
+.example-card:hover{
+  box-shadow: -1px 10px 29px 0px rgba(0,0,0,0.8);
+
+  color:white;
+  opacity: 1;
+}
+.card-content{
+   padding:20px;
+   border-color: rgba(0,0,0,1);
+   border-width: 3px;
+   border-style:solid;
+   border-radius: 20px;
+}
+
+
