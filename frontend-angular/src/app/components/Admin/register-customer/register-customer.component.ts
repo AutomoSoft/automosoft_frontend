@@ -46,7 +46,7 @@ customerForm = this.fb.group({
   password: ["", Validators.required],
   confirmPassword:["",Validators.required],
   vehicles: this.fb.array([this.fb.control('')]),
-  picker:["",Validators.required],
+  picker:["",Validators.required], 
 
 
 });

@@ -25,11 +25,11 @@
                     <form [formGroup]="supplierForm">
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
-                        <div class="form-row mb-4">
+                        <div class="form-row mb-4" formGroupName="supDetails">
                           <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                             <mat-label>Supplier Name</mat-label>
                             <input matInput name="supname" formControlName="supname"
-                              placeholder="ex-Tharindu Wijethilake" required>
+                              placeholder="ex-Jason Smith" required>
                             <mat-icon matSuffix>perm_identity</mat-icon>
                           </mat-form-field>
 
@@ -58,28 +58,44 @@
                               required maxlength=10 minlength=10>
                             <mat-icon matSuffix>phone_in_talk</mat-icon>
                           </mat-form-field>
+                        </div>
 
-                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                            <mat-label>Select Item Type</mat-label>
-                            <mat-select name="itemtype" placeholder="Select Item" formControlName="itemtype" required>
-                              <mat-option *ngFor="let item of items" [value]="item.value">
-                                {{item.viewValue}}
-                              </mat-option>
-                            </mat-select>
-                            <mat-icon matSuffix>build</mat-icon>
-                          </mat-form-field>
 
-                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                            <mat-label>Item ID</mat-label>
-                            <input matInput name="itemid" formControlName="itemid" placeholder="ex- SP0001" required>
-                            <mat-icon matSuffix>settings</mat-icon>
-                          </mat-form-field>
+                        <div formArrayName="supitem">
 
-                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                            <mat-label>Brand/Model</mat-label>
-                            <input matInput name="brand" formControlName="brand" placeholder="ex-Toyota" required>
-                            <mat-icon matSuffix>input</mat-icon>
-                          </mat-form-field>
+
+
+                          <div *ngFor=" let team of supplierForm.get('supitem').controls;let teamIndex = index "[formGroupName]="teamIndex" >
+
+                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
+                              <mat-label>Select Item Type</mat-label>
+                              <mat-select name="itemtype" placeholder="Select Item" formControlName="itemtype" required>
+                                <mat-option *ngFor="let item of items" [value]="item.value">
+                                  {{item.viewValue}}
+                                </mat-option>
+                              </mat-select>
+                              <mat-icon matSuffix>build</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
+                              <mat-label>Item ID</mat-label>
+                              <input matInput name="itemid" formControlName="itemid" placeholder="ex- SP0001" required>
+                              <mat-icon matSuffix>settings</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
+                              <mat-label>Brand/Model</mat-label>
+                              <input matInput name="brand" formControlName="brand" placeholder="ex-Toyota" required>
+                              <mat-icon matSuffix>input</mat-icon>
+                            </mat-form-field>
+                          </div>
+                          <div class="button-container">
+                            <button mat-button type="submit" class="array_btn" (click)="addItem()">
+                              Add More
+                            </button>
+                          </div>
+                        </div>
+                        <br>
 
                           <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                             <mat-label>Special Note(If any)</mat-label>
@@ -89,7 +105,7 @@
                             <mat-icon matSuffix>insert_comment</mat-icon>
                           </mat-form-field>
 
-                        </div>
+
                         <button mat-raised-button class="my-4 btn-block reg_btn " type="submit"(click)="addSupplier()">Register</button>
 
                         <button mat-raised-button class="my-4 btn-block btn_1  " (click)="reset()">Cancel </button>
@@ -99,7 +115,6 @@
                   </mat-tab>
 
                 </mat-tab-group>
-
               </div>
 
             </div>

@@ -64,7 +64,6 @@ export class SearchUserComponent implements OnInit {
   userid;
   cookie;
   dataform: Boolean = false;
-  userflag = false;   //to obtain usertype to show/hide customer fields
   propicName;  //profile picture name
 
   constructor(
@@ -140,7 +139,7 @@ export class SearchUserComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         if(res.data.usertype=="Customer"){
-          this.userflag = true;
+          //this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
@@ -160,7 +159,7 @@ export class SearchUserComponent implements OnInit {
      window.location.reload();
   }
 
-  
+
   //view user from table
   viewUser(id) {
     const url = "http://localhost:3000/users/searchUsers"   //backend url
@@ -172,7 +171,7 @@ export class SearchUserComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         if(res.data.usertype=="Customer"){
-          this.userflag = true;
+         // this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array

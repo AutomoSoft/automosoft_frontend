@@ -22,6 +22,8 @@ export interface Item {
 }
 
 
+
+
 @Component({
   selector: 'app-register-supplier',
   templateUrl: './register-supplier.component.html',
@@ -32,9 +34,9 @@ export class RegisterSupplierComponent implements OnInit {
   cookie;
 
   items: Item[] = [
-    {value: 'spare-parts-0', viewValue: 'Spare-Parts'},
-    {value: 'tool-1', viewValue: 'Tools'},
-    {value: 'paint-2', viewValue: 'Paint'}
+    {value: 'Spare Part', viewValue: 'Spare-Parts'},
+    {value: 'Tool', viewValue: 'Tools'},
+    {value: 'Paint', viewValue: 'Paint'}
   ];
 
   constructor(
@@ -51,30 +53,42 @@ export class RegisterSupplierComponent implements OnInit {
   }
 
   supplierForm = this.fb.group({
+    supDetails: this.fb.group({
     supid: ["", Validators.required],
     supname: ["", Validators.required],
     email:["", Validators.required],
     address: ["", Validators.required],
     contactNo: ["", Validators.required],
-    itemtype: ["", Validators.required],
-    itemid: ["", Validators.required],
-    brand: ["", Validators.required],
-    note: ["", Validators.required],
+    }),
+    supitem: this.fb.array([this.supitem]),
+    note: [""],
 
   });
+
+  get supitem(): FormGroup {
+    return this.fb.group({
+      itemtype: ["", Validators.required],
+      itemid: ["", Validators.required],
+      brand: ["", Validators.required],
+    });
+  }
+
+  addItem() {
+    (this.supplierForm.get("supitem") as FormArray).push(this.supitem);
+
+  }
+
 
   addSupplier() {
     let date=Date();
     const registerSupplier = {
       usertype : "Supplier",
-      supid: this.supplierForm.value.supid,
-      supname: this.supplierForm.value.supname,
-      address: this.supplierForm.value.address,
-      contactnumber: this.supplierForm.value.contactNo,
-      email: this.supplierForm.value.email,
-      itemtype: this.supplierForm.value.itemtype,
-      itemid: this.supplierForm.value.itemid,
-      brand: this.supplierForm.value.brand,
+      supid: this.supplierForm.value.supDetails.supid,
+      supname: this.supplierForm.value.supDetails.supname,
+      address: this.supplierForm.value.supDetails.address,
+      contactnumber: this.supplierForm.value.supDetails.contactNo,
+      email: this.supplierForm.value.supDetails.email,
+      item: this.supplierForm.value.supitem,
       note: this.supplierForm.value.note,
       addedby: this.cookie.userid,
       addedon: date,
@@ -125,6 +139,7 @@ export class RegisterSupplierComponent implements OnInit {
     if(form.invalid){
       return;
     }
+
 
 
 
