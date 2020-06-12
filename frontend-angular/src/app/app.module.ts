@@ -60,6 +60,7 @@ import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orde
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
 import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
+import { StockStatusComponent } from './components/StoreKeeper/stock-status/stock-status.component';
 
 
 
@@ -86,6 +87,7 @@ import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier
     ApproveOrdersComponent,
     ProfileComponent,
     SupplierInfoComponent,
+    StockStatusComponent,
   ],
   imports: [
     BrowserModule,
