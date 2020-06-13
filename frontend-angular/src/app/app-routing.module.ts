@@ -17,6 +17,7 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
 import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
+import {StockStatusComponent} from './components/StoreKeeper/stock-status/stock-status.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   /****************************************** StoreKeeper Routes **************************************** */
   {path:"viewStore", component:ViewStoreComponent},
   {path:"addOrder", component:AddOrdersComponent},
+  {path:"stockStatus", component:StockStatusComponent},
 ];
 
 @NgModule({
