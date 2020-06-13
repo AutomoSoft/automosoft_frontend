@@ -95,9 +95,9 @@
                               <input matInput readonly readonly name="addedon" [(ngModel)]="userdata.addedon">
                             </mat-form-field>
 
-                            <mat-form-field appearance="outline" >
+                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Customer'" >
                               <mat-label>Vehicle Registration Number:</mat-label>
-                              <input matInput readonly  name="vehiclenumber" [(ngModel)]="userdata.vehiclenumber">
+                              <input matInput readonly  name="vehiclenumber" [(ngModel)]="veh">
                             </mat-form-field>
                           </div>
                           <br>

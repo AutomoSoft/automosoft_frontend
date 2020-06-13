@@ -30,7 +30,7 @@ interface user {
   addedon: String;
   lastmodifiedon: String;
   lastmodifiedby: String;
-  vehiclenumber: String;
+  vehicles: String;
 
   // filepath: String;
 }
@@ -45,6 +45,7 @@ export class ProfileComponent implements OnInit {
   userdata: user[] = [];
   userid;
   cookie;
+  veh;
 
   constructor(
     private http: HttpClient,
@@ -72,9 +73,10 @@ export class ProfileComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
-        this.userdata = res.data;   //add response data in to datadata array
-
+        this.userdata = res.data;   //add response data in to data array
+        this.veh = JSON.parse(res.data.vehicles);
         //console.log(this.userdata);
+        console.log(this.veh[1]);
 
       }
     });
