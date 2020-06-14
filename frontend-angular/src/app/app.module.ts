@@ -9,7 +9,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 //material
 import {
@@ -61,6 +61,12 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
 import { ProfileComponent } from './components/main/profile/profile.component';
 import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
 import { StockStatusComponent } from './components/StoreKeeper/stock-status/stock-status.component';
+import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
+import { CreateJobCardComponent } from './components/Foreman/create-job-card/create-job-card.component';
+import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/withdraw-stock.component';
+import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
+import { OnjoingJobsComponent } from './components/Foreman/onjoing-jobs/onjoing-jobs.component';
+import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 
 
 
@@ -88,6 +94,12 @@ import { StockStatusComponent } from './components/StoreKeeper/stock-status/stoc
     ProfileComponent,
     SupplierInfoComponent,
     StockStatusComponent,
+    ViewHistoryComponent,
+    CreateJobCardComponent,
+    WithdrawStockComponent,
+    MakeReservationsComponent,
+    OnjoingJobsComponent,
+    JobHistoryComponent,
   ],
   imports: [
     BrowserModule,
