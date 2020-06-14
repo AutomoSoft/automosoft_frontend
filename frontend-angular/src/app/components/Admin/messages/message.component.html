@@ -1,65 +1,81 @@
-<div class="row">
-  <div class="container-fluid">
-    <div class="row">
+<div style="padding-top: 60px; " >
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="row" style="background-color: #ddddec; overflow: auto; min-height: 1500px;" >
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid " style="background-color: #ddddec; " >
+              <Br>
 
-      <div class="container-fluid " >
-        <div>
-         <div class="container" style="padding-top: 50px">
-            <h2 class="topic">MAIL-BOX</h2>
-          </div>
-            <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
-              <div class="First-card" *ngFor="let mail of filteredEmails" >
-                <mat-grid-list cols="1" rowHeight="2:1" class="grid-list" >
-                  <mat-grid-tile >
-                    <mat-card class="card1">
-                      <mat-card-header class="card-header">
-                        <table>
-                        <tr>
-                          <td><i class="material-icons">account_circle </i></td>
-                          <td >{{mail.name}}</td>
-                        </tr>
-                        <tr>
-                          <td><i class="material-icons">email </i></td>
-                          <td><a href="mailto:someone@example.com">{{mail.email}}</a></td>
-                        </tr>
-                      </table>
-
-                      </mat-card-header>
-
-                      <mat-card-content >
-
-                        <table style="width: 100%;">
-                          <tr>
-                            <td style="width:70%; text-align: left; background-color: rgb(245, 204, 150); height: 60px; " >
-                              <p style="margin-left: 20px">
-                                {{mail.content}}
-                              </p>
-                            </td>
-                            <td style="width:30%; background-color:rgb(245, 204, 150);height: 60px;">
-                              <button class="btn" mat-raised-button color="accent" (click)="markAsRead(mail._id)">Mark As Read</button>
-                              <!--<div style="bottom: 10px;position: absolute; right: 10px; height: 20px; background-color: crimson;">Date</div>-->
-
-                            </td>
-
-                          </tr>
-                        </table>
-
-                      </mat-card-content>
+              <div class="test" >
+                  <h2 class="topic">MAIL-BOX</h2>
+                </div>
+                <!--<div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">-->
 
 
-                    </mat-card>
+                  <!--<mat-card class="p-5 reg-frm">-->
+                    <div class="First-card"  >
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 30px; margin-top: 20px;" />
+                      <div style="min-height: 1500px;" >
+                      <mat-grid-list cols="1" rowHeight="5:1" class="grid-list" *ngFor="let mail of filteredEmails"  >
+                        <mat-grid-tile  >
+                          <mat-card class="card1">
+                            <mat-card-header class="card-header">
+                              <table>
+                              <tr style="color: #c76b15;">
+                                <td><i class="material-icons">account_circle </i></td>
+                                <td >{{mail.name}}</td>
+                              </tr>
+                              <tr style="color: #c76b15;">
+                                <td><i class="material-icons">email </i></td>
+                                <td><a style="color: #c76b15;" href="mailto:someone@example.com">{{mail.email}}</a></td>
+                              </tr>
+                            </table>
 
-                  </mat-grid-tile>
+                            </mat-card-header>
 
-                </mat-grid-list>
+                            <mat-card-content >
+
+                              <table style="width: 100%; height: 100%;">
+                                <tr style="height: 100%;">
+                                  <td style="width:70%; text-align: left; background-color: rgb(255, 255, 255); height: auto; " >
+                                    <p style="margin-left: 20px">
+                                      {{mail.content}}
+                                    </p>
+                                  </td>
+                                  <td style="width:30%; background-color:rgb(255, 255, 255);height: 60px;">
+                                    <button class="btn" mat-raised-button color="accent" (click)="markAsRead(mail._id)">Mark As Read</button>
+                                    <!--<div style="bottom: 10px;position: absolute; right: 10px; height: 20px; background-color: crimson;">Date</div>-->
+
+                                  </td>
+
+                                </tr>
+                              </table>
+
+                            </mat-card-content>
+
+
+                          </mat-card>
+
+                        </mat-grid-tile>
+
+
+                      </mat-grid-list>
+
+                    </div>
+
+                  <!--</mat-card>-->
+
+                <!--</div>-->
               </div>
-
 
 
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+      </div>
+
 
