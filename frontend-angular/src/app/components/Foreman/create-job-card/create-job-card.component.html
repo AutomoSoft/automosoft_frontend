@@ -1,1 +1,164 @@
-<p>create-job-card works!</p>
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+
+              <br />
+              <div class="test">
+                <h2 class="topic">+ NEW JOB</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+                  <!-- ***************************************************ADD ONE USER************************************************************************** -->
+                  <mat-tab label="NEW JOB CARD">
+                    <form >
+
+                      <mat-card>
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+
+                        <div class="form-row mb-4">
+                          <mat-form-field appearance="outline">
+                            <!-- <mat-label>Select User Type:</mat-label> -->
+                            <mat-select placeholder="Job Type:" >
+                              <mat-option value="Paint Job">Paint Job</mat-option>
+                              <mat-option value="Accident Repair">Accident Repair</mat-option>
+                              <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
+                              <mat-option value="Full Service">Full Service</mat-option>
+                              <mat-option value="Other">Other</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Job No:</mat-label>
+                            <input matInput class="form-control box_border">
+                            <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                          </mat-form-field>
+
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Customer ID:</mat-label>
+                            <input matInput class="form-control box_border" >
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-select placeholder="Select Vehicle:" >
+                              <mat-option value="Paint Job">Edit this to load his vehicles</mat-option>
+
+                            </mat-select>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Problem Reported By Customer:</mat-label>
+                            <textarea matInput ></textarea>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Foreman Observation:</mat-label>
+                            <textarea matInput ></textarea>
+                          </mat-form-field>
+
+                        </div>
+                        <div class="mat-elevation-z8">
+                          <table mat-table [dataSource]="dataSource" >
+  
+                            <!-- User ID Column -->
+                            <ng-container matColumnDef="userid">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER ID </th>
+                              <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
+                            </ng-container>
+  
+                            <!-- User Type Column -->
+                            <ng-container matColumnDef="usertype">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER TYPE </th>
+                              <td mat-cell *matCellDef="let element"> {{element.usertype}} </td>
+                            </ng-container>
+  
+                            <!-- First Name Column -->
+                            <ng-container matColumnDef="firstname">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  FIRST NAME </th>
+                              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+                            </ng-container>
+  
+                            <!-- E-mail Column -->
+                            <ng-container  matColumnDef="email">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> EMAIL </th>
+                              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                            </ng-container>
+  
+                            <!-- contact No Column -->
+                            <ng-container matColumnDef="contactnumber">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CONTACT NO: </th>
+                              <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
+                            </ng-container>
+  
+                            <ng-container matColumnDef="action">
+                              <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
+                              <td mat-cell *matCellDef="let element" >
+                                   <button mat-raised-button  (click)="viewUser(element.userid)" type="submit" class="my-4 btn-block table_btn"  >View</button>
+                                   <button  mat-raised-button (click)=deleteTable(element.userid,element.filepath) type="submit" class="my-4 btn-block del_btn " >Delete</button>
+                              </td>
+                            </ng-container>
+  
+  
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          </table>
+  
+                          <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+                        </div>
+  
+                        <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
+                        accept="image/*"  (change)="selectImage($event)"
+                        #fileInput>
+
+                        <div class="form-row mb-4">
+                          <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Profile Picture</button>
+                          <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                            Resolution : (320 x 280)p / 8 : 7 {{filename}}
+                          </small>
+                        </div> -->
+
+                        <div class="button-container">
+                          <button mat-button type="submit" class="btn1" >
+                            Add Technicians
+                          </button>
+                        </div>
+
+                        <br>
+                        <br>
+                        <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">
+                          Add Job
+                        </button>
+
+                        <button mat-raised-button type="submit" class="my-4 btn-block btn_1  ">
+                          Cancel
+                        </button>
+                      </mat-card>
+                      <!-- {{employeeForm.value|json}} -->
+                    </form>
+                  </mat-tab>
+
+
+                </mat-tab-group>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

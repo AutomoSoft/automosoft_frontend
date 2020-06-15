@@ -19,8 +19,6 @@ interface supplier {
   addedon: String;
   addedby: String;
 
-
-  // filepath: String;
 }
 
 @Component({
@@ -30,20 +28,15 @@ interface supplier {
 })
 export class SupplierInfoComponent implements OnInit {
   displayedColumns: string[] = ['supid', 'supname', 'items', 'addedon','action'];
-  //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
   cookie;
-  userSearchForm: FormGroup;
+  SupplierSearchForm: FormGroup;
   SupplierDataForm: FormGroup;
   supid;
   dataform: Boolean = false;
 
   supplierdata: supplier[] = [];
-
-
-  //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
 
   constructor(
     private http: HttpClient,
@@ -58,14 +51,16 @@ export class SupplierInfoComponent implements OnInit {
     }
   }
 
-
-
   ngOnInit() {
     //this.dataSource.paginator = this.paginator;
     var cookie = this.cookies.getCookie("userAuth");
     if(cookie==""){
       this.router.navigate(['/login']);
     }
+
+    this.SupplierSearchForm = this.fb.group({
+      supid: ['', Validators.required]
+    });
 
     this.SupplierDataForm = this.fb.group({
       usertype: ["", Validators.required],
@@ -76,11 +71,11 @@ export class SupplierInfoComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
       items: ["", Validators.required],
-      //vehiclenumber: ["", Validators.required],
-      //password: ["", [Validators.required, Validators.minLength(8)]],
     });
 
-    const url = "http://localhost:3000/supplier/searchSuppliers"   //backend url
+/*************************************************** Table Data  ***********************************************************/
+
+    const url = "http://localhost:3000/supplier/searchAllSuppliers"   //backend url
 
     this.http.get<any>(url).subscribe(res => {
       if (res.state == false) {
@@ -98,16 +93,40 @@ export class SupplierInfoComponent implements OnInit {
 
 
 
+  /*************************************************** Search Supplier  ***********************************************************/
+
+  searchSupplier() {
+    this.supid = this.SupplierSearchForm.value.supid; //get supplier id
+
+    const url = "http://localhost:3000/supplier/searchSuppliers"   //backend url
+
+    this.http.get<any>(url + "/" + this.supid).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+      } else {
+        this.dataform = true; //data form div show
+        this.supplierdata = res.data;   //add response data in to datadata array
+        //console.log(this.userdata);
+
+      }
+    });
+  }
+
+  resetSearch(){
+    this.SupplierSearchForm.reset();
+  }
+
+
   cancel(){
     // this.UserDataForm.reset();
      window.location.reload();
   }
 
-
-
-
   //view supplier from table
-  viewUser(id) {
+  viewSupplier(id) {
+    // console.log(id);
     const url = "http://localhost:3000/supplier/searchSuppliers"   //backend url
 
     this.http.get<any>(url + "/" + id).subscribe(res => {
@@ -121,10 +140,11 @@ export class SupplierInfoComponent implements OnInit {
         }
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to datadata array
-        console.log(this.supplierdata);
+        // console.log(this.supplierdata);
 
       }
     });
+
   }
 
   /*************************************************** Update Supplier  ***********************************************************/
@@ -224,7 +244,7 @@ export class SupplierInfoComponent implements OnInit {
   //delete from table
   deleteTable(id){
     //console.log(id);
-    //const url1 = "http://localhost:3000/users/delprofImage/" //delete profile image
+
     const url2 = "http://localhost:3000/supplier/deleteSupplier/"  //delete data from tha database
 
     //confirmaration box
