@@ -26,6 +26,7 @@ export class RegisterEmployeeComponent implements OnInit {
   cookie;
   images;
   filename;
+  flag; //used to show/hide technician skills fields
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -50,6 +51,10 @@ employeeForm = this.fb.group({
   contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
   email: ["", [Validators.required, Validators.email]],
   password: ["", [Validators.required, Validators.minLength(8)]],
+  skills: this.fb.group({
+    expertise: ["", Validators.required],
+    capacity: ["", Validators.required]
+  })
 
 });
 
@@ -84,6 +89,8 @@ addEmployee() {
         formData.append('contactnumber', this.employeeForm.value.contactNo)
         formData.append('email', this.employeeForm.value.email)
         formData.append('password', this.employeeForm.value.password)
+        formData.append('expertise', this.employeeForm.value.skills.expertise)
+        formData.append('capacity', this.employeeForm.value.skills.capacity)
         formData.append('addedby',  this.cookie.userid)
         formData.append('addedon', date)
         formData.append('lastmodifiedby',  "Never Modified")
@@ -143,6 +150,14 @@ reset(){
     var temp = this.cookies.getCookie("userAuth");
     if(temp==""){
       this.router.navigate(['/login']);
+    }
+  }
+
+  togglefunction(value) {
+    if (value == "Technician") {
+      this.flag = true;
+    } else {
+      this.flag = false;
     }
   }
 

@@ -176,20 +176,21 @@
                       <h3 class="topic" style="margin-left: -600px;" >SELECT USER CATEGORY:</h3>
                       <div class="form-row mb-4">
                         <mat-form-field appearance="outline" >
-                          <mat-select placeholder="User Category:">
+                          <mat-select placeholder="User Category:" [(ngModel)]="searchText">
                             <mat-option value="Administrator">Admin</mat-option>
                             <mat-option value="Accountant">Accountant</mat-option>
-                            <mat-option value="Forman">Forman</mat-option>
+                            <mat-option value="Forman">Foreman</mat-option>
                             <mat-option value="Store-Keeper">Store-Keeper</mat-option>
                             <mat-option value="Technician">Technician</mat-option>
                             <mat-option value="Customer">Customer</mat-option>
                           </mat-select>
                         </mat-form-field>
+                        <!-- {{searchText}} -->
                       </div>
                       <br>
                       <br>
                       <div class="mat-elevation-z8">
-                        <table mat-table [dataSource]="dataSource" >
+                        <table mat-table [dataSource]="dataSource "  >
 
                           <!-- User ID Column -->
                           <ng-container matColumnDef="userid">

@@ -4,6 +4,7 @@ import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatSnackBar, MatSnackBarConfig, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 import {
@@ -65,6 +66,7 @@ export class SearchUserComponent implements OnInit {
   cookie;
   dataform: Boolean = false;
   propicName;  //profile picture name
+  searchText;
 
   constructor(
     private http: HttpClient,

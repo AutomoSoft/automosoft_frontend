@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //material
 import {
@@ -28,7 +29,6 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
-
 
 
 
@@ -133,7 +133,7 @@ import { JobHistoryComponent } from './components/Foreman/job-history/job-histor
     MatCheckboxModule,
     MatPaginatorModule,
     MatTableModule,
-
+    Ng2SearchPipeModule,
 
   ],
   providers: [],

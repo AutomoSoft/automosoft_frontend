@@ -27,9 +27,9 @@
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
 
                         <div class="form-row mb-4">
-                          <mat-form-field appearance="outline">
+                          <mat-form-field appearance="outline" >
                             <!-- <mat-label>Select User Type:</mat-label> -->
-                            <mat-select placeholder="Select Employee Category:" formControlName="usertype">
+                            <mat-select placeholder="Select Employee Category:" formControlName="usertype" #t (selectionChange)="togglefunction(t.value)">
                               <mat-option value="Administrator">Admin</mat-option>
                               <mat-option value="Accountant">Accountant</mat-option>
                               <mat-option value="Forman">Forman</mat-option>
@@ -45,7 +45,18 @@
                             <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
                           </mat-form-field>
 
+                          <h4 >+ PROFILE IMAGE</h4>
+                          <input type="file" class="file_upload" style="display: none" name="profilepic"
+                          accept="image/*"  (change)="selectImage($event)"
+                          #fileInput>
 
+                          <div class="form-row mb-4">
+                            <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Profile Picture</button>
+                            <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                              Resolution : (320 x 280)p / 8 : 7 {{filename}}
+                            </small>
+                          </div>
+                          <br>
                           <mat-form-field appearance="outline">
                             <mat-label>First Name:</mat-label>
                             <input matInput class="form-control box_border" formControlName="firstName">
@@ -90,16 +101,27 @@
                             <input matInput minlength=8 formControlName="password">
                           </mat-form-field>
                         </div>
-                        <input type="file" class="file_upload" style="display: none" name="profilepic"
-                        accept="image/*"  (change)="selectImage($event)"
-                        #fileInput>
+                        <!-- technician skills fields -->
+                        <div class="form-row mb-4" *ngIf="flag" formGroupName="skills">
+                          <h3 >TECHNICIAN PROFESSIONAL SKILLS</h3>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Expertise Category:</mat-label>
+                            <mat-select placeholder="Job Type:" formControlName="expertise">
+                              <mat-option value="Paint Job">Paint Job</mat-option>
+                              <mat-option value="Accident Repair">Accident Repair</mat-option>
+                              <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
+                              <mat-option value="Full Service">Full Service</mat-option>
+                              <mat-option value="Other">Other</mat-option>
+                            </mat-select>
+                          </mat-form-field>
 
-                        <div class="form-row mb-4">
-                          <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Profile Picture</button>
-                          <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
-                            Resolution : (320 x 280)p / 8 : 7 {{filename}}
-                          </small>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Estimated Working Capacity:</mat-label>
+                            <input matInput formControlName="capacity">
+                            <mat-hint>Capacity in Hours per week</mat-hint>
+                          </mat-form-field>
                         </div>
+
                         <br>
                         <br>
                         <button mat-raised-button (click)=addEmployee() type="submit" class="my-4 btn-block reg_btn ">
@@ -110,7 +132,7 @@
                           Cancel
                         </button>
                       </mat-card>
-                      <!-- {{employeeForm.value|json}} -->
+                      {{employeeForm.value|json}}
                     </form>
                   </mat-tab>
 
