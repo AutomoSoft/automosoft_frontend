@@ -1,11 +1,12 @@
 .tct {
-  background-color: #2b2a2a;
+  background-color: #000000;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   width: 275px;
+  height: 70px;
   // height: 100px;
   border-radius: 20px;
-  border: 1.55px solid #000000;
 
   // padding-left: 10px;
 }
@@ -17,48 +18,42 @@
   height: 180px;
   border-radius: 10px;
   padding-top: 10px;
+  // opacity: 50%;
 }
-
 .frist_div {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 0px;
-  color: #c76b15;
-  border: 1.55px solid #c76b15;
+  height: 50px;
+  color: #a35a16;
+  border: 1.55px solid #a35a16;
   padding-top: 3px;
   padding-bottom: 13px;
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-
 }
 
 .frist_div:hover {
-  background-color:rgb(37, 36, 39);
-  color: #339ccc;
+  color: white;
   transition: 0.5s;
 }
 
 .btn_icn {
   padding-left: 10px;
-  font-size: 35px;
+  font-size: 27px;
   padding-top: 6px;
+  padding-right: 10px;
 }
 
 .btn_icn:hover {
   transition: 0.5s;
-  color: #339ccc;
+  color: white;
 }
-
-
 
 .btn_txt {
-  color: #c76b15;
-  font-size: 17px;
-  padding-top: 10px;
+  color: #a35a16;
+  font-size: 15px;
+  padding-top: 5px;
   // margin-left: -20px;
 }
-
 
 .notice_label {
   color: white;

@@ -1,47 +1,88 @@
-//.row{
- // background-color: rgb(61, 58, 66);
-//}
-.First-card{
-  width: 50%;
-  text-align:center;
-  margin: 0 auto;
-  margin-top: 3rem;
-  border-radius: 20px;
-
+// @font-face {
+//   font-family: topic_font;
+//   src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+// }
+.test {
+  margin-left: 100px;
+}
+.topic {
+  color: #0a0929;
+  font-weight: 400;
 }
 
-mat-card{
-  background-color: rgb(231, 227, 241);
-  border-radius: 20px;
-  border-style: solid;
+.example-container {
+  background-color: #414142;
 }
-mat-form-field,
-textarea{
+
+.body {
+  background-color: white;
+  // height: 100px;
+}
+.flashMessage {
+  padding-top: 5px;
+  height: 20px;
+  margin-bottom: -10px;
   width: 100%;
 }
-mat-form-field{
-  width:70%
+#textbox {
+  height: 200px;
 }
-mat-card-header{
-  color: #5c6372;
-  font-weight: 300;
-  font-size: 20px;
-  padding-top: 20px;
-  font-family: topic_font;
-  font-weight: 520;
-  text-align: right;
-  background-color: green($color: #d33f3f);
 
+.border {
+  border-style: ridge;
+  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  width: 1000px;
 }
-.btn1{
+.box_border {
+  border-radius: 3px;
+}
+
+.reg-frm {
+  box-shadow: 0px 10px 10px rgb(134, 132, 245);
+  background-color: rgb(255, 255, 255);
+  padding-top: 10px;
+  width: 85%;
+  min-height: 1200px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+  // border: 3px solid #414142;
+  border-radius: 20px;
+}
+
+
+
+.reg_btn {
   color: aliceblue;
   background-color: rgb(0, 140, 255);
   border-color: rgb(0, 140, 255);
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
 }
-.btn2{
+
+.mat-form-field {
+  width: 60%;
+  display:block;
+  margin: auto;
+
+}
+
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
+}
+
+.btn_1 {
   color: aliceblue;
   background-color: rgb(221, 81, 112);
   border-color: rgb(221, 81, 112);
@@ -49,22 +90,25 @@ mat-card-header{
   margin-left: 10px;
   margin-right: 10px;
 }
-.parallax{
-  background: url(../../../../assets/images/parallax/image9.jpg) no-repeat center ;
-  background-size: cover;
-  background-attachment: fixed;
-  height: auto;
-  opacity: 0.9px;
-}
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: #c76b15!important;
-  // opacity: 1!important;
-}
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color:#c76b15!important;
+
+.pick_btn {
+  color: aliceblue;
+  background-color: rgb(139, 139, 139);
+  border-color: rgb(139, 139, 139);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+
 }
 
-
-.example-container {
-  background-color: #414142;
+.array_btn {
+  padding-left: 80px;
+  padding-right: 80px;
+  border-radius: 20px;
+  float:rig;
+  color:white;
+  height: 40px;
+  font-family: side_font;
+  font-weight: bolder;
+  background-color: #c76b15;
 }

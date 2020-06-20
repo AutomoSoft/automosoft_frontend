@@ -28,7 +28,7 @@ body
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    animation: zoom-out 3s linear infinite;
+    animation: zoom-out 8s linear infinite;
     background-attachment:scroll;
 }
 
@@ -44,7 +44,7 @@ body
     top: 200px;
     left: 100px;
     color:#fff;
-    animation: text-up 12s linear infinite;
+    animation: text-up 32s linear infinite;
     transform: translateY(100px);
 }
 
@@ -68,19 +68,19 @@ body
 }
 
 .banner1{
-    animation: slide1 12s linear infinite;
+    animation: slide1 32s linear infinite;
 }
 
 .banner2{
-    animation: slide2 12s linear infinite;
+    animation: slide2 32s linear infinite;
 }
 
 .banner3{
-    animation: slide3 12s linear infinite;
+    animation: slide3 32s linear infinite;
 }
 
 .banner4{
-    animation: slide4 12s linear infinite;
+    animation: slide4 32s linear infinite;
 }
 
 @keyframes slide1{

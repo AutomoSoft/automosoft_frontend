@@ -9,7 +9,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //material
 import {
@@ -22,10 +23,13 @@ import {
   MatTabsModule,
   MatSnackBarModule,
   MatCardModule,
-  MatGridListModule,
   MatCheckboxModule,
   MatDatepickerModule,
   MatDialogModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatNativeDateModule,
+
 
 
 } from '@angular/material';
@@ -54,6 +58,15 @@ import { SearchUserComponent } from './components/main/search-user/search-user.c
 import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
+import { ProfileComponent } from './components/main/profile/profile.component';
+import { SupplierInfoComponent } from './components/Admin/supplier-info/supplier-info.component';
+import { StockStatusComponent } from './components/StoreKeeper/stock-status/stock-status.component';
+import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
+import { CreateJobCardComponent } from './components/Foreman/create-job-card/create-job-card.component';
+import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/withdraw-stock.component';
+import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
+import { OnjoingJobsComponent } from './components/Foreman/onjoing-jobs/onjoing-jobs.component';
+import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 
 
 
@@ -78,6 +91,15 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
     ViewStoreComponent,
     AddOrdersComponent,
     ApproveOrdersComponent,
+    ProfileComponent,
+    SupplierInfoComponent,
+    StockStatusComponent,
+    ViewHistoryComponent,
+    CreateJobCardComponent,
+    WithdrawStockComponent,
+    MakeReservationsComponent,
+    OnjoingJobsComponent,
+    JobHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,10 +126,15 @@ import { ApproveOrdersComponent } from './components/Admin/approve-orders/approv
     MatGridListModule,
     MatDatepickerModule,
     MatExpansionModule,
+    MatNativeDateModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
       }),
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatTableModule,
+    Ng2SearchPipeModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -39,4 +39,9 @@ export class NavComponent implements OnInit {
 
   }
 
+  menu() {
+    var id = this.cookies.userData.userid;
+    this.router.navigate([id,'landing']);
+  }
+
 }
