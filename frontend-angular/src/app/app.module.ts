@@ -65,8 +65,8 @@ import { ViewHistoryComponent } from './components/Customer/view-history/view-hi
 import { CreateJobCardComponent } from './components/Foreman/create-job-card/create-job-card.component';
 import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/withdraw-stock.component';
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
-import { OnjoingJobsComponent } from './components/Foreman/onjoing-jobs/onjoing-jobs.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
+import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 
 
 
@@ -98,8 +98,8 @@ import { JobHistoryComponent } from './components/Foreman/job-history/job-histor
     CreateJobCardComponent,
     WithdrawStockComponent,
     MakeReservationsComponent,
-    OnjoingJobsComponent,
     JobHistoryComponent,
+    OngoingJobsComponent,
   ],
   imports: [
     BrowserModule,

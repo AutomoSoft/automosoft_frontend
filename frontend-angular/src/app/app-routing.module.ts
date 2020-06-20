@@ -21,11 +21,11 @@ import { StockStatusComponent } from './components/StoreKeeper/stock-status/stoc
 
 import { CreateJobCardComponent } from './components/Foreman/create-job-card/create-job-card.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
-import { OnjoingJobsComponent } from './components/Foreman/onjoing-jobs/onjoing-jobs.component';
 import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/withdraw-stock.component';
 
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
+import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 
 
 const routes: Routes = [
@@ -63,7 +63,7 @@ const routes: Routes = [
   /****************************************** Foreman Routes ******************************************** */
   {path:"createJob", component:CreateJobCardComponent},
   {path:"jobHistory", component:JobHistoryComponent},
-  {path:"ongoingJobs", component:OnjoingJobsComponent},
+  {path:"ongoingJobs", component:OngoingJobsComponent},
   {path:"withdrawStock", component:WithdrawStockComponent},
 
 ];
