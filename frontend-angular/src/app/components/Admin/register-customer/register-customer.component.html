@@ -144,7 +144,8 @@
       </div>
 
       <div class="button-container">
-        <!-- {{customerForm.value| json}} -->
+        {{customerForm.value.vehicles| json}}
+        
         <button mat-button type="submit" class="reg_btn" (click)="addCustomer()">
           Register
         </button>

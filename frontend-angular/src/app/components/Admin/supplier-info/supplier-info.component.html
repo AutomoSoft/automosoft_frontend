@@ -21,7 +21,7 @@
                 <mat-tab label="SEARCH BY SUPPLIER ID">
                     <form [formGroup] = SupplierSearchForm *ngIf="!dataform">
 
-                      <mat-card>
+
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
                         <h3 class="topic" style="margin-left: -600px;" >ENTER Supplier ID:</h3>
@@ -40,7 +40,6 @@
                         <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block btn_1  ">
                           Cancel
                         </button>
-                      </mat-card>
                     </form>
 
                     <div class="container" *ngIf="dataform">
