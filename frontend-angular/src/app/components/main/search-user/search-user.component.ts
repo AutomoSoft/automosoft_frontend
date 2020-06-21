@@ -105,7 +105,7 @@ export class SearchUserComponent implements OnInit {
       addedon: ["", Validators.required],
       lastmodifiedon: ["", Validators.required],
       lastmodifiedby: ["", Validators.required],
-      vehicles: this.fb.array([this.vehicles]),
+      vehicles: this.fb.array([this.custVehicles]),
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
 
@@ -155,7 +155,7 @@ export class SearchUserComponent implements OnInit {
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        this.custVehicles =JSON.parse(res.data.vehicles)
+        this.custVehicles =JSON.parse(res.data.vehicles);
       }
     });
   }
@@ -229,6 +229,7 @@ export class SearchUserComponent implements OnInit {
       address:this.UserDataForm.value.address,
       contactnumber:this.UserDataForm.value.contactNo,
       email:this.UserDataForm.value.email,
+      vehicles:this.custVehicles,
       //password:this.UserDataForm.value.password,
       lastmodifiedby: this.cookie.userid,
       lastmodifiedon:date,
@@ -348,7 +349,6 @@ export class SearchUserComponent implements OnInit {
       }
     });
   }
-
 
 
 }

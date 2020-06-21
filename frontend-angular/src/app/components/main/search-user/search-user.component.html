@@ -56,7 +56,7 @@
                           <div class="form-row mb-4">
                             <mat-form-field appearance="outline">
                               <!-- <mat-label>Select User Type:</mat-label> -->
-                              <mat-select placeholder="User Category:" formControlName="usertype" [(ngModel)]="userdata.usertype">
+                              <mat-select placeholder="User Category:" disabled formControlName="usertype" [(ngModel)]="userdata.usertype">
                                 <mat-option value="Administrator">Admin</mat-option>
                                 <mat-option value="Accountant">Accountant</mat-option>
                                 <mat-option value="Forman">Forman</mat-option>
@@ -133,7 +133,6 @@
                                      <th>VEHICLE REG. No</th>
                                      <th>CHASIS</th>
                                      <th>ENGINE No</th>
-                                     <th>ACTION</th>
                                    </tr>
                                  </thead>
                                  <tbody>
@@ -141,18 +140,14 @@
                                      <td>{{k.vehicleRegNo}}</td>
                                      <td>{{k.chasis}}</td>
                                      <td>{{k.EngineNo}}</td>
-                                     <td><button  mat-raised-button type="submit" class="my-4 btn-block del_btn " >Delete</button></td>
                                    </tr>
                                  </tbody>
                                </table>
 
                               </div>
 
-
-
-
                             </div>
-
+                           
                             <br>
                             <br>
                             <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'" >
