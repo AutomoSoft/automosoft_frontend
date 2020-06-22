@@ -32,7 +32,7 @@
                             <mat-select placeholder="Select Employee Category:" formControlName="usertype" #t (selectionChange)="togglefunction(t.value)">
                               <mat-option value="Administrator">Admin</mat-option>
                               <mat-option value="Accountant">Accountant</mat-option>
-                              <mat-option value="Forman">Forman</mat-option>
+                              <mat-option value="Foreman">Foreman</mat-option>
                               <mat-option value="Store-Keeper">Store-Keeper</mat-option>
                               <mat-option value="Technician">Technician</mat-option>
                             </mat-select>
@@ -132,7 +132,7 @@
                           Cancel
                         </button>
                       </mat-card>
-                      {{employeeForm.value|json}}
+                      <!-- {{employeeForm.value|json}} -->
                     </form>
                   </mat-tab>
 

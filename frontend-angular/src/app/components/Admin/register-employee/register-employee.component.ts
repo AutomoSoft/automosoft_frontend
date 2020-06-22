@@ -52,8 +52,8 @@ employeeForm = this.fb.group({
   email: ["", [Validators.required, Validators.email]],
   password: ["", [Validators.required, Validators.minLength(8)]],
   skills: this.fb.group({
-    expertise: ["", Validators.required],
-    capacity: ["", Validators.required]
+    expertise: [""],
+    capacity: [""]
   })
 
 });
