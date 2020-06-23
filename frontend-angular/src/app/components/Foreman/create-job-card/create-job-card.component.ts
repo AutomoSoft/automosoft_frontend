@@ -23,8 +23,11 @@ export class CreateJobCardComponent implements OnInit {
 
   cookie;
   flag1 = false;  //show select vehicles field
-  custID;
+  flag2 = false;  //show available technicians
+  custID;         // get customer vehicles
+  jobCat;        // filter technicians
   custVehicles;
+  techExpertise: [];
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -46,7 +49,7 @@ jobCardForm = this.fb.group({
   probCus: ["", Validators.required],
   foremanObv: ["", Validators.required],
   estCharge: ["", Validators.required],
-  
+  jobStatus:[""],
 
 
 });
@@ -55,6 +58,7 @@ ngOnInit() {
 
 }
 
+// ******************************************** Get Registered Customer Vehicles  ************************************************************
 selectVehicle(id){
 
   //console.log(id);
@@ -71,6 +75,29 @@ selectVehicle(id){
       this.flag1 = true;
       this.custVehicles =JSON.parse(res.data.vehicles);
       console.log(this.custVehicles);
+
+    }
+  });
+}
+
+// ******************************************** Show available technicians of a selected job Type ******************************************
+selectTechnician(category){
+
+  //console.log(category)
+  const url = "http://localhost:3000/users/getTechnicians"
+
+
+  this.http.get<any>(url + "/" + category).subscribe(res => {
+    if (res.state == false) {
+      this.flag2 = false;
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
+    } else {
+      this.flag2 = true;
+      //console.log(res.data);
+      this.techExpertise = res.data;
+
 
     }
   });

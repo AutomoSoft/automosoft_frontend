@@ -30,7 +30,7 @@
 
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select User Type:</mat-label> -->
-                            <mat-select placeholder="Job Type:" formControlName="jobType">
+                            <mat-select placeholder="Job Type:" [(ngModel)]="jobCat" formControlName="jobType">
                               <mat-option value="Paint Job">Paint Job</mat-option>
                               <mat-option value="Accident Repair">Accident Repair</mat-option>
                               <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
@@ -51,9 +51,13 @@
                             <input matInput class="form-control box_border" [(ngModel)]="custID" formControlName="custId">
                           </mat-form-field>
 
-                          <button mat-button type="submit" (click)=selectVehicle(custID) class="search_btn" >
-                            <mat-icon>search</mat-icon> Show Vehicles
-                          </button>
+                          <div class="button-container">
+                            <h3 >SHOW VEHICLES
+                              <button mat-button type="submit" (click)=selectVehicle(custID) class="search_btn" >
+                                <mat-icon>search</mat-icon>
+                              </button>
+                            </h3>
+                          </div>
 
                           <mat-form-field *ngIf="flag1" appearance="outline">
                             <mat-select placeholder="Select Vehicle:" formControlName="vehicle">
@@ -74,15 +78,37 @@
                         </div>
 
                         <div class="button-container">
-                          <button mat-button type="submit" class="btn1" >
-                            Add Technicians
-                          </button>
+                          <h3 >ADD TECHNICIANS
+                            <button mat-button type="submit" (click)=selectTechnician(jobCat) class="search_btn" >
+                              <mat-icon>add</mat-icon>
+                            </button>
+                          </h3>
                         </div>
                         <br>
 
-                        <mat-form-field appearance="outline" >
+                        <div *ngIf="flag2" class="mat-elevation-z8 mb-4" style="width:60%; margin-bottom: 10px; margin-left: 20%;">
+                          <table class="table ">
+                            <thead>
+                              <tr>
+                                <th>TECHNICIAN ID</th>
+                                <th>CURRENT WORK STATUS</th>
+                                <th>ACTION</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor= "let k of techExpertise">
+                                <td>{{k.userid}}</td>
+                                <td>{{k.currentjobCap}}/{{k.capacity}}</td>
+                                <td>lol</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                         </div>
+                         <br>
+                        <mat-form-field appearance="outline">
                           <mat-label>Estimated Service Charge:</mat-label>
-                          <textarea matInput formControlName="estCharge"></textarea>
+                          <input matInput class="form-control box_border" formControlName="estCharge">
                         </mat-form-field>
 
                         <br>
