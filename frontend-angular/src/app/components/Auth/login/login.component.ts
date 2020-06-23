@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
             config.duration = true ? 2000 : 0;
             this.snackBar.open("Successfully Logged In..! ", true ? "Done" : undefined, config);
             return "Log as admin";
-          }else if(id=="normaluser"){   //if other user logd in redirecto the menu
+          }else if(id=="Foreman" || id=="Customer" || id=="Store-Keeper" || id=="Accountant"){
             this.router.navigate([myCookie.userid,'landing']);
             return "Log as normal user";
           }else{    //else redirected to the login form again
