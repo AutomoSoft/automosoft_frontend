@@ -156,7 +156,7 @@ export class SupplierInfoComponent implements OnInit {
       return;
     }
     else {
-      let date=Date();
+      //let date=Date();
 
     const formData ={
       usertype:this.SupplierDataForm.value.usertype,
@@ -173,7 +173,7 @@ export class SupplierInfoComponent implements OnInit {
 
 
       //console.log(formData);
-      const url = 'http://localhost:3000/supplier/updateSupplier';    //backend url
+      const url = 'http://localhost:3000/supplier/updateSupplier/';    //backend url
 
 
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
