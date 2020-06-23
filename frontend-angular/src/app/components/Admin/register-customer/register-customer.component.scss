@@ -5,7 +5,7 @@
     center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 800px;
+  min-height: 850px;
 }
 
 .mat-option.mat-selected {
@@ -13,6 +13,7 @@
 }
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #c76b15 !important;
+  
   // opacity: 1!important;
 }
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {

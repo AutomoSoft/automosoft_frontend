@@ -68,7 +68,7 @@ import { MakeReservationsComponent } from './components/Customer/make-reservatio
 import { OnjoingJobsComponent } from './components/Foreman/onjoing-jobs/onjoing-jobs.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 
-
+import { MycookiesService } from './components/Admin/mycookies.service';
 
 @NgModule({
   declarations: [
@@ -136,7 +136,7 @@ import { JobHistoryComponent } from './components/Foreman/job-history/job-histor
 
 
   ],
-  providers: [],
+  providers: [MycookiesService],
   bootstrap: [AppComponent],
 
   entryComponents: [
