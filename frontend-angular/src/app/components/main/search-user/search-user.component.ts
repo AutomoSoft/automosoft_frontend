@@ -4,6 +4,7 @@ import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatSnackBar, MatSnackBarConfig, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 import {
@@ -31,7 +32,7 @@ interface user {
   addedon: String;
   lastmodifiedon: String;
   lastmodifiedby: String;
-  vehiclenumber: String;
+  vehicles: [];
 
   // filepath: String;
 }
@@ -65,6 +66,9 @@ export class SearchUserComponent implements OnInit {
   cookie;
   dataform: Boolean = false;
   propicName;  //profile picture name
+  searchText;
+  custVehicles;
+  userflag:Boolean = false;  //to show/hide customer vehicle fields
 
   constructor(
     private http: HttpClient,
@@ -101,12 +105,13 @@ export class SearchUserComponent implements OnInit {
       addedon: ["", Validators.required],
       lastmodifiedon: ["", Validators.required],
       lastmodifiedby: ["", Validators.required],
-      //vehiclenumber: ["", Validators.required],
+      vehicles: this.fb.array([this.custVehicles]),
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
 
 
-/*************************************************** Table Data  ***********************************************************/
+
+/*************************************************** Table Data(All Users) ***********************************************************/
 
     const url = "http://localhost:3000/users/searchAllUsers"   //backend url
 
@@ -116,7 +121,7 @@ export class SearchUserComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("Error...! ", true ? "Retry" : undefined, config);
       } else {
-        this.TABLE_DATA = res.data;   //add response data in to datadata array
+        this.TABLE_DATA = res.data;   //add response data in to data array
         //this.propicName = res.data.filepath;
         console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
@@ -124,7 +129,13 @@ export class SearchUserComponent implements OnInit {
     });
 
   }
-
+  get vehicles(): FormGroup {
+    return this.fb.group({
+      vehicleRegNo: ["", Validators.required],
+      chasis: ["", Validators.required],
+      EngineNo: ["", Validators.required],
+    });
+  }
 /*************************************************** Search User  ***********************************************************/
 
   searchUser() {
@@ -139,13 +150,12 @@ export class SearchUserComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         if(res.data.usertype=="Customer"){
-          //this.userflag = true;
+          this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        //console.log(this.userdata);
-
+        this.custVehicles =JSON.parse(res.data.vehicles);
       }
     });
   }
@@ -171,12 +181,12 @@ export class SearchUserComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         if(res.data.usertype=="Customer"){
-         // this.userflag = true;
+          this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        //console.log(this.userdata);
+        this.custVehicles =JSON.parse(res.data.vehicles)
 
       }
     });
@@ -219,6 +229,7 @@ export class SearchUserComponent implements OnInit {
       address:this.UserDataForm.value.address,
       contactnumber:this.UserDataForm.value.contactNo,
       email:this.UserDataForm.value.email,
+      vehicles:this.custVehicles,
       //password:this.UserDataForm.value.password,
       lastmodifiedby: this.cookie.userid,
       lastmodifiedon:date,
@@ -338,7 +349,6 @@ export class SearchUserComponent implements OnInit {
       }
     });
   }
-
 
 
 }

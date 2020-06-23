@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //material
 import {
@@ -28,7 +29,6 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
-
 
 
 
@@ -65,8 +65,8 @@ import { ViewHistoryComponent } from './components/Customer/view-history/view-hi
 import { CreateJobCardComponent } from './components/Foreman/create-job-card/create-job-card.component';
 import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/withdraw-stock.component';
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
-import { OnjoingJobsComponent } from './components/Foreman/onjoing-jobs/onjoing-jobs.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
+import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 
@@ -98,8 +98,8 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     CreateJobCardComponent,
     WithdrawStockComponent,
     MakeReservationsComponent,
-    OnjoingJobsComponent,
     JobHistoryComponent,
+    OngoingJobsComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,7 +133,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MatCheckboxModule,
     MatPaginatorModule,
     MatTableModule,
-
+    Ng2SearchPipeModule,
 
   ],
   providers: [MycookiesService],
