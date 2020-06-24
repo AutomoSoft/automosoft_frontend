@@ -14,11 +14,19 @@ interface supplier {
   address: String;
   contactnumber: String;
   email: String;
-  items: String;
+  items: [];
   note:String;
   addedon: String;
   addedby: String;
 
+}
+export interface PeriodicElement {
+  supid: String;
+  supname: String;
+  items: String;
+  addedon: String;
+  action: String;
+  email: String;
 }
 
 @Component({
@@ -27,7 +35,7 @@ interface supplier {
   styleUrls: ['./supplier-info.component.scss']
 })
 export class SupplierInfoComponent implements OnInit {
-  displayedColumns: string[] = ['supid', 'supname', 'items', 'addedon','action'];
+  displayedColumns: String[] = ['supid', 'supname', 'items','email','action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
   cookie;
@@ -35,6 +43,7 @@ export class SupplierInfoComponent implements OnInit {
   SupplierDataForm: FormGroup;
   supid;
   dataform: Boolean = false;
+  supItems; //items supplied by a praticular supplier
 
   supplierdata: supplier[] = [];
 
@@ -70,7 +79,7 @@ export class SupplierInfoComponent implements OnInit {
       contactnumber: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
-      items: ["", Validators.required],
+      items: this.fb.array([this.supItems]),
     });
 
 /*************************************************** Table Data  ***********************************************************/
@@ -108,7 +117,7 @@ export class SupplierInfoComponent implements OnInit {
       } else {
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to datadata array
-        //console.log(this.userdata);
+        this.supItems =res.data.items;
 
       }
     });
@@ -140,6 +149,7 @@ export class SupplierInfoComponent implements OnInit {
         }
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to datadata array
+        this.supItems =res.data.items;
         // console.log(this.supplierdata);
 
       }
@@ -283,10 +293,4 @@ export class SupplierInfoComponent implements OnInit {
 
 
 }
-export interface PeriodicElement {
-  supid: string;
-  supname: string;
-  items: string;
-  addedon: string;
-  action: string;
-}
+
