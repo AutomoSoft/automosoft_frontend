@@ -142,3 +142,16 @@ table {
   margin-right: 10px;
 }
 
+.add_btn {
+  color: aliceblue;
+  background-color: #c76b15;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add_btn:hover {
+  color: #000000;
+  transition: 0.5s;
+}
+

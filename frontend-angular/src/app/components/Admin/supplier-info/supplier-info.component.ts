@@ -22,6 +22,14 @@ interface supplier {
   items: [];
 
 }
+export interface PeriodicElement {
+  supid: String;
+  supname: String;
+  items: String;
+  addedon: String;
+  action: String;
+  email: String;
+}
 
 @Component({
   selector: 'app-supplier-info',
@@ -29,7 +37,7 @@ interface supplier {
   styleUrls: ['./supplier-info.component.scss']
 })
 export class SupplierInfoComponent implements OnInit {
-  displayedColumns: string[] = ['supid', 'supname', 'items', 'addedon','action'];
+  displayedColumns: String[] = ['supid', 'supname', 'items','email','action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
   cookie;
@@ -37,8 +45,8 @@ export class SupplierInfoComponent implements OnInit {
   SupplierDataForm: FormGroup;
   supid;
   dataform: Boolean = false;
-  supItems;
-  userflag:Boolean = false;  //to show/hide customer vehicle fields
+  supItems; //items supplied by a praticular supplier
+
   supplierdata: supplier[] = [];
 
   constructor(
@@ -73,8 +81,6 @@ export class SupplierInfoComponent implements OnInit {
       contactnumber: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
-      lastmodifiedon: ["", Validators.required],
-      lastmodifiedby: ["", Validators.required],
       items: this.fb.array([this.supItems]),
     });
 
@@ -119,9 +125,8 @@ export class SupplierInfoComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         this.dataform = true; //data form div show
-        this.supplierdata = res.data;
-        this.supItems =JSON.parse(res.data.items);  //add response data in to datadata array
-        //console.log(this.userdata);
+        this.supplierdata = res.data;   //add response data in to datadata array
+        this.supItems =res.data.items;
 
       }
     });
@@ -152,8 +157,8 @@ export class SupplierInfoComponent implements OnInit {
          // this.userflag = true;
         }
         this.dataform = true; //data form div show
-        this.supplierdata = res.data;
-        this.supItems =JSON.parse(res.data.items);   //add response data in to datadata array
+        this.supplierdata = res.data;   //add response data in to datadata array
+        this.supItems =res.data.items;
         // console.log(this.supplierdata);
 
       }
@@ -301,10 +306,4 @@ export class SupplierInfoComponent implements OnInit {
 
 
 }
-export interface PeriodicElement {
-  supid: string;
-  supname: string;
-  items: string;
-  addedon: string;
-  action: string;
-}
+

@@ -70,7 +70,7 @@ import { MakeReservationsComponent } from './components/Customer/make-reservatio
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 
-
+import { MycookiesService } from './components/Admin/mycookies.service';
 
 @NgModule({
   declarations: [
@@ -139,7 +139,7 @@ import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-
     MatTooltipModule
 
   ],
-  providers: [],
+  providers: [MycookiesService],
   bootstrap: [AppComponent],
 
   entryComponents: [

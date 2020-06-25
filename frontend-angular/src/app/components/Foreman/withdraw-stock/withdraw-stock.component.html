@@ -1,1 +1,89 @@
-<p>withdraw-stock works!</p>
+<div>
+    <div style="min-height: 15vh;"></div>
+    <div>
+      <mat-card style="margin: auto; width: 40%;">
+        <mat-card-title style="text-align: center;">Withdraw Stock</mat-card-title>
+        <form [formGroup]="withdrawalForm">
+
+          <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
+            <mat-label>Stock ID</mat-label>
+            <input  matInput name="stockid" formControlName="stockid" placeholder=""/>
+            <mat-icon matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
+  
+          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+            <mat-label>Foreman ID</mat-label>
+            <input matInput name="foremanid" formControlName="foremanid" placeholder="" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+  
+          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+            <mat-label>Collected by</mat-label>
+            <input matInput name="technicianid" formControlName="technicianid" placeholder="Technician's ID" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+          
+          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+            <mat-label>Job Number</mat-label>
+            <input matInput name="jobNo" formControlName="jobNo" placeholder="" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+            <mat-label>Customer ID</mat-label>
+            <input matInput name="customerid" formControlName="customerid" placeholder="" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+            <mat-label>Vehicle Number </mat-label>
+            <input matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+       <div>
+          <mat-form-field class="no-padding" style="width: 30%; padding-right: 20px;" appearance="outline">
+            <mat-label>Item ID</mat-label>
+            <input matInput name="itemid" formControlName="itemid" placeholder="" />
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+  
+          <mat-form-field class="no-padding" style="width: 20%;" appearance="outline">
+            <mat-label> Qty </mat-label>
+            <input matInput name="qty" formControlName="qty" placeholder="Qty" />
+          </mat-form-field>
+
+            <!-- {{customerForm.value| json}} -->
+            <button mat-button type="submit" id="entry" class="reg_btn" (click)="addItem()">
+              Add
+            </button>
+            <button mat-button type="submit" class="can_btn" (click)="reset()">
+              Remove
+            </button>   
+       </div>
+
+       <table border ="2" id="display">
+         <thead>
+           <tr>
+             <th>Item</th>
+             <th>Qty</th>
+           </tr>
+         </thead>
+       </table>
+
+       <script src="script.js"></script>
+
+        <div class="button-container">
+          <!-- {{customerForm.value| json}} -->
+          <button mat-button type="submit" class="reg_btn" (click)="save()">
+            Save
+          </button>
+          <button mat-button type="submit" class="can_btn" (click)="clear()">
+            Clear
+          </button>   
+     </div>
+        </form>
+      </mat-card>
+  </div>
+  
+  
