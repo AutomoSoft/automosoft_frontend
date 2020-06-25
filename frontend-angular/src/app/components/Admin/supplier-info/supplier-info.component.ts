@@ -14,10 +14,12 @@ interface supplier {
   address: String;
   contactnumber: String;
   email: String;
-  items: [];
   note:String;
   addedon: String;
   addedby: String;
+  lastmodifiedon: String;
+  lastmodifiedby: String;
+  items: [];
 
 }
 export interface PeriodicElement {
@@ -99,6 +101,13 @@ export class SupplierInfoComponent implements OnInit {
       }
     });
   }
+  get items(): FormGroup {
+    return this.fb.group({
+      itemtype: ["", Validators.required],
+      itemid: ["", Validators.required],
+      brand: ["", Validators.required],
+    });
+  }
 
 
 
@@ -175,15 +184,19 @@ export class SupplierInfoComponent implements OnInit {
       address:this.SupplierDataForm.value.address,
       contactnumber:this.SupplierDataForm.value.contactnumber,
       email:this.SupplierDataForm.value.email,
-      items:this.SupplierDataForm.value.items,
+      //items:this.SupplierDataForm.value.items,
       addedby:this.SupplierDataForm.value.addedby,
       addedon:this.SupplierDataForm.value.addedon,
+      items:this.supItems,
+      //password:this.UserDataForm.value.password,
+      lastmodifiedby: this.cookie.supid,
+      lastmodifiedon:date,
 
     };
 
 
       //console.log(formData);
-      const url = 'http://localhost:3000/supplier/updateSupplier';    //backend url
+      const url = 'http://localhost:3000/supplier/updateSupplier/';    //backend url
 
 
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {

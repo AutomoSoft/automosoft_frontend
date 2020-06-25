@@ -1,6 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { contactData } from '../../main/contact/contact-data.model';
 import { contactService } from '../../main/contact/contact.service';
+import { HttpClient } from '@angular/common/http';
+import { MycookiesService } from '../mycookies.service';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource } from '@angular/material';
+import { ConfirmationDialogComponent } from '../../Auth/confirmation-dialog/confirmation-dialog.component';
+
+export interface IPeriodicElement {
+  _id: String;
+  name: String;
+  email: String;
+  subject: String;
+  content: String;
+  isRead: Boolean;
+  addedon: number;
+  action: String;
+  isArchived: Boolean;
+
+}
+class PeriodicElement implements IPeriodicElement {
+  _id: String;
+  name: String;
+  email: String;
+  subject: String;
+  content: String;
+  isRead: Boolean;
+  addedon: number;
+  action: String;
+  isArchived: Boolean;
+
+  public get rowColor() {
+    if(this.isRead){
+      return "#ffffff";
+    }
+    else {
+      return "#000000";
+    }
+
+  }
+
+
+}
 
 
 @Component({
@@ -9,10 +51,17 @@ import { contactService } from '../../main/contact/contact.service';
   styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
+  color;
+  userid;
+  cookie;
+  displayedColumns: string[] = ['name', 'email', 'subject','content','action'];
+  TABLE_DATA: PeriodicElement[] = [];
+  dataSource;
+
   emails: contactData[];
   filteredEmails: contactData[];
   performFilters():contactData[]{
-    return this.emails.filter((email:contactData)=> email.isRead===false)
+    return this.emails.filter((email:contactData)=> email.isArchived===false)
 
   }
   getEmailsFromServer(){
@@ -28,17 +77,102 @@ export class MessageComponent implements OnInit {
   }
   markAsRead(id:string){
     this.messageService.updateMessages(id);
+    //this.getEmailsFromServer();
+    this.LoadEmails();
+  }
+  markAsUnread(id:string){
+    this.messageService.markAsUnread(id);
+    this.LoadEmails();
+  }
+  archiveEmails(id:string){
+    this.messageService.archiveMessages(id);
+    //return this.emails.filter((email:PeriodicElement)=> email.isArchived===true);
     this.getEmailsFromServer();
+    console.log(this.getEmailsFromServer);
+    //window.location.reload();
+
+
+    //this.getEmailsFromServer();
+  }
+
+
+  LoadEmails(){
+    const url = "http://localhost:3000/contact/getAllEmails"   //backend url
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error...! ", true ? "Retry" : undefined, config);
+      } else {
+        this.TABLE_DATA = res.data;   //add response data in to data array
+        //this.propicName = res.data.filepath;
+        console.log(this.TABLE_DATA);
+        this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
+      }
+    });
+
+
+  }
+  constructor(
+    private http: HttpClient,
+    private cookies: MycookiesService,
+    private router: Router,
+    private fb: FormBuilder,
+    public snackBar: MatSnackBar,
+    private dialog: MatDialog,
+    private messageService: contactService
+  ) {
+    this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
+  }
+
+  //constructor(private messageService: contactService) { }
+
+  ngOnInit() {
+    //this.getEmailsFromServer();
+    this.LoadEmails();
 
 
 
   }
+  deleteTable(_id){
+    //console.log(id);
 
+    const url2 = "http://localhost:3000/contact/deleteEmail/"  //delete data from tha database
 
-  constructor(private messageService: contactService) { }
-
-  ngOnInit() {
-    this.getEmailsFromServer();
+    //confirmaration box
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Yes',
+          cancel: 'No'
+        }
+      }
+    });
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        /*if (propic) {
+          this.http.delete<any>(url1 + propic).subscribe(res => {
+            console.log(res);
+          })
+        }*/
+        this.http.delete<any>(url2 + _id).subscribe(res => {
+          if (res.state == true) {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Successfully Deleted..! ", true ? "Done" : undefined, config);
+          }
+          else {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Deletion Unsuccessfull..! ", true ? "Retry" : undefined, config);
+          }
+        })
+        window.location.reload();
+      }
+    });
   }
 
 }
