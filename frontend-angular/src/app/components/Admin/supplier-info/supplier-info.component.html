@@ -77,14 +77,49 @@
                               <input matInput placeholder="Ex. abc@example.com" formControlName="email" [(ngModel)]="supplierdata.email">
                             </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Items:</mat-label>
-                              <input matInput placeholder="Ex. SP001" formControlName="items" [(ngModel)]="supplierdata.items">
-                            </mat-form-field>
-
                             <mat-form-field appearance="outline" >
                               <mat-label>Addedon:</mat-label>
                               <input matInput readonly formControlName="addedon" [(ngModel)]="supplierdata.addedon">
+                            </mat-form-field>
+
+                            <div >
+                              <h3>ITEMS
+                                <button mat-raised-button  type="submit" class="my-4 btn-block veh_btn">
+                                  <mat-icon >add</mat-icon>NEW
+                                </button>
+                              </h3>
+
+                              <div class="mat-elevation-z8" style="width:55%; margin-bottom: 10px; margin-left: 260px">
+                               <table class="table ">
+                                 <thead>
+                                   <tr>
+                                     <th>ITEM TYPE</th>
+                                     <th>ITEM ID</th>
+                                     <th>BRAND</th>
+                                   </tr>
+                                 </thead>
+                                 <tbody>
+                                   <tr *ngFor= "let k of supItems">
+                                     <td>{{k.itemtype}}</td>
+                                     <td>{{k.itemid}}</td>
+                                     <td>{{k.brand}}</td>
+                                   </tr>
+                                 </tbody>
+                               </table>
+
+                              </div>
+
+                            </div>
+                            <br>
+                            <br>
+                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'" >
+                              <mat-label>Last Modified On:</mat-label>
+                              <input matInput readonly formControlName="lastmodifiedon" [(ngModel)]="supplierdata.lastmodifiedon">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'">
+                              <mat-label>Last Modified By:</mat-label>
+                              <input matInput readonly formControlName="lastmodifiedby" [(ngModel)]="supplierdata.lastmodifiedby">
                             </mat-form-field>
 
                           </div>

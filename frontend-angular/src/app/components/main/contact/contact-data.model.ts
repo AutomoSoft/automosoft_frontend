@@ -4,7 +4,11 @@ export interface contactData {
   email: string;
   subject: string;
   content: string;
+  //action: string;
   isRead:boolean;
+  addedon: number;
+  isArchived:boolean;
+
 
 }
 

@@ -14,10 +14,12 @@ interface supplier {
   address: String;
   contactnumber: String;
   email: String;
-  items: String;
   note:String;
   addedon: String;
   addedby: String;
+  lastmodifiedon: String;
+  lastmodifiedby: String;
+  items: [];
 
 }
 
@@ -35,7 +37,8 @@ export class SupplierInfoComponent implements OnInit {
   SupplierDataForm: FormGroup;
   supid;
   dataform: Boolean = false;
-
+  supItems;
+  userflag:Boolean = false;  //to show/hide customer vehicle fields
   supplierdata: supplier[] = [];
 
   constructor(
@@ -70,7 +73,9 @@ export class SupplierInfoComponent implements OnInit {
       contactnumber: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
-      items: ["", Validators.required],
+      lastmodifiedon: ["", Validators.required],
+      lastmodifiedby: ["", Validators.required],
+      items: this.fb.array([this.supItems]),
     });
 
 /*************************************************** Table Data  ***********************************************************/
@@ -90,6 +95,13 @@ export class SupplierInfoComponent implements OnInit {
       }
     });
   }
+  get items(): FormGroup {
+    return this.fb.group({
+      itemtype: ["", Validators.required],
+      itemid: ["", Validators.required],
+      brand: ["", Validators.required],
+    });
+  }
 
 
 
@@ -107,7 +119,8 @@ export class SupplierInfoComponent implements OnInit {
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         this.dataform = true; //data form div show
-        this.supplierdata = res.data;   //add response data in to datadata array
+        this.supplierdata = res.data;
+        this.supItems =JSON.parse(res.data.items);  //add response data in to datadata array
         //console.log(this.userdata);
 
       }
@@ -139,7 +152,8 @@ export class SupplierInfoComponent implements OnInit {
          // this.userflag = true;
         }
         this.dataform = true; //data form div show
-        this.supplierdata = res.data;   //add response data in to datadata array
+        this.supplierdata = res.data;
+        this.supItems =JSON.parse(res.data.items);   //add response data in to datadata array
         // console.log(this.supplierdata);
 
       }
@@ -156,7 +170,7 @@ export class SupplierInfoComponent implements OnInit {
       return;
     }
     else {
-      //let date=Date();
+      let date=Date();
 
     const formData ={
       usertype:this.SupplierDataForm.value.usertype,
@@ -165,9 +179,13 @@ export class SupplierInfoComponent implements OnInit {
       address:this.SupplierDataForm.value.address,
       contactnumber:this.SupplierDataForm.value.contactnumber,
       email:this.SupplierDataForm.value.email,
-      items:this.SupplierDataForm.value.items,
+      //items:this.SupplierDataForm.value.items,
       addedby:this.SupplierDataForm.value.addedby,
       addedon:this.SupplierDataForm.value.addedon,
+      items:this.supItems,
+      //password:this.UserDataForm.value.password,
+      lastmodifiedby: this.cookie.supid,
+      lastmodifiedon:date,
 
     };
 

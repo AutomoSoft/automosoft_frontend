@@ -15,9 +15,11 @@ export class contactService {
     email: string,
     subject:string,
     content: string,
+    //addedon: Date,
 
    ): void{
-      const contactData: contactData ={name: name, email: email, subject: subject, content: content, isRead: false, _id:null };
+      const contactData: contactData ={name: name, email: email, subject: subject, content: content, isRead: false,isArchived: false, _id:null, addedon: Date.now(),  };
+
       this.http.post("http://localhost:3000/contact/contactUs", contactData)
         .subscribe(response => {
           console.log(response);
@@ -40,6 +42,18 @@ export class contactService {
   updateMessages(id:string): void{
 
     this.http.put(`${this.baseUrl}/isRead/${id}`, id).subscribe(respose =>{
+      console.log(respose);
+    });
+  }
+  markAsUnread(id:string): void{
+
+    this.http.put(`${this.baseUrl}/unRead/${id}`, id).subscribe(respose =>{
+      console.log(respose);
+    });
+  }
+  archiveMessages(id:string): void{
+
+    this.http.put(`${this.baseUrl}/isArchived/${id}`, id).subscribe(respose =>{
       console.log(respose);
     });
   }
