@@ -80,11 +80,13 @@ selectVehicle(id){
   });
 }
 
-// ******************************************** Show available technicians of a selected job Type ******************************************
+// ******************************************** Technicians for Jobs ********************************************************
+
+//search tecnicians from relavant category
 selectTechnician(category){
 
   //console.log(category)
-  const url = "http://localhost:3000/users/getTechnicians"
+  const url = "http://localhost:3000/technician/getTechnicians"
 
 
   this.http.get<any>(url + "/" + category).subscribe(res => {
@@ -103,4 +105,74 @@ selectTechnician(category){
   });
 }
 
+//add technician to a particular job - Job Card comp
+
+addTechJob(id,category){
+  //console.log(id);
+  const url = "http://localhost:3000/technician/addTechnicians"
+
+  this.http.get<any>(url + "/" + id).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      //console.log(res.data);
+      const url = "http://localhost:3000/technician/getTechnicians"
+
+
+      this.http.get<any>(url + "/" + category).subscribe(res => {
+        if (res.state == false) {
+          this.flag2 = false;
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
+        } else {
+          this.flag2 = true;
+          //console.log(res.data);
+          this.techExpertise = res.data;
+
+
+        }
+      });
+    }
+  });
+
+}
+
+//remove/clear technicians from a job - Job Card comp
+remTechJob(id,category){
+  //console.log(id);
+  const url = "http://localhost:3000/technician/remTechnicians"
+
+  this.http.get<any>(url + "/" + id).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      //console.log(res.data);
+      const url = "http://localhost:3000/technician/getTechnicians"
+
+
+      this.http.get<any>(url + "/" + category).subscribe(res => {
+        if (res.state == false) {
+          this.flag2 = false;
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
+        } else {
+          this.flag2 = true;
+          //console.log(res.data);
+          this.techExpertise = res.data;
+
+
+        }
+      });
+    }
+  });
+
+}
 }

@@ -99,7 +99,14 @@
                               <tr *ngFor= "let k of techExpertise">
                                 <td>{{k.userid}}</td>
                                 <td>{{k.currentjobCap}}/{{k.capacity}}</td>
-                                <td>lol</td>
+                                <td>
+                                  <button mat-icon-button  type="submit" (click)=addTechJob(k.userid,jobCat) class=" btn-block tec_btn">
+                                    <mat-icon>add_box</mat-icon>
+                                  </button>
+                                  <button mat-icon-button  type="submit" (click)=remTechJob(k.userid,jobCat) class=" btn-block btn_1">
+                                    <mat-icon>clear</mat-icon>
+                                  </button>
+                              </td>
                               </tr>
                             </tbody>
                           </table>
@@ -112,7 +119,7 @@
                         </mat-form-field>
 
                         <br>
-                        <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">
+                        <button mat-raised-button type="submit"  class="my-4 btn-block reg_btn ">
                           Add Job
                         </button>
 
