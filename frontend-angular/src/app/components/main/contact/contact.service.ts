@@ -51,10 +51,11 @@ export class contactService {
       console.log(respose);
     });
   }
-  archiveMessages(id:string): void{
+  archiveMessages(id:string, callback): void{
 
     this.http.put(`${this.baseUrl}/isArchived/${id}`, id).subscribe(respose =>{
       console.log(respose);
+      callback();
     });
   }
 
