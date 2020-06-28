@@ -96,7 +96,7 @@ export class SupplierInfoComponent implements OnInit {
       } else {
         this.TABLE_DATA = res.data;   //add response data in to datadata array
         //this.propicName = res.data.filepath;
-        console.log(this.TABLE_DATA);
+        //console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
       }
     });
@@ -122,7 +122,7 @@ export class SupplierInfoComponent implements OnInit {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
-        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+        this.snackBar.open("Supplier Not Found..! ", true ? "Retry" : undefined, config);
       } else {
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to datadata array
