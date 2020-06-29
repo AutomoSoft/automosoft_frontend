@@ -92,8 +92,10 @@ export class MessageComponent implements OnInit {
     this.LoadEmails();
   }
   markAsUnread(id:string){
-    this.messageService.markAsUnread(id);
-    this.LoadEmails();
+    this.messageService.markAsUnread(id, ()=>{
+      this.LoadEmails();
+    });
+
   }
   archiveEmails(id:string){
     this.messageService.archiveMessages(id, ()=>{
