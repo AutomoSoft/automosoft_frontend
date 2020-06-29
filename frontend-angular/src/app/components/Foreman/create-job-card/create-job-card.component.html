@@ -30,7 +30,7 @@
 
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select User Type:</mat-label> -->
-                            <mat-select placeholder="Job Type:" [(ngModel)]="jobCat" formControlName="jobType">
+                            <mat-select placeholder="Job Type:" [(ngModel)]="jobCat" (ngModelChange)="selectTechnician($event)" formControlName="jobType">
                               <mat-option value="Paint Job">Paint Job</mat-option>
                               <mat-option value="Accident Repair">Accident Repair</mat-option>
                               <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
@@ -53,8 +53,8 @@
 
                           <div class="button-container">
                             <h3 >SHOW VEHICLES
-                              <button mat-button type="submit" (click)=selectVehicle(custID) class="search_btn" >
-                                <mat-icon>search</mat-icon>
+                              <button mat-button  (click)=selectVehicle(custID) class="search_btn" >
+                                <mat-icon>search</mat-icon> View
                               </button>
                             </h3>
                           </div>
@@ -79,14 +79,15 @@
 
                         <div class="button-container">
                           <h3 >ADD TECHNICIANS
-                            <button mat-button type="submit" (click)=selectTechnician(jobCat) class="search_btn" >
-                              <mat-icon>add</mat-icon>
+                            <button mat-raised-button type="submit" (click)=save();  class="my-4 btn-block tec_btn " *ngIf="flag1">
+                              <mat-icon>assignment_turned_in</mat-icon> Save
                             </button>
                           </h3>
+
                         </div>
                         <br>
 
-                        <div *ngIf="flag2" class="mat-elevation-z8 mb-4" style="width:60%; margin-bottom: 10px; margin-left: 20%;">
+                        <div *ngIf="flag1" class="mat-elevation-z8 mb-4" style="width:60%; margin-bottom: 10px; margin-left: 20%;">
                           <table class="table ">
                             <thead>
                               <tr>
@@ -100,8 +101,8 @@
                                 <td>{{k.userid}}</td>
                                 <td>{{k.currentjobCap}}/{{k.capacity}}</td>
                                 <td>
-                                  <button mat-icon-button  type="submit" (click)=addTechJob(k.userid,jobCat) class=" btn-block tec_btn">
-                                    <mat-icon>add_box</mat-icon>
+                                  <button mat-icon-button  type="submit" (click)=addTechJob(k.userid,jobCat)  class=" btn-block tec_btn">
+                                    <mat-icon>add</mat-icon>
                                   </button>
                                   <button mat-icon-button  type="submit" (click)=remTechJob(k.userid,jobCat) class=" btn-block btn_1">
                                     <mat-icon>clear</mat-icon>
@@ -119,7 +120,7 @@
                         </mat-form-field>
 
                         <br>
-                        <button mat-raised-button type="submit"  class="my-4 btn-block reg_btn ">
+                        <button mat-raised-button type="submit" (click)=createJobCard() class="my-4 btn-block reg_btn ">
                           Add Job
                         </button>
 
@@ -127,7 +128,7 @@
                           Cancel
                         </button>
                       </mat-card>
-                      {{jobCardForm.value | json}}
+                      <!-- {{jobCardForm.value | json}} -->
                     </form>
                   </mat-tab>
 
