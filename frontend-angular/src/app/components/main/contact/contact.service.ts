@@ -45,16 +45,18 @@ export class contactService {
       console.log(respose);
     });
   }
-  markAsUnread(id:string): void{
+  markAsUnread(id:string, callback): void{
 
     this.http.put(`${this.baseUrl}/unRead/${id}`, id).subscribe(respose =>{
       console.log(respose);
+      callback();
     });
   }
-  archiveMessages(id:string): void{
+  archiveMessages(id:string, callback): void{
 
     this.http.put(`${this.baseUrl}/isArchived/${id}`, id).subscribe(respose =>{
       console.log(respose);
+      callback();
     });
   }
 

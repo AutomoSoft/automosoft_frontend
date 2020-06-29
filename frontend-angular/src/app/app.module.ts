@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChild } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +30,7 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
+  MatSortModule,
 
 
 
@@ -69,6 +70,7 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
+//import {ViewChild } from '@angular/core';
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 
@@ -136,7 +138,9 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MatPaginatorModule,
     MatTableModule,
     Ng2SearchPipeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSortModule,
+    //ViewChild
 
   ],
   providers: [MycookiesService],

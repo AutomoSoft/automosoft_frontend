@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { contactData } from '../../main/contact/contact-data.model';
 import { contactService } from '../../main/contact/contact.service';
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource } from '@angular/material';
+import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ConfirmationDialogComponent } from '../../Auth/confirmation-dialog/confirmation-dialog.component';
+import { element } from 'protractor';
 
 export interface IPeriodicElement {
   _id: String;
@@ -54,9 +55,19 @@ export class MessageComponent implements OnInit {
   color;
   userid;
   cookie;
-  displayedColumns: string[] = ['name', 'email', 'subject','content','action'];
+  displayedColumns: string[] = ['name', 'email', 'subject','content','action','addedon'];
   TABLE_DATA: PeriodicElement[] = [];
+  ORIGINAL_TABLE_DATA: PeriodicElement[] =  [];
   dataSource;
+
+  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort,{static: true}) sort: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+  }
 
   emails: contactData[];
   filteredEmails: contactData[];
@@ -81,15 +92,19 @@ export class MessageComponent implements OnInit {
     this.LoadEmails();
   }
   markAsUnread(id:string){
-    this.messageService.markAsUnread(id);
-    this.LoadEmails();
+    this.messageService.markAsUnread(id, ()=>{
+      this.LoadEmails();
+    });
+
   }
   archiveEmails(id:string){
-    this.messageService.archiveMessages(id);
-    //return this.emails.filter((email:PeriodicElement)=> email.isArchived===true);
-    this.getEmailsFromServer();
-    console.log(this.getEmailsFromServer);
+    this.messageService.archiveMessages(id, ()=>{
+      this.LoadEmails();
+    });
+
+    //console.log(this.getEmailsFromServer);
     //window.location.reload();
+
 
 
     //this.getEmailsFromServer();
@@ -105,10 +120,19 @@ export class MessageComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("Error...! ", true ? "Retry" : undefined, config);
       } else {
-        this.TABLE_DATA = res.data;   //add response data in to data array
+        //this.TABLE_DATA = res.data;
+        this.ORIGINAL_TABLE_DATA = res.data;
+        this.TABLE_DATA = [];
+        this.ORIGINAL_TABLE_DATA.forEach(element=>{
+          if(!element.isArchived){
+            this.TABLE_DATA.push(element);
+          }
+        })
+        this.TABLE_DATA.sort(a => a.addedon).reverse(); //add response data in to data array
         //this.propicName = res.data.filepath;
         console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
 
       }
     });
@@ -124,8 +148,10 @@ export class MessageComponent implements OnInit {
     private dialog: MatDialog,
     private messageService: contactService
   ) {
+    this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
   }
+  ;
 
   //constructor(private messageService: contactService) { }
 
