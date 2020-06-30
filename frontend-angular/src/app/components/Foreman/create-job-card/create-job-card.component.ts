@@ -23,11 +23,17 @@ export class CreateJobCardComponent implements OnInit {
 
   cookie;
   flag1 = false;  //show select vehicles field
-  flag2 = false;  //show available technicians
+  flag2 = false;  //show technicians section
   custID;         // get customer vehicles
+  techID;
   jobCat;        // filter technicians
   custVehicles;
   techExpertise: [];
+  selectedTech = [] as any;
+  itemsUsed = [];
+  dateAdded;
+
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -49,12 +55,17 @@ jobCardForm = this.fb.group({
   probCus: ["", Validators.required],
   foremanObv: ["", Validators.required],
   estCharge: ["", Validators.required],
+  technicians: [""],
   jobStatus:[""],
 
 
 });
 
 ngOnInit() {
+  var temp = this.cookies.getCookie("userAuth");
+    if(temp==""){
+      this.router.navigate(['/login']);
+    }
 
 }
 
@@ -86,17 +97,15 @@ selectVehicle(id){
 selectTechnician(category){
 
   //console.log(category)
-  const url = "http://localhost:3000/technician/getTechnicians"
-
+  const url = "http://localhost:3000/technician/getTechnicians";
 
   this.http.get<any>(url + "/" + category).subscribe(res => {
     if (res.state == false) {
-      this.flag2 = false;
       let config = new MatSnackBarConfig();
       config.duration = true ? 2000 : 0;
       this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
     } else {
-      this.flag2 = true;
+       this.flag2 = true;
       //console.log(res.data);
       this.techExpertise = res.data;
 
@@ -109,9 +118,13 @@ selectTechnician(category){
 
 addTechJob(id,category){
   //console.log(id);
+  this.techID = id;
+  this.dateAdded=new Date();
+  this.selectedTech.push([this.techID, this.dateAdded]);    //add selected techniciancs to the selectedTech array
+
   const url = "http://localhost:3000/technician/addTechnicians"
 
-  this.http.get<any>(url + "/" + id).subscribe(res => {
+  this.http.get<any>(url + "/" + this.techID).subscribe(res => {
     if (res.state == false) {
       let config = new MatSnackBarConfig();
       config.duration = true ? 2000 : 0;
@@ -144,9 +157,13 @@ addTechJob(id,category){
 //remove/clear technicians from a job - Job Card comp
 remTechJob(id,category){
   //console.log(id);
+  this.techID = id;
+
+  this.selectedTech.pop(this.techID);   //remove technicians from selection
+
   const url = "http://localhost:3000/technician/remTechnicians"
 
-  this.http.get<any>(url + "/" + id).subscribe(res => {
+  this.http.get<any>(url + "/" + this.techID).subscribe(res => {
     if (res.state == false) {
       let config = new MatSnackBarConfig();
       config.duration = true ? 2000 : 0;
@@ -174,5 +191,67 @@ remTechJob(id,category){
     }
   });
 
+}
+
+// ******************************************** Create Job Card ********************************************************
+
+
+createJobCard() {
+
+  let date=Date();
+  const createJob = {
+    jobType : this.jobCardForm.value.jobType,
+    jobNo: this.jobCardForm.value.jobNo,
+    custId: this.jobCardForm.value.custId,
+    vehicle: this.jobCardForm.value.vehicle,
+    probCus: this.jobCardForm.value.probCus,
+    foremanObv: this.jobCardForm.value.foremanObv,
+    estCharge: this.jobCardForm.value.estCharge,
+    technicians: this.selectedTech,
+    itemsUsed: this.itemsUsed,
+    addedby: this.cookie.userid,
+    addedon: date,
+    lastmodifiedby: "Never Modified",
+    lastmodifiedon: date,
+    jobStatus: "Queued",
+  };
+
+    var url = "http://localhost:3000/jobs/addNewJob";
+
+    if (this.jobCardForm.invalid) {
+      let config = new MatSnackBarConfig();
+      this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+      return;
+    }else {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: "Are you sure want to Add?",
+        buttonText: {
+          ok: "Yes",
+          cancel: "No"
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+      if (confirmed) {
+        this.http.post<any>(url, createJob).subscribe(res => {
+          if (res.state) {
+            console.log(res.msg);
+            window.location.reload();
+          } else {
+            console.log(res.msg);
+            alert("Error!! Try Again");
+            this.router.navigate(['createJob']);
+          }
+        });
+        console.log(createJob);
+      }
+    });
+    }
+}
+save(){
+  console.log(this.selectedTech);
 }
 }
