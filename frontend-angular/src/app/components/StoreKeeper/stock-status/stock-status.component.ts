@@ -16,7 +16,7 @@ import {
 } from "@angular/forms";
 
 
-interface user {
+interface item {
   _id: String;
   itemtype: String;
   itemid: String;
@@ -52,10 +52,11 @@ export class StockStatusComponent implements OnInit {
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
 
-  userdata: user[] = [];
+  itemdata: item[] = [];
   itemSearchForm: FormGroup;
   itemDataForm: FormGroup;
   userid;
+  itemid;
   cookie;
   dataform: Boolean = false;
   propicName;  //profile picture name
@@ -81,7 +82,7 @@ export class StockStatusComponent implements OnInit {
     }
 
     this.itemSearchForm = this.fb.group({
-      userid: ['', Validators.required]
+      itemid: ['', Validators.required]
     });
 
     this.itemDataForm = this.fb.group({
@@ -117,7 +118,33 @@ export class StockStatusComponent implements OnInit {
     });
   }
 
+  /*************************************************** Search Item  ***********************************************************/
 
-  
+  searchItem() {
+    this.itemid = this.itemSearchForm.value.itemid; //get item id
+    console.log(this.itemid); 
+
+    const url = "http://localhost:3000/items/searchItem"   //backend url
+
+    this.http.get<any>(url + "/" + this.itemid).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("No Item Found..! ", true ? "Retry" : undefined, config);
+      } else {
+        // if(res.data.usertype=="Customer"){
+        //   this.userflag = true;
+        // }
+        this.dataform = true; //data form div show
+        this.itemdata = res.data;   //add response data in to itemdata array
+        this.propicName = res.data.filepath;
+       // this.custVehicles =JSON.parse(res.data.vehicles);
+      }
+    });
+  }
+
+  resetSearch(){
+    this.itemSearchForm.reset();
+  }
 
 }
