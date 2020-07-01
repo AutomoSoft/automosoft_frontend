@@ -48,6 +48,7 @@ export interface PeriodicElement {
   styleUrls: ['./view-technicians.component.scss']
 })
 export class ViewTechniciansComponent implements OnInit {
+  displayedColumns: string[] = ['userid', 'firstname','lastname', 'email', 'contactnumber','action'];
   cookie;
   flag2 = false;  //show technicians section
   jobCat;        // filter technicians
