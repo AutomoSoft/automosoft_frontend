@@ -23,25 +23,28 @@
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
                       <form [formGroup]="withdrawalForm">
-
+                        
+                         
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Job Number</mat-label>
-                          <input matInput name="jobNo" formControlName="jobNo" placeholder="" />
-                          <mat-icon matSuffix>person</mat-icon>
-                        </mat-form-field>
-
-                        
-                        <mat-form-field class="no-padding" style="width:80%" appearance="outline">
-                          <mat-label>Customer ID</mat-label>
-                          <input matInput name="customerid" formControlName="customerid" placeholder="" />
-                          <mat-icon matSuffix>person</mat-icon>
+                        <mat-select name="jobNo" formControlName="job" placeholder="" (selectionChange)="selectJob()">
+                          <mat-option *ngFor="let job of jobs" [value]="job">{{job.jobNo}}</mat-option>
+                        </mat-select>
                         </mat-form-field>
                   
-                        <mat-form-field class="no-padding" style="width:80%" appearance="outline">
-                          <mat-label>Vehicle Number </mat-label>
-                          <input matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" />
-                          <mat-icon matSuffix>person</mat-icon>
-                        </mat-form-field>
+            
+                      <mat-form-field *ngIf="selectedJob" class="no-padding" style="width:80%" appearance="outline">
+                        <mat-label>Customer ID</mat-label>
+                        <input readonly matInput name="customerid" formControlName="customerid" placeholder="" [ngModel]="selectedJob.custId" />
+                        <mat-icon matSuffix>person</mat-icon>
+                      </mat-form-field>
+            
+                      <mat-form-field *ngIf="selectedJob" class="no-padding" style="width:80%" appearance="outline">
+                        <mat-label>Vehicle Number </mat-label>
+                        <input readonly matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" [ngModel]="selectedJob.vehicle"/>
+                        <mat-icon matSuffix>person</mat-icon>
+                      </mat-form-field>
+            
                   
                         <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
                           <mat-label>Stock ID</mat-label>

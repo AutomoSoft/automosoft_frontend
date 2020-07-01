@@ -19,6 +19,11 @@ export class WithdrawStockComponent implements OnInit {
   cookie;
   userid;
   items = [];
+  jobs = [
+    { jobNo: 1, jobType: 'test1', custId: 'test1', jobStatus: 'test1', vehicle: 'test1' },
+    { jobNo: 2, jobType: 'test2', custId: 'test2', jobStatus: 'test2', vehicle: 'test2' }
+    ];
+  selectedJob;
 
   constructor( private router: Router,
     private http: HttpClient,
@@ -39,7 +44,7 @@ export class WithdrawStockComponent implements OnInit {
       stockid: ["", Validators.required],
       foremanid: ["", Validators.required],
       technicianid: ["", Validators.required],
-      jobNo: ["", Validators.required],
+      job: ["", Validators.required],
       customerid:["",Validators.required],
       vehicleNo:["",Validators.required],
       itemid: ["", Validators.required],
@@ -144,4 +149,7 @@ removeItem() {
   }
 }
 
+  selectJob () {
+    this.selectedJob = this.withdrawalForm.value.job;
+  }
 }
