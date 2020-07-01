@@ -109,11 +109,8 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
     JobHistoryComponent,
     OngoingJobsComponent,
     ViewUserComponent,
-<<<<<<< HEAD
     EditUserComponent,
-=======
     ViewTechniciansComponent,
->>>>>>> 5a5e77bca61054c8ee0c45d8d91fa44468362ed7
   ],
   imports: [
     BrowserModule,
