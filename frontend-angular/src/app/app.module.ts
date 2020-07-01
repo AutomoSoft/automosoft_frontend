@@ -17,7 +17,7 @@ import {
   MatToolbarModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule ,
+  MatListModule,
   MatStepperModule,
   MatInputModule,
   MatTabsModule,
@@ -29,6 +29,7 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
+  MatChipsModule,
 
 
 
@@ -69,6 +70,7 @@ import { JobHistoryComponent } from './components/Foreman/job-history/job-histor
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 
 import { MycookiesService } from './components/Admin/mycookies.service';
+import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,9 +130,10 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MatDatepickerModule,
     MatExpansionModule,
     MatNativeDateModule,
+    MatChipsModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
-      }),
+      apiKey: 'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
+    }),
     MatCheckboxModule,
     MatPaginatorModule,
     MatTableModule,
