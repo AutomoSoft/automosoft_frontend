@@ -11,14 +11,14 @@ import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 //material
 import {
   MatToolbarModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule ,
+  MatListModule,
   MatStepperModule,
   MatInputModule,
   MatTabsModule,
@@ -30,6 +30,7 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
+  MatChipsModule,
   MatSortModule,
 
 
@@ -73,6 +74,7 @@ import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-
 //import {ViewChild } from '@angular/core';
 
 import { MycookiesService } from './components/Admin/mycookies.service';
+import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +106,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -131,9 +134,10 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MatDatepickerModule,
     MatExpansionModule,
     MatNativeDateModule,
+    MatChipsModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
-      }),
+      apiKey: 'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
+    }),
     MatCheckboxModule,
     MatPaginatorModule,
     MatTableModule,
