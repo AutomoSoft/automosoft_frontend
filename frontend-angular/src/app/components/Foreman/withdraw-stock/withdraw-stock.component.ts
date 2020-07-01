@@ -18,6 +18,12 @@ export class WithdrawStockComponent implements OnInit {
 
   cookie;
   userid;
+  items = [];
+  jobs = [
+    { jobNo: 1, jobType: 'test1', custId: 'test1', jobStatus: 'test1', vehicle: 'test1' },
+    { jobNo: 2, jobType: 'test2', custId: 'test2', jobStatus: 'test2', vehicle: 'test2' }
+    ];
+  selectedJob;
 
   constructor( private router: Router,
     private http: HttpClient,
@@ -38,7 +44,7 @@ export class WithdrawStockComponent implements OnInit {
       stockid: ["", Validators.required],
       foremanid: ["", Validators.required],
       technicianid: ["", Validators.required],
-      jobNo: ["", Validators.required],
+      job: ["", Validators.required],
       customerid:["",Validators.required],
       vehicleNo:["",Validators.required],
       itemid: ["", Validators.required],
@@ -100,4 +106,50 @@ ngOnInit() {
     this.router.navigate(['/login']);
   }
 }
+
+addItem() {
+  const newItemId = this.withdrawalForm.value.itemid;
+  const newQty = this.withdrawalForm.value.qty;
+  let notFound = true;
+  this.items = this.items.map((itemObject) => {
+    const itemId = itemObject.itemId;
+    const qty = itemObject.qty;
+    if (itemId === newItemId) {
+      notFound = false;
+      itemObject.qty = parseInt(qty, 10) + parseInt(newQty, 10);
+    }
+    return itemObject;
+  });
+  if (notFound) {
+    this.items.push({ itemId: newItemId, qty: newQty });
+  }
+}
+
+removeItem() {
+  const newItemId = this.withdrawalForm.value.itemid;
+  const newQty = this.withdrawalForm.value.qty;
+  let itemIndex = -1;
+  let shouldRemove = false;
+  this.items = this.items.map((itemObject, index) => {
+    const itemId = itemObject.itemId;
+    const qty = itemObject.qty;
+    if (itemId === newItemId) {
+      itemIndex = index;
+      if (qty <= newQty) {
+        shouldRemove = true;
+      } else {
+        itemObject.qty = parseInt(qty, 10) - parseInt(newQty, 10);
+      }
+    }
+    return itemObject;
+  });
+
+  if (shouldRemove) {
+    this.items.splice(itemIndex, 1);
+  }
+}
+
+  selectJob () {
+    this.selectedJob = this.withdrawalForm.value.job;
+  }
 }

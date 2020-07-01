@@ -76,6 +76,7 @@ import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-
 import { MycookiesService } from './components/Admin/mycookies.service';
 import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
+import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,11 @@ import { EditUserComponent } from './components/main/search-user/edit-user/edit-
     JobHistoryComponent,
     OngoingJobsComponent,
     ViewUserComponent,
+<<<<<<< HEAD
     EditUserComponent,
+=======
+    ViewTechniciansComponent,
+>>>>>>> 5a5e77bca61054c8ee0c45d8d91fa44468362ed7
   ],
   imports: [
     BrowserModule,

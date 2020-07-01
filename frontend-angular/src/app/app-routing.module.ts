@@ -28,6 +28,7 @@ import { ViewHistoryComponent } from './components/Customer/view-history/view-hi
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
+import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
 
 const routes: Routes = [
@@ -69,6 +70,7 @@ const routes: Routes = [
   { path: "jobHistory", component: JobHistoryComponent },
   { path: "ongoingJobs", component: OngoingJobsComponent },
   { path: "withdrawStock", component: WithdrawStockComponent },
+  { path: "viewTechnicians", component: ViewTechniciansComponent },
 
 ];
 
