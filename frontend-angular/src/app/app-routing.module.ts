@@ -27,6 +27,7 @@ import { MakeReservationsComponent } from './components/Customer/make-reservatio
 import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
 import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
+import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: "searchUser", component: SearchUserComponent },
   { path: "viewProfile", component: ProfileComponent },
   { path: "viewUser", component: ViewUserComponent },
+  { path: "editUSer", component: EditUserComponent },
 
 
   /****************************************** Admin Routes ********************************************** */

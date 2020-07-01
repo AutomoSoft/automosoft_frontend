@@ -5,6 +5,7 @@ import { MatDialog, MatSnackBar, MatSnackBarConfig } from "@angular/material";
 import { HttpClient } from "@angular/common/http";
 
 
+import { EditUserComponent } from '../edit-user/edit-user.component';
 import { ConfirmationDialogComponent } from "../../../Auth/confirmation-dialog/confirmation-dialog.component";
 
 import {
@@ -15,7 +16,6 @@ import {
   FormArray,
   Form
 } from "@angular/forms";
-import { SearchUserComponent } from '../search-user.component';
 
 
 interface user {
@@ -64,9 +64,8 @@ export class ViewUserComponent implements OnInit {
   }
 
   onEditUser() {
-    const dialogRef = this.dialog.open(SearchUserComponent, {
+    const dialogRef = this.dialog.open(EditUserComponent, {
       width: '640px'
     });
-
   }
 }
