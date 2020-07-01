@@ -28,10 +28,10 @@
                         <h3 class="topic" style="margin-left: -600px;" >SELECT TECHNICIAN CATEGORY:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline" >
-                            <mat-select placeholder="Item Category:" [(ngModel)]="searchText">
-                              <mat-option value="Administrator">Spare Parts</mat-option>
-                              <mat-option value="Accountant">Paints</mat-option>
-                              <mat-option value="Accountant">All</mat-option>
+                            <mat-select placeholder="Expertise" [(ngModel)]="jobCat" (ngModelChange)="selectTechnician($event)">
+                              <mat-option value="Accident Repair">Spare Parts</mat-option>
+                              <mat-option value="all">Paints</mat-option>
+                              <mat-option value="all">All</mat-option>
                             </mat-select>
                           </mat-form-field>
                           <!-- {{searchText}} -->
@@ -39,36 +39,36 @@
                         <br>
                         <br>
                         <div class="mat-elevation-z8">
-                          <table mat-table [dataSource]="dataSource ">
+                          <table mat-table [dataSource]="dataSource">
   
                             <!-- User ID Column -->
                             <ng-container matColumnDef="userid">
                               <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item ID </th>
-                              <td mat-cell *matCellDef="let element"> {{element.itemid}} </td>
+                              <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
                             </ng-container>
   
                             <!-- User Type Column -->
-                            <ng-container matColumnDef="usertype">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item Type </th>
-                              <td mat-cell *matCellDef="let element"> {{element.itemtype}} </td>
+                            <ng-container matColumnDef="firstname">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> FIRST NAME </th>
+                              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
                             </ng-container>
   
                             <!-- First Name Column -->
-                            <ng-container matColumnDef="firstname">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  Added By </th>
-                              <td mat-cell *matCellDef="let element"> {{element.addedby}} </td>
+                            <ng-container matColumnDef="lastname">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  LAST NAME </th>
+                              <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
                             </ng-container>
   
                             <!-- E-mail Column -->
                             <ng-container  matColumnDef="email">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Added On </th>
-                              <td mat-cell *matCellDef="let element"> {{element.addedon}} </td>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> EMAIL </th>
+                              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                             </ng-container>
   
                             <!-- contact No Column -->
                             <ng-container matColumnDef="contactnumber">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Last Modified By: </th>
-                              <td mat-cell *matCellDef="let element"> {{element.lastmodifiedby}} </td>
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CONTACT NUMBER </th>
+                              <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
                             </ng-container>
   
                             <ng-container matColumnDef="action">
