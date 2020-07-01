@@ -35,17 +35,18 @@
                         <h2 class="mat-display-1 compact">last name</h2>
                         <div>Email</div>
                         <button class="edit-button" mat-stroked-button color="primary"
-                          (click)="onEditProfile()">Edit</button>
+                          (click)="onEditUser()">Edit</button>
                       </div>
                     </div>
+
                   </div>
                   <mat-divider></mat-divider>
 
                   <div class="container">
 
-                    <mat-grid-list cols="5" rowHeight="2:1">
+                    <mat-grid-list cols="4" rowHeight="2:1">
                       <mat-grid-tile>
-                        <mat-card style="width: 200px;">
+                        <mat-card style="width: 220px; text-align: center;">
                           <mat-card-title>Employee ID:</mat-card-title>
                           <mat-card-content>
                             <p>
@@ -55,7 +56,7 @@
                         </mat-card>
                       </mat-grid-tile>
                       <mat-grid-tile>
-                        <mat-card style="width: 200px;">
+                        <mat-card style="width: 220px; text-align: center;">
                           <mat-card-title>NIC Number:</mat-card-title>
                           <mat-card-content>
                             <p>
@@ -65,7 +66,7 @@
                         </mat-card>
                       </mat-grid-tile>
                       <mat-grid-tile>
-                        <mat-card style="width: 200px;">
+                        <mat-card style="width: 220px; text-align: center;">
                           <mat-card-title>Contact Number:</mat-card-title>
                           <mat-card-content>
                             <p>
@@ -75,18 +76,8 @@
                         </mat-card>
                       </mat-grid-tile>
                       <mat-grid-tile>
-                        <mat-card style="width: 200px;">
-                          <mat-card-title>Address:</mat-card-title>
-                          <mat-card-content>
-                            <p>
-                              thanamalwila
-                            </p>
-                          </mat-card-content>
-                        </mat-card>
-                      </mat-grid-tile>
-                      <mat-grid-tile>
-                        <mat-card style="width: 200px;">
-                          <mat-card-title>Role:</mat-card-title>
+                        <mat-card style="width: 220px; text-align: center;">
+                          <mat-card-title>User Category:</mat-card-title>
                           <mat-card-content>
                             <p>
                               Customer
@@ -97,18 +88,49 @@
 
                     </mat-grid-list>
 
+                    <mat-divider></mat-divider>
+
                     <mat-card class="section">
-                      <mat-card-title>Settings</mat-card-title>
-                      <div class="card-section-title">Account Password</div>
-                      <mat-card-content>
-                        <p>Change account sign-in password.</p>
-                        <button mat-flat-button color="primary" (click)="onChangePassword()">
-                          Create new password
-                        </button>
-                      </mat-card-content>
+                      <p>Address : Thanamalwila</p>
                     </mat-card>
 
+                    <!-- if Admin -->
+                    <mat-card class="section" style="text-align: center;">
+                      <!-- <div *ngIf="cookies.userData.usertype == 'Administrator' && userflag"> -->
+                      <mat-card-title> VEHICLE DETAILS
+                        <button mat-raised-button type="submit" class="my-4 btn-block veh_btn">
+                          <mat-icon>add</mat-icon>NEW
+                        </button>
+                      </mat-card-title>
+                      <mat-card-content>
+                        <div class="mat-elevation-z8"
+                          style="width:55%; margin-bottom: 10px; margin-left: 300px; margin-top: 20px;">
+                          <table class="table ">
+                            <thead>
+                              <tr>
+                                <th>VEHICLE REG. No</th>
+                                <th>CHASIS</th>
+                                <th>ENGINE No</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>12345</td>
+                                <td>67890</td>
+                                <td>12345</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </mat-card-content>
+                      <!-- </div> -->
+                    </mat-card>
+                    <br>
+                    <br>
+
+                    <!-- if Admin -->
                     <div>
+                      <mat-divider></mat-divider><br>
                       <p>AddOn : 10am</p>
                       <p>Modified On : 10am</p>
                       <p>Modified By : lalinda</p>

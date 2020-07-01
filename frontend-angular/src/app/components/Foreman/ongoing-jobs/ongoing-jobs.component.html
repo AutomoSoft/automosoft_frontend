@@ -1,10 +1,9 @@
 <div style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
-
       <div class="row">
         <div class="container-fluid">
           <div class="row">
@@ -15,14 +14,12 @@
               </div>
               <mat-divider></mat-divider>
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
-
                 <mat-tab-group class="p-5 reg-frm">
-
                   <mat-tab label="CURRENT JOBS">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-
-                      <div class="mat-elevation-z8" style="width:80%; margin-bottom: 10px; margin-left: 100px; margin-top: 10px">
+                      <div class="mat-elevation-z8"
+                        style="width:80%; margin-bottom: 10px; margin-left: 100px; margin-top: 10px">
                         <table class="table ">
                           <thead>
                             <tr>
@@ -33,44 +30,32 @@
                               <th>ACTION</th>
                             </tr>
                           </thead>
-
                           <tbody>
-                            <tr *ngFor= "let k of currJobs">
+                            <tr *ngFor="let k of currJobs">
                               <td>{{k.jobNo}}</td>
                               <td>{{k.jobType}}</td>
                               <td>{{k.custId}}</td>
                               <td>{{k.jobStatus}}</td>
                               <td>
-                                <button mat-icon-button  type="submit"   class=" btn-block btn_1">
+                                <button mat-icon-button type="submit" class=" btn-block btn_1">
                                   <mat-icon>search</mat-icon>
                                 </button>
-                                <button mat-icon-button  type="submit"  class=" btn-block table_btn">
+                                <button mat-icon-button type="submit" class=" btn-block table_btn">
                                   <mat-icon>notification_important</mat-icon>
                                 </button>
-
                               </td>
-
                             </tr>
                           </tbody>
                         </table>
-
-                       </div>
+                      </div>
                     </mat-card>
-
-
                   </mat-tab>
-
-
                 </mat-tab-group>
-
               </div>
-
             </div>
           </div>
         </div>
-
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
