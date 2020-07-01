@@ -65,7 +65,7 @@ export class ViewUserComponent implements OnInit {
 
   onEditUser() {
     const dialogRef = this.dialog.open(EditUserComponent, {
-      width: '640px'
+      width: '400px'
     });
   }
 }
