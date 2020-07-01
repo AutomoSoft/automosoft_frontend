@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChild } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +11,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 //material
 import {
@@ -29,7 +30,12 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
+<<<<<<< HEAD
   MatChipsModule,
+=======
+  MatSortModule,
+
+>>>>>>> 98afba2ce8a04ea0526a3692db63c73fadeef574
 
 
 
@@ -68,6 +74,7 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
+//import {ViewChild } from '@angular/core';
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
@@ -138,6 +145,9 @@ import { ViewUserComponent } from './components/main/search-user/view-user/view-
     MatPaginatorModule,
     MatTableModule,
     Ng2SearchPipeModule,
+    MatTooltipModule,
+    MatSortModule,
+    //ViewChild
 
   ],
   providers: [MycookiesService],

@@ -118,6 +118,7 @@
 }
 table {
   width: 100%;
+  background-color: #ddddec;
 }
 .del_btn {
   color: aliceblue;
@@ -126,5 +127,32 @@ table {
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
+}
+table {
+  width: 100%;
+  background-color: #ddddec;
+
+}
+
+.table_btn {
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add_btn {
+  color: aliceblue;
+  background-color: #c76b15;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add_btn:hover {
+  color: #000000;
+  transition: 0.5s;
 }
 

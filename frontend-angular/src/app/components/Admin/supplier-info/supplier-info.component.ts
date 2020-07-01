@@ -14,11 +14,21 @@ interface supplier {
   address: String;
   contactnumber: String;
   email: String;
-  items: String;
   note:String;
   addedon: String;
   addedby: String;
+  lastmodifiedon: String;
+  lastmodifiedby: String;
+  items: [];
 
+}
+export interface PeriodicElement {
+  supid: String;
+  supname: String;
+  items: String;
+  addedon: String;
+  action: String;
+  email: String;
 }
 
 @Component({
@@ -27,7 +37,7 @@ interface supplier {
   styleUrls: ['./supplier-info.component.scss']
 })
 export class SupplierInfoComponent implements OnInit {
-  displayedColumns: string[] = ['supid', 'supname', 'items', 'addedon','action'];
+  displayedColumns: String[] = ['supid', 'supname', 'items','email','action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
   cookie;
@@ -35,6 +45,7 @@ export class SupplierInfoComponent implements OnInit {
   SupplierDataForm: FormGroup;
   supid;
   dataform: Boolean = false;
+  supItems; //items supplied by a praticular supplier
 
   supplierdata: supplier[] = [];
 
@@ -70,7 +81,7 @@ export class SupplierInfoComponent implements OnInit {
       contactnumber: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
-      items: ["", Validators.required],
+      items: this.fb.array([this.supItems]),
     });
 
 /*************************************************** Table Data  ***********************************************************/
@@ -85,9 +96,16 @@ export class SupplierInfoComponent implements OnInit {
       } else {
         this.TABLE_DATA = res.data;   //add response data in to datadata array
         //this.propicName = res.data.filepath;
-        console.log(this.TABLE_DATA);
+        //console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
       }
+    });
+  }
+  get items(): FormGroup {
+    return this.fb.group({
+      itemtype: ["", Validators.required],
+      itemid: ["", Validators.required],
+      brand: ["", Validators.required],
     });
   }
 
@@ -104,11 +122,11 @@ export class SupplierInfoComponent implements OnInit {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
-        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+        this.snackBar.open("Supplier Not Found..! ", true ? "Retry" : undefined, config);
       } else {
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to datadata array
-        //console.log(this.userdata);
+        this.supItems =res.data.items;
 
       }
     });
@@ -140,6 +158,7 @@ export class SupplierInfoComponent implements OnInit {
         }
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to datadata array
+        this.supItems =res.data.items;
         // console.log(this.supplierdata);
 
       }
@@ -165,15 +184,19 @@ export class SupplierInfoComponent implements OnInit {
       address:this.SupplierDataForm.value.address,
       contactnumber:this.SupplierDataForm.value.contactnumber,
       email:this.SupplierDataForm.value.email,
-      items:this.SupplierDataForm.value.items,
+      //items:this.SupplierDataForm.value.items,
       addedby:this.SupplierDataForm.value.addedby,
       addedon:this.SupplierDataForm.value.addedon,
+      items:this.supItems,
+      //password:this.UserDataForm.value.password,
+      lastmodifiedby: this.cookie.supid,
+      lastmodifiedon:date,
 
     };
 
 
       //console.log(formData);
-      const url = 'http://localhost:3000/supplier/updateSupplier';    //backend url
+      const url = 'http://localhost:3000/supplier/updateSupplier/';    //backend url
 
 
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -283,10 +306,4 @@ export class SupplierInfoComponent implements OnInit {
 
 
 }
-export interface PeriodicElement {
-  supid: string;
-  supname: string;
-  items: string;
-  addedon: string;
-  action: string;
-}
+

@@ -19,17 +19,18 @@
 
                 <mat-tab-group class="p-5 reg-frm">
 
-                  <!-- ***************************************************ADD ONE USER************************************************************************** -->
+                  <!-- ***************************************************NEW JOB CARD************************************************************************** -->
                   <mat-tab label="NEW JOB CARD">
-                    <form >
+                    <form [formGroup]=jobCardForm>
 
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
 
                         <div class="form-row mb-4">
+
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select User Type:</mat-label> -->
-                            <mat-select placeholder="Job Type:" >
+                            <mat-select placeholder="Job Type:" [(ngModel)]="jobCat" (ngModelChange)="selectTechnician($event)" formControlName="jobType">
                               <mat-option value="Paint Job">Paint Job</mat-option>
                               <mat-option value="Accident Repair">Accident Repair</mat-option>
                               <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
@@ -41,102 +42,85 @@
 
                           <mat-form-field appearance="outline">
                             <mat-label>Job No:</mat-label>
-                            <input matInput class="form-control box_border">
-                            <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                            <input matInput class="form-control box_border" formControlName="jobNo">
                           </mat-form-field>
 
 
                           <mat-form-field appearance="outline">
                             <mat-label>Customer ID:</mat-label>
-                            <input matInput class="form-control box_border" >
+                            <input matInput class="form-control box_border" [(ngModel)]="custID" formControlName="custId">
                           </mat-form-field>
 
-                          <mat-form-field appearance="outline">
-                            <mat-select placeholder="Select Vehicle:" >
-                              <mat-option value="Paint Job">Edit this to load his vehicles</mat-option>
+                          <div class="button-container">
+                            <h3 >SHOW VEHICLES
+                              <button mat-button  (click)=selectVehicle(custID) class="search_btn" >
+                                <mat-icon>search</mat-icon> View
+                              </button>
+                            </h3>
+                          </div>
 
+                          <mat-form-field *ngIf="flag1" appearance="outline">
+                            <mat-select placeholder="Select Vehicle:" formControlName="vehicle">
+                              <mat-option [value] ="veh" *ngFor="let veh of custVehicles">{{veh.vehicleRegNo}}</mat-option>
                             </mat-select>
                           </mat-form-field>
 
-                          <mat-form-field appearance="outline">
+                          <mat-form-field appearance="outline" >
                             <mat-label>Problem Reported By Customer:</mat-label>
-                            <textarea matInput ></textarea>
+                            <textarea matInput formControlName="probCus"></textarea>
                           </mat-form-field>
 
-                          <mat-form-field appearance="outline">
+                          <mat-form-field appearance="outline" >
                             <mat-label>Foreman Observation:</mat-label>
-                            <textarea matInput ></textarea>
+                            <textarea matInput formControlName="foremanObv"></textarea>
                           </mat-form-field>
 
                         </div>
-                        <!-- <div class="mat-elevation-z8">
-                          <table mat-table [dataSource]="dataSource" >
-
-
-                            <ng-container matColumnDef="userid">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER ID </th>
-                              <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
-                            </ng-container>
-
-
-                            <ng-container matColumnDef="usertype">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER TYPE </th>
-                              <td mat-cell *matCellDef="let element"> {{element.usertype}} </td>
-                            </ng-container>
-
-
-                            <ng-container matColumnDef="firstname">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  FIRST NAME </th>
-                              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
-                            </ng-container>
-
-
-                            <ng-container  matColumnDef="email">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> EMAIL </th>
-                              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-                            </ng-container>
-
-
-                            <ng-container matColumnDef="contactnumber">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CONTACT NO: </th>
-                              <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="action">
-                              <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
-                              <td mat-cell *matCellDef="let element" >
-                                   <button mat-raised-button  (click)="viewUser(element.userid)" type="submit" class="my-4 btn-block table_btn"  >View</button>
-                                   <button  mat-raised-button (click)=deleteTable(element.userid,element.filepath) type="submit" class="my-4 btn-block del_btn " >Delete</button>
-                              </td>
-                            </ng-container>
-
-
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                          </table>
-
-                         </div> -->
-
-                        <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
-                        accept="image/*"  (change)="selectImage($event)"
-                        #fileInput>
-
-                        <div class="form-row mb-4">
-                          <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Profile Picture</button>
-                          <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
-                            Resolution : (320 x 280)p / 8 : 7 {{filename}}
-                          </small>
-                        </div> -->
 
                         <div class="button-container">
-                          <button mat-button type="submit" class="btn1" >
-                            Add Technicians
-                          </button>
+                          <h3 >ADD TECHNICIANS
+                            <button mat-raised-button type="submit" (click)=save();  class="my-4 btn-block tec_btn " *ngIf="flag1">
+                              <mat-icon>assignment_turned_in</mat-icon> Save
+                            </button>
+                          </h3>
+
                         </div>
+                        <br>
+
+                        <div *ngIf="flag1" class="mat-elevation-z8 mb-4" style="width:60%; margin-bottom: 10px; margin-left: 20%;">
+                          <table class="table ">
+                            <thead>
+                              <tr>
+                                <th>TECHNICIAN ID</th>
+                                <th>CURRENT WORK STATUS</th>
+                                <th>ACTION</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor= "let k of techExpertise">
+                                <td>{{k.userid}}</td>
+                                <td>{{k.currentjobCap}}/{{k.capacity}}</td>
+                                <td>
+                                  <button mat-icon-button  type="submit" (click)=addTechJob(k.userid,jobCat)  class=" btn-block tec_btn">
+                                    <mat-icon>add</mat-icon>
+                                  </button>
+                                  <button mat-icon-button  type="submit" (click)=remTechJob(k.userid,jobCat) class=" btn-block btn_1">
+                                    <mat-icon>clear</mat-icon>
+                                  </button>
+                              </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                         </div>
+                         <br>
+                        <mat-form-field appearance="outline">
+                          <mat-label>Estimated Service Charge:</mat-label>
+                          <input matInput class="form-control box_border" formControlName="estCharge">
+                        </mat-form-field>
 
                         <br>
-                        <br>
-                        <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">
+                        <button mat-raised-button type="submit" (click)=createJobCard() class="my-4 btn-block reg_btn ">
                           Add Job
                         </button>
 
@@ -144,7 +128,7 @@
                           Cancel
                         </button>
                       </mat-card>
-                      <!-- {{employeeForm.value|json}} -->
+                      <!-- {{jobCardForm.value | json}} -->
                     </form>
                   </mat-tab>
 
