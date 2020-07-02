@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatDialog, MatSnackBar, MatSnackBarConfig } from "@angular/material";
 import { HttpClient } from "@angular/common/http";
-
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
@@ -50,8 +49,6 @@ export class OngoingJobsComponent implements OnInit {
 
         }
       });
-
-
   }
 
 }
