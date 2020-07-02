@@ -58,7 +58,6 @@ import { MessageComponent } from './components/Admin/messages/message.component'
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 import { ConfirmationDialogComponent } from './components/Auth/confirmation-dialog/confirmation-dialog.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
-import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
@@ -73,6 +72,7 @@ import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-
 //import {ViewChild } from '@angular/core';
 
 import { MycookiesService } from './components/Admin/mycookies.service';
+import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +92,6 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     AddItemsComponent,
     ConfirmationDialogComponent,
     SearchUserComponent,
-    ViewStoreComponent,
     AddOrdersComponent,
     ApproveOrdersComponent,
     ProfileComponent,
@@ -104,6 +103,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
+    AddStockComponent,
   ],
   imports: [
     BrowserModule,

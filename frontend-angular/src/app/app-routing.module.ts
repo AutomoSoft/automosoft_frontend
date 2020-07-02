@@ -11,7 +11,7 @@ import { RegisterCustomerComponent} from './components/Admin/register-customer/r
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
-import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
+import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
@@ -51,7 +51,7 @@ const routes: Routes = [
 
 
   /****************************************** StoreKeeper Routes **************************************** */
-  {path:"viewStore", component:ViewStoreComponent},
+  {path:"addStock", component:AddStockComponent},
   {path:"addOrder", component:AddOrdersComponent},
   {path:"stockStatus", component:StockStatusComponent},
 
