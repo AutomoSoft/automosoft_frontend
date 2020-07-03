@@ -49,6 +49,7 @@ export class AddItemsComponent implements OnInit {
 
   }
 
+  //item registration form for items model
   itemForm = this.fb.group({
     itemtype: ["", Validators.required],
     itemid: ["", Validators.required],
@@ -86,6 +87,7 @@ addItem() {
         formData.append('selling', this.itemForm.value.selling)
         formData.append('addedby',  this.cookie.userid)
         formData.append('addedon', date)
+        formData.append('storequantity',  "0" )
         formData.append('lastmodifiedby',  "Never Modified")
         formData.append('lastmodifiedon', date)
 

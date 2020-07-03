@@ -11,7 +11,7 @@ import { RegisterCustomerComponent } from './components/Admin/register-customer/
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
-import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
+import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
@@ -26,7 +26,7 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
-import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
+import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
 
@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: ":id/landing", component: UserlandingComponent },
   { path: "searchUser", component: SearchUserComponent },
   { path: "viewProfile", component: ProfileComponent },
-  { path: "viewUser", component: ViewUserComponent },
+  { path: "editUSer", component: EditUserComponent },
 
 
   /****************************************** Admin Routes ********************************************** */
@@ -54,9 +54,9 @@ const routes: Routes = [
 
 
   /****************************************** StoreKeeper Routes **************************************** */
-  { path: "viewStore", component: ViewStoreComponent },
-  { path: "addOrder", component: AddOrdersComponent },
-  { path: "stockStatus", component: StockStatusComponent },
+  {path:"addStock", component:AddStockComponent},
+  {path:"addOrder", component:AddOrdersComponent},
+  {path:"stockStatus", component:StockStatusComponent},
 
 
   /****************************************** Customer Routes ******************************************* */
