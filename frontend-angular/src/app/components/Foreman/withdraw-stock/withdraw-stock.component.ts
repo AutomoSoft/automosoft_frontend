@@ -19,10 +19,7 @@ export class WithdrawStockComponent implements OnInit {
   cookie;
   userid;
   items = [];
-  jobs = [
-    { jobNo: 1, jobType: 'test1', custId: 'test1', jobStatus: 'test1', vehicle: 'test1' },
-    { jobNo: 2, jobType: 'test2', custId: 'test2', jobStatus: 'test2', vehicle: 'test2' }
-    ];
+  jobs;
   selectedJob;
 
   constructor( private router: Router,
@@ -100,11 +97,29 @@ clear(){
   this.withdrawalForm.reset();
 }
 
+getCurrentJobs() {
+  const url = "http://localhost:3000/jobs/getCurrentJobs";
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state === false) {
+      const config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open('Error Try Again !!! ', 'Retry', config);
+    } else {
+
+      this.jobs = res.data;
+      console.log(this.jobs);
+
+    }
+  });
+}
+
 ngOnInit() {
   var temp = this.cookies.getCookie("userAuth");
   if(temp==""){
     this.router.navigate(['/login']);
   }
+  this.getCurrentJobs();
 }
 
 addItem() {
@@ -149,7 +164,11 @@ removeItem() {
   }
 }
 
-  selectJob () {
-    this.selectedJob = this.withdrawalForm.value.job;
+ 
+selectJob () {
+  this.selectedJob = this.withdrawalForm.value.job;
+  if (this.selectedJob.vehicle) {
+    this.selectedJob.vehicle = JSON.parse(this.selectedJob.vehicle);
   }
+}
 }

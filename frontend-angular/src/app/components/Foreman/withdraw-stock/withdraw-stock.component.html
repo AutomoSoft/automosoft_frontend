@@ -23,55 +23,55 @@
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
                       <form [formGroup]="withdrawalForm">
-                        
-                         
+
+
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Job Number</mat-label>
                         <mat-select name="jobNo" formControlName="job" placeholder="" (selectionChange)="selectJob()">
                           <mat-option *ngFor="let job of jobs" [value]="job">{{job.jobNo}}</mat-option>
                         </mat-select>
                         </mat-form-field>
-                  
-            
+
+
                       <mat-form-field *ngIf="selectedJob" class="no-padding" style="width:80%" appearance="outline">
                         <mat-label>Customer ID</mat-label>
                         <input readonly matInput name="customerid" formControlName="customerid" placeholder="" [ngModel]="selectedJob.custId" />
                         <mat-icon matSuffix>person</mat-icon>
                       </mat-form-field>
-            
+
                       <mat-form-field *ngIf="selectedJob" class="no-padding" style="width:80%" appearance="outline">
                         <mat-label>Vehicle Number </mat-label>
-                        <input readonly matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" [ngModel]="selectedJob.vehicle"/>
+                        <input readonly matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" [ngModel]="selectedJob.vehicle.vehicleRegNo"/>
                         <mat-icon matSuffix>person</mat-icon>
                       </mat-form-field>
-            
-                  
+
+
                         <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
                           <mat-label>Stock ID</mat-label>
                           <input  matInput name="stockid" formControlName="stockid" placeholder=""/>
                           <mat-icon matSuffix>perm_identity</mat-icon>
                         </mat-form-field>
-                  
+
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Foreman ID</mat-label>
                           <input matInput name="foremanid" formControlName="foremanid" placeholder="" />
                           <mat-icon matSuffix>person</mat-icon>
                         </mat-form-field>
-                  
+
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Collected by</mat-label>
                           <input matInput name="technicianid" formControlName="technicianid" placeholder="Technician's ID" />
                           <mat-icon matSuffix>person</mat-icon>
                         </mat-form-field>
-            
-                  
+
+
                      <div style = "width: 100%;">
                         <mat-form-field class="no-padding" style="width: 30%;" appearance="outline">
                           <mat-label>Item ID</mat-label>
                           <input matInput name="itemid" formControlName="itemid" placeholder="" />
                           <mat-icon matSuffix></mat-icon>
                         </mat-form-field>
-                  
+
                         <mat-form-field class="no-padding" style="width: 20%;" appearance="outline">
                           <mat-label> Qty </mat-label>
                           <input matInput name="qty" formControlName="qty" placeholder="Qty" />
@@ -83,10 +83,10 @@
                           </button>
                           <button mat-button type="submit" class="can_btn" (click)="removeItem()">
                             Remove
-                          </button>  
+                          </button>
 
                       </div>
-        
+
                       <table>
                         <tbody>
                           <tr *ngFor= "let item of items">
@@ -97,8 +97,8 @@
                           </tr>
                         </tbody>
                       </table>
-                    
-                  
+
+
                       <div class="button-container">
                         <!-- {{customerForm.value| json}} -->
                         <button mat-button type="submit" class="reg_btn" (click)="save()">
@@ -106,7 +106,7 @@
                         </button>
                         <button mat-button type="submit" class="can_btn" (click)="clear()">
                           Clear
-                        </button>   
+                        </button>
                    </div>
                       </form>
                     </mat-card>
@@ -125,4 +125,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
