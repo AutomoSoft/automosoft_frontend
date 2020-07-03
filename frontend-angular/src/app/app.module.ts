@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatTooltipModule} from '@angular/material/tooltip';
+//import {PopupModule} from 'ng2-opd-popup';
 
 //material
 import {
@@ -70,7 +71,8 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
-//import {ViewChild } from '@angular/core';
+import { EmailPopupComponent } from './components/Auth/email-popup/email-popup.component';
+
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 
@@ -104,6 +106,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
+    EmailPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -140,6 +143,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     Ng2SearchPipeModule,
     MatTooltipModule,
     MatSortModule,
+    //PopupModule.forRoot(),
     //ViewChild
 
   ],
@@ -148,6 +152,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
 
   entryComponents: [
     ConfirmationDialogComponent,
+    EmailPopupComponent
   ],
 })
 export class AppModule { }
