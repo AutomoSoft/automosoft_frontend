@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ViewUserComponent } from '../view-user/view-user.component';
+import { SearchUserComponent } from '../search-user.component';
 
 @Component({
   selector: 'app-edit-user',
@@ -11,7 +11,7 @@ export class EditUserComponent implements OnInit {
   [x: string]: any;
 
   constructor(
-    public dialogRef: MatDialogRef<ViewUserComponent>,
+    public dialogRef: MatDialogRef<SearchUserComponent>,
   ) { }
 
   ngOnInit() {

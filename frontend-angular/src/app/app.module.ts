@@ -74,7 +74,6 @@ import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
-import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
@@ -108,7 +107,6 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
     JobHistoryComponent,
     OngoingJobsComponent,
     AddStockComponent,
-    ViewUserComponent,
     EditUserComponent,
     ViewTechniciansComponent,
   ],

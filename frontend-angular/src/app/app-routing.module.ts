@@ -26,7 +26,6 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
-import { ViewUserComponent } from './components/main/search-user/view-user/view-user.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
@@ -40,7 +39,6 @@ const routes: Routes = [
   { path: ":id/landing", component: UserlandingComponent },
   { path: "searchUser", component: SearchUserComponent },
   { path: "viewProfile", component: ProfileComponent },
-  { path: "viewUser", component: ViewUserComponent },
   { path: "editUSer", component: EditUserComponent },
 
 

@@ -6,6 +6,8 @@ import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import { EditUserComponent } from './edit-user/edit-user.component';
+
 
 import {
   FormBuilder,
@@ -183,11 +185,16 @@ export class SearchUserComponent implements OnInit {
         if(res.data.usertype=="Customer"){
           this.userflag = true;
         }
+        else{
+          this.userflag = false;
+        }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        this.custVehicles =JSON.parse(res.data.vehicles)
-
+        this.custVehicles = JSON.parse(res.data.vehicles)
+        console.log(this.userdata)
+        console.log(this.propicName)
+        console.log(this.custVehicles)
       }
     });
   }
@@ -350,7 +357,15 @@ export class SearchUserComponent implements OnInit {
     });
   }
 
+  onArrowClick(){
+    this.dataform = false;
+  }
+
+  onEditUser() {
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      width: '500px'
+    });
+  }
 
 }
-//ss
 
