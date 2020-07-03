@@ -1,0 +1,40 @@
+<div style="text-align: center;">
+  <div class="mat-dialog-header">
+    <h1 mat-dialog-title>EDIT USER DETAILS</h1>
+  </div>
+  <mat-divider></mat-divider><br>
+  <div mat-dialog-content class="content" fxLayout="column" fxLayoutAlign="center">
+    <form class="edit-form" [formGroup]= "editForm">
+
+      <mat-form-field class="form-full-width" style="width: 80%;">
+        <input matInput type="text" formControlName="firstName" placeholder="First Name" [(ngModel)]="data.dataKey.firstname">
+      </mat-form-field><br>
+
+      <mat-form-field class="form-full-width" style="width: 80%;">
+        <input matInput type="text" formControlName="lastName" placeholder="Last Name" [(ngModel)]="data.dataKey.lastname">
+      </mat-form-field><br>
+
+      <mat-form-field class="form-full-width" style="width: 80%;">
+        <input matInput type="email" formControlName="email" placeholder="Email"  [(ngModel)]="data.dataKey.email">
+      </mat-form-field><br>
+
+      <mat-form-field class="form-full-width" style="width: 80%;">
+        <input matInput type="text" formControlName="nicnumber" placeholder="NIC Number" [(ngModel)]="data.dataKey.nicnumber">
+      </mat-form-field><br>
+
+      <mat-form-field class="form-full-width" style="width: 80%;">
+        <input matInput type="text" formControlName="contactNo" placeholder="Contact Number" [(ngModel)]="data.dataKey.contactnumber">
+      </mat-form-field><br>
+
+      <mat-form-field class="form-full-width" style="width: 80%;">
+        <input matInput type="text" formControlName="address" placeholder="Address" [(ngModel)]="data.dataKey.address">
+      </mat-form-field>
+
+      <div mat-dialog-actions style="margin: auto; justify-content: center">
+        <button mat-button class="reg_btn" color="primary" (click)="updateUser()">Update</button>
+        <button mat-button class="can_btn" (click)="onCancel()">Cancel</button>
+      </div>
+      <!-- {{editForm.value | json}} -->
+    </form>
+  </div>
+</div>

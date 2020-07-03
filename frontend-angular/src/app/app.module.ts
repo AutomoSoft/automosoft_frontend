@@ -11,15 +11,14 @@ import { AgmCoreModule } from '@agm/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import {MatTooltipModule} from '@angular/material/tooltip';
-//import {PopupModule} from 'ng2-opd-popup';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 //material
 import {
   MatToolbarModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule ,
+  MatListModule,
   MatStepperModule,
   MatInputModule,
   MatTabsModule,
@@ -31,6 +30,7 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatNativeDateModule,
+  MatChipsModule,
   MatSortModule,
 
 
@@ -59,7 +59,6 @@ import { MessageComponent } from './components/Admin/messages/message.component'
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
 import { ConfirmationDialogComponent } from './components/Auth/confirmation-dialog/confirmation-dialog.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
-import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { ProfileComponent } from './components/main/profile/profile.component';
@@ -75,6 +74,9 @@ import { EmailPopupComponent } from './components/Auth/email-popup/email-popup.c
 
 
 import { MycookiesService } from './components/Admin/mycookies.service';
+import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
+import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
+import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,6 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     AddItemsComponent,
     ConfirmationDialogComponent,
     SearchUserComponent,
-    ViewStoreComponent,
     AddOrdersComponent,
     ApproveOrdersComponent,
     ProfileComponent,
@@ -106,7 +107,10 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
-    EmailPopupComponent
+    EmailPopupComponent,
+    AddStockComponent,
+    EditUserComponent,
+    ViewTechniciansComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,9 +138,10 @@ import { MycookiesService } from './components/Admin/mycookies.service';
     MatDatepickerModule,
     MatExpansionModule,
     MatNativeDateModule,
+    MatChipsModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
-      }),
+      apiKey: 'AIzaSyDgmgkMY82b8FmbyfP3oex24sZxbEXKWgE'
+    }),
     MatCheckboxModule,
     MatPaginatorModule,
     MatTableModule,

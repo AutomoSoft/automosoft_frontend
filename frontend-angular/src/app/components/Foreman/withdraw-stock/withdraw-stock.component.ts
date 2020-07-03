@@ -18,6 +18,9 @@ export class WithdrawStockComponent implements OnInit {
 
   cookie;
   userid;
+  items = [];
+  jobs;
+  selectedJob;
 
   constructor( private router: Router,
     private http: HttpClient,
@@ -38,7 +41,7 @@ export class WithdrawStockComponent implements OnInit {
       stockid: ["", Validators.required],
       foremanid: ["", Validators.required],
       technicianid: ["", Validators.required],
-      jobNo: ["", Validators.required],
+      job: ["", Validators.required],
       customerid:["",Validators.required],
       vehicleNo:["",Validators.required],
       itemid: ["", Validators.required],
@@ -94,10 +97,78 @@ clear(){
   this.withdrawalForm.reset();
 }
 
+getCurrentJobs() {
+  const url = "http://localhost:3000/jobs/getCurrentJobs";
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state === false) {
+      const config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open('Error Try Again !!! ', 'Retry', config);
+    } else {
+
+      this.jobs = res.data;
+      console.log(this.jobs);
+
+    }
+  });
+}
+
 ngOnInit() {
   var temp = this.cookies.getCookie("userAuth");
   if(temp==""){
     this.router.navigate(['/login']);
+  }
+  this.getCurrentJobs();
+}
+
+addItem() {
+  const newItemId = this.withdrawalForm.value.itemid;
+  const newQty = this.withdrawalForm.value.qty;
+  let notFound = true;
+  this.items = this.items.map((itemObject) => {
+    const itemId = itemObject.itemId;
+    const qty = itemObject.qty;
+    if (itemId === newItemId) {
+      notFound = false;
+      itemObject.qty = parseInt(qty, 10) + parseInt(newQty, 10);
+    }
+    return itemObject;
+  });
+  if (notFound) {
+    this.items.push({ itemId: newItemId, qty: newQty });
+  }
+}
+
+removeItem() {
+  const newItemId = this.withdrawalForm.value.itemid;
+  const newQty = this.withdrawalForm.value.qty;
+  let itemIndex = -1;
+  let shouldRemove = false;
+  this.items = this.items.map((itemObject, index) => {
+    const itemId = itemObject.itemId;
+    const qty = itemObject.qty;
+    if (itemId === newItemId) {
+      itemIndex = index;
+      if (qty <= newQty) {
+        shouldRemove = true;
+      } else {
+        itemObject.qty = parseInt(qty, 10) - parseInt(newQty, 10);
+      }
+    }
+    return itemObject;
+  });
+
+  if (shouldRemove) {
+    this.items.splice(itemIndex, 1);
+  }
+}
+
+ 
+selectJob () {
+  this.selectedJob = this.withdrawalForm.value.job;
+  if (this.selectedJob.vehicle) {
+    this.selectedJob.vehicle = JSON.parse(this.selectedJob.vehicle);
   }
 }
 }

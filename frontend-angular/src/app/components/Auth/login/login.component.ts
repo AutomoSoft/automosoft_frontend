@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           this.cookies.setCookie("userAuth", JSON.stringify(res.user), 1);  //set cookeis, user data
           var myCookie = JSON.parse(this.cookies.getCookie("userAuth"));  //userdata convert to  JSON array
           var id = myCookie.usertype;                                     //get user type from the cookies
-          console.log(myCookie);
+          //console.log(myCookie);
           //this.router.navigate(['/landing']);
           if(id=="Administrator"){
             this.router.navigate([myCookie.userid,'admin_dashboard']);

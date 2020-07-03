@@ -7,11 +7,11 @@ import { HomeComponent } from './components/main/home/home.component';
 import { AdmindashboardComponent } from './components/Admin/admindashboard/admindashboard.component';
 import { ContactComponent } from './components/main/contact/contact-us/contact.component';
 import { RegisterEmployeeComponent } from './components/Admin/register-employee/register-employee.component';
-import { RegisterCustomerComponent} from './components/Admin/register-customer/register-customer.component';
+import { RegisterCustomerComponent } from './components/Admin/register-customer/register-customer.component';
 import { RegisterSupplierComponent } from './components/Admin/register-supplier/register-supplier.component';
 import { MessageComponent } from './components/Admin/messages/message.component';
 import { AddItemsComponent } from './components/Admin/add-items/add-items.component';
-import { ViewStoreComponent } from './components/StoreKeeper/view-store/view-store.component';
+import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 import { AddOrdersComponent } from './components/StoreKeeper/add-orders/add-orders.component';
 import { ApproveOrdersComponent } from './components/Admin/approve-orders/approve-orders.component';
 import { SearchUserComponent } from './components/main/search-user/search-user.component';
@@ -26,45 +26,49 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { ViewHistoryComponent } from './components/Customer/view-history/view-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
+import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
+import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 
 
 const routes: Routes = [
 
   /****************************************** General Routes **************************************** */
-  {path:'login',component:LoginComponent},
-  {path:"",component:HomeComponent},
-  {path:'contact',component:ContactComponent},
-  {path:":id/landing", component:UserlandingComponent},
-  {path:"searchUser", component:SearchUserComponent},
-  {path:"viewProfile", component:ProfileComponent},
+  { path: 'login', component: LoginComponent },
+  { path: "", component: HomeComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: ":id/landing", component: UserlandingComponent },
+  { path: "searchUser", component: SearchUserComponent },
+  { path: "viewProfile", component: ProfileComponent },
+  { path: "editUSer", component: EditUserComponent },
 
 
   /****************************************** Admin Routes ********************************************** */
-  {path:":id/admin_dashboard",component:AdmindashboardComponent},
-  {path:"registerEmployee",component:RegisterEmployeeComponent},
-  {path:"registerCustomer",component:RegisterCustomerComponent},
-  {path:"registerSupplier",component:RegisterSupplierComponent},
-  {path:"approveOrders", component:ApproveOrdersComponent},
-  {path:"messages",component:MessageComponent},
-  {path:"AddItems", component:AddItemsComponent},
-  {path:"supplierInfo", component:SupplierInfoComponent},
+  { path: ":id/admin_dashboard", component: AdmindashboardComponent },
+  { path: "registerEmployee", component: RegisterEmployeeComponent },
+  { path: "registerCustomer", component: RegisterCustomerComponent },
+  { path: "registerSupplier", component: RegisterSupplierComponent },
+  { path: "approveOrders", component: ApproveOrdersComponent },
+  { path: "messages", component: MessageComponent },
+  { path: "AddItems", component: AddItemsComponent },
+  { path: "supplierInfo", component: SupplierInfoComponent },
 
 
   /****************************************** StoreKeeper Routes **************************************** */
-  {path:"viewStore", component:ViewStoreComponent},
+  {path:"addStock", component:AddStockComponent},
   {path:"addOrder", component:AddOrdersComponent},
   {path:"stockStatus", component:StockStatusComponent},
 
 
   /****************************************** Customer Routes ******************************************* */
-  {path:"makeReservation", component:MakeReservationsComponent},
-  {path:"myServices", component:ViewHistoryComponent},
+  { path: "makeReservation", component: MakeReservationsComponent },
+  { path: "myServices", component: ViewHistoryComponent },
 
   /****************************************** Foreman Routes ******************************************** */
-  {path:"createJob", component:CreateJobCardComponent},
-  {path:"jobHistory", component:JobHistoryComponent},
-  {path:"ongoingJobs", component:OngoingJobsComponent},
-  {path:"withdrawStock", component:WithdrawStockComponent},
+  { path: "createJob", component: CreateJobCardComponent },
+  { path: "jobHistory", component: JobHistoryComponent },
+  { path: "ongoingJobs", component: OngoingJobsComponent },
+  { path: "withdrawStock", component: WithdrawStockComponent },
+  { path: "viewTechnicians", component: ViewTechniciansComponent },
 
 ];
 

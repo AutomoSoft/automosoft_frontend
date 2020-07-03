@@ -1,0 +1,89 @@
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec;">
+              <br />
+              <div class="test">
+                <h2 class="topic">ADD NEW STOCK </h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+                  <mat-tab label="NEW STOCK">
+                    <form [formGroup]=addStockForm>
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+
+                      <div class="form-row mb-4">
+                        <h3> SELECT CATEGORY</h3>
+                        <mat-form-field appearance="outline">
+
+                          <mat-select placeholder="Select Item Category:" [(ngModel)]="itemCat" (ngModelChange)="selectItems($event)" formControlName="itemType">
+                            <mat-option value="Paints">Paints</mat-option>
+                            <mat-option value="Tools">Tools</mat-option>
+                            <mat-option value="Spare Parts">Spare Parts</mat-option>
+                            <mat-option value="Tyres">Tyres</mat-option>
+                            <mat-option value="Electric Parts">Electric Parts</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <div *ngIf="flag1">
+                          <!-- <mat-form-field appearance="outline">
+                            <mat-label>Item ID:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="itemId">
+                          </mat-form-field> -->
+
+                          <mat-form-field *ngIf="flag1" appearance="outline">
+                            <mat-select placeholder="Select Item:" formControlName="itemId">
+                              <mat-option [value] ="k.itemid" *ngFor="let k of selectedItems">{{k.itemid}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Quantity:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="quantity">
+                          </mat-form-field>
+                        </div>
+
+
+
+
+                        <button mat-raised-button type="submit" class="my-4 btn-block table_btn " (click)=addStock() *ngIf="flag1">
+                          Save
+                        </button>
+
+                        <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  " *ngIf="flag1">
+                          Cancel
+                        </button>
+
+                      </div>
+                      <!-- {{addStockForm.value | json}} -->
+                    </mat-card>
+
+                  </form>
+                  </mat-tab>
+
+
+                </mat-tab-group>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

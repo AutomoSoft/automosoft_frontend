@@ -203,7 +203,7 @@ createJobCard() {
     jobType : this.jobCardForm.value.jobType,
     jobNo: this.jobCardForm.value.jobNo,
     custId: this.jobCardForm.value.custId,
-    vehicle: this.jobCardForm.value.vehicle,
+    vehicle: JSON.stringify(this.jobCardForm.value.vehicle),
     probCus: this.jobCardForm.value.probCus,
     foremanObv: this.jobCardForm.value.foremanObv,
     estCharge: this.jobCardForm.value.estCharge,
