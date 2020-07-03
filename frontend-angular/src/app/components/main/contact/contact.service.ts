@@ -60,5 +60,13 @@ export class contactService {
     });
   }
 
+  geOnetMessage(id:string): Observable<IContact>{
+    return this.http.get<IContact>("http://localhost:3000/contact/getOneEmail/_id").pipe(
+    tap(data=> console.log("//" )),
+    catchError(this.handleError)
+    );
+
+  }
+
 
 }

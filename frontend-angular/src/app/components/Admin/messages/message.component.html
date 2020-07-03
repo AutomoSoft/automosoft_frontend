@@ -13,61 +13,16 @@
               <div class="test" >
                   <h2 class="topic">MAIL-BOX</h2>
                 </div>
-                <!--<div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">-->
+                <mat-divider></mat-divider>
+                    <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
 
+                <mat-tab-group class="p-5 reg-frm">
 
-                  <!--<mat-card class="p-5 reg-frm">-->
-                    <div class="First-card"  >
+                <mat-tab label="MAIL-BOX">
+                  <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 30px; margin-top: 20px;" />
-                      <!--<div style="min-height: 1000px;" >
-                      <mat-grid-list cols="1" rowHeight="5:1" class="grid-list" *ngFor="let mail of filteredEmails"  >
-                        <mat-grid-tile  >
-                          <mat-card class="card1">
-                            <mat-card-header class="card-header">
-                              <table>
-                              <tr style="color: #c76b15;">
-                                <td><i class="material-icons">account_circle </i></td>
-                                <td >{{mail.name}}</td>
-                              </tr>
-                              <tr style="color: #c76b15;">
-                                <td><i class="material-icons">email </i></td>
-                                <td><a style="color: #c76b15;" href="mailto:someone@example.com">{{mail.email}}</a></td>
-                              </tr>
-                            </table>
 
-                            </mat-card-header>
-
-                            <mat-card-content >
-
-                              <table style="width: 100%; height: 100%;">
-                                <tr style="height: 100%;">
-                                  <td style="width:70%; text-align: left; background-color: rgb(255, 255, 255); height: auto; " >
-                                    <p style="margin-left: 20px">
-                                      {{mail.content}}
-                                    </p>
-                                  </td>
-                                  <td style="width:30%; background-color:rgb(255, 255, 255);height: 60px;">
-                                    <button class="btn" mat-raised-button color="accent" (click)="markAsRead(mail._id)">Mark As Read</button>
-
-
-                                 </td>
-
-                                </tr>
-                              </table>
-
-                            </mat-card-content>
-
-
-                          </mat-card>
-
-                        </mat-grid-tile>
-
-
-                      </mat-grid-list>
-
-                    </div>-->
                     <div class="mat-elevation-z8">
-                      <mat-card>
                       <table class="test1" mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
 
                         <!-- User ID Column -->
@@ -102,6 +57,16 @@
                         <ng-container matColumnDef="action">
                           <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900; width: 150px;" > ACTION </th>
                           <td mat-cell *matCellDef="let element" >
+                              <button mat-icon-button color="primary"
+                                      #tooltip="matTooltip"
+                                      matTooltip="View"
+                                      matTooltipPosition="right"
+                                      (click)="viewDetails(element)"
+                                      type="submit"
+                                      class="my-4 btn-block del_btn "
+                                      style="width: 5%; border-radius: 25px; color: black; margin-right: 1.3rem;" >
+                                      <mat-icon >view_headline</mat-icon>
+                               </button>
                                <button *ngIf="element.isRead" mat-icon-button color="primary"
                                        #tooltip="matTooltip"
                                        matTooltip="Mark As Unread"
@@ -152,6 +117,7 @@
 
 
                           </td>
+
                         </ng-container>
 
 
@@ -159,19 +125,16 @@
                         <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
                         <tr mat-row *matRowDef="let row;let even = even; columns: displayedColumns;"  [ngClass]="{'make-gold': !row.isRead  }"></tr>
                       </table>
+                    </div>
+                  </mat-card>
+                      </mat-tab>
+                    </mat-tab-group>
 
 
                       <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-                    </mat-card>
+                   <!-- </mat-card>-->
                     </div>
-
-                  <!--</mat-card>-->
-
-                <!--</div>-->
-              </div>
-
-
-          </div>
+         </div>
         </div>
       </div>
       </div>

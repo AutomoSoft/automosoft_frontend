@@ -5,6 +5,8 @@ import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationDialogComponent } from '../../Auth/confirmation-dialog/confirmation-dialog.component';
+import { NgIf } from '@angular/common';
+import { element } from 'protractor';
 
 interface supplier {
   _id: String;
@@ -22,6 +24,7 @@ interface supplier {
   items: [];
 
 }
+
 export interface PeriodicElement {
   supid: String;
   supname: String;
@@ -45,9 +48,12 @@ export class SupplierInfoComponent implements OnInit {
   SupplierDataForm: FormGroup;
   supid;
   dataform: Boolean = false;
-  supItems; //items supplied by a praticular supplier
+  supItems;
+   //items supplied by a praticular supplier
 
   supplierdata: supplier[] = [];
+
+
 
   constructor(
     private http: HttpClient,
@@ -268,12 +274,13 @@ export class SupplierInfoComponent implements OnInit {
   deleteTable(id){
     //console.log(id);
 
-    const url2 = "http://localhost:3000/supplier/deleteSupplier/"  //delete data from tha database
 
+    const url2 = "http://localhost:3000/supplier/deleteSupplier/"  //delete data from tha database
+    //var content = this.supplierdata[6];
     //confirmaration box
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        message: 'Are you sure want to delete?',
+        message: 'Are you sure you want to delete',
         buttonText: {
           ok: 'Yes',
           cancel: 'No'

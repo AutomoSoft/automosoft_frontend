@@ -70,7 +70,8 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
-//import {ViewChild } from '@angular/core';
+import { EmailPopupComponent } from './components/Auth/email-popup/email-popup.component';
+
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
@@ -106,6 +107,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
+    EmailPopupComponent,
     AddStockComponent,
     EditUserComponent,
     ViewTechniciansComponent,
@@ -146,6 +148,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
     Ng2SearchPipeModule,
     MatTooltipModule,
     MatSortModule,
+    //PopupModule.forRoot(),
     //ViewChild
 
   ],
@@ -154,6 +157,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
 
   entryComponents: [
     ConfirmationDialogComponent,
+    EmailPopupComponent
   ],
 })
 export class AppModule { }
