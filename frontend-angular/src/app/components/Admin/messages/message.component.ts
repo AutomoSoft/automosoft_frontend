@@ -9,6 +9,7 @@ import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPagin
 import { ConfirmationDialogComponent } from '../../Auth/confirmation-dialog/confirmation-dialog.component';
 import { element } from 'protractor';
 import { EmailPopupComponent } from '../../Auth/email-popup/email-popup.component';
+import { ReplyEmailComponent } from '../reply-email/reply-email.component';
 
 export interface IPeriodicElement {
   _id: String;
@@ -109,6 +110,11 @@ export class MessageComponent implements OnInit {
 
         this.dialog.open(EmailPopupComponent, dialogConfig);
   }
+
+
+
+
+
   archiveEmails(id:string){
     this.messageService.archiveMessages(id, ()=>{
       this.LoadEmails();
