@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { VERSION, MatDialogRef, MatDialog, MatSnackBar, MAT_DIALOG_DATA, MatSnackBarConfig } from '@angular/material';
+import { VERSION, MatDialogRef, MatDialog, MatSnackBar, MAT_DIALOG_DATA, MatSnackBarConfig, MatDialogConfig } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 //import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ import { ReplyEmailComponent } from '../../Admin/reply-email/reply-email.compone
 export class EmailPopupComponent implements OnInit {
   message: String;
   subject: String;
+  email: String;
   //dialogRef: any;
   constructor(
   @Inject(MAT_DIALOG_DATA) private data: any,
@@ -34,6 +35,7 @@ export class EmailPopupComponent implements OnInit {
     //dialogRef.disableClose = true;
     this.message = data.message;
     this.subject = data.subject;
+    this.email = data.email;
   }
 
 
@@ -46,11 +48,21 @@ export class EmailPopupComponent implements OnInit {
   }
 
   onReply() {
-    const dialogRef = this.dialog.open(ReplyEmailComponent, {
-      width: '500px',
-    });
-  }
+    // const dialogRef = this.dialog.open(ReplyEmailComponent, {
+    //   width: '500px',
+    //   data: {
+    //     dataKey: this.email
+    //   }
+    // });
+    //console.log(dialogRef);
 
+    const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        email:this.email
+    };
+
+        this.dialog.open(ReplyEmailComponent, dialogConfig);
+  }
 
 }
 

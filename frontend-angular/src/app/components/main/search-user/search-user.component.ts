@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component'; 
 
 
 import {

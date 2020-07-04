@@ -8,7 +8,8 @@ import {
   FormArray,
   Form
 } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatSnackBar, MatDialog, MatSnackBarConfig } from '@angular/material';
+import { MAT_DIALOG_DATA, MatSnackBar, MatDialog, MatSnackBarConfig, MatDialogRef } from '@angular/material';
+
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
@@ -28,7 +29,8 @@ export class ReplyEmailComponent implements OnInit {
   userid;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private dialogRef: MatDialogRef<ReplyEmailComponent>,
 
     private http: HttpClient,
     private cookies: MycookiesService,
@@ -38,6 +40,8 @@ export class ReplyEmailComponent implements OnInit {
     private dialog: MatDialog,
   ) {
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
+    this.email = data.email;
+    //console.log(this.email)
   }
 
   ngOnInit() {

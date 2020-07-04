@@ -103,10 +103,9 @@ export class MessageComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
       dialogConfig.data = {
         message: element.content,
-        subject:element.subject
+        subject:element.subject,
+        email:element.email
     };
-
-
 
         this.dialog.open(EmailPopupComponent, dialogConfig);
   }

@@ -5,7 +5,7 @@
     <form class="reply-form" [formGroup]= "replyForm">
       <mat-form-field class="form-full-width" appearance="outline" style="width: 80%;">
         <mat-label>Email</mat-label>
-        <input matInput type="text" formControlName="email" placeholder="Email-Address" >
+        <input matInput type="text" formControlName="email" placeholder="Email-Address" [(ngModel)]=email>
       </mat-form-field><br>
 
       <mat-form-field appearance="outline" class="form-full-width" style="width: 80%;">
@@ -25,7 +25,7 @@
         <button mat-button class="reg_btn" color="primary" (click)="sendReply()">Send</button>
         <button mat-button class="can_btn" >Cancel</button>
       </div>
-      <!-- {{editForm.value | json}} -->
+      <!-- {{replyForm.value | json}} -->
     </form>
   </div>
 </div>
