@@ -76,7 +76,7 @@ export class ProfileComponent implements OnInit {
         this.userdata = res.data;   //add response data in to data array
         this.veh = JSON.parse(res.data.vehicles);
         //console.log(this.userdata);
-        console.log(this.veh[1]);
+        //console.log(this.veh[1]);
 
       }
     });

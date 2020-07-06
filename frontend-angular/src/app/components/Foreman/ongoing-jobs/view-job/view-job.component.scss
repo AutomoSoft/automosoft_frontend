@@ -171,7 +171,7 @@ table {
 
 .header {
   padding: 4rem 1rem 2rem 1rem;
-  text-align: center;
+  text-align: left;
   padding-top: 40px;
 }
 
@@ -181,8 +181,8 @@ table {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  width: 196px;
-  height: 196px;
+  width: 100px;
+  height: 100px;
   background-color: #efefef;
   padding-left: 0px;
 }
@@ -196,39 +196,8 @@ table {
   object-fit: cover;
 }
 
-.avatar-hover {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
-  color: white;
-  background-color: #00000055;
-  z-index: 10;
-  opacity: 0;
-}
 
-
-.avatar-hover:hover {
-  transition: all 0.5s ease-out;
-  opacity: 1;
-}
-
-.avatar-hover .mat-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 36px;
-  height: 36px;
-  margin: -8% 0 0 -8%;
-}
-
-.avatar-hover .material-icons{
-  font-size: 36px;
-}
-
-.user-detail-container {
+.job-detail-container {
   display: inline-block;
   position: relative;
   top: -32px;
