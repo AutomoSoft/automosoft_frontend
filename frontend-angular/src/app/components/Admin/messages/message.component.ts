@@ -100,6 +100,7 @@ export class MessageComponent implements OnInit {
 
   }
   viewDetails(element){
+
     const dialogConfig = new MatDialogConfig();
       dialogConfig.data = {
         message: element.content,

@@ -109,4 +109,9 @@ dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 }
 }
 
+onConfirmClick(): void {
+  this.dialogRef.close(false);
+  window.location.reload();
+}
+
 }
