@@ -1,9 +1,30 @@
-<div class="parallax">
-  <div style="min-height: 15vh;"></div>
-  <div class="customer-register-form-container">
-    <mat-card style="margin: auto; width: 40%;">
-      <mat-card-title style="text-align: center;">Customer Registration</mat-card-title>
-      <form class="customer-register-form" [formGroup]="customerForm">
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+      <div class="container-fluid">
+      <div class="row">
+      <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+
+        <div class="test">
+            <h2 class="topic">CUSTOMER REGISTRATION</h2>
+              </div>
+                          <mat-divider></mat-divider>
+        <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+            <mat-tab-group class="p-5 reg-frm">
+
+                  <!-- ***************************************************ADD ONE USER************************************************************************** -->
+                  <mat-tab label="SINGLE CUSTOMER">
+                    <form [formGroup]="customerForm">
+          
+                              <div class="customer-register-form-container">
+                  <mat-card style="margin: auto; width: 40%;">
+               <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+
         <mat-form-field class="no-padding" appearance="outline">
           <mat-label>User ID</mat-label>
           <input
@@ -153,8 +174,19 @@
           Cancel
         </button>
       </div>
-      </form>
+    
     </mat-card>
   </div>
+</form>
+  </mat-tab>
+</mat-tab-group>
+              </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
 </div>
 

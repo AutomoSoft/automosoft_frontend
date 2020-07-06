@@ -1,13 +1,14 @@
 /*parallax*/ /////////////////////////////////////////////
-
-.parallax {
-  background: url(../../../../assets/images/parallax/image9.jpg) no-repeat
-    center;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 850px;
+.test {
+  margin-left: 100px;
 }
-
+.topic {
+  color: #0a0929;
+  font-weight: 400;
+}
+.example-container {
+  background-color: #414142;
+}
 .mat-option.mat-selected {
   background: #c76b15 !important;
 }
