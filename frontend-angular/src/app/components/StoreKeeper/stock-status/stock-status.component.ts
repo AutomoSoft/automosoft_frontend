@@ -14,6 +14,7 @@ import {
   FormArray,
   Form
 } from "@angular/forms";
+import { StockReportComponent } from '../stock-report/stock-report.component';
 
 
 interface item {
@@ -50,7 +51,7 @@ export interface PeriodicElement {
 })
 export class StockStatusComponent implements OnInit {
 
-  displayedColumns: string[] = ['itemid', 'itemname','buying', 'selling', 'storequantity','action'];
+  displayedColumns: string[] = ['itemid', 'itemname', 'buying', 'selling', 'storequantity', 'action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
 
@@ -64,7 +65,7 @@ export class StockStatusComponent implements OnInit {
   propicName;  //profile picture name
   searchText;
   custVehicles;
-  userflag:Boolean = false;  //to show/hide customer vehicle fields
+  userflag: Boolean = false;  //to show/hide customer vehicle fields
 
   constructor(
     private http: HttpClient,
@@ -79,7 +80,7 @@ export class StockStatusComponent implements OnInit {
 
   ngOnInit() {
     var cookie = this.cookies.getCookie("userAuth");
-    if(cookie==""){
+    if (cookie == "") {
       this.router.navigate(['/login']);
     }
 
@@ -92,7 +93,7 @@ export class StockStatusComponent implements OnInit {
       itemid: ["", Validators.required],
       buying: ["", Validators.required],
       selling: ["", Validators.required],
-      addedby:["", Validators.required],
+      addedby: ["", Validators.required],
       addedon: ["", Validators.required],
       lastmodifiedon: ["", Validators.required],
       lastmodifiedby: ["", Validators.required],
@@ -102,7 +103,7 @@ export class StockStatusComponent implements OnInit {
 
 
 
-/*************************************************** Table Data(All Items) ***********************************************************/
+    /*************************************************** Table Data(All Items) ***********************************************************/
 
     const url = "http://localhost:3000/items/searchAllItems"   //backend url
 
@@ -140,13 +141,19 @@ export class StockStatusComponent implements OnInit {
         this.dataform = true; //data form div show
         this.itemdata = res.data;   //add response data in to itemdata array
         this.propicName = res.data.filepath;
-       // this.custVehicles =JSON.parse(res.data.vehicles);
+        // this.custVehicles =JSON.parse(res.data.vehicles);
       }
     });
   }
 
-  resetSearch(){
+  resetSearch() {
     this.itemSearchForm.reset();
+  }
+
+  viewReport() {
+    const dialogRef = this.dialog.open(StockReportComponent, {
+      width: '640px'
+    });
   }
 
 }
