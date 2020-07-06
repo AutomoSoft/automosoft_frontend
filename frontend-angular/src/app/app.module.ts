@@ -78,6 +78,7 @@ import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
+import { ViewJobComponent } from './components/Foreman/view-job/view-job.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.
     EditUserComponent,
     ViewTechniciansComponent,
     ReplyEmailComponent,
+    ViewJobComponent,
   ],
   imports: [
     BrowserModule,
@@ -160,7 +162,8 @@ import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.
   entryComponents: [
     ConfirmationDialogComponent,
     EmailPopupComponent,
-    ReplyEmailComponent
+    ReplyEmailComponent,
+    ViewJobComponent
   ],
 })
 export class AppModule { }
