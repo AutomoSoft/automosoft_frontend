@@ -27,7 +27,7 @@
 
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Job Number</mat-label>
-                        <mat-select name="jobNo" formControlName="job" placeholder="" (selectionChange)="selectJob()">
+                        <mat-select name="job" formControlName="job" placeholder="" (selectionChange)="selectJob()">
                           <mat-option *ngFor="let job of jobs" [value]="job">{{job.jobNo}}</mat-option>
                         </mat-select>
                         </mat-form-field>
@@ -45,30 +45,26 @@
                         <mat-icon matSuffix>person</mat-icon>
                       </mat-form-field>
 
-
-                        <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
-                          <mat-label>Stock ID</mat-label>
-                          <input  matInput name="stockid" formControlName="stockid" placeholder=""/>
-                          <mat-icon matSuffix>perm_identity</mat-icon>
-                        </mat-form-field>
-
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Foreman ID</mat-label>
-                          <input matInput name="foremanid" formControlName="foremanid" placeholder="" />
+                          <input matInput name="foremanid" formControlName="foremanid" placeholder="" [ngModel]="userid"/>
                           <mat-icon matSuffix>person</mat-icon>
                         </mat-form-field>
 
                         <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                           <mat-label>Collected by</mat-label>
-                          <input matInput name="technicianid" formControlName="technicianid" placeholder="Technician's ID" />
+                          <input matInput name="collectedby" formControlName="collectedby" placeholder="Technician's ID" />
                           <mat-icon matSuffix>person</mat-icon>
                         </mat-form-field>
 
 
                      <div style = "width: 100%;">
-                        <mat-form-field class="no-padding" style="width: 30%;" appearance="outline">
-                          <mat-label>Item ID</mat-label>
-                          <input matInput name="itemid" formControlName="itemid" placeholder="" />
+                        <mat-form-field class="no-padding" style="width: 70%;" appearance="outline">
+                          <mat-label>Items</mat-label>
+<!--                          <input matInput name="itemid" formControlName="itemid" placeholder="" />-->
+                          <mat-select name="item" formControlName="item" placeholder="">
+                            <mat-option *ngFor="let item of allItems" [value]="item">{{item.itemid}} | {{item.itemname}} | Stock: {{item.storequantity}}</mat-option>
+                          </mat-select>
                           <mat-icon matSuffix></mat-icon>
                         </mat-form-field>
 

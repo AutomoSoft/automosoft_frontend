@@ -8,6 +8,7 @@ import {
   Validators,
 } from "@angular/forms";
 import {MatDialogRef} from '@angular/material/dialog';
+import {ConfirmationDialogComponent} from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-withdraw-stock',
@@ -21,73 +22,77 @@ export class WithdrawStockComponent implements OnInit {
   items = [];
   jobs;
   selectedJob;
-
+  allItems = [];
   constructor( private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
     private cookies: MycookiesService,
     private dialog: MatDialog,
-    public snackBar: MatSnackBar,) { 
-      
-      
-      if (this.cookies.getCookie("userid") != "") {
-        this.userid = this.cookies.getCookie("userid");
-        console.log(this.userid);
+    public snackBar: MatSnackBar,) {
+      if (cookies.userData && cookies.userData.userid) {
+        this.userid = cookies.userData.userid;
       }
     }
-    
+
 
     withdrawalForm = this.fb.group({
-      stockid: ["", Validators.required],
       foremanid: ["", Validators.required],
-      technicianid: ["", Validators.required],
+      collectedby: ["", Validators.required],
       job: ["", Validators.required],
       customerid:["",Validators.required],
       vehicleNo:["",Validators.required],
-      itemid: ["", Validators.required],
-      qty: ["", Validators.required]
+      item: ["", Validators.required],
+      qty: ["", Validators.required],
     });
 
-    
 save() {
-
+  console.log(this.withdrawalForm.value);
   if (this.withdrawalForm.invalid) {
     let config = new MatSnackBarConfig();
     this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
     return;
   }else {
     let date=Date();
-    const formData = new FormData();
-        //append the data to the form
-        formData.append('stockid', this.withdrawalForm.value.stockid)
-        formData.append('foremanid', this.withdrawalForm.value.foremanid)
-        formData.append('technicianid', this.withdrawalForm.value.technicianid)
-        formData.append('jobNo', this.withdrawalForm.value.jobNo)
-        formData.append('customerid', this.withdrawalForm.value.customerid)
-        formData.append('vehicleNo', this.withdrawalForm.value.vehicleNo)
-        formData.append('itemid', this.withdrawalForm.value.itemid)
-        formData.append('qty', this.withdrawalForm.value.qty)
-       
-    var url = "http://localhost:3000/users/";
 
-   
-     /*dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+    const form = {
+      jobno: this.selectedJob.jobNo,
+      customerid: this.selectedJob.custId,
+      vehicle: this.selectedJob.vehicle.vehicleRegNo,
+      foremanid: this.userid,
+      collectedby: this.withdrawalForm.value.technicianid,
+      items: this.items
+    };
 
-        if (confirmed) {
-          this.http.post<any>(url, formData).subscribe(res => {
-            if (res.state) {
-              console.log(res.msg);
-              window.location.reload();
+    var url = "http://localhost:3000/items/withdrawStock";
 
-            } else {
-              console.log(res.msg);
-              alert("Error!! Try Again");
-              this.router.navigate([this.cookie.userid,'registerEmployee']);
-            }
-          });
-          console.log(formData);
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: "Are you sure want to withraw stock?",
+        buttonText: {
+          ok: "Yes",
+          cancel: "No"
         }
-      });*/
+      }
+    });
+   dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+      if (confirmed) {
+        this.http.post<any>(url, form).subscribe(res => {
+          if (res.state) {
+            let config = new MatSnackBarConfig();
+            const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+            snackBarRef.afterDismissed().subscribe(() => {
+              window.location.reload();
+            });
+          } else {
+            console.log(res.msg);
+            alert("Error!! Try Again");
+            this.router.navigate([this.cookie.userid,'withdrawStock']);
+          }
+        });
+      }
+    });
 
     }
 
@@ -106,13 +111,24 @@ getCurrentJobs() {
       config.duration = true ? 2000 : 0;
       this.snackBar.open('Error Try Again !!! ', 'Retry', config);
     } else {
-
       this.jobs = res.data;
-      console.log(this.jobs);
-
     }
   });
 }
+
+  getAllItems() {
+    const url = "http://localhost:3000/items/searchAllItems";
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state === false) {
+        const config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open('Error Try Again !!! ', 'Retry', config);
+      } else {
+        this.allItems = res.data;
+      }
+    });
+  }
 
 ngOnInit() {
   var temp = this.cookies.getCookie("userAuth");
@@ -120,10 +136,12 @@ ngOnInit() {
     this.router.navigate(['/login']);
   }
   this.getCurrentJobs();
+  this.getAllItems();
 }
 
 addItem() {
-  const newItemId = this.withdrawalForm.value.itemid;
+  const newItemId = this.withdrawalForm.value.item.itemid;
+  console.log(this.withdrawalForm.value.item);
   const newQty = this.withdrawalForm.value.qty;
   let notFound = true;
   this.items = this.items.map((itemObject) => {
@@ -138,10 +156,11 @@ addItem() {
   if (notFound) {
     this.items.push({ itemId: newItemId, qty: newQty });
   }
+  console.log(this.items);
 }
 
 removeItem() {
-  const newItemId = this.withdrawalForm.value.itemid;
+  const newItemId = this.withdrawalForm.value.item.itemid;
   const newQty = this.withdrawalForm.value.qty;
   let itemIndex = -1;
   let shouldRemove = false;
@@ -164,11 +183,12 @@ removeItem() {
   }
 }
 
- 
+
 selectJob () {
   this.selectedJob = this.withdrawalForm.value.job;
   if (this.selectedJob.vehicle) {
     this.selectedJob.vehicle = JSON.parse(this.selectedJob.vehicle);
+    console.log(this.selectedJob);
   }
 }
 }
