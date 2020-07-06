@@ -77,8 +77,8 @@ import { MycookiesService } from './components/Admin/mycookies.service';
 import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
+import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
-import { ViewJobComponent } from './components/Foreman/view-job/view-job.component';
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 
 @NgModule({
