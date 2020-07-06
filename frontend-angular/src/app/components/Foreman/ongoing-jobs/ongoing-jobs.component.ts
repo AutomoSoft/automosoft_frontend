@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MycookiesService } from "../../Admin/mycookies.service";
-import { MatDialog, MatSnackBar, MatSnackBarConfig } from "@angular/material";
+import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig,MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from "@angular/common/http";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+
+import { ViewJobComponent } from '../../Foreman/view-job/view-job.component';
 
 @Component({
   selector: 'app-ongoing-jobs',
@@ -49,6 +51,18 @@ export class OngoingJobsComponent implements OnInit {
 
         }
       });
+  }
+
+  // *************************************************** View Job Card Popup ********************************************************
+  viewCard(element){
+    // const dialogConfig = new MatDialogConfig();
+    //   dialogConfig.data = {
+    //     message: element.content,
+    //     subject:element.subject,
+    //     email:element.email
+    // };
+
+        this.dialog.open(ViewJobComponent, element);
   }
 
 }

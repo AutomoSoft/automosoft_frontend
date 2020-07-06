@@ -70,13 +70,15 @@ import { WithdrawStockComponent } from './components/Foreman/withdraw-stock/with
 import { MakeReservationsComponent } from './components/Customer/make-reservations/make-reservations.component';
 import { JobHistoryComponent } from './components/Foreman/job-history/job-history.component';
 import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-jobs.component';
-//import {ViewChild } from '@angular/core';
+import { EmailPopupComponent } from './components/Auth/email-popup/email-popup.component';
+
 
 import { MycookiesService } from './components/Admin/mycookies.service';
 import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
+import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 
 @NgModule({
   declarations: [
@@ -107,9 +109,11 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
     MakeReservationsComponent,
     JobHistoryComponent,
     OngoingJobsComponent,
+    EmailPopupComponent,
     AddStockComponent,
     EditUserComponent,
     ViewTechniciansComponent,
+    ReplyEmailComponent,
     ViewJobComponent,
   ],
   imports: [
@@ -148,6 +152,7 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
     Ng2SearchPipeModule,
     MatTooltipModule,
     MatSortModule,
+    //PopupModule.forRoot(),
     //ViewChild
 
   ],
@@ -156,6 +161,9 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
 
   entryComponents: [
     ConfirmationDialogComponent,
+    EmailPopupComponent,
+    ReplyEmailComponent,
+    ViewJobComponent
   ],
 })
 export class AppModule { }

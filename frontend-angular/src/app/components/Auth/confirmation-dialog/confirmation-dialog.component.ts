@@ -27,7 +27,7 @@ export class ConfirmationDialogComponent {
   }
 
   ngOnInit() {
-    
+
   }
   onConfirmClick(): void {
     this.dialogRef.close(true);
@@ -35,3 +35,4 @@ export class ConfirmationDialogComponent {
 
 
 }
+

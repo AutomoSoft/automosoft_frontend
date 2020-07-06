@@ -1,13 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { contactData } from '../../main/contact/contact-data.model';
 import { contactService } from '../../main/contact/contact.service';
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig,MAT_DIALOG_DATA } from '@angular/material';
 import { ConfirmationDialogComponent } from '../../Auth/confirmation-dialog/confirmation-dialog.component';
 import { element } from 'protractor';
+import { EmailPopupComponent } from '../../Auth/email-popup/email-popup.component';
+import { ReplyEmailComponent } from '../reply-email/reply-email.component';
 
 export interface IPeriodicElement {
   _id: String;
@@ -97,17 +99,25 @@ export class MessageComponent implements OnInit {
     });
 
   }
+  viewDetails(element){
+    const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        message: element.content,
+        subject:element.subject,
+        email:element.email
+    };
+
+        this.dialog.open(EmailPopupComponent, dialogConfig);
+  }
+
+
+
+
+
   archiveEmails(id:string){
     this.messageService.archiveMessages(id, ()=>{
       this.LoadEmails();
     });
-
-    //console.log(this.getEmailsFromServer);
-    //window.location.reload();
-
-
-
-    //this.getEmailsFromServer();
   }
 
 
@@ -146,8 +156,10 @@ export class MessageComponent implements OnInit {
     private fb: FormBuilder,
     public snackBar: MatSnackBar,
     private dialog: MatDialog,
-    private messageService: contactService
+    private messageService: contactService,
+
   ) {
+
     this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
   }

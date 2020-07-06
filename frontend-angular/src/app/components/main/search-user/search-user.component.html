@@ -158,7 +158,7 @@
 
                             <br>
                             <!-- if admin -->
-                            <button class="reg_btn" (click)="onEditUser()" mat-stroked-button
+                            <button class="reg_btn" (click)="onEditUser()" mat-raised-button
                               color="primary">Edit</button>
                             <button mat-raised-button (click)=deleteTable(userdata.userid,userdata.filepath)
                               type="submit" class="my-4 btn-block del_btn ">Delete</button>
@@ -215,6 +215,41 @@
 
                         </mat-grid-list>
 
+                        <mat-grid-list cols="3" rowHeight="2:1" *ngIf="userdata.usertype == 'Technician'">
+
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Expertise :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.expertise}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Capacity (Hrs) :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.capacity}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Current (Hrs) :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.currentjobCap}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+
+                        </mat-grid-list>
+
                         <br />
                         <mat-divider></mat-divider>
                         <mat-card class="section" style=" border-radius: 10px;">
@@ -246,10 +281,10 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
-                                      <td>12345</td>
-                                      <td>67890</td>
-                                      <td>12345</td>
+                                    <tr *ngFor="let k of custVehicles">
+                                      <td>{{k.vehicleRegNo}}</td>
+                                      <td>{{k.chasis}}</td>
+                                      <td>{{k.EngineNo}}</td>
                                     </tr>
                                   </tbody>
                                 </table>

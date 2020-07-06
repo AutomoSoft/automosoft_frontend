@@ -1,0 +1,21 @@
+  <div class="main">
+    <h4>SUBJECT</h4>
+    <p>{{subject}}</p>
+  <mat-dialog-content >
+    <h4>CONTENT</h4>
+    <p style="font-weight: 500; ">
+      {{message}}
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions  >
+    <div class="row" style="padding-bottom: 20px; margin-right: 0rem;" >
+      <div class="col-md-6">
+        <button mat-raised-button style="background-color: rgb(76, 204, 128); color: white; width: 120px; margin: auto;align-content: flex-end;"tabindex="1" (click)="onReply()" (click)="onConfirmClick()"><mat-icon>reply</mat-icon>Reply</button>
+      </div>
+      <br>
+      <!--<div class="col-md-6">
+        <button mat-raised-button style="width: 120px; margin: auto; background-color: rgb(221, 81, 112); color: white;" color="warn" mat-dialog-close tabindex="-1">cancel</button>
+      </div>-->
+    </div>
+  </mat-dialog-actions>
+</div>
