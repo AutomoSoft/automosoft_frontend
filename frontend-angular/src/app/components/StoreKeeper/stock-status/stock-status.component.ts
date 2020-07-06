@@ -33,6 +33,8 @@ interface item {
 export interface PeriodicElement {
   itemid: String;
   itemtype: String;
+  itemname: String;
+  storequantity: Number;
   buying: String;
   selling: String;
   addedby: String;
@@ -48,7 +50,7 @@ export interface PeriodicElement {
 })
 export class StockStatusComponent implements OnInit {
 
-  displayedColumns: string[] = ['userid', 'usertype','firstname', 'email', 'contactnumber','action'];
+  displayedColumns: string[] = ['itemid', 'itemname','buying', 'selling', 'storequantity','action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
 
@@ -122,7 +124,7 @@ export class StockStatusComponent implements OnInit {
 
   searchItem() {
     this.itemid = this.itemSearchForm.value.itemid; //get item id
-    console.log(this.itemid); 
+    console.log(this.itemid);
 
     const url = "http://localhost:3000/items/searchItem"   //backend url
 

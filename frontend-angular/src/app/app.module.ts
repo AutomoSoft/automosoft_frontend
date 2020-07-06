@@ -79,6 +79,7 @@ import { EditUserComponent } from './components/main/search-user/edit-user/edit-
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 import { ViewJobComponent } from './components/Foreman/view-job/view-job.component';
+import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { ViewJobComponent } from './components/Foreman/view-job/view-job.compone
     ViewTechniciansComponent,
     ReplyEmailComponent,
     ViewJobComponent,
+    StockReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -163,7 +165,8 @@ import { ViewJobComponent } from './components/Foreman/view-job/view-job.compone
     ConfirmationDialogComponent,
     EmailPopupComponent,
     ReplyEmailComponent,
-    ViewJobComponent
+    ViewJobComponent,
+    StockReportComponent
   ],
 })
 export class AppModule { }

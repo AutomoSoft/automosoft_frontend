@@ -37,7 +37,7 @@
                           Search
                         </button>
 
-                        <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block btn_1  ">
+                        <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block del_btn  ">
                           Cancel
                         </button>
                       </mat-card>
@@ -194,22 +194,24 @@
                       </form>
                     </div>
                   </mat-tab>
-<!-- ***************************************************************************** View All Users ************************************************************************** -->
+<!-- ***************************************************************************** View Store  ************************************************************************** -->
 
                   <mat-tab label="VIEW ALL ITEMS" *ngIf="!dataform">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
                       <br>
-                      <button mat-raised-button type="submit" (click)="searchUser()" class="mat-raised-button" color="primary" style="display: flex;">
+                      <button mat-raised-button type="submit"  class="mat-raised-button" color="primary" style="display: flex;">
                         Generate Report
                       </button>
                       <h3 class="topic" style="margin-left: -600px;" >SELECT ITEM CATEGORY:</h3>
                       <div class="form-row mb-4">
                         <mat-form-field appearance="outline" >
                           <mat-select placeholder="Item Category:" [(ngModel)]="searchText">
-                            <mat-option value="Administrator">Spare Parts</mat-option>
-                            <mat-option value="Accountant">Paints</mat-option>
-                            <mat-option value="Accountant">All</mat-option>
+                            <mat-option value="Spare Parts">Spare Parts</mat-option>
+                            <mat-option value="Paints">Paints</mat-option>
+                            <mat-option value="Tools">Tools</mat-option>
+                            <mat-option value="Tyres">Tyres</mat-option>
+                            <mat-option value="Electric Parts">Electric Parts</mat-option>
                           </mat-select>
                         </mat-form-field>
                         <!-- {{searchText}} -->
@@ -219,41 +221,45 @@
                       <div class="mat-elevation-z8">
                         <table mat-table [dataSource]="dataSource ">
 
-                          <!-- User ID Column -->
-                          <ng-container matColumnDef="userid">
+
+                          <ng-container matColumnDef="itemid">
                             <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item ID </th>
                             <td mat-cell *matCellDef="let element"> {{element.itemid}} </td>
                           </ng-container>
 
-                          <!-- User Type Column -->
-                          <ng-container matColumnDef="usertype">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item Type </th>
-                            <td mat-cell *matCellDef="let element"> {{element.itemtype}} </td>
+
+                          <ng-container matColumnDef="itemname">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.itemname}} </td>
                           </ng-container>
 
-                          <!-- First Name Column -->
-                          <ng-container matColumnDef="firstname">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  Added By </th>
-                            <td mat-cell *matCellDef="let element"> {{element.addedby}} </td>
+
+                          <ng-container matColumnDef="buying">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Buying Price </th>
+                            <td mat-cell *matCellDef="let element"> {{element.buying}} </td>
                           </ng-container>
 
-                          <!-- E-mail Column -->
-                          <ng-container  matColumnDef="email">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Added On </th>
-                            <td mat-cell *matCellDef="let element"> {{element.addedon}} </td>
+
+                          <ng-container  matColumnDef="selling">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Selling Price</th>
+                            <td mat-cell *matCellDef="let element"> {{element.selling}} </td>
                           </ng-container>
 
-                          <!-- contact No Column -->
-                          <ng-container matColumnDef="contactnumber">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Last Modified By: </th>
-                            <td mat-cell *matCellDef="let element"> {{element.lastmodifiedby}} </td>
+
+                          <ng-container matColumnDef="storequantity">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Quantity</th>
+                            <td mat-cell *matCellDef="let element"> {{element.storequantity}} </td>
                           </ng-container>
 
                           <ng-container matColumnDef="action">
                             <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
                             <td mat-cell *matCellDef="let element" >
-                                 <button mat-raised-button  (click)="viewUser(element.userid)" type="submit" class="my-4 btn-block table_btn"  >View</button>
-                                 <button  mat-raised-button (click)=deleteTable(element.userid,element.filepath) type="submit" class="my-4 btn-block del_btn " >Delete</button>
+                              <button mat-icon-button type="submit" class=" btn-block btn_1" title="View Item" (click)="viewCard(k.jobNo)">
+                                <mat-icon>search</mat-icon>
+                              </button>
+                              <button mat-icon-button type="submit" class=" btn-block reg_btn" title="Request Purchase Order" (click)="viewCard(k.jobNo)">
+                                <mat-icon>shopping_cart</mat-icon>
+                              </button>
                             </td>
                           </ng-container>
 
