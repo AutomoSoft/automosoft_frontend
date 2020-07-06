@@ -1,6 +1,6 @@
 <div style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -18,17 +18,17 @@
 
                 <mat-tab-group class="p-5 reg-frm">
 
-                <mat-tab label="SEARCH BY ITEM ID">
-                    <form [formGroup] = itemSearchForm *ngIf="!dataform">
+                  <mat-tab label="SEARCH BY ITEM ID">
+                    <form [formGroup]=itemSearchForm *ngIf="!dataform">
 
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
-                        <h3 class="topic" style="margin-left: -600px;" >ENTER ITEM ID:</h3>
+                        <h3 class="topic" style="margin-left: -600px;">ENTER ITEM ID:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
                             <mat-label>ITEM ID:</mat-label>
-                            <input matInput class="form-control box_border" formControlName = "itemid" >
+                            <input matInput class="form-control box_border" formControlName="itemid">
                           </mat-form-field>
                         </div>
                         <br>
@@ -37,175 +37,188 @@
                           Search
                         </button>
 
-                        <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block del_btn  ">
+                        <button mat-raised-button (click)="resetSearch()" type="submit"
+                          class="my-4 btn-block del_btn  ">
                           Cancel
                         </button>
                       </mat-card>
                     </form>
 
                     <div class="container" *ngIf="dataform">
-                      <form [formGroup] = itemDataForm>
+                      <form [formGroup]=itemDataForm>
                         <br>
                         <br>
                         <div>
                           <mat-card class="profile-card">
-                              <img class="profile-pic" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+                            <img class="profile-pic"
+                              src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
                           </mat-card>
                         </div>
                         <br>
-                          <div class="form-row mb-4">
-                            <mat-form-field appearance="outline">
-                              <!-- <mat-label>Select User Type:</mat-label> -->
-                              <mat-select placeholder="User Category:" disabled formControlName="usertype" [(ngModel)]="userdata.usertype">
-                                <mat-option value="Administrator">Admin</mat-option>
-                                <mat-option value="Accountant">Accountant</mat-option>
-                                <mat-option value="Foreman">Foreman</mat-option>
-                                <mat-option value="Store-Keeper">Store-Keeper</mat-option>
-                                <mat-option value="Technician">Technician</mat-option>
-                                <mat-option value="Customer">Customer</mat-option>
-                              </mat-select>
-                            </mat-form-field>
+                        <div class="form-row mb-4">
+                          <mat-form-field appearance="outline">
+                            <!-- <mat-label>Select User Type:</mat-label> -->
+                            <mat-select placeholder="User Category:" disabled formControlName="usertype"
+                              [(ngModel)]="userdata.usertype">
+                              <mat-option value="Administrator">Admin</mat-option>
+                              <mat-option value="Accountant">Accountant</mat-option>
+                              <mat-option value="Foreman">Foreman</mat-option>
+                              <mat-option value="Store-Keeper">Store-Keeper</mat-option>
+                              <mat-option value="Technician">Technician</mat-option>
+                              <mat-option value="Customer">Customer</mat-option>
+                            </mat-select>
+                          </mat-form-field>
 
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Employee ID:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="userid" [(ngModel)]="userdata.userid">
-                              <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Employee ID:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="userid"
+                              [(ngModel)]="userdata.userid">
+                            <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                          </mat-form-field>
 
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>First Name:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="firstName" [(ngModel)]="userdata.firstname">
+                          <mat-form-field appearance="outline">
+                            <mat-label>First Name:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="firstName"
+                              [(ngModel)]="userdata.firstname">
 
-                            </mat-form-field>
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Last Name:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="lastName" [(ngModel)]="userdata.lastname">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Last Name:</mat-label>
+                            <input matInput class="form-control box_border" formControlName="lastName"
+                              [(ngModel)]="userdata.lastname">
 
-                            </mat-form-field>
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline" >
-                              <mat-select placeholder="Gender" formControlName="gender" [(ngModel)]="userdata.gender">
-                                <mat-option value="Male">Male</mat-option>
-                                <mat-option value="Female">Female</mat-option>
-                              </mat-select>
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-select placeholder="Gender" formControlName="gender" [(ngModel)]="userdata.gender">
+                              <mat-option value="Male">Male</mat-option>
+                              <mat-option value="Female">Female</mat-option>
+                            </mat-select>
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>NIC Number:</mat-label>
-                              <input matInput placeholder="96xxxxxxxV" formControlName="nicnumber" [(ngModel)]="userdata.nicnumber">
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>NIC Number:</mat-label>
+                            <input matInput placeholder="96xxxxxxxV" formControlName="nicnumber"
+                              [(ngModel)]="userdata.nicnumber">
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Address:</mat-label>
-                              <textarea matInput formControlName="address" [(ngModel)]="userdata.address"></textarea>
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Address:</mat-label>
+                            <textarea matInput formControlName="address" [(ngModel)]="userdata.address"></textarea>
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Contact Number:</mat-label>
-                              <input matInput placeholder="Ex. 081xxxxxxx" formControlName="contactNo" [(ngModel)]="userdata.contactnumber">
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Contact Number:</mat-label>
+                            <input matInput placeholder="Ex. 081xxxxxxx" formControlName="contactNo"
+                              [(ngModel)]="userdata.contactnumber">
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Email:</mat-label>
-                              <input matInput placeholder="Ex. abc@example.com" formControlName="email" [(ngModel)]="userdata.email">
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Email:</mat-label>
+                            <input matInput placeholder="Ex. abc@example.com" formControlName="email"
+                              [(ngModel)]="userdata.email">
+                          </mat-form-field>
 
-                            <mat-form-field appearance="outline" >
-                              <mat-label>Addedon:</mat-label>
-                              <input matInput readonly formControlName="addedon" [(ngModel)]="userdata.addedon">
-                            </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Addedon:</mat-label>
+                            <input matInput readonly formControlName="addedon" [(ngModel)]="userdata.addedon">
+                          </mat-form-field>
 
-                            <!-- vehicle details of customer -->
-                            <div *ngIf="cookies.userData.usertype == 'Administrator' && userflag">
-                              <h3>VEHICLE DETAILS
-                                <button mat-raised-button  type="submit" class="my-4 btn-block veh_btn">
-                                  <mat-icon >add</mat-icon>NEW
-                                </button>
-                              </h3>
+                          <!-- vehicle details of customer -->
+                          <div *ngIf="cookies.userData.usertype == 'Administrator' && userflag">
+                            <h3>VEHICLE DETAILS
+                              <button mat-raised-button type="submit" class="my-4 btn-block veh_btn">
+                                <mat-icon>add</mat-icon>NEW
+                              </button>
+                            </h3>
 
-                              <div class="mat-elevation-z8" style="width:55%; margin-bottom: 10px; margin-left: 260px">
-                               <table class="table ">
-                                 <thead>
-                                   <tr>
-                                     <th>VEHICLE REG. No</th>
-                                     <th>CHASIS</th>
-                                     <th>ENGINE No</th>
-                                   </tr>
-                                 </thead>
-                                 <tbody>
-                                   <tr *ngFor= "let k of custVehicles">
-                                     <td>{{k.vehicleRegNo}}</td>
-                                     <td>{{k.chasis}}</td>
-                                     <td>{{k.EngineNo}}</td>
-                                   </tr>
-                                 </tbody>
-                               </table>
-
-                              </div>
+                            <div class="mat-elevation-z8" style="width:55%; margin-bottom: 10px; margin-left: 260px">
+                              <table class="table ">
+                                <thead>
+                                  <tr>
+                                    <th>VEHICLE REG. No</th>
+                                    <th>CHASIS</th>
+                                    <th>ENGINE No</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let k of custVehicles">
+                                    <td>{{k.vehicleRegNo}}</td>
+                                    <td>{{k.chasis}}</td>
+                                    <td>{{k.EngineNo}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
 
                             </div>
 
-                            <br>
-                            <br>
-                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'" >
-                              <mat-label>Last Modified On:</mat-label>
-                              <input matInput readonly formControlName="lastmodifiedon" [(ngModel)]="userdata.lastmodifiedon">
-                            </mat-form-field>
+                          </div>
 
-                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'">
-                              <mat-label>Last Modified By:</mat-label>
-                              <input matInput readonly formControlName="lastmodifiedby" [(ngModel)]="userdata.lastmodifiedby">
-                            </mat-form-field>
+                          <br>
+                          <br>
+                          <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'">
+                            <mat-label>Last Modified On:</mat-label>
+                            <input matInput readonly formControlName="lastmodifiedon"
+                              [(ngModel)]="userdata.lastmodifiedon">
+                          </mat-form-field>
 
-                            <!-- <mat-form-field appearance="outline">
+                          <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Administrator'">
+                            <mat-label>Last Modified By:</mat-label>
+                            <input matInput readonly formControlName="lastmodifiedby"
+                              [(ngModel)]="userdata.lastmodifiedby">
+                          </mat-form-field>
+
+                          <!-- <mat-form-field appearance="outline">
                               <mat-label>Password:</mat-label>
                               <input matInput minlength=8  formControlName="password" [(ngModel)]="userdata.password">
                             </mat-form-field> -->
 
 
-                          </div>
-                          <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
+                        </div>
+                        <!-- <input type="file" class="file_upload" style="display: none" name="profilepic"
                           accept="image/*" [uploader]="uploader" (change)="selectImage($event)"
                           #fileInput> -->
 
-                          <!-- <div class="form-row mb-4">
+                        <!-- <div class="form-row mb-4">
                             <button class="btn btn-secondary" type="button"  accept="image/*">Choose Profile Picture</button>
                             <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
                               Resolution : (320 x 280)p / 8 : 7
                             </small>
                           </div> -->
 
-                          <button mat-raised-button (click)=updateUser() type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
-                            Update
-                          </button>
+                        <button mat-raised-button (click)=updateUser() type="submit" class="my-4 btn-block reg_btn"
+                          *ngIf="cookies.userData.usertype == 'Administrator'">
+                          Update
+                        </button>
 
-                          <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
-                            Cancel
-                          </button>
+                        <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
+                          Cancel
+                        </button>
 
-                          <button mat-raised-button (click)=delete() type="submit" class="my-4 btn-block del_btn">
-                            Delete
-                          </button>
-                          <br>
-                          <br>
+                        <button mat-raised-button (click)=delete() type="submit" class="my-4 btn-block del_btn">
+                          Delete
+                        </button>
+                        <br>
+                        <br>
                       </form>
                     </div>
                   </mat-tab>
-<!-- ***************************************************************************** View Store  ************************************************************************** -->
+                  <!-- ***************************************************************************** View Store  ************************************************************************** -->
 
                   <mat-tab label="VIEW ALL ITEMS" *ngIf="!dataform">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
                       <br>
-                      <button mat-raised-button type="submit"  class="mat-raised-button" color="primary" style="display: flex;">
+                      <button mat-raised-button type="submit" class="mat-raised-button" color="primary"
+                        style="display: flex;" (click)="viewReport()">
                         Generate Report
                       </button>
-                      <h3 class="topic" style="margin-left: -600px;" >SELECT ITEM CATEGORY:</h3>
+                      <h3 class="topic" style="margin-left: -600px;">SELECT ITEM CATEGORY:</h3>
                       <div class="form-row mb-4">
-                        <mat-form-field appearance="outline" >
+                        <mat-form-field appearance="outline">
                           <mat-select placeholder="Item Category:" [(ngModel)]="searchText">
                             <mat-option value="Spare Parts">Spare Parts</mat-option>
                             <mat-option value="Paints">Paints</mat-option>
@@ -223,41 +236,49 @@
 
 
                           <ng-container matColumnDef="itemid">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item ID </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item ID
+                            </th>
                             <td mat-cell *matCellDef="let element"> {{element.itemid}} </td>
                           </ng-container>
 
 
                           <ng-container matColumnDef="itemname">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item Name </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Item
+                              Name </th>
                             <td mat-cell *matCellDef="let element"> {{element.itemname}} </td>
                           </ng-container>
 
 
                           <ng-container matColumnDef="buying">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Buying Price </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Buying
+                              Price </th>
                             <td mat-cell *matCellDef="let element"> {{element.buying}} </td>
                           </ng-container>
 
 
-                          <ng-container  matColumnDef="selling">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Selling Price</th>
+                          <ng-container matColumnDef="selling">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Selling
+                              Price</th>
                             <td mat-cell *matCellDef="let element"> {{element.selling}} </td>
                           </ng-container>
 
 
                           <ng-container matColumnDef="storequantity">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Quantity</th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">
+                              Quantity</th>
                             <td mat-cell *matCellDef="let element"> {{element.storequantity}} </td>
                           </ng-container>
 
                           <ng-container matColumnDef="action">
-                            <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
-                            <td mat-cell *matCellDef="let element" >
-                              <button mat-icon-button type="submit" class=" btn-block btn_1" title="View Item" (click)="viewCard(k.jobNo)">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACTION
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                              <button mat-icon-button type="submit" class=" btn-block btn_1" title="View Item"
+                                (click)="viewCard(k.jobNo)">
                                 <mat-icon>search</mat-icon>
                               </button>
-                              <button mat-icon-button type="submit" class=" btn-block reg_btn" title="Request Purchase Order" (click)="viewCard(k.jobNo)">
+                              <button mat-icon-button type="submit" class=" btn-block reg_btn"
+                                title="Request Purchase Order" (click)="viewCard(k.jobNo)">
                                 <mat-icon>shopping_cart</mat-icon>
                               </button>
                             </td>
@@ -286,4 +307,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
