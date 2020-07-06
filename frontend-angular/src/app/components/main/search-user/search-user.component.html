@@ -11,8 +11,8 @@
             <div class="container-fluid" style="background-color: #ddddec;">
               <br />
               <div>
-                <button [routerLink]="['/searchUser']" mat-icon-button
-                  style="float: left; padding-left:45px; " *ngIf="dataform" (click) = onArrowClick()>
+                <button [routerLink]="['/searchUser']" mat-icon-button style="float: left; padding-left:45px; "
+                  *ngIf="dataform" (click)=onArrowClick()>
                   <mat-icon>arrow_back</mat-icon>
                 </button>
                 <h2 class="topic">SEARCH USER</h2>
@@ -24,7 +24,7 @@
 
                 <mat-tab-group class="p-5 reg-frm" *ngIf="!dataform">
 
-                  <mat-tab label="SEARCH BY USER ID" >
+                  <mat-tab label="SEARCH BY USER ID">
 
                     <form [formGroup]=userSearchForm>
                       <mat-card>
@@ -54,7 +54,7 @@
 
                   <!-- ***************************************************************************** View All Users ************************************************************************** -->
 
-                  <mat-tab label="VIEW ALL USERS" >
+                  <mat-tab label="VIEW ALL USERS">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
@@ -116,8 +116,8 @@
                             <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACTION
                             </th>
                             <td mat-cell *matCellDef="let element">
-                              <button mat-raised-button (click)="viewUser(element.userid)"
-                                type="submit" class="my-4 btn-block table_btn">View</button>
+                              <button mat-raised-button (click)="viewUser(element.userid)" type="submit"
+                                class="my-4 btn-block table_btn">View</button>
                               <button mat-raised-button (click)=deleteTable(element.userid,element.filepath)
                                 type="submit" class="my-4 btn-block del_btn ">Delete</button>
                             </td>
@@ -140,12 +140,12 @@
 
 
                   <!-- ***************************************************************************** View User tab ************************************************************************** -->
-                  <mat-tab label="USER PROFILE" >
+                  <mat-tab label="USER PROFILE">
                     <mat-card class="p-5 reg-frm" style="margin-top: 10px; margin-bottom: 40px;">
-                      <div class="container" >
+                      <div class="container">
 
                         <div class="header">
-                          <div class="avatar-container" >
+                          <div class="avatar-container">
                             <img class="avatar" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
                             <div class="avatar-hover">
                               <mat-icon>camera_alt</mat-icon>
@@ -158,8 +158,10 @@
 
                             <br>
                             <!-- if admin -->
-                            <button class="reg_btn" (click)="onEditUser()" mat-stroked-button color="primary">Edit</button>
-                            <button mat-raised-button (click)=deleteTable(userdata.userid,userdata.filepath) type="submit" class="my-4 btn-block del_btn ">Delete</button>
+                            <button class="reg_btn" (click)="onEditUser()" mat-stroked-button
+                              color="primary">Edit</button>
+                            <button mat-raised-button (click)=deleteTable(userdata.userid,userdata.filepath)
+                              type="submit" class="my-4 btn-block del_btn ">Delete</button>
                           </div>
                         </div>
 
@@ -227,7 +229,8 @@
                           <mat-card class="section" style="text-align: center;  border-radius: 10px;">
 
                             <mat-card-title> VEHICLE DETAILS
-                              <button mat-raised-button type="submit" class="my-4 btn-block veh_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
+                              <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
+                                *ngIf="cookies.userData.usertype == 'Administrator'">
                                 <mat-icon>add</mat-icon>NEW
                               </button>
                             </mat-card-title>
@@ -261,9 +264,9 @@
                         <!-- if Admin -->
                         <div style="text-align: left;  border-radius: 10px;">
                           <mat-divider></mat-divider><br>
-                          <p>Added On           : {{userdata.addedon}}</p>
-                          <p>Last Modified On   : {{userdata.lastmodifiedon}}</p>
-                          <p>Last Modified By   : {{userdata.lastmodifiedby}}</p>
+                          <p>Added On : {{userdata.addedon}}</p>
+                          <p>Last Modified On : {{userdata.lastmodifiedon}}</p>
+                          <p>Last Modified By : {{userdata.lastmodifiedby}}</p>
                         </div>
 
                       </div>

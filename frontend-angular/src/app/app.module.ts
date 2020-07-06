@@ -76,6 +76,7 @@ import { MycookiesService } from './components/Admin/mycookies.service';
 import { AddStockComponent } from './components/StoreKeeper/add-stock/add-stock.component';
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
+import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
     AddStockComponent,
     EditUserComponent,
     ViewTechniciansComponent,
+    ViewJobComponent,
   ],
   imports: [
     BrowserModule,

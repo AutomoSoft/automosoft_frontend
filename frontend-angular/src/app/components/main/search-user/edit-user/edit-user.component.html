@@ -3,10 +3,10 @@
     <h1 mat-dialog-title>Edit User</h1>
   </div>
   <mat-divider></mat-divider><br>
-  <div mat-dialog-content class="content" fxLayout="column" fxLayoutAlign="center">
+  <div mat-dialog-content class="content">
     <form class="edit-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
-      <mat-form-field class="full-width">
+      <mat-form-field class="form-full-width">
         <input matInput type="text" formControlName="firstName" placeholder="FirstName">
       </mat-form-field><br>
 
