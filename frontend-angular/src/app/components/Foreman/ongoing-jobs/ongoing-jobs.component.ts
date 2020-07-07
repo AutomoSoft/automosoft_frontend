@@ -6,6 +6,24 @@ import { HttpClient } from "@angular/common/http";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { ViewJobComponent } from './view-job/view-job.component';
 
+interface user {
+  _id: String;
+  usertype: String;
+  userid: String;
+  vehicles: String;
+  filepath: String;
+}
+
+interface job {
+  _id: String;
+  jobNo: String;
+  jobType: String;
+  custId: String;
+  jobStatus: String;
+  technicians: String;
+  itemsUsed: String;
+}
+
 @Component({
   selector: 'app-ongoing-jobs',
   templateUrl: './ongoing-jobs.component.html',
@@ -15,6 +33,9 @@ export class OngoingJobsComponent implements OnInit {
 
   cookie;
   currJobs;   //ongoing jobs
+  userdata: user[] = [];
+  job: job[] = [];
+  userid;
 
   constructor(
     private router: Router,
@@ -46,21 +67,52 @@ export class OngoingJobsComponent implements OnInit {
       } else {
 
         this.currJobs = res.data;
-        console.log(this.currJobs);
+        //console.log(this.currJobs);
 
       }
     });
   }
 
   viewCard(element) {
-    // const dialogConfig = new MatDialogConfig();
-    //   dialogConfig.data = {
-    //     message: element.content,
-    //     subject:element.subject, 
-    //     email:element.email
-    // };
 
-    this.dialog.open(ViewJobComponent, element);
+  this.userid = element.custId;
+  console.log(element.jobNo)
+
+  const url = "http://localhost:3000/users/searchUsers"   //backend url
+
+  this.http.get<any>(url + "/" + this.userid).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+    } else {
+        this.userdata = res.data;
+
+        const url = "http://localhost:3000/jobs/viewJob"
+
+
+        this.http.get<any>(url + "/" + element.jobNo).subscribe(res => {
+          if (res.state == false) {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Error", true ? "Retry" : undefined, config);
+          } else {
+                this.job = res.data
+                //console.log(this.job)
+                const dialogConfig = new MatDialogConfig();
+                dialogConfig.data = {
+                  customer: this.userdata,
+                  jobDetails: this.job
+
+              };
+              //console.log(dialogConfig.data)
+              this.dialog.open(ViewJobComponent, dialogConfig);
+
+          }
+        });
+    }
+  });
+
   }
 
 

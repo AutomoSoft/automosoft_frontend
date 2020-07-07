@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VERSION, MatDialogRef, MatDialog, MatSnackBar, MAT_DIALOG_DATA, MatSnackBarConfig, MatDialogConfig } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
-//import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { element } from 'protractor';

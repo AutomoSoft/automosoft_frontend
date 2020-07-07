@@ -4,11 +4,11 @@
   <mat-divider></mat-divider>
   <div class="header">
       <div class="avatar-container">
-        <img class="avatar" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+        <img class="avatar" src="http://localhost:3000/users/profileImage/{{customer.filepath}}">
       </div>
       <div class="job-detail-container">
-        <h3>JOB NUMBER :  JOB001</h3>
-        <h4>STATUS     :  STARTED</h4>
+        <h3>JOB NUMBER :  {{job.jobNo}}</h3>
+        <h4>STATUS     :  {{job.jobStatus}}</h4>
         <br>
         <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">Notify</button>
         <button mat-raised-button type="submit" class="my-4 btn-block btn_1 ">Stock</button>
@@ -19,13 +19,13 @@
 
   <div class="container">
 
-    <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-list cols="3" rowHeight="1:1" style="background-color: #ddddec;">
       <mat-grid-tile>
         <mat-card style="width: 80px; text-align: center; border-radius: 10px;">
           <mat-card-title>CUST:</mat-card-title>
           <mat-card-content>
             <p>
-              CUS001
+              {{job.custId}}
             </p>
           </mat-card-content>
         </mat-card>
@@ -35,7 +35,7 @@
           <mat-card-title>TYPE:</mat-card-title>
           <mat-card-content>
             <p>
-              Accident Repair
+              {{job.jobType}}
             </p>
           </mat-card-content>
         </mat-card>
@@ -45,7 +45,7 @@
           <mat-card-title>STATUS:</mat-card-title>
           <mat-card-content>
             <p>
-              Queued
+              {{job.jobStatus}}
             </p>
           </mat-card-content>
         </mat-card>
@@ -57,16 +57,45 @@
     <mat-divider></mat-divider>
     <mat-card class="section" style=" border-radius: 10px;">
       <mat-card-title>TECHNICIANS :</mat-card-title>
-      <p>
-        ---------------------------- <br>
-      </p>
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>TECHNICIAN ID</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor= "let k of technicians">
+              <td>{{k[0]}}</td>
+              <td>
+                <button mat-icon-button  type="submit" (click)=addTechJob(k.userid,jobCat)  class=" btn-block tec_btn">
+                  <mat-icon>add</mat-icon>
+                </button>
+                <button mat-icon-button  type="submit" (click)=remTechJob(k.userid,jobCat) class=" btn-block del_btn">
+                  <mat-icon>clear</mat-icon>
+                </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
     </mat-card>
 
     <mat-card class="section" style=" border-radius: 10px;">
       <mat-card-title>ITEMS USED :</mat-card-title>
-      <p>
-        ---------------------------- <br>
-      </p>
+      <table class="table ">
+        <thead>
+          <tr>
+            <th>ITEM ID</th>
+            <th>QUANTITY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor= "let k of items">
+            <td>{{k[0]}}</td>
+            <td>{{k[0]}}</td>
+          </tr>
+        </tbody>
+      </table>
     </mat-card>
     <br><br>
   </div>

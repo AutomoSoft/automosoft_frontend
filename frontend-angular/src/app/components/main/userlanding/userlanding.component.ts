@@ -22,7 +22,6 @@ interface user {
   lastmodifiedby: String;
   vehicles: String;
 
-  // filepath: String;
 }
 @Component({
   selector: 'app-userlanding',
