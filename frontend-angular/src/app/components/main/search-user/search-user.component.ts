@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import { EditUserComponent } from './edit-user/edit-user.component'; 
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 import {
@@ -17,6 +17,7 @@ import {
   FormArray,
   Form
 } from "@angular/forms";
+import { AddNewVehicleComponent } from './add-new-vehicle/add-new-vehicle.component';
 
 
 interface user {
@@ -57,7 +58,7 @@ export interface PeriodicElement {
 })
 export class SearchUserComponent implements OnInit {
 
-  displayedColumns: string[] = ['userid', 'usertype','firstname', 'email', 'contactnumber','action'];
+  displayedColumns: string[] = ['userid', 'usertype', 'firstname', 'email', 'contactnumber', 'action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
 
@@ -70,7 +71,7 @@ export class SearchUserComponent implements OnInit {
   propicName;  //profile picture name
   searchText;
   custVehicles;
-  userflag:Boolean = false;  //to show/hide customer vehicle fields
+  userflag: Boolean = false;  //to show/hide customer vehicle fields
 
   constructor(
     private http: HttpClient,
@@ -86,7 +87,7 @@ export class SearchUserComponent implements OnInit {
 
   ngOnInit() {
     var cookie = this.cookies.getCookie("userAuth");
-    if(cookie==""){
+    if (cookie == "") {
       this.router.navigate(['/login']);
     }
 
@@ -102,7 +103,7 @@ export class SearchUserComponent implements OnInit {
       gender: ["", Validators.required],
       nicnumber: ["", Validators.required],
       address: ["", Validators.required],
-      contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
+      contactNo: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: ["", Validators.required],
       lastmodifiedon: ["", Validators.required],
@@ -113,7 +114,7 @@ export class SearchUserComponent implements OnInit {
 
 
 
-/*************************************************** Table Data(All Users) ***********************************************************/
+    /*************************************************** Table Data(All Users) ***********************************************************/
 
     const url = "http://localhost:3000/users/searchAllUsers"   //backend url
 
@@ -138,7 +139,7 @@ export class SearchUserComponent implements OnInit {
       EngineNo: ["", Validators.required],
     });
   }
-/*************************************************** Search User  ***********************************************************/
+  /*************************************************** Search User  ***********************************************************/
 
   searchUser() {
     this.userid = this.userSearchForm.value.userid; //get user id
@@ -151,24 +152,24 @@ export class SearchUserComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
-        if(res.data.usertype=="Customer"){
+        if (res.data.usertype == "Customer") {
           this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        this.custVehicles =JSON.parse(res.data.vehicles);
+        this.custVehicles = JSON.parse(res.data.vehicles);
       }
     });
   }
 
-  resetSearch(){
+  resetSearch() {
     this.userSearchForm.reset();
   }
 
-  cancel(){
+  cancel() {
     // this.UserDataForm.reset();
-     window.location.reload();
+    window.location.reload();
   }
 
 
@@ -182,10 +183,10 @@ export class SearchUserComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
-        if(res.data.usertype=="Customer"){
+        if (res.data.usertype == "Customer") {
           this.userflag = true;
         }
-        else{
+        else {
           this.userflag = false;
         }
         this.dataform = true; //data form div show
@@ -210,38 +211,38 @@ export class SearchUserComponent implements OnInit {
       return;
     }
     else {
-      let date=Date();
-    //   const formData = new FormData();
-    //   //append the data to the form
-    //  // formData.append('profileImage', this.images)
-    //   formData.append('usertype', this.UserDataForm.value.usertype)
-    //   formData.append('userid', this.UserDataForm.value.userid)
-    //   formData.append('firstName', this.UserDataForm.value.firstName)
-    //   formData.append('lastName', this.UserDataForm.value.lastName)
-    //   formData.append('gender', this.UserDataForm.value.gender)
-    //   formData.append('nic', this.UserDataForm.value.nicnumber)
-    //   formData.append('address', this.UserDataForm.value.address)
-    //   formData.append('contactnumber', this.UserDataForm.value.contactNo)
-    //   formData.append('email', this.UserDataForm.value.email)
-    //   formData.append('password', this.UserDataForm.value.password)
-    //   formData.append('lastmodifiedby',  this.cookie.userid)
-    //   formData.append('lastmodifiedon', date)
+      let date = Date();
+      //   const formData = new FormData();
+      //   //append the data to the form
+      //  // formData.append('profileImage', this.images)
+      //   formData.append('usertype', this.UserDataForm.value.usertype)
+      //   formData.append('userid', this.UserDataForm.value.userid)
+      //   formData.append('firstName', this.UserDataForm.value.firstName)
+      //   formData.append('lastName', this.UserDataForm.value.lastName)
+      //   formData.append('gender', this.UserDataForm.value.gender)
+      //   formData.append('nic', this.UserDataForm.value.nicnumber)
+      //   formData.append('address', this.UserDataForm.value.address)
+      //   formData.append('contactnumber', this.UserDataForm.value.contactNo)
+      //   formData.append('email', this.UserDataForm.value.email)
+      //   formData.append('password', this.UserDataForm.value.password)
+      //   formData.append('lastmodifiedby',  this.cookie.userid)
+      //   formData.append('lastmodifiedon', date)
 
-    const formData ={
-      usertype:this.UserDataForm.value.usertype,
-      userid:this.UserDataForm.value.userid,
-      firstName:this.UserDataForm.value.firstName,
-      lastName:this.UserDataForm.value.lastName,
-      gender:this.UserDataForm.value.gender,
-      nicnumber:this.UserDataForm.value.nicnumber,
-      address:this.UserDataForm.value.address,
-      contactnumber:this.UserDataForm.value.contactNo,
-      email:this.UserDataForm.value.email,
-      vehicles:this.custVehicles,
-      //password:this.UserDataForm.value.password,
-      lastmodifiedby: this.cookie.userid,
-      lastmodifiedon:date,
-    };
+      const formData = {
+        usertype: this.UserDataForm.value.usertype,
+        userid: this.UserDataForm.value.userid,
+        firstName: this.UserDataForm.value.firstName,
+        lastName: this.UserDataForm.value.lastName,
+        gender: this.UserDataForm.value.gender,
+        nicnumber: this.UserDataForm.value.nicnumber,
+        address: this.UserDataForm.value.address,
+        contactnumber: this.UserDataForm.value.contactNo,
+        email: this.UserDataForm.value.email,
+        vehicles: this.custVehicles,
+        //password:this.UserDataForm.value.password,
+        lastmodifiedby: this.cookie.userid,
+        lastmodifiedon: date,
+      };
 
 
       //console.log(formData);
@@ -280,7 +281,7 @@ export class SearchUserComponent implements OnInit {
 
   /*************************************************** Delete User  ***********************************************************/
 
-  delete(){
+  delete() {
     const url1 = "http://localhost:3000/users/delprofImage/" //delete profile image
     const url2 = "http://localhost:3000/users/deleteUser/"  //delete data from tha database
 
@@ -319,7 +320,7 @@ export class SearchUserComponent implements OnInit {
   }
 
   //delete from table
-  deleteTable(id,propic){
+  deleteTable(id, propic) {
     //console.log(id);
     const url1 = "http://localhost:3000/users/delprofImage/" //delete profile image
     const url2 = "http://localhost:3000/users/deleteUser/"  //delete data from tha database
@@ -358,7 +359,7 @@ export class SearchUserComponent implements OnInit {
     });
   }
 
-  onArrowClick(){
+  onArrowClick() {
     this.dataform = false;
   }
 
@@ -368,6 +369,12 @@ export class SearchUserComponent implements OnInit {
       data: {
         dataKey: this.userdata
       }
+    });
+  }
+
+  addNew() {
+    const dialogRef = this.dialog.open(AddNewVehicleComponent, {
+      width: '400px',
     });
   }
 

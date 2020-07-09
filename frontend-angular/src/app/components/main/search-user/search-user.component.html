@@ -265,7 +265,7 @@
 
                             <mat-card-title> VEHICLE DETAILS
                               <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
-                                *ngIf="cookies.userData.usertype == 'Administrator'">
+                                *ngIf="cookies.userData.usertype == 'Administrator'" (click)="addNew()">
                                 <mat-icon>add</mat-icon>NEW
                               </button>
                             </mat-card-title>
