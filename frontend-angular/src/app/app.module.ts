@@ -81,6 +81,7 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
+import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -119,6 +120,7 @@ import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-p
     ViewJobComponent,
     StockReportComponent,
     RequestPurchaseOderComponent,
+    AddNewVehicleComponent,
   ],
   imports: [
     BrowserModule,
