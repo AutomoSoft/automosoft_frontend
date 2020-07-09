@@ -1,0 +1,31 @@
+<div style="text-align: center;">
+
+  <mat-divider></mat-divider><br>
+  <div mat-dialog-content class="content" fxLayout="column" fxLayoutAlign="center">
+    <form class="reply-form" [formGroup]= "replyForm">
+      <mat-form-field class="form-full-width" appearance="outline" style="width: 80%;">
+        <mat-label>Item type</mat-label>
+        <input matInput type="text" formControlName="itemtype" placeholder="Item type">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline" class="form-full-width" style="width: 80%;">
+        <mat-label>Item ID</mat-label>
+        <input matInput type="text" formControlName="itemid" placeholder="Please enter the Item ID" >
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline" class="form-full-width" style="width: 80%;">
+        <mat-label>Brand</mat-label>
+        <input matInput type="text" formControlName="brand" placeholder="Please enter the brand" >
+      </mat-form-field><br>
+
+
+
+
+      <div mat-dialog-actions style="margin: auto; justify-content: center">
+        <button mat-button class="add_btn" color="primary" >Add</button>
+        <!--<button mat-button class="can_btn"(click)="onConfirmClick()" >Cancel</button>-->
+      </div>
+      <!-- {{replyForm.value | json}} -->
+    </form>
+  </div>
+</div>
