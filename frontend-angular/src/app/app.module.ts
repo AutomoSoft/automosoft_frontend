@@ -80,6 +80,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
 import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
+import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import { StockReportComponent } from './components/StoreKeeper/stock-report/stoc
     ReplyEmailComponent,
     ViewJobComponent,
     StockReportComponent,
+    RequestPurchaseOderComponent,
   ],
   imports: [
     BrowserModule,

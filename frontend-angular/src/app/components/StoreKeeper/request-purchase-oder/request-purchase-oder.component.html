@@ -1,0 +1,29 @@
+<div class="mat-dialog-header" style="text-align: center; width: 640px;">
+
+  <h1 mat-dialog-title>NEW REQUEST</h1>
+  <mat-divider></mat-divider>
+  <div class="header">
+    <div class="avatar-container">
+      <img class="avatar">
+      <div class="avatar-hover">
+        <mat-icon>camera_alt</mat-icon>
+      </div>
+    </div>
+    <div class="user-detail-container">
+      <h3 class="mat-display-1 compact">ITEM ID</h3>
+      <div class="mat-display-2 compact">ITEM NAME</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card class="section" style=" border-radius: 10px;">
+    <mat-card-title>Enter Request Quantity</mat-card-title>
+    <mat-form-field appearance="outline" style="width: 100px;">
+      <mat-label>quantity</mat-label>
+      <input matInput appearance="outline" name="quantity" formControlName="quantity">
+    </mat-form-field>
+    <br>
+    <button class="reg_btn" mat-raised-button color="primary">request</button>
+    <button mat-raised-button type="submit" class="my-4 btn-block del_btn ">cancel</button>
+  </mat-card>
+
+</div>

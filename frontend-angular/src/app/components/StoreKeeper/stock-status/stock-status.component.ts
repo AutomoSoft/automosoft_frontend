@@ -15,6 +15,7 @@ import {
   Form
 } from "@angular/forms";
 import { StockReportComponent } from '../stock-report/stock-report.component';
+import { RequestPurchaseOderComponent } from '../request-purchase-oder/request-purchase-oder.component';
 
 
 interface item {
@@ -154,6 +155,10 @@ export class StockStatusComponent implements OnInit {
     const dialogRef = this.dialog.open(StockReportComponent, {
       width: '640px'
     });
+  }
+
+  requestItem() {
+    const dialogRef = this.dialog.open(RequestPurchaseOderComponent);
   }
 
 }
