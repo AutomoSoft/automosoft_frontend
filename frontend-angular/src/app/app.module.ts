@@ -77,10 +77,7 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
-<<<<<<< HEAD
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
-=======
->>>>>>> d3a7981... view-item component added
 
 @NgModule({
   declarations: [
@@ -119,10 +116,7 @@ import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-p
     ViewJobComponent,
     StockReportComponent,
     ViewItemComponent,
-<<<<<<< HEAD
     RequestPurchaseOderComponent,
-=======
->>>>>>> d3a7981... view-item component added
   ],
   imports: [
     BrowserModule,
