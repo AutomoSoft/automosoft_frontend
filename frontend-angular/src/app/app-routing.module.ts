@@ -30,6 +30,7 @@ import { EditUserComponent } from './components/main/search-user/edit-user/edit-
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
+import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 
 
@@ -43,7 +44,7 @@ const routes: Routes = [
   { path: "searchUser", component: SearchUserComponent },
   { path: "viewProfile", component: ProfileComponent },
   { path: "editUSer", component: EditUserComponent },
-
+  { path: "addNewVehicle", component: AddNewVehicleComponent },
 
   /****************************************** Admin Routes ********************************************** */
   { path: ":id/admin_dashboard", component: AdmindashboardComponent },
@@ -61,7 +62,7 @@ const routes: Routes = [
   { path: "addOrder", component: AddOrdersComponent },
   { path: "stockStatus", component: StockStatusComponent },
   { path: "requestItem", component: RequestPurchaseOderComponent },
-  { path: "ViewItems", component: ViewItemComponent},
+  { path: "ViewItems", component: ViewItemComponent },
 
 
   /****************************************** Customer Routes ******************************************* */
