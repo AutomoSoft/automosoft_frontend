@@ -1,1 +1,75 @@
-<p>view-history works!</p>
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+
+              <br />
+              <div class="test">
+                <h2 class="topic">SERVICE HISTORY</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+<!-- ***************************************************ADD SUPPLIER************************************************************************** -->
+                  <mat-tab label="MY SERVICE HISTORY">
+
+
+                      <mat-card>
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                        <mat-card style="margin-left: 20%; margin-right: 20%;">
+                          <table style=" width: 100%;">
+                            <tr>
+                              <td style="width: 70%;text-align: left;">
+                                <tr>
+                                  <td>Job Number</td>
+                                  <td ></td>
+                                </tr>
+                                <tr>
+                                  <td>Name</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Vehicle</td>
+                                  <td></td>
+                                </tr>
+                              </td>
+                              <td>
+                                <button mat-raised-button class="my-4 btn-block reg_btn " type="submit">View</button>
+                              </td>
+                            </tr>
+
+                          </table>
+
+
+                        </mat-card>
+
+
+
+
+
+                      </mat-card>
+
+                    <!-- {{supplierForm.value|json}} -->
+                  </mat-tab>
+
+                </mat-tab-group>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
