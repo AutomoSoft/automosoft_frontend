@@ -32,10 +32,6 @@ import {
   MatNativeDateModule,
   MatChipsModule,
   MatSortModule,
-
-
-
-
 } from '@angular/material';
 
 
@@ -80,6 +76,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
 import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
+import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 
@@ -119,6 +116,7 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     ReplyEmailComponent,
     ViewJobComponent,
     StockReportComponent,
+    ViewItemComponent,
     RequestPurchaseOderComponent,
     AddNewVehicleComponent,
   ],
@@ -170,7 +168,8 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     EmailPopupComponent,
     ReplyEmailComponent,
     ViewJobComponent,
-    StockReportComponent
+    StockReportComponent,
+    ViewItemComponent
   ],
 })
 export class AppModule { }
