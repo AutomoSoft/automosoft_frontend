@@ -14,7 +14,7 @@ export class ViewItemComponent implements OnInit {
   userid;
   cookie;
   userdata;
-  item = [];
+  items = [];
   
   constructor(
     private router: Router,
@@ -29,47 +29,28 @@ export class ViewItemComponent implements OnInit {
   }
 
   ngOnInit() {
+    var temp = this.cookies.getCookie("userAuth");
+  if(temp==""){
+    this.router.navigate(['/login']);
+  }
+  this.ViewItems();
   }
 
-  ViewItems(element) {
+  ViewItems() {
+    const url = "http://localhost:3000/items/searchAllItems";
 
-    this.userid = element.itemid;
-   // console.log(element.jobNo)
-  
-    const url = "http://localhost:3000/users/searchUsers"   //backend url
-  
-    this.http.get<any>(url + "/" + this.userid).subscribe(res => {
-      if (res.state == false) {
-        let config = new MatSnackBarConfig();
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state === false) {
+        const config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
-        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+        this.snackBar.open('Error Try Again !!! ', 'Retry', config);
       } else {
-          this.userdata = res.data;
-  
-          const url = "http://localhost:3000/items/searchAllItems"
-  
-  
-          this.http.get<any>(url + "/" + element.itemid).subscribe(res => {
-            if (res.state == false) {
-              let config = new MatSnackBarConfig();
-              config.duration = true ? 2000 : 0;
-              this.snackBar.open("Error", true ? "Retry" : undefined, config);
-            } else {
-                  this.item = res.data
-                  const dialogConfig = new MatDialogConfig();
-                  dialogConfig.data = {
-                    customer: this.userdata,
-                    jobDetails: this.item
-  
-                };
-                //console.log(dialogConfig.data)
-               // this.dialog.open(ViewJobComponent, dialogConfig);
-  
-            }
-          });
+        this.items = res.data;
       }
     });
-  
-    }
+  }
+
+
+ 
 
 }

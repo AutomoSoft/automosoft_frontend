@@ -78,11 +78,8 @@ import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
-<<<<<<< Updated upstream
 import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
-=======
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -122,11 +119,8 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     StockReportComponent,
     ViewItemComponent,
     RequestPurchaseOderComponent,
-<<<<<<< Updated upstream
     AddItemPopupComponent,
     AddNewVehicleComponent,
-=======
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -178,7 +172,6 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     ViewJobComponent,
     StockReportComponent,
     AddItemPopupComponent,
-    ViewItemComponent
   ],
 })
 export class AppModule { }
