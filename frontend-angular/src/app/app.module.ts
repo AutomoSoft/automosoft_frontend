@@ -171,6 +171,8 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     ReplyEmailComponent,
     ViewJobComponent,
     StockReportComponent,
+    ViewItemComponent,
+    AddNewVehicleComponent,
     AddItemPopupComponent,
   ],
 })
