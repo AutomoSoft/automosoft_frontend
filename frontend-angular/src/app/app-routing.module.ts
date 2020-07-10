@@ -34,6 +34,7 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
+import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 
 const routes: Routes = [
 
@@ -80,6 +81,7 @@ const routes: Routes = [
 
   /****************************************** Accountant Routes ******************************************** */
   { path: "createInvoice", component: CreateInvoiceComponent },
+  { path: "invoiceHistory", component: InvoiceHistoryComponent },
 
 ];
 

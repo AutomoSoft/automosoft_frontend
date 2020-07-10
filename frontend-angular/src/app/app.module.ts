@@ -81,6 +81,7 @@ import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-p
 import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
+import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { CreateInvoiceComponent } from './components/Accountant/create-invoice/c
     AddItemPopupComponent,
     AddNewVehicleComponent,
     CreateInvoiceComponent,
+    InvoiceHistoryComponent,
   ],
   imports: [
     BrowserModule,
