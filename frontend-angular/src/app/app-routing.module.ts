@@ -33,6 +33,7 @@ import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-p
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 
+import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 
 const routes: Routes = [
 
@@ -76,6 +77,9 @@ const routes: Routes = [
   { path: "viewJob", component: ViewJobComponent },
   { path: "withdrawStock", component: WithdrawStockComponent },
   { path: "viewTechnicians", component: ViewTechniciansComponent },
+
+  /****************************************** Accountant Routes ******************************************** */
+  { path: "createInvoice", component: CreateInvoiceComponent },
 
 ];
 

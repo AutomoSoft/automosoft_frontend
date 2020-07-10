@@ -80,6 +80,7 @@ import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
+import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +122,7 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     RequestPurchaseOderComponent,
     AddItemPopupComponent,
     AddNewVehicleComponent,
+    CreateInvoiceComponent,
   ],
   imports: [
     BrowserModule,
