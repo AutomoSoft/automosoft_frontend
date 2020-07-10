@@ -1,1 +1,62 @@
-<p>view-item works!</p>
+<div style="padding-top: 60px;">
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec;">
+              <br />
+              <div class="test">
+                <h2 class="topic">VIEW ITEMS</h2>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+                <mat-tab-group class="p-5 reg-frm">
+                  <mat-tab label="SEARCH ITEMS">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+                      <div class="mat-elevation-z8"
+                        style="width:80%; margin-bottom: 10px; margin-left: 100px; margin-top: 10px">
+                        <table class="table ">
+                          <thead>
+                            <tr>
+                              <th>ITEM TYPE</th>
+                              <th>ITEM ID</th>
+                              <th>ITEM NAME</th>
+                              <th>STORE QUANTITY</th>
+                      
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of items">
+                              <td>{{item.itemtype}}</td>
+                              <td>{{item.itemid}}</td>
+                              <td>{{item.itemname}}</td>
+                              <td>{{item.storequantity}}</td>
+                              <td>
+                                <button mat-icon-button type="submit" class=" btn-block btn_1"
+                                  (click)="ViewItems()">
+                                  <mat-icon>search</mat-icon>
+                                </button>
+                                <button mat-icon-button type="submit" class=" btn-block table_btn">
+                                  <mat-icon>notification_important</mat-icon>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card>
+                  </mat-tab>
+                </mat-tab-group>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

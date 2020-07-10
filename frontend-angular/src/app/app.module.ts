@@ -78,6 +78,7 @@ import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
+import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 
 @NgModule({
@@ -118,6 +119,7 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     StockReportComponent,
     ViewItemComponent,
     RequestPurchaseOderComponent,
+    AddItemPopupComponent,
     AddNewVehicleComponent,
   ],
   imports: [
@@ -170,7 +172,8 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     ViewJobComponent,
     StockReportComponent,
     ViewItemComponent,
-    AddNewVehicleComponent
+    AddNewVehicleComponent,
+    AddItemPopupComponent,
   ],
 })
 export class AppModule { }

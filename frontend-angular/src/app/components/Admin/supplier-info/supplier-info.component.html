@@ -81,7 +81,7 @@
 
                             <div *ngIf="cookies.userData.usertype == 'Administrator'">
                               <h3>SUPPLIED ITEMS
-                                <button mat-raised-button  type="submit" class="my-4 btn-block add_btn">
+                                <button mat-raised-button (click)="addItem()"  type="submit" class="my-4 btn-block add_btn">
                                   <mat-icon >add</mat-icon>NEW
                                 </button>
                               </h3>
