@@ -3,17 +3,14 @@
     <h1 mat-dialog-title>ADD NEW VEHICLE</h1>
   </div>
   <mat-divider></mat-divider><br>
-  <div mat-dialog-content class="content">
-    <form class="edit-form" [formGroup]="editForm">
+  <div mat-dialog-content class="content" [formGroup]="vehicleForm">
+    <div formArrayName="vehicles">
+    <form class="edit-form" *ngFor=" let team of vehicleForm.get('vehicles').controls;let teamIndex = index "[formGroupName]="teamIndex" >
 
-      <mat-form-field class="form-feild">
-        <mat-label>Customer ID</mat-label>
-        <input matInput type="text" formControlName="cusid">
-      </mat-form-field><br>
 
       <mat-form-field class="form-feild">
         <mat-label>Vehicle Reg. No</mat-label>
-        <input matInput type="text" formControlName="regno">
+        <input matInput type="text" formControlName="vehicleRegNo">
       </mat-form-field><br>
 
       <mat-form-field class="form-feild">
@@ -23,14 +20,15 @@
 
       <mat-form-field class="form-feild">
         <mat-label>Engine No</mat-label>
-        <input matInput type="text" formControlName="engineno">
+        <input matInput type="text" formControlName="EngineNo">
       </mat-form-field><br>
 
       <div mat-dialog-actions style="margin: auto; justify-content: center">
-        <button mat-button class="reg_btn" color="primary">Update</button>
+        <button mat-button class="reg_btn" (click)=addnewVehicle() color="primary">Add</button>
         <button mat-button class="can_btn">Cancel</button>
       </div>
-
+      <!-- {{vehicleForm.value | json}} -->
     </form>
+  </div>
   </div>
 </div>
