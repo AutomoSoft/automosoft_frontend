@@ -172,7 +172,6 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     ViewJobComponent,
     StockReportComponent,
     AddItemPopupComponent,
-    ViewItemComponent
   ],
 })
 export class AppModule { }
