@@ -80,6 +80,7 @@ import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
+import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
@@ -127,6 +128,7 @@ import { ItemDetailsComponent } from './components/StoreKeeper/item-details/item
     RequestPurchaseOderComponent,
     AddItemPopupComponent,
     AddNewVehicleComponent,
+    SelectJobStatusComponent,
     CreateInvoiceComponent,
     InvoiceHistoryComponent,
     NewPurchaseOrderComponent,

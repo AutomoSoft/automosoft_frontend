@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>JOB STATUS</h1>
+<mat-divider></mat-divider><br>
+<div mat-dialog-content class="content">
+  <mat-chip-list>
+    <mat-chip (click)="jobStatusSelected(job.status)">
+      Queved
+    </mat-chip>
+    <mat-chip (click)="jobStatusSelected(job.status)">
+      Started
+    </mat-chip>
+    <mat-chip (click)="jobStatusSelected(job.status)">
+      Halfway
+    </mat-chip>
+    <mat-chip (click)="jobStatusSelected(job.status)">
+      Completed
+    </mat-chip>
+    <mat-chip (click)="jobStatusSelected(job.status)">
+      Collect
+    </mat-chip>
+  </mat-chip-list><br>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+</div>

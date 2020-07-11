@@ -1,94 +1,32 @@
-// @font-face {
-//   font-family: topic_font;
-//   src: url(../../../../assets/Fonts/RobotoSlab.ttf);
-// }
-.test {
-  margin-left: 100px;
-}
-.topic {
-  color: #0a0929;
-  font-weight: 400;
-}
+// ----------------finished----------------------
 
-.example-container {
-  background-color: #414142;
-}
-
-.body {
-  background-color: white;
-  // height: 100px;
-}
-.flashMessage {
-  padding-top: 5px;
-  height: 20px;
-  margin-bottom: -10px;
-  width: 100%;
-}
-#textbox {
-  height: 200px;
-}
-
-.border {
-  border-style: ridge;
-  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
-  width: 1000px;
-}
-.box_border {
-  border-radius: 3px;
-}
-
-.reg-frm {
-  box-shadow: 0px 10px 10px rgb(134, 132, 245);
-  background-color: rgb(255, 255, 255);
-  padding-top: 10px;
-  width: 85%;
-  min-height: 500px;
+.mat-dialog-header {
   text-align: center;
-  margin: auto;
-  margin-bottom: 10px;
-  // border: 3px solid #414142;
-  border-radius: 20px;
+  width: 800px;
 }
 
+.job-detail-container {
+  display: inline-block;
+  position: relative;
+  top: -32px;
+  left: 24px;
+}
 
+table {
+  width: 100%;
+  background-color: #ddddec;
+}
 
-.reg_btn {
+.tec_btn {
   color: aliceblue;
-  background-color: rgb(0, 140, 255);
-  border-color: rgb(0, 140, 255);
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  background-color: rgb(68, 216, 154);
+  border-color: rgb(68, 216, 154);
+  border-radius: 50px;
   // box-shadow: 0px 5px 5px rgb(134, 132, 245);
 }
 
-.mat-form-field {
-  width: 60%;
-  display:block;
-  margin: auto;
-
-}
-
-.mat-list-icon {
-  color: rgba(0, 0, 0, 0.54);
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: #c76b15!important;
-  // opacity: 1!important;
-}
-
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color:#c76b15!important;
-}
-
-.del_btn {
-  color: aliceblue;
-  background-color: rgb(221, 81, 112);
-  border-color: rgb(221, 81, 112);
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+.compact {
+  margin: 0 !important;
 }
 
 .btn_1 {
@@ -100,89 +38,51 @@
   margin-right: 10px;
 }
 
-.pick_btn {
-  color: aliceblue;
-  background-color: rgb(0, 140, 255);
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-
-}
-
-
-
-//profile picture
-.profile-pic{
-  margin: auto;
-  text-align: center;
-  width : 280px;
-}
-
-.profile-card{
-  margin: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  text-align: center;
-  width : 280px;
-  border-radius: 5px;
-  background-color: #3d4549;
-}
-
-table {
-  width: 100%;
-  background-color: #ddddec;
-
-}
-
-.table_btn {
+.reg_btn {
   color: aliceblue;
   background-color: rgb(0, 140, 255);
   border-color: rgb(0, 140, 255);
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
 }
 
-/************************************************************* User Profile CSS ***************************************************/
-
-
-.topic {
-  color: #0a0929;
-  font-weight: 400;
-  margin-left: 100px;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #c76b15!important;
+  // opacity: 1!important;
 }
 
-.example-container {
-  background-color: #414142;
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color:#c76b15!important;
 }
 
-.reg-frm {
-  box-shadow: 0px 10px 10px rgb(134, 132, 245);
-  background-color: rgb(255, 255, 255);
-  padding-top: 10px;
-  width: 85%;
-  min-height: 500px;
+// ::ng-deep .mat-card {
+//   height: 60px;
+//   text-align: center;
+//   width: 150px;
+// }
 
-  margin: auto;
-  margin-bottom: 10px;
-  // border: 3px solid #414142;
+.del_btn {
+  color: aliceblue;
+  background-color: rgb(221, 81, 112);
+  border-color: rgb(221, 81, 112);
   border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .header {
-  padding: 4rem 1rem 2rem 1rem;
-  text-align: left;
-  padding-top: 40px;
+  padding: 2rem 1rem 2rem 1rem;
 }
-
 
 .avatar-container {
   display: inline-block;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  width: 100px;
-  height: 100px;
+  width: 196px;
+  height: 196px;
   background-color: #efefef;
   padding-left: 0px;
 }
@@ -196,50 +96,10 @@ table {
   object-fit: cover;
 }
 
-
-.job-detail-container {
-  display: inline-block;
-  position: relative;
-  top: -32px;
-  left: 24px;
-}
-
-.compact {
-  margin: 0 !important;
-}
-
-
-
 .section {
   margin-top: 2rem;
 }
 
 .section-inline {
   display: inline-block;
-}
-
-table {
-  width: 100%;
-  background-color: #ddddec;
-}
-
-.veh_btn {
-  color: aliceblue;
-  background-color: #c76b15;
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.veh_btn:hover {
-  color: #000000;
-  transition: 0.5s;
-}
-
-.tec_btn {
-  color: aliceblue;
-  background-color: rgb(68, 216, 154);
-  border-color: rgb(68, 216, 154);
-  border-radius: 50px;
-  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
 }
