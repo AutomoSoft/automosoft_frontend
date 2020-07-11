@@ -79,6 +79,7 @@ import { StockReportComponent } from './components/StoreKeeper/stock-report/stoc
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
+import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
 
 @NgModule({
   declarations: [
@@ -119,6 +120,7 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
     ViewItemComponent,
     RequestPurchaseOderComponent,
     AddNewVehicleComponent,
+    SelectJobStatusComponent,
   ],
   imports: [
     BrowserModule,

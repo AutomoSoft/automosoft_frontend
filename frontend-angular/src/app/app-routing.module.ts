@@ -32,6 +32,7 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
+import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
   { path: "jobHistory", component: JobHistoryComponent },
   { path: "ongoingJobs", component: OngoingJobsComponent },
   { path: "viewJob", component: ViewJobComponent },
+  { path: "selectJobStatus", component: SelectJobStatusComponent },
   { path: "withdrawStock", component: WithdrawStockComponent },
   { path: "viewTechnicians", component: ViewTechniciansComponent },
 
