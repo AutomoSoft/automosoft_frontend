@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from "../../Admin/mycookies.service";
-import { MatSnackBar, MatSnackBarConfig, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig, MatDialog, MatTableDataSource, MatPaginator, MatDialogConfig } from '@angular/material';
 import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -126,7 +126,7 @@ export class SearchUserComponent implements OnInit {
       } else {
         this.TABLE_DATA = res.data;   //add response data in to data array
         //this.propicName = res.data.filepath;
-        console.log(this.TABLE_DATA);
+        //console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
       }
     });
@@ -191,12 +191,12 @@ export class SearchUserComponent implements OnInit {
         }
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
-        console.log(this.userdata)
+        //console.log(this.userdata)
         this.propicName = res.data.filepath;
         this.custVehicles = JSON.parse(res.data.vehicles)
-        console.log(this.userdata)
-        console.log(this.propicName)
-        console.log(this.custVehicles)
+        //console.log(this.userdata)
+        //console.log(this.propicName)
+        //console.log(this.custVehicles)
       }
     });
   }
@@ -372,10 +372,18 @@ export class SearchUserComponent implements OnInit {
     });
   }
 
-  addNew() {
-    const dialogRef = this.dialog.open(AddNewVehicleComponent, {
-      width: '400px',
-    });
+  addNew(id) {
+    //console.log(id);
+
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        customer: id
+
+      };
+      dialogConfig.width = '500px';
+
+      this.dialog.open(AddNewVehicleComponent, dialogConfig);
+
   }
 
 }

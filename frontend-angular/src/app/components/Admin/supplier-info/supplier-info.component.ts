@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSnackBar, MatDialog, MatSnackBarConfig } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSnackBar, MatDialog, MatSnackBarConfig, MatDialogConfig } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from '../mycookies.service';
 import { Router } from '@angular/router';
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationDialogComponent } from '../../Auth/confirmation-dialog/confirmation-dialog.component';
 import { NgIf } from '@angular/common';
 import { element } from 'protractor';
+import { AddItemPopupComponent } from './add-item-popup/add-item-popup.component';
 
 interface supplier {
   _id: String;
@@ -142,6 +143,15 @@ export class SupplierInfoComponent implements OnInit {
     this.SupplierSearchForm.reset();
   }
 
+  addItem() {
+
+   /* const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        email:this.email
+    };*/
+
+        this.dialog.open(AddItemPopupComponent);
+  }
 
   cancel(){
     // this.UserDataForm.reset();

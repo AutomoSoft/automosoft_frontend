@@ -78,8 +78,18 @@ import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
+import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
+<<<<<<< HEAD
 import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
+=======
+import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
+import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
+import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
+import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
+import { ItemDetailsComponent } from './components/StoreKeeper/item-details/item-details.component';
+
+>>>>>>> 85fd6ae4838e4f399f5e0b5bd099d3398465a1d3
 
 @NgModule({
   declarations: [
@@ -119,8 +129,18 @@ import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/sele
     StockReportComponent,
     ViewItemComponent,
     RequestPurchaseOderComponent,
+    AddItemPopupComponent,
     AddNewVehicleComponent,
+<<<<<<< HEAD
     SelectJobStatusComponent,
+=======
+    CreateInvoiceComponent,
+    InvoiceHistoryComponent,
+    NewPurchaseOrderComponent,
+    PurchaseOrderRequestsComponent,
+    ItemDetailsComponent,
+
+>>>>>>> 85fd6ae4838e4f399f5e0b5bd099d3398465a1d3
   ],
   imports: [
     BrowserModule,
@@ -171,7 +191,9 @@ import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/sele
     ReplyEmailComponent,
     ViewJobComponent,
     StockReportComponent,
-    ViewItemComponent
+    AddNewVehicleComponent,
+    AddItemPopupComponent,
+    ItemDetailsComponent,
   ],
 })
 export class AppModule { }
