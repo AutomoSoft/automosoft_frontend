@@ -35,6 +35,8 @@ import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.
 import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
 import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
 
+import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
+import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 
 const routes: Routes = [
 
@@ -79,9 +81,11 @@ const routes: Routes = [
   { path: "withdrawStock", component: WithdrawStockComponent },
   { path: "viewTechnicians", component: ViewTechniciansComponent },
 
-   /****************************************** Accountant Routes ******************************************** */
-   { path:"newPurchaseOrder", component:NewPurchaseOrderComponent},
-   { path:"purchaseOrderRequests", component:PurchaseOrderRequestsComponent},
+  /****************************************** Accountant Routes ******************************************** */
+  { path: "createInvoice", component: CreateInvoiceComponent },
+  { path: "invoiceHistory", component: InvoiceHistoryComponent },
+  { path:"newPurchaseOrder", component:NewPurchaseOrderComponent},
+  { path:"purchaseOrderRequests", component:PurchaseOrderRequestsComponent},
 
 ];
 
