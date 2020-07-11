@@ -174,7 +174,7 @@
                         <mat-grid-list cols="4" rowHeight="2:1">
                           <mat-grid-tile>
                             <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
-                              <mat-card-title>Employee ID:</mat-card-title>
+                              <mat-card-title>User ID:</mat-card-title>
                               <mat-card-content>
                                 <p>
                                   {{userdata.userid}}
@@ -265,7 +265,7 @@
 
                             <mat-card-title> VEHICLE DETAILS
                               <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
-                                *ngIf="cookies.userData.usertype == 'Administrator'" (click)="addNew()">
+                                *ngIf="cookies.userData.usertype == 'Administrator'" (click)="addNew(userdata.userid)">
                                 <mat-icon>add</mat-icon>NEW
                               </button>
                             </mat-card-title>

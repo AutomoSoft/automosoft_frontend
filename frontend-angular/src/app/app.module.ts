@@ -82,6 +82,8 @@ import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
+import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
+import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +127,8 @@ import { InvoiceHistoryComponent } from './components/Accountant/invoice-history
     AddNewVehicleComponent,
     CreateInvoiceComponent,
     InvoiceHistoryComponent,
+    NewPurchaseOrderComponent,
+    PurchaseOrderRequestsComponent,
   ],
   imports: [
     BrowserModule,
@@ -175,6 +179,8 @@ import { InvoiceHistoryComponent } from './components/Accountant/invoice-history
     ReplyEmailComponent,
     ViewJobComponent,
     StockReportComponent,
+    ViewItemComponent,
+    AddNewVehicleComponent,
     AddItemPopupComponent,
   ],
 })

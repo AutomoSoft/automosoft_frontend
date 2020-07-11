@@ -32,6 +32,8 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
 import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { ViewItemComponent } from './components/StoreKeeper/view-item/view-item.component';
+import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
+import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
 
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
@@ -82,6 +84,8 @@ const routes: Routes = [
   /****************************************** Accountant Routes ******************************************** */
   { path: "createInvoice", component: CreateInvoiceComponent },
   { path: "invoiceHistory", component: InvoiceHistoryComponent },
+  { path:"newPurchaseOrder", component:NewPurchaseOrderComponent},
+  { path:"purchaseOrderRequests", component:PurchaseOrderRequestsComponent},
 
 ];
 
