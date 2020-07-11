@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from "@angular/common/http";
+import { ItemDetailsComponent } from '../item-details/item-details.component'
 
 @Component({
   selector: 'app-view-item',
@@ -11,10 +12,11 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ViewItemComponent implements OnInit {
 
-  userid;
+  itemid;
   cookie;
   userdata;
   items = [];
+  item;
   
   constructor(
     private router: Router,
@@ -33,24 +35,50 @@ export class ViewItemComponent implements OnInit {
   if(temp==""){
     this.router.navigate(['/login']);
   }
-  this.ViewItems();
-  }
+  const url = "http://localhost:3000/items/searchAllItems";
 
-  ViewItems() {
-    const url = "http://localhost:3000/items/searchAllItems";
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state === false) {
+      const config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open('Error Try Again !!! ', 'Retry', config);
+    } else {
+      this.items = res.data;
+    }
+  });
 
-    this.http.get<any>(url).subscribe(res => {
-      if (res.state === false) {
-        const config = new MatSnackBarConfig();
+}
+  ItemDetails (element) {
+
+    this.itemid = element.itemid;
+    //console.log(element.jobNo)
+  
+    const url = "http://localhost:3000/items/searchItembyId";  //backend url
+  
+    this.http.get<any>(url + "/" + this.itemid).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
-        this.snackBar.open('Error Try Again !!! ', 'Retry', config);
+        this.snackBar.open("No Item Found..! ", true ? "Retry" : undefined, config);
       } else {
-        this.items = res.data;
+                  this.item = res.data
+                  //console.log(this.job)
+                  const dialogConfig = new MatDialogConfig();
+                  dialogConfig.data = {
+                
+                    itemDetails: this.item,
+  
+                };
+                //console.log(dialogConfig.data)
+                this.dialog.open(ItemDetailsComponent, dialogConfig);
+  
+            }
+          });
       }
-    });
-  }
+
+}
 
 
  
 
-}
+

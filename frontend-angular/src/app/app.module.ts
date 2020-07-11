@@ -82,6 +82,8 @@ import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
 import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
+import { ItemDetailsComponent } from './components/StoreKeeper/item-details/item-details.component';
+
 
 @NgModule({
   declarations: [
@@ -125,6 +127,8 @@ import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase
     AddNewVehicleComponent,
     NewPurchaseOrderComponent,
     PurchaseOrderRequestsComponent,
+    ItemDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -175,9 +179,9 @@ import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase
     ReplyEmailComponent,
     ViewJobComponent,
     StockReportComponent,
-    ViewItemComponent,
     AddNewVehicleComponent,
     AddItemPopupComponent,
+    ItemDetailsComponent,
   ],
 })
 export class AppModule { }
