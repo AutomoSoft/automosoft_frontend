@@ -2,6 +2,9 @@
 //   font-family: topic_font;
 //   src: url(../../../../assets/Fonts/RobotoSlab.ttf);
 // }
+.table-container{
+    overflow-y:auto;
+}
 
 td, th {
     border: 1px solid #dddddd;
@@ -15,11 +18,11 @@ td, th {
     color: #0a0929;
     font-weight: 400;
   }
-  
+
   .example-container {
     background-color: #414142;
   }
-  
+
   .body {
     background-color: white;
     // height: 100px;
@@ -33,7 +36,7 @@ td, th {
   #textbox {
     height: 200px;
   }
-  
+
   .border {
     border-style: ridge;
     // box-shadow: 0px 5px 5px rgb(134, 132, 245);
@@ -42,7 +45,7 @@ td, th {
   .box_border {
     border-radius: 3px;
   }
-  
+
   .reg-frm {
     box-shadow: 0px 10px 10px rgb(134, 132, 245);
     background-color: rgb(255, 255, 255);
@@ -55,9 +58,9 @@ td, th {
     // border: 3px solid #414142;
     border-radius: 20px;
   }
-  
-  
-  
+
+
+
   .reg_btn {
     color: aliceblue;
     background-color: rgb(0, 140, 255);
@@ -67,27 +70,27 @@ td, th {
     margin-right: 10px;
     // box-shadow: 0px 5px 5px rgb(134, 132, 245);
   }
-  
+
   .mat-form-field {
     width: 60%;
     display:block;
     margin: auto;
-  
+
   }
-  
+
   .mat-list-icon {
     color: rgba(0, 0, 0, 0.54);
   }
-  
+
   ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #c76b15!important;
     // opacity: 1!important;
   }
-  
+
   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
     color:#c76b15!important;
   }
-  
+
   .del_btn {
     color: aliceblue;
     background-color: rgb(221, 81, 112);
@@ -96,7 +99,7 @@ td, th {
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
   .btn_1 {
     color: aliceblue;
     background-color: rgb(73, 71, 72);
@@ -105,25 +108,25 @@ td, th {
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
   .pick_btn {
     color: aliceblue;
     background-color: rgb(0, 140, 255);
     border-radius: 20px;
     margin-left: 10px;
     margin-right: 10px;
-  
+
   }
-  
-  
-  
+
+
+
   //profile picture
   .profile-pic{
     margin: auto;
     text-align: center;
     width : 280px;
   }
-  
+
   .profile-card{
     margin: auto;
     padding-top: 40px;
@@ -133,13 +136,13 @@ td, th {
     border-radius: 5px;
     background-color: #3d4549;
   }
-  
+
   table {
     width: 100%;
     background-color: #ddddec;
-  
+
   }
-  
+
   .table_btn {
     color: aliceblue;
     background-color: rgb(0, 140, 255);
@@ -148,40 +151,40 @@ td, th {
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
   /************************************************************* Item Details CSS ***************************************************/
-  
-  
+
+
   .topic {
     color: #0a0929;
     font-weight: 400;
     margin-left: 100px;
   }
-  
+
   .example-container {
     background-color: #414142;
   }
-  
+
   .reg-frm {
     box-shadow: 0px 10px 10px rgb(134, 132, 245);
     background-color: rgb(255, 255, 255);
     padding-top: 10px;
     width: 85%;
     min-height: 500px;
-  
+
     margin: auto;
     margin-bottom: 10px;
     // border: 3px solid #414142;
     border-radius: 20px;
   }
-  
+
   .header {
     padding: 4rem 1rem 2rem 1rem;
     text-align: left;
     padding-top: 40px;
   }
-  
-  
+
+
   .avatar-container {
     display: block;
     position: relative;
@@ -191,9 +194,9 @@ td, th {
     height: 150px;
     background-color: #efefef;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
   }
-  
+
   .avatar-container img {
     width: 100%;
     height: 100%;
@@ -202,34 +205,34 @@ td, th {
     left: 0;
     object-fit: cover;
   }
-  
-  
+
+
   .item-detail-container {
     display: inline-block;
     position: relative;
     top: -32px;
     left: 24px;
   }
-  
+
   .compact {
     margin: 0 !important;
   }
-  
-  
-  
+
+
+
   .section {
     margin-top: 2rem;
   }
-  
+
   .section-inline {
     display: inline-block;
   }
-  
+
   table {
     width: 100%;
     background-color: #ddddec;
   }
-  
+
   .veh_btn {
     color: aliceblue;
     background-color: #c76b15;
@@ -237,12 +240,12 @@ td, th {
     margin-left: 10px;
     margin-right: 10px;
   }
-  
+
   .veh_btn:hover {
     color: #000000;
     transition: 0.5s;
   }
-  
+
   .tec_btn {
     color: aliceblue;
     background-color: rgb(68, 216, 154);
@@ -250,4 +253,15 @@ td, th {
     border-radius: 50px;
     // box-shadow: 0px 5px 5px rgb(134, 132, 245);
   }
-  
+
+  .container {
+    margin: auto;
+    tr {
+      margin: auto;
+    }
+    background-color: white;
+  }
+
+  .container tr:hover {
+    background-color: #ccd5d3;
+  }

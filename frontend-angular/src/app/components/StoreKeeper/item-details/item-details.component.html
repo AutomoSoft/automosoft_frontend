@@ -1,74 +1,59 @@
-<div class="mat-dialog-header" style="text-align: center; width: 500px; height: 610px;">
+<div class="mat-dialog-header" style="text-align: center; min-width: 720px;">
 
-    <h1 mat-dialog-title>ITEM DETAILS</h1>
-    <mat-divider></mat-divider>
-    <div class="header">
-        <div class="avatar-container">
-         <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
-        </div>
-        <div class="item-detail-container">
+  <h1 mat-dialog-title>ITEM DETAILS</h1>
+  <mat-divider></mat-divider>
+  <div class="header">
+      <div class="avatar-container">
+       <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
+      </div>
+      <br/>
+      <div class="container">
+        <table class="table-container">
           <tr>
             <th>ITEM ID</th>
-            <th>{{item.itemid}}</th>
+            <td>{{item.itemid}}</td>
           </tr>
           <tr>
             <th>ITEM NAME </th>
-            <th>{{item.itemname}}</th>
+            <td>{{item.itemname}}</td>
           </tr>
           <tr>
             <th>ITEM TYPE </th>
-            <th>{{item.itemtype}}</th>
+            <td>{{item.itemtype}}</td>
           </tr>
           <tr>
             <th>STORE QUANTITY</th>
-            <th> {{item.storequantity}}</th>
+            <td> {{item.storequantity}}</td>
           </tr>
           <tr>
             <th>BUYING PRICE</th>
-            <th>{{item.buying}}</th>
+            <td>{{item.buying}}</td>
           </tr>
           <tr>
             <th>SELLING PRICE</th>
-            <th>{{item.selling}}</th>
+            <td>{{item.selling}}</td>
           </tr>
           <tr>
             <th>ADDED BY </th>
-            <th>{{item.addedby}}</th>
+            <td>{{item.addedby}}</td>
           </tr>
           <tr>
             <th>ADDED ON</th>
-            <th>{{item.addedon}}</th>
+            <td>{{item.addedon}}</td>
           </tr>
           <tr>
             <th>BUYING PRICE</th>
-            <th>{{item.buying}}</th>
+            <td>{{item.buying}}</td>
           </tr>
           <tr>
             <th>LAST MODIFIED BY </th>
-            <th>{{item.lastmodifiedby}}</th>
+            <td>{{item.lastmodifiedby}}</td>
           </tr>
           <tr>
             <th>LAST MODIFIED ON </th>
-            <th>{{item.lastmodifiedon}}</th>
+            <td>{{item.lastmodifiedon}}</td>
           </tr>
- 
-          <br>
-          <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">Notify</button>
-          <button mat-raised-button type="submit" class="my-4 btn-block btn_1 ">Stock</button>
-        </div>
-    </div>
-    <mat-divider></mat-divider>
-    <br />
-  
-    <div class="container">
-  
-      <mat-grid-list cols="3" rowHeight="1:1" style="background-color: #ddddec;">
-       
-  
-      </mat-grid-list>
-       
-
-      <br><br>
+        </table>
     </div>
   </div>
-  
+</div>
