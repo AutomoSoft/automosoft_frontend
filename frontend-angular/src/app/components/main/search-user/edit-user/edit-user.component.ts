@@ -29,6 +29,7 @@ export class EditUserComponent implements OnInit {
   editForm: FormGroup;
   userid;
   constructor(
+    public dialogRef: MatDialogRef<EditUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
 
     private http: HttpClient,
@@ -132,7 +133,7 @@ export class EditUserComponent implements OnInit {
     }
   }
 
-  onCancel() {
+  onNoClick(): void {
     this.dialogRef.close();
   }
 

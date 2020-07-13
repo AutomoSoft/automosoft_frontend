@@ -39,7 +39,7 @@ export class AddNewVehicleComponent implements OnInit {
       this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
     }
     this.customer = data.customer;
-    console.log(this.customer);
+    //console.log(this.customer);
   }
 
   get vehicles(): FormGroup {
@@ -105,7 +105,9 @@ export class AddNewVehicleComponent implements OnInit {
 }
   }
 
-
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit() {
   }
