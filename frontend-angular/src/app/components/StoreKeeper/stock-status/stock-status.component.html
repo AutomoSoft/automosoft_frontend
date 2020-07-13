@@ -219,7 +219,7 @@
                       <h3 class="topic" style="margin-left: -600px;">SELECT ITEM CATEGORY:</h3>
                       <div class="form-row mb-4">
                         <mat-form-field appearance="outline">
-                          <mat-select placeholder="Item Category:" [(ngModel)]="searchText">
+                          <mat-select placeholder="Item Category:" [(ngModel)]="itemtype" (ngModelChange)="selectItem($event)">
                             <mat-option value="Spare Parts">Spare Parts</mat-option>
                             <mat-option value="Paints">Paints</mat-option>
                             <mat-option value="Tools">Tools</mat-option>
