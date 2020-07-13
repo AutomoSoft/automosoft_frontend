@@ -37,9 +37,11 @@ export class RegisterSupplierComponent implements OnInit {
   selectedItems;   //registered items from selected category
 
   items: Item[] = [
-    {value: 'Spare Part', viewValue: 'Spare-Parts'},
-    {value: 'Tool', viewValue: 'Tools'},
-    {value: 'Paint', viewValue: 'Paint'}
+    {value: 'Spare Parts', viewValue: 'Spare Parts'},
+    {value: 'Tools', viewValue: 'Tools'},
+    {value: 'Paints', viewValue: 'Paints'},
+    {value: 'Tyres', viewValue: 'Tyres'},
+    {value: 'Electric Parts', viewValue: 'Electric Parts'},
   ];
 
   constructor(

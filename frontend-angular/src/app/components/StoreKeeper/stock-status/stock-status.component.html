@@ -24,7 +24,7 @@
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
-                        <h3 class="topic" style="margin-left: -600px;">ENTER ITEM ID:</h3>
+                        <h3 class="topic" style="margin: auto; text-align:left; margin-left: 100px; padding-bottom: 10px;">ENTER ITEM ID:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
                             <mat-label>ITEM ID:</mat-label>
@@ -216,10 +216,10 @@
                         style="display: flex;" (click)="viewReport()">
                         Generate Report
                       </button>
-                      <h3 class="topic" style="margin-left: -600px;">SELECT ITEM CATEGORY:</h3>
+                      <h3 class="topic" style="margin: auto; text-align:left; margin-left: 100px; padding-bottom: 10px; padding-top: 10px;">SELECT ITEM CATEGORY:</h3>
                       <div class="form-row mb-4">
                         <mat-form-field appearance="outline">
-                          <mat-select placeholder="Item Category:" [(ngModel)]="searchText">
+                          <mat-select placeholder="Item Category:" [(ngModel)]="itemtype" (ngModelChange)="selectItem($event)">
                             <mat-option value="Spare Parts">Spare Parts</mat-option>
                             <mat-option value="Paints">Paints</mat-option>
                             <mat-option value="Tools">Tools</mat-option>

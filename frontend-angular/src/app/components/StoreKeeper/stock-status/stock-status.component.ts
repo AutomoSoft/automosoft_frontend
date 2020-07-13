@@ -26,6 +26,7 @@ interface item {
   selling: String;
   addedby: String;
   addedon: String;
+  storequantity:Number;
   lastmodifiedby: String;
   lastmodifiedon: String;
   filepath: String;
@@ -36,11 +37,11 @@ export interface PeriodicElement {
   itemid: String;
   itemtype: String;
   itemname: String;
-  storequantity: Number;
   buying: String;
   selling: String;
   addedby: String;
   addedon: String;
+  storequantity: Number;
   lastmodifiedby: String;
   lastmodifiedon: String;
 }
@@ -64,6 +65,7 @@ export class StockStatusComponent implements OnInit {
   cookie;
   dataform: Boolean = false;
   propicName;  //profile picture name
+  itemtype;        // filter item
   searchText;
   custVehicles;
   userflag: Boolean = false;  //to show/hide customer vehicle fields
@@ -96,9 +98,10 @@ export class StockStatusComponent implements OnInit {
       selling: ["", Validators.required],
       addedby: ["", Validators.required],
       addedon: ["", Validators.required],
+      storequantity:["", Validators.required],
       lastmodifiedon: ["", Validators.required],
       lastmodifiedby: ["", Validators.required],
-      vehicles: this.fb.array([this.custVehicles]),
+      //vehicles: this.fb.array([this.custVehicles]),
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
 
@@ -146,6 +149,30 @@ export class StockStatusComponent implements OnInit {
       }
     });
   }
+
+  // ******************************************** View Items Category Wise ********************************************************
+
+//search items from relavant category
+selectItem(category){
+
+  console.log(category)
+  const url = "http://localhost:3000/items/categorizeItems";
+
+  this.http.get<any>(url + "/" + category).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
+    } else {
+      this.TABLE_DATA = res.data;   //add response data in to data array
+        //this.propicName = res.data.filepath;
+        console.log("why?")
+        console.log(this.TABLE_DATA);
+        this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
+    }
+  });
+}
 
   resetSearch() {
     this.itemSearchForm.reset();

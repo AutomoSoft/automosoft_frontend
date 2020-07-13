@@ -17,10 +17,9 @@
                 <mat-tab-group class="p-5 reg-frm">
                   <mat-tab label="CURRENT JOBS">
                     <mat-card>
-                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-                      <div class="mat-elevation-z8"
-                        style="width:80%; margin-bottom: 10px; margin-left: 100px; margin-top: 10px">
-                        <table class="table ">
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px; padding-bottom: 10px;" />
+                      <div >
+                        <table class="mat-elevation-z8 table ">
                           <thead>
                             <tr>
                               <th>JOB NUMBER</th>
@@ -31,8 +30,8 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let k of currJobs">
-                              <td>{{k.jobNo}}</td>
+                            <tr *ngFor="let k of currJobs" >
+                              <td style="height: 55px;">{{k.jobNo}}</td>
                               <td>{{k.jobType}}</td>
                               <td>{{k.custId}}</td>
                               <td>{{k.jobStatus}}</td>

@@ -42,11 +42,10 @@
   background-color: rgb(255, 255, 255);
   padding-top: 10px;
   width: 85%;
-  min-height: 500px;
+  min-height: 1000px;
   text-align: center;
   margin: auto;
   margin-bottom: 10px;
-  // border: 3px solid #414142;
   border-radius: 20px;
 }
 
@@ -116,10 +115,15 @@
   border-radius: 5px;
   background-color: #3d4549;
 }
+
 table {
-  width: 100%;
+  width: 90%;
   background-color: #ddddec;
+  border-radius: 10px;
+  margin: auto;
+  padding-top: 20px;
 }
+
 .del_btn {
   color: aliceblue;
   background-color: rgb(221, 81, 112);
