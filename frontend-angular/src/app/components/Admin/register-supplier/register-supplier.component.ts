@@ -21,7 +21,7 @@ export interface Item {
   viewValue: string;
 }
 
-
+//
 
 
 @Component({
@@ -32,6 +32,9 @@ export interface Item {
 export class RegisterSupplierComponent implements OnInit {
 
   cookie;
+  flag1 = false;    //show/hide form fields
+  itemCat;       //filter items
+  selectedItems;   //registered items from selected category
 
   items: Item[] = [
     {value: 'Spare Part', viewValue: 'Spare-Parts'},
@@ -129,6 +132,26 @@ export class RegisterSupplierComponent implements OnInit {
     }
   });
 }
+  }
+
+  selectItems(category){
+
+    //console.log(category)
+    const url = "http://localhost:3000/items/getItems";
+
+    this.http.get<any>(url + "/" + category).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error !!! Please Check Item Category", true ? "Retry" : undefined, config);
+      } else {
+        this.flag1 = true;
+        //console.log(res.data);
+        this.selectedItems = res.data;
+
+  //
+      }
+    });
   }
   reset(){
     this.supplierForm.reset();
