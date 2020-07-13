@@ -32,6 +32,7 @@ import {
   MatNativeDateModule,
   MatChipsModule,
   MatSortModule,
+  MatRadioModule,
 } from '@angular/material';
 
 
@@ -172,6 +173,7 @@ import { ItemDetailsComponent } from './components/StoreKeeper/view-item/item-de
     Ng2SearchPipeModule,
     MatTooltipModule,
     MatSortModule,
+    MatRadioModule,
     //PopupModule.forRoot(),
     //ViewChild
 

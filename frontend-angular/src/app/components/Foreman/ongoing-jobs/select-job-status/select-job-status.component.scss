@@ -4,9 +4,39 @@
 
 .content {
   overflow: visible;
+  width: 400px;
 }
 
 .mat-dialog-actions {
   margin: auto;
   justify-content: center;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+
+}
+
+.example-radio-button {
+  margin: 10px;
+}
+
+.del_btn {
+  color: aliceblue;
+  background-color: rgb(221, 81, 112);
+  border-color: rgb(221, 81, 112);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn_1 {
+  color: aliceblue;
+  background-color: rgb(73, 71, 72);
+  border-color: rgb(73, 71, 72);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
