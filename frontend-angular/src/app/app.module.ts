@@ -85,7 +85,7 @@ import { CreateInvoiceComponent } from './components/Accountant/create-invoice/c
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
 import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
-import { ItemDetailsComponent } from './components/StoreKeeper/item-details/item-details.component';
+import { ItemDetailsComponent } from './components/StoreKeeper/view-item/item-details/item-details.component';
 
 
 @NgModule({

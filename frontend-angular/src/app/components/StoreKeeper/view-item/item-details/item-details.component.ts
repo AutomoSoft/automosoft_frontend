@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { VERSION, MatDialogRef, MatDialog, MatSnackBar, MAT_DIALOG_DATA, MatSnackBarConfig, MatDialogConfig } from '@angular/material';
-import { ViewItemComponent } from '../view-item/view-item.component';
-
+import { ViewItemComponent } from '../view-item.component';
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',

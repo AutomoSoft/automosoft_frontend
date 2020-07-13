@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from "@angular/common/http";
-import { ItemDetailsComponent } from '../item-details/item-details.component'
+import { ItemDetailsComponent } from './item-details/item-details.component'
 
 @Component({
   selector: 'app-view-item',
