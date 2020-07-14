@@ -94,6 +94,7 @@ export class StockStatusComponent implements OnInit {
     this.itemDataForm = this.fb.group({
       itemtype: ["", Validators.required],
       itemid: ["", Validators.required],
+      itemname: ["", Validators.required],
       buying: ["", Validators.required],
       selling: ["", Validators.required],
       addedby: ["", Validators.required],
@@ -128,27 +129,32 @@ export class StockStatusComponent implements OnInit {
   /*************************************************** Search Item  ***********************************************************/
 
   searchItem() {
-    this.itemid = this.itemSearchForm.value.itemid; //get item id
-    console.log(this.itemid);
+    this.itemid = this.itemSearchForm.value.itemid; //get supplier id
 
-    const url = "http://localhost:3000/items/searchItem"   //backend url
+    const url = "http://localhost:3000/items/searchItembyId"   //backend url
 
     this.http.get<any>(url + "/" + this.itemid).subscribe(res => {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
-        this.snackBar.open("No Item Found..! ", true ? "Retry" : undefined, config);
+        this.snackBar.open("Item Not Found..! ", true ? "Retry" : undefined, config);
       } else {
-        // if(res.data.usertype=="Customer"){
-        //   this.userflag = true;
-        // }
         this.dataform = true; //data form div show
-        this.itemdata = res.data;   //add response data in to itemdata array
-        this.propicName = res.data.filepath;
-        // this.custVehicles =JSON.parse(res.data.vehicles);
+        this.itemdata = res.data;   //add response data in to datadata array
+        console.log(this.itemdata)
       }
     });
   }
+
+  resetSearch() {
+    this.itemSearchForm.reset();
+  }
+
+  back() {
+    this.dataform = false; //data form div hide
+    this.itemSearchForm.reset(); // clear the input fields
+  }
+
 
   // ******************************************** View Items Category Wise ********************************************************
 
@@ -162,11 +168,10 @@ selectItem(category){
     if (res.state == false) {
       let config = new MatSnackBarConfig();
       config.duration = true ? 2000 : 0;
-      this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
+      this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
     } else {
       this.TABLE_DATA = res.data;   //add response data in to data array
         //this.propicName = res.data.filepath;
-        console.log("why?")
         console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
 
@@ -174,9 +179,7 @@ selectItem(category){
   });
 }
 
-  resetSearch() {
-    this.itemSearchForm.reset();
-  }
+
 
   viewReport() {
     const dialogRef = this.dialog.open(StockReportComponent, {

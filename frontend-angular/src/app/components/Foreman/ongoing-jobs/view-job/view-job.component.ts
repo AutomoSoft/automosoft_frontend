@@ -34,13 +34,16 @@ export class ViewJobComponent implements OnInit {
   }
 
   selectStatus(status) {
-    const dialogRef = this.dialog.open(SelectJobStatusComponent, {
-      width: '440px',
-    });
+     //console.log(status);
+    this.dialogRef.close(status);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      jobNo: status.jobNo,
+      jobStatus:status.jobStatus,
+      custId: status.custId,
+  };
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) { }
-    });
+      this.dialog.open(SelectJobStatusComponent, dialogConfig);
   }
 
 }
