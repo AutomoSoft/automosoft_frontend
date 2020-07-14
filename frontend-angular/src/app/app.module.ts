@@ -87,6 +87,7 @@ import { InvoiceHistoryComponent } from './components/Accountant/invoice-history
 import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
 import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
 import { ItemDetailsComponent } from './components/StoreKeeper/view-item/item-details/item-details.component';
+import { ViewTechnicianJobComponent } from './components/Foreman/view-technicians/view-technician-job/view-technician-job.component';
 
 
 @NgModule({
@@ -135,6 +136,7 @@ import { ItemDetailsComponent } from './components/StoreKeeper/view-item/item-de
     NewPurchaseOrderComponent,
     PurchaseOrderRequestsComponent,
     ItemDetailsComponent,
+    ViewTechnicianJobComponent,
 
   ],
   imports: [
@@ -190,6 +192,7 @@ import { ItemDetailsComponent } from './components/StoreKeeper/view-item/item-de
     AddNewVehicleComponent,
     AddItemPopupComponent,
     ItemDetailsComponent,
+    ViewTechnicianJobComponent
   ],
 })
 export class AppModule { }
