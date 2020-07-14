@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { VERSION, MatDialogRef, MatDialog, MatSnackBar, MAT_DIALOG_DATA, MatSnackBarConfig, MatDialogConfig } from '@angular/material';
-import { ViewItemComponent } from '../view-item.component';
+import { StockStatusComponent } from '../stock-status.component';
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',
@@ -12,7 +12,7 @@ export class ItemDetailsComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<ViewItemComponent>,
+    private dialogRef: MatDialogRef<StockStatusComponent>,
   ) {
  
     this.item = data.itemDetails;

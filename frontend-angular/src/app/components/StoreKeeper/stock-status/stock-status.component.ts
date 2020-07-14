@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MycookiesService } from "../../Admin/mycookies.service";
-import { MatSnackBar, MatSnackBarConfig, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from "@angular/router";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { ItemDetailsComponent} from "./item-details/item-details.component";
+import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import {
   FormBuilder,
   Validators,
@@ -69,6 +69,9 @@ export class StockStatusComponent implements OnInit {
   searchText;
   custVehicles;
   userflag: Boolean = false;  //to show/hide customer vehicle fields
+  userdata;
+  items = [];
+  item;
 
   constructor(
     private http: HttpClient,
@@ -179,7 +182,34 @@ selectItem(category){
   });
 }
 
+ // ******************************************** Item Details Popup ********************************************************
+ItemDetails (element) {
 
+  this.itemid = element.itemid;
+  //console.log(element.jobNo)
+
+  const url = "http://localhost:3000/items/searchItembyId";  //backend url
+
+  this.http.get<any>(url + "/" + this.itemid).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("No Item Found..! ", true ? "Retry" : undefined, config);
+    } else {
+                this.item = res.data
+                //console.log(this.job)
+                const dialogConfig = new MatDialogConfig();
+                dialogConfig.data = {
+              
+                  itemDetails: this.item,
+
+              };
+              //console.log(dialogConfig.data)
+              this.dialog.open(ItemDetailsComponent, dialogConfig);
+
+          }
+        });
+    }
 
   viewReport() {
     const dialogRef = this.dialog.open(StockReportComponent, {
