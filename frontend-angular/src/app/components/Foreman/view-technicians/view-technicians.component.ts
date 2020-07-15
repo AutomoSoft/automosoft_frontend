@@ -28,13 +28,7 @@ interface technician {
   lastmodifiedby: String;
   lastmodifiedon: String;
   filepath: String;
-}
-interface user {
-  _id: String;
-  usertype: String;
-  userid: String;
-  vehicles: String;
-  filepath: String;
+  currentjobCap: String;
 }
 
 interface job {
@@ -77,7 +71,7 @@ export class ViewTechniciansComponent implements OnInit {
   dataSource;
   dataform: Boolean = false;
   currJobs;   //ongoing jobs
-  userdata: user[] = [];
+  userdata: technician[] = [];
   job: job[] = [];
   userid;
 
@@ -124,7 +118,7 @@ selectTechnician(category){
     }
   });
 }
-viewCard(element) {
+/*viewCard(element) {
 
 
 
@@ -138,5 +132,32 @@ viewCard(element) {
         this.dialog.open(ViewTechnicianJobComponent, dialogConfig);
 
 
-  }
+  }*/
+  viewCard(element) {
+
+    this.userid = element.techId;
+    //console.log(element.jobNo)
+
+    const url = "http://localhost:3000/users/searchUsers"   //backend url
+
+    this.http.get<any>(url + "/" + element.userid).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+      } else {
+        this.userdata = res.data;
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+          technician: this.userdata,
+          firstname : element.firstname,
+          lastname: element.lastname,
+          capacity: element.capacity
+      };
+
+          this.dialog.open(ViewTechnicianJobComponent, dialogConfig);
+      }
+    });
+
+    }
 }
