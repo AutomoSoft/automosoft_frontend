@@ -58,6 +58,10 @@
                               required maxlength=10 minlength=10>
                             <mat-icon matSuffix>phone_in_talk</mat-icon>
                           </mat-form-field>
+
+  <!--test-->
+
+
                         </div>
 
 
@@ -67,7 +71,7 @@
 
                           <div *ngFor=" let team of supplierForm.get('supitem').controls;let teamIndex = index "[formGroupName]="teamIndex" >
 
-                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
+                            <!--<mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
                               <mat-label>Select Item Type</mat-label>
                               <mat-select name="itemtype" placeholder="Select Item" formControlName="itemtype" required>
                                 <mat-option *ngFor="let item of items" [value]="item.value">
@@ -75,13 +79,29 @@
                                 </mat-option>
                               </mat-select>
                               <mat-icon matSuffix>build</mat-icon>
+                            </mat-form-field>-->
+                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
+                                <mat-select placeholder="Select Item Category:" [(ngModel)]="itemCat" (ngModelChange)="selectItems($event)" formControlName="itemtype">
+                                  <mat-option value="Paints">Paints</mat-option>
+                                  <mat-option value="Tools">Tools</mat-option>
+                                  <mat-option value="Spare Parts">Spare Parts</mat-option>
+                                  <mat-option value="Tyres">Tyres</mat-option>
+                                  <mat-option value="Electric Parts">Electric Parts</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field *ngIf="flag1" appearance="outline" style="display:block; width:35%; margin: auto;">
+                              <mat-select placeholder="Select Item:" formControlName="itemid">
+                                <mat-option [value] ="k.itemid" *ngFor="let k of selectedItems">{{k.itemid}}</mat-option>
+                              </mat-select>
                             </mat-form-field>
 
-                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
+
+
+                            <!--<mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
                               <mat-label>Item ID</mat-label>
                               <input matInput name="itemid" formControlName="itemid" placeholder="ex- SP0001" required>
                               <mat-icon matSuffix>settings</mat-icon>
-                            </mat-form-field>
+                            </mat-form-field>-->
 
                             <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
                               <mat-label>Brand/Model</mat-label>

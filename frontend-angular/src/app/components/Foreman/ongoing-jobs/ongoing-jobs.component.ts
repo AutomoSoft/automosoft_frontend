@@ -98,7 +98,7 @@ export class OngoingJobsComponent implements OnInit {
             this.snackBar.open("Error", true ? "Retry" : undefined, config);
           } else {
                 this.job = res.data
-                //console.log(this.job)
+                //console.log(this.job)*/
                 const dialogConfig = new MatDialogConfig();
                 dialogConfig.data = {
                   customer: this.userdata,
