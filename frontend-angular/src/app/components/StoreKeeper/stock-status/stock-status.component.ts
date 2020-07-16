@@ -165,21 +165,40 @@ export class StockStatusComponent implements OnInit {
 selectItem(category){
 
   console.log(category)
-  const url = "http://localhost:3000/items/categorizeItems";
+  if(category=="all"){
+    const url = "http://localhost:3000/items/searchAllItems"   //view all items url
 
-  this.http.get<any>(url + "/" + category).subscribe(res => {
-    if (res.state == false) {
-      let config = new MatSnackBarConfig();
-      config.duration = true ? 2000 : 0;
-      this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
-    } else {
-      this.TABLE_DATA = res.data;   //add response data in to data array
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error...! ", true ? "Retry" : undefined, config);
+      } else {
+        this.TABLE_DATA = res.data;   //add response data in to data array
         //this.propicName = res.data.filepath;
         console.log(this.TABLE_DATA);
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+      }
+    });
 
-    }
-  });
+  }else{
+    const url = "http://localhost:3000/items/categorizeItems";   //view categorized items url
+
+    this.http.get<any>(url + "/" + category).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
+      } else {
+        this.TABLE_DATA = res.data;   //add response data in to data array
+          //this.propicName = res.data.filepath;
+          console.log(this.TABLE_DATA);
+          this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
+      }
+    });
+  }
+  
 }
 
  // ******************************************** Item Details Popup ********************************************************
