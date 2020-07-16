@@ -60,7 +60,7 @@ export class AddItemPopupComponent implements OnInit {
   }
   onConfirmClick(): void {
     this.dialogRef.close(false);
-    window.location.reload();
+
   }
 
 }
