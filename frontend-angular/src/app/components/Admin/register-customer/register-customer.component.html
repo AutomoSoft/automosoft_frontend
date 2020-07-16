@@ -1,192 +1,152 @@
 <div style="padding-top: 60px;">
-  <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+  <mat-sidenav-container style="background-color:#ddddec">
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
 
       <div class="row">
-      <div class="container-fluid">
-      <div class="row">
-      <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+        <div class="container-fluid">
+          <div class="row" >
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
 
-        <div class="test">
-            <h2 class="topic">CUSTOMER REGISTRATION</h2>
+              <div class="test">
+                <h2 class="topic">CUSTOMER REGISTRATION</h2>
               </div>
-                          <mat-divider></mat-divider>
-        <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
-            <mat-tab-group class="p-5 reg-frm">
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+                <mat-tab-group class="p-5 reg-frm">
 
                   <!-- ***************************************************ADD ONE USER************************************************************************** -->
                   <mat-tab label="SINGLE CUSTOMER">
                     <form [formGroup]="customerForm">
-          
-                              <div class="customer-register-form-container">
-                  <mat-card style="margin: auto; width: 40%;">
-               <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
-
-        <mat-form-field class="no-padding" appearance="outline">
-          <mat-label>User ID</mat-label>
-          <input
-            matInput
-            name="userid"
-            formControlName="userid"
-            placeholder="Ex-U002"
-          />
-          <mat-icon matSuffix>perm_identity</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field
-          class="no-padding"
-          style="width: 49%;"
-          appearance="outline"
-        >
-          <mat-label>First name</mat-label>
-          <input
-            matInput
-            name="firstName"
-            formControlName="firstName"
-            placeholder="Ex-Kavini"
-          />
-          <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field
-          style="margin-left: 2%; width: 49%;"
-          appearance="outline"
-          class="no-padding"
-        >
-          <mat-label>Last name</mat-label>
-          <input
-            matInput
-            name="lastName"
-            formControlName="lastName"
-            placeholder="Ex-Nanayakkara"
-          />
-          <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-select placeholder="Gender" formControlName="gender">
-            <mat-option value="Male">Male</mat-option>
-            <mat-option value="Female">Female</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-label>NIC Number:</mat-label>
-          <input matInput placeholder="96xxxxxxxV" formControlName="nicnumber">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-label>Address:</mat-label>
-          <textarea matInput formControlName="address"></textarea>
-        </mat-form-field>
-
-        <mat-form-field class="no-padding" appearance="outline">
-          <mat-label>Contact number</mat-label>
-          <input
-            matInput
-            name="contactNo"
-            formControlName="contactNo"
-            placeholder="Ex-076-2359687"
-          />
-          <mat-icon matSuffix>phone_in_talk</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field class="no-padding" appearance="outline">
-          <mat-label>Email address</mat-label>
-          <input
-            matInput
-            name="email"
-            formControlName="email"
-            placeholder="Ex-abc@gmail.com"
-          />
-          <mat-icon matSuffix>all_inbox</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field
-        class="no-padding"
-        style="width: 49%;"
-        appearance="outline"
-      >
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          name="password"
-          formControlName="password"
-          placeholder="Ex-This!slongpass1"
-        />
-        <mat-icon matSuffix>vpn_key</mat-icon>
-      </mat-form-field>
-      <br>
-      <input type="file" class="file_upload" style="display: none" name="profilepic"accept="image/*"  (change)="selectImage($event)" #fileInput>
-
-      <div class="form-row mb-4">
-        <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Profile Picture</button>
-        <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
-          Resolution : (320 x 280)p / 8 : 7 {{filename}}
-        </small>
-      </div>
-      <br>
 
 
-      <div formArrayName="vehicles">
+                      <mat-card style="margin: auto; width: 60%;min-height: 900px;padding-top: 80px;">
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:45%; margin-bottom: 5px" />
+                      
+                        <mat-form-field style="width: 82%" appearance="outline">
+                          <mat-label>User ID</mat-label>
+                          <input matInput name="userid" formControlName="userid" placeholder="Ex-U002" />
+                          <mat-icon matSuffix>perm_identity</mat-icon>
+                        </mat-form-field>
 
+                       <div style="display:inline-flex">
+                        <mat-form-field style="width:49%;" appearance="outline" >
+                          <mat-label>First name</mat-label>
+                          <input matInput name="firstName" formControlName="firstName" placeholder="Ex-Kavini" />
+                          <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+                       
+                        <mat-form-field style="width: 49%;margin-left: 2px;" appearance ="outline" >
+                          <mat-label>Last name</mat-label>
+                          <input matInput name="lastName" formControlName="lastName" placeholder="Ex-Nanayakkara" />
+                          <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+                      </div>
+                  
 
+                        <mat-form-field style="width: 82%" appearance="outline">
+                          <mat-select placeholder="Gender" formControlName="gender">
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
+                          </mat-select>
+                        </mat-form-field>
 
-        <div *ngFor=" let team of customerForm.get('vehicles').controls;let teamIndex = index "[formGroupName]="teamIndex" >
+                        <mat-form-field style="width: 82%" appearance="outline">
+                          <mat-label>NIC Number:</mat-label>
+                          <input matInput placeholder="96xxxxxxxV" formControlName="nicnumber">
+                        </mat-form-field>
 
+                        <mat-form-field style="width: 82%" appearance="outline">
+                          <mat-label>Address:</mat-label>
+                          <textarea matInput formControlName="address"></textarea>
+                        </mat-form-field>
 
+                        <mat-form-field style="width: 82%" class="no-padding" appearance="outline">
+                          <mat-label>Contact number</mat-label>
+                          <input matInput name="contactNo" formControlName="contactNo" placeholder="Ex-076-2359687" />
+                          <mat-icon matSuffix>phone_in_talk</mat-icon>
+                        </mat-form-field>
 
-          <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-            <mat-label>Vehicle Registration Number:</mat-label>
-            <input matInput name="vehicleRegNo" formControlName="vehicleRegNo" placeholder="ex- ABC xx-xxxx" required>
-            <mat-icon matSuffix>directions_car</mat-icon>
-          </mat-form-field>
+                        <mat-form-field style="width: 82%" class="no-padding" appearance="outline">
+                          <mat-label>Email address</mat-label>
+                          <input matInput name="email" formControlName="email" placeholder="Ex-abc@gmail.com" />
+                          <mat-icon matSuffix>all_inbox</mat-icon>
+                        </mat-form-field>
 
-          <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-            <mat-label>Chasis Number:</mat-label>
-            <input matInput name="chasis" formControlName="chasis"  required>
-            <mat-icon matSuffix>directions_car</mat-icon>
-          </mat-form-field>
+                        <mat-form-field style="width: 82%" class="no-padding" appearance="outline">
+                          <mat-label>Password</mat-label>
+                          <input matInput name="password" formControlName="password" placeholder="Ex-This!slongpass1" />
+                          <mat-icon matSuffix>vpn_key</mat-icon>
+                        </mat-form-field>
+                        <br>
+                        <input type="file" class="file_upload" style="display: none" name="profilepic" accept="image/*"
+                          (change)="selectImage($event)" #fileInput>
 
-          <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-            <mat-label>Engine Number:</mat-label>
-            <input matInput name="EngineNo" formControlName="EngineNo"  required>
-            <mat-icon matSuffix>directions_car</mat-icon>
-          </mat-form-field>
-        </div>
-        <div class="button-container">
-          <button mat-button type="submit" class="btn1" (click)="addVehicle()">
-            Add More
-          </button>
+                        <div class="form-row mb-4">
+                          <button class="pick_btn" type="button" (click)="fileInput.click()" accept="image/*">Choose
+                            Profile Picture</button>
+                          <small class="form-text text-muted mb-4" style=" text-align: left; margin-top: -18px;">
+                            Resolution : (320 x 280)p / 8 : 7 {{filename}}
+                          </small>
+                        </div>
+                        <br>
+
+                     
+                        <div formArrayName="vehicles">
+                          <div *ngFor=" let team of customerForm.get('vehicles').controls;let teamIndex = index "
+                            [formGroupName]="teamIndex">
+
+                            <div style="display: inline-flex;margin-right: 4px;margin-left: 4px;">
+                            <mat-form-field appearance="outline" style="width:25%;margin-right: 3px;margin-left: 4px;">
+                              <mat-label>Vehicle Registration Number:</mat-label>
+                              <input matInput name="vehicleRegNo" formControlName="vehicleRegNo"
+                                placeholder="ex- ABC xx-xxxx" required>
+                              <mat-icon matSuffix>directions_car</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width:24%; margin-left: 3px;margin-right: 3px;">
+                              <mat-label>Chasis Number:</mat-label>
+                              <input matInput name="chasis" formControlName="chasis" required>
+                              <mat-icon matSuffix>directions_car</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
+                              <mat-label>Engine Number:</mat-label>
+                              <input matInput name="EngineNo" formControlName="EngineNo" required>
+                              <mat-icon matSuffix>directions_car</mat-icon>
+                            </mat-form-field>
+                          </div>
+                          </div>
+                          <div class="button-container">
+                            <button mat-button type="submit" class="btn1" (click)="addVehicle()">
+                              Add More
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="button-container">
+                          <!-- {{customerForm.value.vehicles| json}} -->
+
+                          <button mat-button type="submit" class="reg_btn" (click)="addCustomer()">
+                            Register
+                          </button>
+                          <button mat-button type="submit" class="can_btn" (click)="reset()">
+                            Cancel
+                          </button>
+                        </div>
+                  
+                      </mat-card>
+              </form>
+              </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="button-container">
-        <!-- {{customerForm.value.vehicles| json}} -->
-
-        <button mat-button type="submit" class="reg_btn" (click)="addCustomer()">
-          Register
-        </button>
-        <button mat-button type="submit" class="can_btn" (click)="reset()">
-          Cancel
-        </button>
-      </div>
-    
-    </mat-card>
-  </div>
-</form>
-  </mat-tab>
-</mat-tab-group>
-              </div>
-  </div>
-  </div>
-  </div>
-  </div>
+</div>
 
 </mat-sidenav-content>
 </mat-sidenav-container>
 </div>
-
