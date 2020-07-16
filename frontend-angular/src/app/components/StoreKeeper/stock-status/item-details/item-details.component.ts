@@ -14,10 +14,10 @@ export class ItemDetailsComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<StockStatusComponent>,
   ) {
- 
+
     this.item = data.itemDetails;
     //console.log(this.technicians )
-   }
+  }
 
   ngOnInit() {
   }
