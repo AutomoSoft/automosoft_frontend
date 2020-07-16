@@ -98,7 +98,7 @@ export class ViewTechniciansComponent implements OnInit {
 selectTechnician(category){
 
   console.log(category)
-  const url = "http://localhost:3000/technician/getTechnicians";
+  const url = "http://localhost:3000/technician/getTechniciansCat";
 
   this.http.get<any>(url + "/" + category).subscribe(res => {
     if (res.state == false) {
