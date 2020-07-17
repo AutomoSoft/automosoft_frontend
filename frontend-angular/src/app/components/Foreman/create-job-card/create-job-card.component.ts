@@ -84,7 +84,7 @@ selectVehicle(id){
       this.snackBar.open("Customer Not Registered !!! , Please Register First", true ? "Retry" : undefined, config);
     } else {
       this.flag1 = true;
-      this.custVehicles =JSON.parse(res.data.vehicles);
+      this.custVehicles =res.data.vehicles;
       console.log(this.custVehicles);
 
     }

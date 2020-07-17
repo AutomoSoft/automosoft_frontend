@@ -40,7 +40,7 @@ export class AddItemPopupComponent implements OnInit {
   ) {
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
     this.supplier = data.sup;
-    console.log(this.supplier)
+    //console.log(this.supplier)
   }
 
   ngOnInit() {

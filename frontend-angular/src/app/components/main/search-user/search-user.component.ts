@@ -147,7 +147,7 @@ export class SearchUserComponent implements OnInit {
     console.log(category)
     if(category=="all"){
       const url = "http://localhost:3000/users/searchAllUsers"   //view all users url
-  
+
       this.http.get<any>(url).subscribe(res => {
         if (res.state == false) {
           let config = new MatSnackBarConfig();
@@ -160,10 +160,10 @@ export class SearchUserComponent implements OnInit {
           this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
         }
       });
-  
+
     }else{
       const url = "http://localhost:3000/users/categorizedUsers";   //view categorized users url
-  
+
       this.http.get<any>(url + "/" + category).subscribe(res => {
         if (res.state == false) {
           let config = new MatSnackBarConfig();
@@ -174,11 +174,11 @@ export class SearchUserComponent implements OnInit {
             //this.propicName = res.data.filepath;
             console.log(this.TABLE_DATA);
             this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
-  
+
         }
       });
     }
-    
+
   }
   /*************************************************** Search User  ***********************************************************/
 
@@ -199,7 +199,7 @@ export class SearchUserComponent implements OnInit {
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        this.custVehicles = JSON.parse(res.data.vehicles);
+        this.custVehicles = res.data.vehicles;
       }
     });
   }
@@ -234,7 +234,7 @@ export class SearchUserComponent implements OnInit {
         this.userdata = res.data;   //add response data in to datadata array
         //console.log(this.userdata)
         this.propicName = res.data.filepath;
-        this.custVehicles = JSON.parse(res.data.vehicles)
+        this.custVehicles = res.data.vehicles
         //console.log(this.userdata)
         //console.log(this.propicName)
         //console.log(this.custVehicles)
