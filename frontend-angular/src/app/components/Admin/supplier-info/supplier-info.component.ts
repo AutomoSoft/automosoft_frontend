@@ -81,14 +81,16 @@ export class SupplierInfoComponent implements OnInit {
     });
 
     this.SupplierDataForm = this.fb.group({
-      usertype: ["", Validators.required],
-      supid: ["", Validators.required],
+      usertype: [""],
+      supid: [""],
       supplierName: ["", Validators.required],
       address: ["", Validators.required],
       contactnumber: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
-      addedon: ["", Validators.required],
-      items: this.fb.array([this.supItems]),
+      addedon: [""],
+      lastmodifiedby: [""],
+      lastmodifiedon: [""],
+      // items: this.fb.array([this.supItems]),
     });
 
 /*************************************************** Table Data  ***********************************************************/
@@ -132,8 +134,9 @@ export class SupplierInfoComponent implements OnInit {
         this.snackBar.open("Supplier Not Found..! ", true ? "Retry" : undefined, config);
       } else {
         this.dataform = true; //data form div show
-        this.supplierdata = res.data;   //add response data in to datadata array
+        this.supplierdata = res.data;   //add response data in to data array
         this.supItems =res.data.items;
+        //console.log(this.supplierdata);
 
       }
     });
@@ -143,14 +146,14 @@ export class SupplierInfoComponent implements OnInit {
     this.SupplierSearchForm.reset();
   }
 
-  addItem() {
+  addItem(id) {
 
-   /* const dialogConfig = new MatDialogConfig();
-      dialogConfig.data = {
-        email:this.email
-    };*/
-
-        this.dialog.open(AddItemPopupComponent);
+    const dialogRef = this.dialog.open(AddItemPopupComponent, {
+      width: '500px',
+      data: {
+        sup:id,
+      }
+    });
   }
 
   cancel(){
@@ -173,9 +176,9 @@ export class SupplierInfoComponent implements OnInit {
          // this.userflag = true;
         }
         this.dataform = true; //data form div show
-        this.supplierdata = res.data;   //add response data in to datadata array
+        this.supplierdata = res.data;   //add response data in to data array
         this.supItems =res.data.items;
-        // console.log(this.supplierdata);
+        //console.log(this.supplierdata);
 
       }
     });
@@ -184,7 +187,9 @@ export class SupplierInfoComponent implements OnInit {
 
   /*************************************************** Update Supplier  ***********************************************************/
 
-  updateSupplier() {
+  updateSupplier(k) {
+    //console.log(k);
+    this.supid = k.supid;
     if (this.SupplierDataForm.invalid) {
       let config = new MatSnackBarConfig();
       this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
@@ -194,24 +199,22 @@ export class SupplierInfoComponent implements OnInit {
       let date=Date();
 
     const formData ={
-      usertype:this.SupplierDataForm.value.usertype,
-      supid:this.SupplierDataForm.value.supid,
-      supname:this.SupplierDataForm.value.supname,
+      usertype:k.usertype,
+      supid:k.supid,
+      supname:this.SupplierDataForm.value.supplierName,
       address:this.SupplierDataForm.value.address,
       contactnumber:this.SupplierDataForm.value.contactnumber,
       email:this.SupplierDataForm.value.email,
-      //items:this.SupplierDataForm.value.items,
       addedby:this.SupplierDataForm.value.addedby,
       addedon:this.SupplierDataForm.value.addedon,
       items:this.supItems,
-      //password:this.UserDataForm.value.password,
-      lastmodifiedby: this.cookie.supid,
+      lastmodifiedby: this.cookie.userid,
       lastmodifiedon:date,
 
     };
 
 
-      //console.log(formData);
+      console.log(formData);
       const url = 'http://localhost:3000/supplier/updateSupplier/';    //backend url
 
 
