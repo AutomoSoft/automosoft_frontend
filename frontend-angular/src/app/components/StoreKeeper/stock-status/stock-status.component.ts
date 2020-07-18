@@ -198,7 +198,7 @@ selectItem(category){
       }
     });
   }
-  
+
 }
 
  // ******************************************** Item Details Popup ********************************************************
@@ -219,7 +219,7 @@ ItemDetails (element) {
                 //console.log(this.job)
                 const dialogConfig = new MatDialogConfig();
                 dialogConfig.data = {
-              
+
                   itemDetails: this.item,
 
               };
@@ -232,7 +232,8 @@ ItemDetails (element) {
 
   viewReport() {
     const dialogRef = this.dialog.open(StockReportComponent, {
-      width: '640px'
+      width: '640px',
+      data: this.dataSource
     });
   }
 
