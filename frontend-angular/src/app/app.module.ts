@@ -88,6 +88,7 @@ import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase
 import { ItemDetailsComponent } from './components/StoreKeeper/stock-status/item-details/item-details.component';
 import { ViewTechnicianJobComponent } from './components/Foreman/view-technicians/view-technician-job/view-technician-job.component';
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
+import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
 
 
 
@@ -138,6 +139,7 @@ import { ReservationsComponent } from './components/Admin/reservations/reservati
     ItemDetailsComponent,
     ViewTechnicianJobComponent,
     ReservationsComponent,
+    ApproveReservationsComponent,
 
   ],
   imports: [

@@ -38,6 +38,7 @@ import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
+import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
 
 const routes: Routes = [
 
@@ -80,6 +81,7 @@ const routes: Routes = [
   { path: "myServices", component: ViewHistoryComponent },
 
   /****************************************** Foreman Routes ******************************************** */
+
   { path: "createJob", component: CreateJobCardComponent },
   { path: "jobHistory", component: JobHistoryComponent },
   { path: "ongoingJobs", component: OngoingJobsComponent },
@@ -87,6 +89,7 @@ const routes: Routes = [
   { path: "selectJobStatus", component: SelectJobStatusComponent },
   { path: "withdrawStock", component: WithdrawStockComponent },
   { path: "viewTechnicians", component: ViewTechniciansComponent },
+  { path: "approveReservations", component: ApproveReservationsComponent },
 
   /****************************************** Accountant Routes ******************************************** */
   { path: "createInvoice", component: CreateInvoiceComponent },
