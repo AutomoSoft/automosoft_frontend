@@ -23,7 +23,7 @@
                           <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
                           <form [formGroup]="withdrawalForm">
-                            <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                            <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
                               <mat-label>Invoice No</mat-label>
                               <input matInput name="invoiceno" formControlName="invoiceNo" placeholder="INV001" />
                               <mat-icon matSuffix></mat-icon>
@@ -33,6 +33,11 @@
                               <input matInput [matDatepicker]="picker"  formControlName="invoiceDate">
                               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                               <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
+                              <mat-label>PO</mat-label>
+                              <input matInput name="po" formControlName="po" placeholder="INV001" />
+                              <mat-icon matSuffix></mat-icon>
                             </mat-form-field>
 
                             <mat-form-field class="no-padding" style="width:80%" appearance="outline">
@@ -53,14 +58,14 @@
                             <input readonly matInput name="customerid" formControlName="customerid" placeholder="" [ngModel]="getData.custId" />
                             <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
-                          <div style="display:inline-flex">
-                            <mat-form-field style="width:49%;" appearance="outline" >
+                          <div style="display:inline-flex; width: 80%;">
+                            <mat-form-field style="width:50%;" appearance="outline" >
                               <mat-label>First name</mat-label>
                               <input matInput name="firstName" formControlName="firstName" placeholder="Ex-Kavini" />
                               <mat-icon matSuffix>person</mat-icon>
                             </mat-form-field>
 
-                            <mat-form-field style="width: 49%;margin-left: 2px;" appearance ="outline" >
+                            <mat-form-field style="width: 50%;margin-left: 2px;" appearance ="outline" >
                               <mat-label>Last name</mat-label>
                               <input matInput name="lastName" formControlName="lastName" placeholder="Ex-Nanayakkara" />
                               <mat-icon matSuffix>person</mat-icon>
@@ -78,17 +83,118 @@
                             <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
 
-                            <mat-form-field class="no-padding" style="width:80%" appearance="outline">
-                              <mat-label>Foreman ID</mat-label>
-                              <input matInput name="foremanid" formControlName="foremanid" placeholder="" [ngModel]="userid"/>
-                              <mat-icon matSuffix>person</mat-icon>
-                            </mat-form-field>
+                          <br>
+                          <!--Item details array-->
+                          <div formArrayName="itemDetails">
+                            <div *ngFor=" let team of withdrawalForm.get('itemDetails').controls;let teamIndex = index "
+                              [formGroupName]="teamIndex">
 
-                            <mat-form-field class="no-padding" style="width:80%" appearance="outline">
-                              <mat-label>Collected by</mat-label>
-                              <input matInput name="collectedby" formControlName="collectedby" placeholder="Technician's ID" />
-                              <mat-icon matSuffix>person</mat-icon>
-                            </mat-form-field>
+                              <div style="display: inline-flex;width: 80%;">
+                              <mat-form-field appearance="outline" style="width:25%;margin-right: 3px;margin-left: 4px;">
+                                <mat-label>Item No::</mat-label>
+                                <input matInput name="itemNo" formControlName="itemNo"
+                                  placeholder="ex- P001" required>
+                                <mat-icon matSuffix>settings</mat-icon>
+                              </mat-form-field>
+
+                              <mat-form-field appearance="outline" style="width:24%; margin-left: 3px;margin-right: 3px;">
+                                <mat-label>Description:</mat-label>
+                                <input matInput name="description" formControlName="description" required>
+                                <mat-icon matSuffix></mat-icon>
+                              </mat-form-field>
+
+                              <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
+                                <mat-label>Quantitiy</mat-label>
+                                <input matInput name="qty" formControlName="qty" required>
+                                <mat-icon matSuffix>directions_car</mat-icon>
+                              </mat-form-field>
+                              <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
+                                <mat-label>Unit Price</mat-label>
+                                <input matInput name="price" formControlName="price" required>
+                                <mat-icon matSuffix></mat-icon>
+                              </mat-form-field>
+                            </div>
+                            </div>
+                            <div class="button-container">
+                              <button mat-button type="submit" class="btn1" (click)="addVehicle()">
+                                Add More
+                              </button>
+                            </div>
+                          </div>
+                          <br>
+
+                          <div>
+                            <!--<mat-card class="section" style="text-align: center;  border-radius: 10px;">
+
+                              <mat-card-title> VEHICLE DETAILS
+                                <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
+                                  *ngIf="cookies.userData.usertype == 'Administrator'" (click)="addNew(userdata.userid)">
+                                  <mat-icon>add</mat-icon>NEW
+                                </button>
+                              </mat-card-title>
+                              <mat-card-content>-->
+                                <div class="mat-elevation-z8"
+                                  style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
+                                  <table class="table ">
+                                    <thead>
+                                      <tr>
+                                        <th>ITEM NO</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>QUANTITY</th>
+                                        <th>UNIT PRICE</th>
+                                        <th>TOTAL PRICE</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let k of custVehicles">
+                                        <td>{{k.vehicleRegNo}}</td>
+                                        <td>{{k.chasis}}</td>
+                                        <td>{{k.EngineNo}}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              <!--</mat-card-content>
+                               </div>
+                            </mat-card>-->
+                          </div>
+                          <br>
+                          <br>
+
+                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                            <mat-label>Sub Total</mat-label>
+                            <input matInput name="subTotal" formControlName="subTotal" placeholder="Total Amount" />
+                            <mat-icon matSuffix></mat-icon>
+                          </mat-form-field>
+                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                            <mat-label>Tax</mat-label>
+                            <input matInput name="tax" formControlName="tax" placeholder="Tax" />
+                            <mat-icon matSuffix>person</mat-icon>
+                          </mat-form-field>
+                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                            <mat-label>Grand Total</mat-label>
+                            <input matInput name="grandTotal" formControlName="grandTotal" placeholder="Grand Total with taxes" />
+                            <mat-icon matSuffix>person</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                            <mat-label>Created By</mat-label>
+                            <input matInput name="foremanid" formControlName="foremanid" placeholder="" [ngModel]="userid"/>
+                            <mat-icon matSuffix>person</mat-icon>
+                          </mat-form-field>
+
+                          <div class="button-container">
+                            <!-- {{customerForm.value| json}} -->
+                            <button mat-button type="submit" class="reg_btn" (click)="save()">
+                              CREATE
+                            </button>
+                            <button mat-button type="submit" class="del_btn" (click)="clear()">
+                              CANCEL
+                            </button>
+                          </div>
+
+
+
 
 
                           <br>

@@ -6,6 +6,8 @@ import { HttpClient } from "@angular/common/http";
 import {
   FormBuilder,
   Validators,
+  FormGroup,
+  FormArray,
 } from "@angular/forms";
 import {MatDialogRef} from '@angular/material/dialog';
 import {ConfirmationDialogComponent} from "../../Auth/confirmation-dialog/confirmation-dialog.component";
@@ -40,6 +42,7 @@ export class CreateInvoiceComponent implements OnInit {
     withdrawalForm = this.fb.group({
       invoiceNo: ["",Validators.required],
       invoiceDate: ["",Validators.required],
+      po: ["", Validators.required],
       foremanid: ["", Validators.required],
       collectedby: ["", Validators.required],
       job: ["", Validators.required],
@@ -48,10 +51,27 @@ export class CreateInvoiceComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
       vehicleNo:["",Validators.required],
+      itemDetails: this.fb.array([this.itemDetails]),
+
       engineNo: ["", Validators.required],
-      item: ["", Validators.required],
-      qty: ["", Validators.required],
+      grandPrice: ["", Validators.required],
+      tax: ["", Validators.required],
+      subTotal: ["", Validators.required],
     });
+
+    get itemDetails(): FormGroup {
+      return this.fb.group({
+        itemNo: ["", Validators.required],
+        Description: ["", Validators.required],
+        qty: ["", Validators.required],
+        price: ["", Validators.required],
+        totalPrice: ["", Validators.required],
+      });
+    }
+    addVehicle ()
+    {
+      (this.withdrawalForm.get("itemDetails") as FormArray).push(this.itemDetails);
+    }
 
   ngOnInit() {
     var temp = this.cookies.getCookie("userAuth");
