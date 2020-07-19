@@ -35,16 +35,16 @@ export class ViewJobComponent implements OnInit {
   }
 
   selectStatus(status) {
-     //console.log(status);
+    //console.log(status);
     this.dialogRef.close(status);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
       jobNo: status.jobNo,
-      jobStatus:status.jobStatus,
+      jobStatus: status.jobStatus,
       custId: status.custId,
-  };
+    };
 
-      this.dialog.open(SelectJobStatusComponent, dialogConfig);
+    this.dialog.open(SelectJobStatusComponent, dialogConfig);
   }
 
   withdrawStock(){

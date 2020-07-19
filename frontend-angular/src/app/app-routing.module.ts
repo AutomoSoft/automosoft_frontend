@@ -37,10 +37,13 @@ import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase
 
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
+import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
+import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
 
 const routes: Routes = [
 
   /****************************************** General Routes **************************************** */
+
   { path: 'login', component: LoginComponent },
   { path: "", component: HomeComponent },
   { path: 'contact', component: ContactComponent },
@@ -51,6 +54,7 @@ const routes: Routes = [
   { path: "addNewVehicle", component: AddNewVehicleComponent },
 
   /****************************************** Admin Routes ********************************************** */
+
   { path: ":id/admin_dashboard", component: AdmindashboardComponent },
   { path: "registerEmployee", component: RegisterEmployeeComponent },
   { path: "registerCustomer", component: RegisterCustomerComponent },
@@ -59,9 +63,11 @@ const routes: Routes = [
   { path: "messages", component: MessageComponent },
   { path: "AddItems", component: AddItemsComponent },
   { path: "supplierInfo", component: SupplierInfoComponent },
+  { path: "viewReservations", component: ReservationsComponent },
 
 
   /****************************************** StoreKeeper Routes **************************************** */
+
   { path: "addStock", component: AddStockComponent },
   { path: "addOrder", component: AddOrdersComponent },
   { path: "stockStatus", component: StockStatusComponent },
@@ -70,10 +76,12 @@ const routes: Routes = [
 
 
   /****************************************** Customer Routes ******************************************* */
+
   { path: "makeReservation", component: MakeReservationsComponent },
   { path: "myServices", component: ViewHistoryComponent },
 
   /****************************************** Foreman Routes ******************************************** */
+
   { path: "createJob", component: CreateJobCardComponent },
   { path: "jobHistory", component: JobHistoryComponent },
   { path: "ongoingJobs", component: OngoingJobsComponent },
@@ -81,6 +89,7 @@ const routes: Routes = [
   { path: "selectJobStatus", component: SelectJobStatusComponent },
   { path: "withdrawStock", component: WithdrawStockComponent },
   { path: "viewTechnicians", component: ViewTechniciansComponent },
+  { path: "approveReservations", component: ApproveReservationsComponent },
 
   /****************************************** Accountant Routes ******************************************** */
   { path: "createInvoice", component: CreateInvoiceComponent },
