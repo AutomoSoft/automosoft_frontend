@@ -128,4 +128,46 @@
     margin-left: 10px;
     margin-right: 10px;
   }
+  .btn {
+    padding-left: 120px;
+    padding-right: 120px;
+    border-radius: 20px;
+    color: #333333;
+    height: 40px;
+    font-family: side_font;
+    font-weight: bolder;
+    background-color: #c76b15;
+  }
+  .btn1 {
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 20px;
+    float:rig;
+    color:white;
+    height: 40px;
+    font-family: side_font;
+    font-weight: bolder;
+    background-color: #c76b15;
+  }
+  .btn:hover {
+    color: #339ccc;
+    transition: 0.5s;
+  }
+
+  .add_btn {
+    border-radius: 20px;
+    color: #ffffff;
+    height: 40px;
+    font-family: side_font;
+    font-weight: bolder;
+    background-color: #060820;
+  }
+  .del_btn {
+    color: aliceblue;
+    background-color: rgb(221, 81, 112);
+    border-color: rgb(221, 81, 112);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
