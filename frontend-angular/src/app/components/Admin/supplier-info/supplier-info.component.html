@@ -22,7 +22,7 @@
                     <form [formGroup] = SupplierSearchForm *ngIf="!dataform">
 
 
-                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 30px; margin-top: 20px;" />
 
                         <h3 class="topic" style="margin-left: -600px;" >ENTER Supplier ID:</h3>
                         <div class="form-row mb-4">
@@ -51,8 +51,7 @@
 
                             <mat-form-field appearance="outline">
                               <mat-label>Supplier ID:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="supid" [(ngModel)]="supplierdata.supid">
-                              <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                              <input matInput class="form-control box_border" readonly formControlName="supid" [(ngModel)]="supplierdata.supid">
                             </mat-form-field>
 
 
@@ -81,7 +80,7 @@
 
                             <div *ngIf="cookies.userData.usertype == 'Administrator'">
                               <h3>SUPPLIED ITEMS
-                                <button mat-raised-button (click)="addItem()"  type="submit" class="my-4 btn-block add_btn">
+                                <button mat-raised-button (click)="addItem(supplierdata.supid)"  type="submit" class="my-4 btn-block add_btn">
                                   <mat-icon >add</mat-icon>NEW
                                 </button>
                               </h3>
@@ -105,18 +104,28 @@
                                </table>
 
                               </div>
-
+                            <br>
                             </div>
 
                             <mat-form-field appearance="outline" >
-                              <mat-label>Addedon:</mat-label>
+                              <mat-label>Added on:</mat-label>
                               <input matInput readonly formControlName="addedon" [(ngModel)]="supplierdata.addedon">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-label>Last Modified By:</mat-label>
+                              <input matInput readonly formControlName="lastmodifiedon" [(ngModel)]="supplierdata.lastmodifiedon">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" >
+                              <mat-label>Last Modified On:</mat-label>
+                              <input matInput readonly formControlName="lastmodifiedby" [(ngModel)]="supplierdata.lastmodifiedby">
                             </mat-form-field>
 
 
                           </div>
 
-                          <button mat-raised-button (click)=updateSupplier() type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
+                          <button mat-raised-button (click)=updateSupplier(supplierdata) type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
                             Update
                           </button>
 

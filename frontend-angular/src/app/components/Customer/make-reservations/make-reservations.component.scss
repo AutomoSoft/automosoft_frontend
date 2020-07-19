@@ -1,0 +1,165 @@
+// @font-face {
+//   font-family: topic_font;
+//   src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+// }
+.test {
+    margin-left: 100px;
+  }
+  .topic {
+    color: #0a0929;
+    font-weight: 400;
+  }
+  
+  .example-container {
+    background-color: #414142;
+  }
+  
+  .body {
+    background-color: white;
+    // height: 100px;
+  }
+  .flashMessage {
+    padding-top: 5px;
+    height: 20px;
+    margin-bottom: -10px;
+    width: 100%;
+  }
+  #textbox {
+    height: 200px;
+  }
+  
+  .border {
+    border-style: ridge;
+    // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+    width: 1000px;
+  }
+  .box_border {
+    border-radius: 3px;
+  }
+  
+  .reg-frm {
+    box-shadow: 0px 10px 10px rgb(134, 132, 245);
+    background-color: rgb(255, 255, 255);
+    padding-top: 10px;
+    width: 85%;
+    min-height: 1200px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    // border: 3px solid #414142;
+    border-radius: 20px;
+  }
+  
+  
+  
+  .reg_btn {
+    color: aliceblue;
+    background-color: rgb(0, 140, 255);
+    border-color: rgb(0, 140, 255);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  }
+  
+  .mat-form-field {
+    width: 60%;
+    display:block;
+    margin: auto;
+  
+  }
+  
+  .mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #c76b15!important;
+    // opacity: 1!important;
+  }
+  
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color:#c76b15!important;
+  }
+  
+  .btn_1 {
+    color: aliceblue;
+    background-color: rgb(221, 81, 112);
+    border-color: rgb(221, 81, 112);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .pick_btn {
+    color: aliceblue;
+    background-color: rgb(139, 139, 139);
+    border-color: rgb(139, 139, 139);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+  }
+  
+  
+  .button-container .btn {
+    border-radius: 15px;
+    font-size: medium;
+    color: white;
+  }
+  .button-container .btn:hover {
+    border-radius: 18px;
+    background-color: #a35a16;
+    color: white;
+    transition: 0;
+  }
+  
+  .btn1 {
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 20px;
+    float:rig;
+    color:white;
+    height: 40px;
+    font-family: side_font;
+    font-weight: bolder;
+    background-color: #c76b15;
+  }
+  
+  .search_btn {
+    color: aliceblue;
+    background-color: rgb(73, 71, 72);
+    border-color: rgb(73, 71, 72);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    background-color: #ddddec;
+  
+  }
+  
+  .table_btn {
+    color: aliceblue;
+    background-color: rgb(0, 140, 255);
+    border-color: rgb(0, 140, 255);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .tec_btn {
+    color: aliceblue;
+    background-color: rgb(68, 216, 154);
+    border-color: rgb(68, 216, 154);
+    border-radius: 50px;
+    // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  }
+  
+  .timepickerdiv{
+      margin-left: 20%;;
+      margin-right: 20%;
+  }   

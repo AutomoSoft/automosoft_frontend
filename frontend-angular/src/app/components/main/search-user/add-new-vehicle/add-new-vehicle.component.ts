@@ -64,7 +64,7 @@ export class AddNewVehicleComponent implements OnInit {
     let date=Date();
 
         const formData = {
-          vehicles: JSON.stringify(this.vehicleForm.value.vehicles),
+          vehicles: this.vehicleForm.value.vehicles,
           lastmodifiedby: this.cookie.userid,
           lastmodifiedon: date,
         };

@@ -23,10 +23,9 @@ import { ConfirmationDialogComponent } from '../../../Auth/confirmation-dialog/c
 export class AddItemPopupComponent implements OnInit {
 
   [x: string]: any;
-  //email: String;
+  supplier: String;
 
   replyForm: FormGroup;
-  userid;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -40,8 +39,8 @@ export class AddItemPopupComponent implements OnInit {
     private dialog: MatDialog,
   ) {
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
-    //this.email = data.email;
-    //console.log(this.email)
+    this.supplier = data.sup;
+    //console.log(this.supplier)
   }
 
   ngOnInit() {
@@ -50,15 +49,72 @@ export class AddItemPopupComponent implements OnInit {
       this.router.navigate(['/login']);
   }
 
-  this.replyForm = this.fb.group({
-    usertype: [""],
-    userid: [""],
+}
+
+get items(): FormGroup {
+  return this.fb.group({
     itemtype: ["", Validators.required],
     itemid: ["", Validators.required],
-    brand: ["",Validators.required]
+    brand: ["", Validators.required],
   });
+}
+
+itemForm = this.fb.group({
+  items: this.fb.array([this.items]),
+});
+
+addnewItem(){
+
+  let date=Date();
+  const newItem = {
+    supid: this.supplier,
+    item: this.itemForm.value.items,
+    lastmodifiedby: this.cookie.userid,
+    lastmodifiedon: date,
+  };
+
+var url = "http://localhost:3000/supplier/addNewItem";
+
+if (this.itemForm.invalid) {
+  let config = new MatSnackBarConfig();
+  this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+  return;
+}else {
+const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+  data: {
+    message: "Are you sure want to Add?",
+    buttonText: {
+      ok: "Yes",
+      cancel: "No"
+    }
   }
-  onConfirmClick(): void {
+});
+
+dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+  if (confirmed) {
+    this.http.post<any>(url, newItem).subscribe(res => {
+      if (res.state) {
+        console.log(res.msg);
+        window.location.reload();
+      } else {
+        console.log(res.msg);
+        alert("Error!! Try Again");
+        this.router.navigate([this.cookie.userid,'supplierInfo']);
+      }
+    });
+    //console.log(newItem);
+  }
+});
+}
+
+
+
+
+  }
+
+
+onNoClick(): void {
     this.dialogRef.close(false);
 
   }

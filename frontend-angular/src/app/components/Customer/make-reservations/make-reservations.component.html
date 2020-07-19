@@ -1,1 +1,78 @@
-<p>make-reservations works!!</p>
+<div style="padding-top: 60px;">
+    <mat-sidenav-container>
+      <mat-sidenav class="example-container" #sidenav mode="side" opened >
+        <app-main></app-main>
+      </mat-sidenav>
+      <mat-sidenav-content>
+  
+        <div class="row">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+  
+                <br />
+                <div class="test">
+                  <h2 class="topic">MAKE A RESERVAION</h2>
+                </div>
+                <mat-divider></mat-divider>
+                <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+  
+                  <mat-tab-group class="p-5 reg-frm">
+  
+                    <!-- ***************************************************NEW RESERVATION************************************************************************** -->
+                    <mat-tab label="MAKE YOUR RESERVATION HERE">
+                      <form>
+  
+                        <mat-card>
+                          <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+  
+                          <div class="form-row mb-4">
+  
+                          </div>
+                        </mat-card>
+                        <br>
+                        <!-- {{jobCardForm.value | json}} -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                          
+                          <div class ="timepickerdiv">
+                            <material-timepicker color="primary" label="Choose a time" appearance="outline" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
+                          </div>
+
+                          <mat-form-field appearance="outline">
+                            <!-- <mat-label>Select Repair Type:</mat-label> -->
+                            <mat-select placeholder="Job Type:">
+                              <mat-option value="Paint Job">Paint Job</mat-option>
+                              <mat-option value="Accident Repair">Accident Repair</mat-option>
+                              <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
+                              <mat-option value="Full Service">Full Service</mat-option>
+                              <mat-option value="Other">Other</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>Problem in brief:</mat-label>
+                            <textarea matInput></textarea>
+                          </mat-form-field>
+
+                      </form>
+                    </mat-tab>
+  
+  
+                  </mat-tab-group>
+  
+                </div>
+  
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

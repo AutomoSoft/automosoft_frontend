@@ -69,7 +69,7 @@ export class SearchUserComponent implements OnInit {
   cookie;
   dataform: Boolean = false;
   propicName;  //profile picture name
-  searchText;
+  userType;
   custVehicles;
   userflag: Boolean = false;  //to show/hide customer vehicle fields
 
@@ -139,6 +139,47 @@ export class SearchUserComponent implements OnInit {
       EngineNo: ["", Validators.required],
     });
   }
+
+  /*************************************************** View Categorized Users *************************************************/
+
+  selectUser(category){
+
+    console.log(category)
+    if(category=="all"){
+      const url = "http://localhost:3000/users/searchAllUsers"   //view all users url
+
+      this.http.get<any>(url).subscribe(res => {
+        if (res.state == false) {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("Error...! ", true ? "Retry" : undefined, config);
+        } else {
+          this.TABLE_DATA = res.data;   //add response data in to data array
+          //this.propicName = res.data.filepath;
+          console.log(this.TABLE_DATA);
+          this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+        }
+      });
+
+    }else{
+      const url = "http://localhost:3000/users/categorizedUsers";   //view categorized users url
+
+      this.http.get<any>(url + "/" + category).subscribe(res => {
+        if (res.state == false) {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
+        } else {
+          this.TABLE_DATA = res.data;   //add response data in to data array
+            //this.propicName = res.data.filepath;
+            console.log(this.TABLE_DATA);
+            this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
+        }
+      });
+    }
+
+  }
   /*************************************************** Search User  ***********************************************************/
 
   searchUser() {
@@ -158,7 +199,7 @@ export class SearchUserComponent implements OnInit {
         this.dataform = true; //data form div show
         this.userdata = res.data;   //add response data in to datadata array
         this.propicName = res.data.filepath;
-        this.custVehicles = JSON.parse(res.data.vehicles);
+        this.custVehicles = res.data.vehicles;
       }
     });
   }
@@ -193,7 +234,7 @@ export class SearchUserComponent implements OnInit {
         this.userdata = res.data;   //add response data in to datadata array
         //console.log(this.userdata)
         this.propicName = res.data.filepath;
-        this.custVehicles = JSON.parse(res.data.vehicles)
+        this.custVehicles = res.data.vehicles
         //console.log(this.userdata)
         //console.log(this.propicName)
         //console.log(this.custVehicles)

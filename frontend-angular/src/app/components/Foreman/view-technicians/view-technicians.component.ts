@@ -31,7 +31,7 @@ interface technician {
   currentjobCap: String;
 }
 
-interface job {
+interface jobs {
   _id: String;
   jobNo: String;
   jobType: String;
@@ -72,7 +72,7 @@ export class ViewTechniciansComponent implements OnInit {
   dataform: Boolean = false;
   currJobs;   //ongoing jobs
   userdata: technician[] = [];
-  job: job[] = [];
+  jobs: jobs[] = [];
   userid;
 
   constructor(
@@ -98,7 +98,7 @@ export class ViewTechniciansComponent implements OnInit {
 selectTechnician(category){
 
   console.log(category)
-  const url = "http://localhost:3000/technician/getTechnicians";
+  const url = "http://localhost:3000/technician/getTechniciansCat";
 
   this.http.get<any>(url + "/" + category).subscribe(res => {
     if (res.state == false) {
@@ -147,17 +147,32 @@ selectTechnician(category){
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
         this.userdata = res.data;
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.data = {
-          technician: this.userdata,
-          firstname : element.firstname,
-          lastname: element.lastname,
-          capacity: element.capacity
-      };
+        const url = "http://localhost:3000/jobs/viewtechnicianJob"
+
+
+        this.http.get<any>(url + "/" + element.userid).subscribe(res => {
+          if (res.state == false) {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Error", true ? "Retry" : undefined, config);
+          } else {
+                this.jobs = res.data
+                  const dialogConfig = new MatDialogConfig();
+                  dialogConfig.data = {
+                    technician: this.userdata,
+                    //firstname : element.firstname,
+                    //lastname: element.lastname,
+                    //capacity: element.capacity,
+                    jobDetails: this.jobs,
+                    jobNo: element.jobNo
+                };
 
           this.dialog.open(ViewTechnicianJobComponent, dialogConfig);
       }
     });
 
     }
+  });
+}
+
 }

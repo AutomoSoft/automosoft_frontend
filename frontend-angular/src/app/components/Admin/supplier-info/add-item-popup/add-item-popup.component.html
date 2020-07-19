@@ -1,13 +1,23 @@
-<div style="text-align: center; width: 350px;">
-
+<div style="text-align: center;">
+  <div class="mat-dialog-header">
+    <h1 mat-dialog-title>ADD NEW ITEM</h1>
+  </div>
   <mat-divider></mat-divider><br>
-  <div mat-dialog-content class="content" fxLayout="column" fxLayoutAlign="center" style="text-align: center;">
-    <form class="reply-form" [formGroup]= "replyForm">
-      <mat-card-header style="text-align: center;font-size: 24px;margin-bottom: 1.5em;">ADD NEW ITEM</mat-card-header>
-      <mat-form-field class="form-full-width" appearance="outline" style="width: 80%;">
-        <mat-label>Item type</mat-label>
-        <input matInput type="text" formControlName="itemtype" placeholder="Item type">
-      </mat-form-field><br>
+  <div mat-dialog-content class="content" [formGroup]="itemForm">
+    <div formArrayName="items">
+    <form class="edit-form" *ngFor=" let team of itemForm.get('items').controls;let teamIndex = index "[formGroupName]="teamIndex" >
+
+
+
+      <mat-form-field appearance="outline" style="display:block; width:80%; margin: auto;">
+        <mat-select placeholder="Select Item Category:" formControlName="itemtype">
+          <mat-option value="Paints">Paints</mat-option>
+          <mat-option value="Tools">Tools</mat-option>
+          <mat-option value="Spare Parts">Spare Parts</mat-option>
+          <mat-option value="Tyres">Tyres</mat-option>
+          <mat-option value="Electric Parts">Electric Parts</mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <mat-form-field appearance="outline" class="form-full-width" style="width: 80%;">
         <mat-label>Item ID</mat-label>
@@ -19,14 +29,12 @@
         <input matInput type="text" formControlName="brand" placeholder="Please enter the brand" >
       </mat-form-field><br>
 
-
-
-
       <div mat-dialog-actions style="margin: auto; justify-content: center">
-        <button mat-button class="add_btn" color="primary" >Add</button>
-        <button mat-button class="can_btn"(click)="onConfirmClick()" >Cancel</button>
+        <button mat-button class="add_btn" (click)=addnewItem()  >Add</button>
+        <button mat-button class="can_btn" (click)="onNoClick()">Cancel</button>
       </div>
-      <!-- {{replyForm.value | json}} -->
+      <!-- {{itemForm.value | json}} -->
     </form>
+  </div>
   </div>
 </div>

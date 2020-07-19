@@ -21,6 +21,7 @@ export class ViewJobComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ViewJobComponent>,
 
+    private router: Router,
     private dialog: MatDialog,
   ) {
     this.customer = data.customer;
@@ -44,6 +45,11 @@ export class ViewJobComponent implements OnInit {
     };
 
     this.dialog.open(SelectJobStatusComponent, dialogConfig);
+  }
+
+  withdrawStock(){
+    this.dialogRef.close();
+    this.router.navigate(['/withdrawStock']);
   }
 
 }

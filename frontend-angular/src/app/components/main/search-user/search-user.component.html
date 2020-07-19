@@ -61,13 +61,14 @@
                       <h3 class="topic" style="margin-left: -600px;">SELECT USER CATEGORY:</h3>
                       <div class="form-row mb-4">
                         <mat-form-field appearance="outline">
-                          <mat-select placeholder="User Category:" [(ngModel)]="searchText">
+                          <mat-select placeholder="User Category:" [(ngModel)]="userType" (ngModelChange)="selectUser($event)">
                             <mat-option value="Administrator">Admin</mat-option>
                             <mat-option value="Accountant">Accountant</mat-option>
                             <mat-option value="Foreman">Foreman</mat-option>
                             <mat-option value="Store-Keeper">Store-Keeper</mat-option>
                             <mat-option value="Technician">Technician</mat-option>
                             <mat-option value="Customer">Customer</mat-option>
+                            <mat-option value="all">All Users</mat-option>
                           </mat-select>
                         </mat-form-field>
                         <!-- {{searchText}} -->
