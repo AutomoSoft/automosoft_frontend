@@ -1,20 +1,17 @@
 <h1 mat-dialog-title>JOB STATUS</h1>
-    <mat-divider></mat-divider><br>
-      <div mat-dialog-content class="content">
+<mat-divider></mat-divider><br>
+<div mat-dialog-content class="content">
 
-          <label id="example-radio-group-label">SELECT JOB STATUS </label>
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group"
-            [(ngModel)]="selectedStatus">
-            <mat-radio-button class="example-radio-button" *ngFor="let status of status" [value]="status">
-              {{status}}
-            </mat-radio-button>
-          </mat-radio-group>
-          <div>You Selected: {{selectedStatus}}</div>
+  <label id="example-radio-group-label">SELECT JOB STATUS </label>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="selectedStatus">
+    <mat-radio-button class="example-radio-button" *ngFor="let status of status" [value]="status">
+      {{status}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div>You Selected: {{selectedStatus}}</div>
 
-      </div>
-      <div mat-dialog-actions>
-        <button mat-button (click)="update(selectedStatus)" class="btn_1">Update & Notify</button>
-        <button mat-button (click)="cancel()" class="del_btn">Cancel</button>
-      </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="update(selectedStatus)" class="btn_1">Update & Notify</button>
+  <button mat-button (click)="cancel()" class="del_btn">Cancel</button>
+</div>
