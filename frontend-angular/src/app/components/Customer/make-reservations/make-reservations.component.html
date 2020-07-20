@@ -43,6 +43,16 @@
                          <!--<div class ="timepickerdiv">
                             <material-timepicker color="primary" label="Choose a time" appearance="outline" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
                           </div>-->
+                          <mat-form-field appearance="outline">
+                          <mat-label>Choose a time</mat-label>
+                          <input matInput 
+                          formControlName ="time" name="time" 
+                          aria-label="default time" 
+                          [ngxTimepicker]="defaultValue" 
+                          value="'0:00 am'" 
+                          [(ngModel)]="time"/>
+                          <ngx-material-timepicker #defaultValue></ngx-material-timepicker>
+                          </mat-form-field>
 
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select Repair Type:</mat-label> -->

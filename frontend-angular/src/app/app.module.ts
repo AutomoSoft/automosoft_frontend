@@ -13,6 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 //material
 import {
@@ -181,6 +182,7 @@ import { ApproveReservationsComponent } from './components/Foreman/approve-reser
     MatSortModule,
     MatRadioModule,
     MaterialTimePickerModule,
+    NgxMaterialTimepickerModule,
     //PopupModule.forRoot(),
     //ViewChild
 

@@ -56,6 +56,7 @@ export class MakeReservationsComponent implements OnInit {
   //item registration form for items model
   reservationForm = this.fb.group({
     daterequested: ["", Validators.required],
+    time: ["", Validators.required],
     repairtype: ["", Validators.required],
     problembrief: ["", Validators.required],
   });
@@ -67,7 +68,7 @@ export class MakeReservationsComponent implements OnInit {
       custID: this.cookie.userid,
       daterequested: this.reservationForm.value.daterequested,
       repairtype: this.reservationForm.value.repairtype,
-      //time: this.pickedTime,
+      time: this.reservationForm.value.time,
       problembrief:this.reservationForm.value.problembrief,
       status:"pending"
     };
@@ -109,67 +110,5 @@ export class MakeReservationsComponent implements OnInit {
 }
   }
 
- /* addReservation() {
-    console.log(this.reservationForm.value.repairtype);
-
-    if (this.reservationForm.invalid) {
-      let config = new MatSnackBarConfig();
-      this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
-      return;
-    }else {
-      // let date=Date();
-      const formData = new FormData();
-          //append the data to the form
-          formData.append("custID",  this.cookie.userid);
-          formData.append("daterequested", this.reservationForm.value.daterequested);
-          formData.append("time", this.pickedTime);
-          formData.append("repairtype", this.reservationForm.value.repairtype);
-          formData.append("problembrief", this.reservationForm.value.problembrief);
-          formData.append("status", "pending");
-          // formData.append('addedon', date)
-
-          console.log(this.reservationForm.value.daterequested); // Successfully appends to formData
-          console.log("formdata from frontend");
-          console.log(JSON.stringify(formData));
-          formData.forEach((value,key) => {
-      console.log(key+" "+value)
-    });
-      var url = "http://localhost:3000/reservations/makeReservation";
-
-        const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-          data: {
-            message: "Confirm your reservation request",
-            buttonText: {
-              ok: "Confirm",
-              cancel: "Cancel"
-            }
-          },
-        });
-
-        dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-
-          if (confirmed) {
-            this.http.post<any>(url, formData).subscribe(res => {
-              if (res.state) {
-                console.log(res.msg);
-                window.location.reload();
-
-              } else {
-                console.log(res.msg);
-                alert("Error!! Try Again");
-               // this.router.navigate([this.cookie.userid,'AddItems']);
-              }
-            });
-            console.log(formData);
-          }
-        });
-
-
-
-
-    }
-
-
-
-  }*/
+ 
 }
