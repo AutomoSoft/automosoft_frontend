@@ -21,7 +21,7 @@
   
                     <!-- ***************************************************NEW RESERVATION************************************************************************** -->
                     <mat-tab label="MAKE YOUR RESERVATION HERE">
-                      <form>
+                      <form [formGroup]="reservationForm">
   
                         <mat-card>
                           <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
@@ -34,7 +34,7 @@
                         <!-- {{jobCardForm.value | json}} -->
                         <mat-form-field appearance="outline">
                             <mat-label>Choose a date</mat-label>
-                            <input matInput [matDatepicker]="picker">
+                            <input matInput [matDatepicker]="picker" formControlName="daterequested">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
@@ -45,7 +45,7 @@
 
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select Repair Type:</mat-label> -->
-                            <mat-select placeholder="Job Type:">
+                            <mat-select placeholder="Job Type:" formControlName="repairtype">
                               <mat-option value="Paint Job">Paint Job</mat-option>
                               <mat-option value="Accident Repair">Accident Repair</mat-option>
                               <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
@@ -56,8 +56,16 @@
 
                           <mat-form-field appearance="outline">
                             <mat-label>Problem in brief:</mat-label>
-                            <textarea matInput></textarea>
+                            <textarea matInput formControlName="problembrief"></textarea>
                           </mat-form-field>
+
+                          <button mat-raised-button (click)=addReservation() type="submit" class="my-4 btn-block reg_btn ">
+                            Request
+                          </button>
+  
+                          <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  ">
+                            Cancel
+                          </button>
 
                       </form>
                     </mat-tab>
