@@ -50,7 +50,7 @@ export class MakeReservationsComponent implements OnInit {
     if(temp==""){
       this.router.navigate(['/login']);
     }
-      
+
   }
 
   //item registration form for items model
@@ -61,6 +61,55 @@ export class MakeReservationsComponent implements OnInit {
   });
 
   addReservation() {
+    //let date=Date();
+    const reserveTime = {
+      usertype : "Customer",
+      custID: this.cookie.userid,
+      daterequested: this.reservationForm.value.daterequested,
+      repairtype: this.reservationForm.value.repairtype,
+      //time: this.pickedTime,
+      problembrief:this.reservationForm.value.problembrief,
+      status:"pending"
+    };
+
+  var url = "http://localhost:3000/reservations/makeReservation";
+
+  if (this.reservationForm.invalid) {
+    let config = new MatSnackBarConfig();
+    this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+    return;
+  }else {
+  const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+    data: {
+      message: "Are you sure want to Add?",
+      buttonText: {
+        ok: "Yes",
+        cancel: "No"
+      }
+    }
+  });
+
+  dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+    if (confirmed) {
+      this.http.post<any>(url, reserveTime).subscribe(res => {
+        if (res.state) {
+          console.log(res.msg);
+          window.location.reload();
+          // this.customerForm.reset();
+        } else {
+          console.log(res.msg);
+          alert("Error!! Try Again");
+          this.router.navigate([this.cookie.userid,'registerSupplier']);
+        }
+      });
+      console.log(reserveTime);
+    }
+  });
+}
+  }
+
+ /* addReservation() {
     console.log(this.reservationForm.value.repairtype);
 
     if (this.reservationForm.invalid) {
@@ -86,7 +135,7 @@ export class MakeReservationsComponent implements OnInit {
       console.log(key+" "+value)
     });
       var url = "http://localhost:3000/reservations/makeReservation";
-  
+
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
           data: {
             message: "Confirm your reservation request",
@@ -96,15 +145,15 @@ export class MakeReservationsComponent implements OnInit {
             }
           },
         });
-  
+
         dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-  
+
           if (confirmed) {
             this.http.post<any>(url, formData).subscribe(res => {
               if (res.state) {
                 console.log(res.msg);
                 window.location.reload();
-  
+
               } else {
                 console.log(res.msg);
                 alert("Error!! Try Again");
@@ -114,13 +163,13 @@ export class MakeReservationsComponent implements OnInit {
             console.log(formData);
           }
         });
-  
-      
-  
-  
+
+
+
+
     }
-  
-  
-  
-  }
-} 
+
+
+
+  }*/
+}

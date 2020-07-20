@@ -12,11 +12,23 @@ import {
 import {MatDialogRef} from '@angular/material/dialog';
 import {ConfirmationDialogComponent} from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 
+interface customer {
+  _id: String;
+  vehicles:[];
+  usertype: String;
+  userid: String;
+  firstname: String;
+  lastname: String;
+  email: String;
+
+}
+
 @Component({
   selector: 'app-create-invoice',
   templateUrl: './create-invoice.component.html',
   styleUrls: ['./create-invoice.component.scss']
 })
+
 export class CreateInvoiceComponent implements OnInit {
 
   cookie;
@@ -27,7 +39,7 @@ export class CreateInvoiceComponent implements OnInit {
   selectedJob;
   firstName;
   getCustomers;
-  customerData;
+  customerData:customer[] =[];
   allItems = [];
   constructor( private router: Router,
     private http: HttpClient,
@@ -54,7 +66,7 @@ export class CreateInvoiceComponent implements OnInit {
       itemDetails: this.fb.array([this.itemDetails]),
 
       engineNo: ["", Validators.required],
-      grandPrice: ["", Validators.required],
+      grandTotal: ["", Validators.required],
       tax: ["", Validators.required],
       subTotal: ["", Validators.required],
     });
@@ -62,7 +74,7 @@ export class CreateInvoiceComponent implements OnInit {
     get itemDetails(): FormGroup {
       return this.fb.group({
         itemNo: ["", Validators.required],
-        Description: ["", Validators.required],
+        description: ["", Validators.required],
         qty: ["", Validators.required],
         price: ["", Validators.required],
         totalPrice: ["", Validators.required],
@@ -79,7 +91,7 @@ export class CreateInvoiceComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   this.getCompletedJobs();
-  this.getCustomerDetails();
+  //this.getCustomerDetails();
   }
   clear(){
     this.withdrawalForm.reset();
@@ -100,10 +112,11 @@ export class CreateInvoiceComponent implements OnInit {
   }
 
   getCustomerDetails() {
-    //this.userid = this.withdrawalForm.value.customerid;
-    const url = "http://localhost:3000/users/searchAllUsers"   //backend url
+    this.userid = this.getData.custId;
+    console.log(this.userid);
+    const url = "http://localhost:3000/users/searchUsers"   //backend url
 
-    this.http.get<any>(url).subscribe(res => {
+    this.http.get<any>(url + "/" + this.userid).subscribe(res => {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
@@ -111,6 +124,9 @@ export class CreateInvoiceComponent implements OnInit {
       } else {
 
           this.customerData = res.data;
+          this.getData.firstName = res.data["firstname"];
+          this.getData.lastName = res.data["lastname"];
+          console.log(res.data["firstname"]);
 
       }
     });
@@ -126,6 +142,7 @@ export class CreateInvoiceComponent implements OnInit {
   }
   selectJob () {
     this.getData = this.withdrawalForm.value.job;
+    this.getCustomerDetails();
     //this.selectedJob = this.withdrawalForm.value.job;
     if (this.getData.vehicle) {
       this.getData.vehicle = JSON.parse(this.getData.vehicle);
