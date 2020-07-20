@@ -34,6 +34,7 @@ export class ApproveReservationsComponent implements OnInit {
   cookie;
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
+  repairtype: String;
   
   constructor(
     private router: Router,
@@ -54,7 +55,7 @@ export class ApproveReservationsComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    // *************************************************** Get All Pending Reservation Requests ********************************************************
+  // *************************************************** Get All Pending Reservation Requests ********************************************************
 
     const url = "http://localhost:3000/reservations/viewAllPendingReservations";
 
@@ -70,6 +71,31 @@ export class ApproveReservationsComponent implements OnInit {
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
       }
     });
+  }
+
+
+  //******************************************** View Reservations Job Category Wise ********************************************************
+
+  selectJob(category){
+
+    console.log(category)
+
+    const url = "http://localhost:3000/reservations/getReservations"; 
+
+    this.http.get<any>(url + "/" + category).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
+      } else {
+        this.TABLE_DATA = res.data;   //add response data in to data array
+          console.log(this.TABLE_DATA);
+          this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
+      }
+    });
+    
+
   }
 
 }
