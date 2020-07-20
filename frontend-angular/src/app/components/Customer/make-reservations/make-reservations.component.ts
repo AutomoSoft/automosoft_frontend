@@ -71,16 +71,20 @@ export class MakeReservationsComponent implements OnInit {
       // let date=Date();
       const formData = new FormData();
           //append the data to the form
-          formData.append('custID',  this.cookie.userid)
-          formData.append('daterequested', this.reservationForm.value.daterequested)
-          formData.append('time', this.pickedTime)
-          formData.append('repairtype', this.reservationForm.value.repairtype)
-          formData.append('problembrief', this.reservationForm.value.problembrief)
-          formData.append('status', "pending")
+          formData.append("custID",  this.cookie.userid);
+          formData.append("daterequested", this.reservationForm.value.daterequested);
+          formData.append("time", this.pickedTime);
+          formData.append("repairtype", this.reservationForm.value.repairtype);
+          formData.append("problembrief", this.reservationForm.value.problembrief);
+          formData.append("status", "pending");
           // formData.append('addedon', date)
-  
-  
-          console.log(formData);
+
+          console.log(this.reservationForm.value.daterequested); // Successfully appends to formData
+          console.log("formdata from frontend");
+          console.log(JSON.stringify(formData));
+          formData.forEach((value,key) => {
+      console.log(key+" "+value)
+    });
       var url = "http://localhost:3000/reservations/makeReservation";
   
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {

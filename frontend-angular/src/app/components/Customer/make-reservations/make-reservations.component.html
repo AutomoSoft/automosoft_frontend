@@ -34,7 +34,7 @@
                         <!-- {{jobCardForm.value | json}} -->
                         <mat-form-field appearance="outline">
                             <mat-label>Choose a date</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="daterequested">
+                            <input matInput [matDatepicker]="picker" formControlName="daterequested" name ="daterequested">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
@@ -45,7 +45,7 @@
 
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select Repair Type:</mat-label> -->
-                            <mat-select placeholder="Job Type:" formControlName="repairtype">
+                            <mat-select placeholder="Job Type:" formControlName="repairtype" name ="repairtype">
                               <mat-option value="Paint Job">Paint Job</mat-option>
                               <mat-option value="Accident Repair">Accident Repair</mat-option>
                               <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
@@ -56,7 +56,7 @@
 
                           <mat-form-field appearance="outline">
                             <mat-label>Problem in brief:</mat-label>
-                            <textarea matInput formControlName="problembrief"></textarea>
+                            <textarea matInput formControlName="problembrief" name ="problembrief"></textarea>
                           </mat-form-field>
 
                           <button mat-raised-button (click)=addReservation() type="submit" class="my-4 btn-block reg_btn ">
