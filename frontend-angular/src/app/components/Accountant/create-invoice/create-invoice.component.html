@@ -58,16 +58,16 @@
                             <input readonly matInput name="customerid" formControlName="customerid" placeholder="" [ngModel]="getData.custId" />
                             <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
-                          <div style="display:inline-flex; width: 80%;">
-                            <mat-form-field style="width:50%;" appearance="outline" >
+                          <div style="display:inline-flex; width: 80%;" >
+                            <mat-form-field *ngIf="getData" style="width:50%;" appearance="outline" >
                               <mat-label>First name</mat-label>
-                              <input matInput name="firstName" formControlName="firstName" placeholder="Ex-Kavini" />
+                              <input matInput name="firstName" formControlName="firstName" placeholder="Ex-Kavini" [(ngModel)]="getData.firstName"/>
                               <mat-icon matSuffix>person</mat-icon>
                             </mat-form-field>
 
-                            <mat-form-field style="width: 50%;margin-left: 2px;" appearance ="outline" >
+                            <mat-form-field *ngIf="getData"style="width: 50%;margin-left: 2px;" appearance ="outline" >
                               <mat-label>Last name</mat-label>
-                              <input matInput name="lastName" formControlName="lastName" placeholder="Ex-Nanayakkara" />
+                              <input matInput name="lastName" formControlName="lastName" placeholder="Ex-Nanayakkara"[(ngModel)]="getData.lastName" />
                               <mat-icon matSuffix>person</mat-icon>
                             </mat-form-field>
                           </div>

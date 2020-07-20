@@ -4,30 +4,30 @@
         <app-main></app-main>
       </mat-sidenav>
       <mat-sidenav-content>
-  
+
         <div class="row">
           <div class="container-fluid">
             <div class="row">
               <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
-  
+
                 <br />
                 <div class="test">
                   <h2 class="topic">MAKE A RESERVAION</h2>
                 </div>
                 <mat-divider></mat-divider>
                 <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
-  
+
                   <mat-tab-group class="p-5 reg-frm">
-  
+
                     <!-- ***************************************************NEW RESERVATION************************************************************************** -->
                     <mat-tab label="MAKE YOUR RESERVATION HERE">
                       <form [formGroup]="reservationForm">
-  
+
                         <mat-card>
                           <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
-  
+
                           <div class="form-row mb-4">
-  
+
                           </div>
                         </mat-card>
                         <br>
@@ -38,10 +38,11 @@
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
-                          
-                          <div class ="timepickerdiv">
+
+
+                         <!--<div class ="timepickerdiv">
                             <material-timepicker color="primary" label="Choose a time" appearance="outline" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>
-                          </div>
+                          </div>-->
 
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select Repair Type:</mat-label> -->
@@ -62,25 +63,25 @@
                           <button mat-raised-button (click)=addReservation() type="submit" class="my-4 btn-block reg_btn ">
                             Request
                           </button>
-  
+
                           <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  ">
                             Cancel
                           </button>
 
                       </form>
                     </mat-tab>
-  
-  
+
+
                   </mat-tab-group>
-  
+
                 </div>
-  
+
               </div>
             </div>
           </div>
-  
+
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
-  
+
