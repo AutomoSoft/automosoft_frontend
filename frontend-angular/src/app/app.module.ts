@@ -91,6 +91,7 @@ import { ItemDetailsComponent } from './components/StoreKeeper/stock-status/item
 import { ViewTechnicianJobComponent } from './components/Foreman/view-technicians/view-technician-job/view-technician-job.component';
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
+import { StockWithdrawalPopupComponent } from './components/Foreman/stock-withdrawal-popup/stock-withdrawal-popup.component';
 
 
 
@@ -142,6 +143,7 @@ import { ApproveReservationsComponent } from './components/Foreman/approve-reser
     ViewTechnicianJobComponent,
     ReservationsComponent,
     ApproveReservationsComponent,
+    StockWithdrawalPopupComponent,
 
   ],
   imports: [
@@ -199,7 +201,8 @@ import { ApproveReservationsComponent } from './components/Foreman/approve-reser
     AddNewVehicleComponent,
     AddItemPopupComponent,
     ItemDetailsComponent,
-    ViewTechnicianJobComponent
+    ViewTechnicianJobComponent,
+    StockWithdrawalPopupComponent
   ],
 })
 export class AppModule { }

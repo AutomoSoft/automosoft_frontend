@@ -157,7 +157,7 @@ addItem() {
     this.items.push({ itemId: newItemId, qty: newQty });
   }
   console.log(this.items);
-}
+}  
 
 removeItem() {
   const newItemId = this.withdrawalForm.value.item.itemid;

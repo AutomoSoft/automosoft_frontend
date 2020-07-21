@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MycookiesService } from '../../../Admin/mycookies.service';
 import { SelectJobStatusComponent } from '../select-job-status/select-job-status.component';
+import { StockWithdrawalPopupComponent } from '../../stock-withdrawal-popup/stock-withdrawal-popup.component';
 
 @Component({
   selector: 'app-view-job',
@@ -47,9 +48,15 @@ export class ViewJobComponent implements OnInit {
     this.dialog.open(SelectJobStatusComponent, dialogConfig);
   }
 
-  withdrawStock(){
-    this.dialogRef.close();
-    this.router.navigate(['/withdrawStock']);
+  withdrawStock(status){
+        // console.log(status);
+        this.dialogRef.close(status);
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+          job: status,
+        };
+
+        this.dialog.open(StockWithdrawalPopupComponent, dialogConfig);
   }
 
 }
