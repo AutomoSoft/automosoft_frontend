@@ -182,7 +182,7 @@ import { ApproveReservationsComponent } from './components/Foreman/approve-reser
     MatSortModule,
     MatRadioModule,
     MaterialTimePickerModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
     //PopupModule.forRoot(),
     //ViewChild
 
