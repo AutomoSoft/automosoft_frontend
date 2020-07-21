@@ -40,11 +40,11 @@ export class StockWithdrawalPopupComponent implements OnInit {
    }
 
    withdrawalForm = this.fb.group({
-    foremanid: ["", Validators.required],
+    foremanid: [""],
     collectedby: ["", Validators.required],
-    job: ["", Validators.required],
-    customerid:["",Validators.required],
-    vehicleNo:["",Validators.required],
+    job: [""],
+    customerid:[""],
+    vehicleNo:[""],
     itemtype: ["", Validators.required],
     item: ["", Validators.required],
     qty: ["", Validators.required],
@@ -53,7 +53,7 @@ export class StockWithdrawalPopupComponent implements OnInit {
 
    selectItemType(category){
 
-    console.log(category)
+    // console.log(category)
     const url = "http://localhost:3000/items/categorizeItems";
 
     this.http.get<any>(url + "/" + category).subscribe(res => {
@@ -70,6 +70,7 @@ export class StockWithdrawalPopupComponent implements OnInit {
 
   addItem() {
     const newItemId = this.withdrawalForm.value.item;
+    const newItemType = this.withdrawalForm.value.itemtype;
     const newQty = this.withdrawalForm.value.qty;
     let notFound = true;
     this.items = this.items.map((itemObject) => {
@@ -82,9 +83,9 @@ export class StockWithdrawalPopupComponent implements OnInit {
       return itemObject;
     });
     if (notFound) {
-      this.items.push({ itemId: newItemId, qty: newQty });
+      this.items.push({ itemId: newItemId,itemtype: newItemType, qty: newQty });
     }
-    console.log(this.items);
+    // console.log(this.items);
   }
 
   removeItem() {
@@ -109,8 +110,70 @@ export class StockWithdrawalPopupComponent implements OnInit {
     if (shouldRemove) {
       this.items.splice(itemIndex, 1);
     }
-    console.log(this.items);
+    // console.log(this.items);
   }
+
+
+  save() {
+
+    if (this.withdrawalForm.invalid) {
+      let config = new MatSnackBarConfig();
+      this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
+      return;
+    }else {
+      let date=Date();
+
+      const form = {
+        jobNo: this.job.jobNo,
+        customerid: this.job.custId,
+        vehicle: JSON.parse(this.job.vehicle).vehicleRegNo,
+        foremanid: this.cookie.userid,
+        collectedby: this.withdrawalForm.value.collectedby,
+        items: this.items,
+        date: date,
+      };
+
+      //  console.log(form);
+
+     var url = "http://localhost:3000/items/withdrawStock";
+
+
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        data: {
+          message: "Are you sure want to withraw Stock?",
+          buttonText: {
+            ok: "Yes",
+            cancel: "No"
+          }
+        }
+      });
+     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+        if (confirmed) {
+          this.http.post<any>(url, form).subscribe(res => {
+            if (res.state) {
+              let config = new MatSnackBarConfig();
+              const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+              snackBarRef.afterDismissed().subscribe(() => {
+                window.location.reload();
+              });
+            } else {
+              console.log(res.msg);
+              alert("Error!! Try Again");
+              //this.router.navigate([this.cookie.userid,'ongoingJobs']);
+            }
+          });
+        }
+      });
+
+      }
+
+
+    }
+
+    cancel(){
+      this.dialogRef.close();
+    }
 
   ngOnInit() {
   }
