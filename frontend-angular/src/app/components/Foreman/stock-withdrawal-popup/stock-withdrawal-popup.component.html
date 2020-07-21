@@ -5,7 +5,9 @@
     <mat-divider></mat-divider>
 
 
+    <mat-card class="section">
           <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+
 
           <form [formGroup]="withdrawalForm">
 
@@ -55,14 +57,14 @@
                 <input matInput name="qty" formControlName="qty" placeholder="Qty" />
               </mat-form-field>
 
-              <button mat-button type="submit" class="reg_btn" (click)="addItem()">
-                Add
+              <button mat-button type="submit" class="add_btn" (click)="addItem()">
+                <mat-icon>add</mat-icon>
               </button>
 
             </div>
-            {{withdrawalForm.value|json}}
+            <!-- {{withdrawalForm.value|json}} -->
           </form>
-
+    </mat-card>
 
     <mat-divider></mat-divider><br>
     <div class="container">
@@ -80,9 +82,13 @@
           </thead>
           <tbody>
             <tr *ngFor="let k of items">
-              <td>{{k[0]}}</td>
-              <td>{{k[0]}}</td>
-              <td>{{k[0]}}</td>
+              <td>{{k.itemId}}</td>
+              <td>{{k.qty}}</td>
+              <td>
+                <button mat-icon-button type="submit" class="btn_1" (click)="removeItem()">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>

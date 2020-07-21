@@ -18,7 +18,8 @@ export class StockWithdrawalPopupComponent implements OnInit {
 
   job: any;
   cookie;
-  allItems = [];
+  allItems = [];      //items in a selected category
+  items = [];         //items added to the job
 
   constructor(
     public dialogRef: MatDialogRef<StockWithdrawalPopupComponent>,
@@ -34,8 +35,8 @@ export class StockWithdrawalPopupComponent implements OnInit {
 
     this.job = data.job;
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
-     console.log(this.job);
-     console.log(this.cookie);
+    // console.log(this.job);
+     //console.log(this.cookie);
    }
 
    withdrawalForm = this.fb.group({
@@ -62,51 +63,53 @@ export class StockWithdrawalPopupComponent implements OnInit {
         this.snackBar.open('Error Try Again !!! ', 'Retry', config);
       } else {
         this.allItems = res.data;
-        console.log(this.allItems)
+        // console.log(this.allItems)
       }
     });
   }
 
   addItem() {
-    // const newQty = this.withdrawalForm.value.qty;
-    // let notFound = true;
-    // this.items = this.items.map((itemObject) => {
-    //   const itemId = itemObject.itemId;
-    //   const qty = itemObject.qty;
-    //   if (itemId === newItemId) {
-    //     notFound = false;
-    //     itemObject.qty = parseInt(qty, 10) + parseInt(newQty, 10);
-    //   }
-    //   return itemObject;
-    // });
-    // if (notFound) {
-    //   this.items.push({ itemId: newItemId, qty: newQty });
-    // }
-    // console.log(this.items);
+    const newItemId = this.withdrawalForm.value.item;
+    const newQty = this.withdrawalForm.value.qty;
+    let notFound = true;
+    this.items = this.items.map((itemObject) => {
+      const itemId = itemObject.itemId;
+      const qty = itemObject.qty;
+      if (itemId === newItemId) {
+        notFound = false;
+        itemObject.qty = parseInt(qty, 10) + parseInt(newQty, 10);
+      }
+      return itemObject;
+    });
+    if (notFound) {
+      this.items.push({ itemId: newItemId, qty: newQty });
+    }
+    console.log(this.items);
   }
 
   removeItem() {
-    // const newItemId = this.withdrawalForm.value.item.itemid;
-    // const newQty = this.withdrawalForm.value.qty;
-    // let itemIndex = -1;
-    // let shouldRemove = false;
-    // this.items = this.items.map((itemObject, index) => {
-    //   const itemId = itemObject.itemId;
-    //   const qty = itemObject.qty;
-    //   if (itemId === newItemId) {
-    //     itemIndex = index;
-    //     if (qty <= newQty) {
-    //       shouldRemove = true;
-    //     } else {
-    //       itemObject.qty = parseInt(qty, 10) - parseInt(newQty, 10);
-    //     }
-    //   }
-    //   return itemObject;
-    // });
+    const newItemId = this.withdrawalForm.value.item;
+    const newQty = this.withdrawalForm.value.qty;
+    let itemIndex = -1;
+    let shouldRemove = false;
+    this.items = this.items.map((itemObject, index) => {
+      const itemId = itemObject.itemId;
+      const qty = itemObject.qty;
+      if (itemId === newItemId) {
+        itemIndex = index;
+        if (qty <= newQty) {
+          shouldRemove = true;
+        } else {
+          itemObject.qty = parseInt(qty, 10) - parseInt(newQty, 10);
+        }
+      }
+      return itemObject;
+    });
 
-    // if (shouldRemove) {
-    //   this.items.splice(itemIndex, 1);
-    // }
+    if (shouldRemove) {
+      this.items.splice(itemIndex, 1);
+    }
+    console.log(this.items);
   }
 
   ngOnInit() {

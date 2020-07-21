@@ -84,3 +84,20 @@ table {
 .section-inline {
   display: inline-block;
 }
+
+.btn_1 {
+  color: aliceblue;
+  background-color: rgb(221, 81, 112);
+  border-color: rgb(221, 81, 112);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add_btn {
+  color: aliceblue;
+  background-color: rgb(68, 216, 154);
+  border-color: rgb(68, 216, 154);
+  border-radius: 50px;
+  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+}
