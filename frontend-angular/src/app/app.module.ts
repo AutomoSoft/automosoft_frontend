@@ -13,7 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 //material
 import {

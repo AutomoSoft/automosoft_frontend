@@ -234,7 +234,7 @@ ItemDetails (element) {
     const dialogRef = this.dialog.open(StockReportComponent, {
       width: '640px',
       data: this.dataSource
-    });
+    });  
   }
 
   requestItem() {
