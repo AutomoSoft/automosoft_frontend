@@ -69,9 +69,12 @@ export class StockWithdrawalPopupComponent implements OnInit {
   }
 
   addItem() {
-    const newItemId = this.withdrawalForm.value.item;
+    const newItemId = this.withdrawalForm.value.item.itemid;
     const newItemType = this.withdrawalForm.value.itemtype;
     const newQty = this.withdrawalForm.value.qty;
+    const newcharge = this.withdrawalForm.value.item.selling*this.withdrawalForm.value.qty;
+
+
     let notFound = true;
     this.items = this.items.map((itemObject) => {
       const itemId = itemObject.itemId;
@@ -83,13 +86,13 @@ export class StockWithdrawalPopupComponent implements OnInit {
       return itemObject;
     });
     if (notFound) {
-      this.items.push({ itemId: newItemId,itemtype: newItemType, qty: newQty });
+      this.items.push({ itemId: newItemId,itemtype: newItemType, qty: newQty, charge: newcharge });
     }
     // console.log(this.items);
   }
 
   removeItem() {
-    const newItemId = this.withdrawalForm.value.item;
+    const newItemId = this.withdrawalForm.value.item.itemid;
     const newQty = this.withdrawalForm.value.qty;
     let itemIndex = -1;
     let shouldRemove = false;
@@ -135,7 +138,8 @@ export class StockWithdrawalPopupComponent implements OnInit {
 
       //  console.log(form);
 
-     var url = "http://localhost:3000/items/withdrawStock";
+     var url1 = "http://localhost:3000/items/withdrawStock";  //withdraw stock from store
+     var url2 = "http://localhost:3000/jobs/addJobItems";     //add used items for a particular job
 
 
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -150,13 +154,24 @@ export class StockWithdrawalPopupComponent implements OnInit {
      dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 
         if (confirmed) {
-          this.http.post<any>(url, form).subscribe(res => {
+          this.http.post<any>(url1, form).subscribe(res => {
             if (res.state) {
-              let config = new MatSnackBarConfig();
-              const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
-              snackBarRef.afterDismissed().subscribe(() => {
-                window.location.reload();
+
+              this.http.post<any>(url2, form).subscribe(res => {
+                if (res.state) {
+                  let config = new MatSnackBarConfig();
+                  const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+                  snackBarRef.afterDismissed().subscribe(() => {
+                    window.location.reload();
+                  });
+
+                } else {
+                  console.log(res.msg);
+                  alert("Error!! Try Again");
+                  //this.router.navigate([this.cookie.userid,'ongoingJobs']);
+                }
               });
+
             } else {
               console.log(res.msg);
               alert("Error!! Try Again");

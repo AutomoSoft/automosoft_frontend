@@ -88,15 +88,16 @@
           <thead>
             <tr>
               <th>ITEM ID</th>
+              <!-- <th>ITEM NAME</th> -->
               <th>QUANTITY</th>
               <th>CHARGES</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let k of items">
-              <td>{{k[0]}}</td>
-              <td>{{k[0]}}</td>
-              <td>{{k[0]}}</td>
+              <td>{{k.itemId}}</td>
+              <td>{{k.qty}}</td>
+              <td>{{k.charge}}</td>
             </tr>
           </tbody>
         </table>

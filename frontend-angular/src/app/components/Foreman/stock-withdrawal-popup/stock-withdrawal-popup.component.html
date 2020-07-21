@@ -47,7 +47,7 @@
               <mat-form-field class="no-padding" style="width: 25%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                 <mat-label>Item ID</mat-label>
                 <mat-select name="item" formControlName="item" placeholder="">
-                  <mat-option *ngFor="let item of allItems" [value]="item.itemid">{{item.itemid}} | {{item.itemname}} | Stock: {{item.storequantity}}</mat-option>
+                  <mat-option *ngFor="let item of allItems" [value]="item">{{item.itemid}} | {{item.itemname}} | Stock: {{item.storequantity}}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix></mat-icon>
               </mat-form-field>
@@ -77,6 +77,7 @@
             <tr>
               <th>ITEM ID</th>
               <th>QUANTITY</th>
+              <th>CHARGES</th>
               <th>ACTION</th>
             </tr>
           </thead>
@@ -84,6 +85,7 @@
             <tr *ngFor="let k of items">
               <td>{{k.itemId}}</td>
               <td>{{k.qty}}</td>
+              <td>{{k.charge}}</td>
               <td>
                 <button mat-icon-button type="submit" class="btn_1" (click)="removeItem()">
                   <mat-icon>clear</mat-icon>
