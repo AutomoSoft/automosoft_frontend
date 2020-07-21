@@ -1,0 +1,110 @@
+<div class="mat-dialog-header">
+
+  <h1 mat-dialog-title>GET STOCK</h1>
+  <mat-dialog-content class="mat-typography">
+    <mat-divider></mat-divider>
+
+
+    <mat-card class="section">
+          <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+
+
+          <form [formGroup]="withdrawalForm">
+
+            <div style=" width:100%; display: inline-table;margin-right: 4px;margin-left: 4px;">
+
+              <mat-form-field style="width:25%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                <mat-label>Job Number</mat-label>
+                <input readonly matInput name="job" formControlName="job" value="{{job.jobNo}}"  />
+              </mat-form-field>
+
+              <mat-form-field class="no-padding" style="width:25%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                <mat-label>Foreman ID</mat-label>
+                <input readonly matInput name="foremanid" formControlName="foremanid" value="{{cookie.userid}}" />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field class="no-padding" style="width:25%" appearance="outline">
+                <mat-label>Collected by</mat-label>
+                <input matInput name="collectedby" formControlName="collectedby" placeholder="Technician's ID" />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+            </div>
+
+            <div style=" width:100%; display: inline-table;margin-right: 4px;margin-left: 4px;">
+
+              <mat-form-field class="no-padding" style="width: 25%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                <mat-select placeholder="Item Type" (selectionChange)="selectItemType($event.value)"  formControlName="itemtype">
+                  <mat-option value="Paints">Paints</mat-option>
+                  <mat-option value="Tools">Tools</mat-option>
+                  <mat-option value="Spare Parts">Spare Parts</mat-option>
+                  <mat-option value="Tyres">Tyres</mat-option>
+                  <mat-option value="Electric Parts">Electric Parts</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="no-padding" style="width: 25%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                <mat-label>Item ID</mat-label>
+                <mat-select name="item" formControlName="item" placeholder="">
+                  <mat-option *ngFor="let item of allItems" [value]="item">{{item.itemid}} | {{item.itemname}} | Stock: {{item.storequantity}}</mat-option>
+                </mat-select>
+                <mat-icon matSuffix></mat-icon>
+              </mat-form-field>
+
+              <mat-form-field class="no-padding" style="width: 25%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                <mat-label> Qty </mat-label>
+                <input matInput name="qty" formControlName="qty" placeholder="Qty" />
+              </mat-form-field>
+
+              <button mat-button type="submit" class="add_btn" (click)="addItem()">
+                <mat-icon>add</mat-icon>
+              </button>
+
+            </div>
+            <!-- {{withdrawalForm.value|json}} -->
+          </form>
+    </mat-card>
+
+    <mat-divider></mat-divider><br>
+    <div class="container">
+
+
+      <mat-card class="section">
+        <mat-card-title>ITEMS USED :</mat-card-title>
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>ITEM ID</th>
+              <th>QUANTITY</th>
+              <th>CHARGES</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let k of items">
+              <td>{{k.itemId}}</td>
+              <td>{{k.qty}}</td>
+              <td>{{k.charge}}</td>
+              <td>
+                <button mat-icon-button type="submit" class="btn_1" (click)="removeItem()">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card>
+      <br><br>
+    </div>
+    <div class="button-container">
+      <button mat-button type="submit" class="reg_btn" (click)="save()">
+        Save
+      </button>
+      <button mat-button type="submit" class="btn_1" (click)="cancel()">
+        Cancel
+      </button>
+ </div>
+  </mat-dialog-content>
+
+</div>

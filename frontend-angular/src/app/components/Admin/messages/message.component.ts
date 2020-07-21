@@ -106,7 +106,7 @@ export class MessageComponent implements OnInit {
         message: element.content,
         subject:element.subject,
         email:element.email
-    };
+    }; 
 
         this.dialog.open(EmailPopupComponent, dialogConfig);
   }

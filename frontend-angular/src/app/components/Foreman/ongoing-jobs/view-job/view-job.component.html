@@ -11,7 +11,7 @@
         <p class="compact" style="font-size: xx-small; color: darkgray;">JOB NUMBER</p>
         <h1 class="compact">{{job.jobNo}}</h1>
         <br>
-        <button mat-raised-button type="submit" class="my-4 btn-block btn_1 " (click)="withdrawStock()">Get Stock</button>
+        <button mat-raised-button type="submit" class="my-4 btn-block btn_1 " (click)="withdrawStock(job)">Get Stock</button>
         <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">Notify</button>
       </div>
     </div>
@@ -88,15 +88,16 @@
           <thead>
             <tr>
               <th>ITEM ID</th>
+              <!-- <th>ITEM NAME</th> -->
               <th>QUANTITY</th>
               <th>CHARGES</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let k of items">
-              <td>{{k[0]}}</td>
-              <td>{{k[0]}}</td>
-              <td>{{k[0]}}</td>
+              <td>{{k.itemId}}</td>
+              <td>{{k.qty}}</td>
+              <td>{{k.charge}}</td>
             </tr>
           </tbody>
         </table>

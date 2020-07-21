@@ -22,6 +22,7 @@ export class StockReportComponent implements OnInit {
 
   [x: string]: any;
   reportData: String;
+  currentdate = Date();    //report generation date/time
 
   jsPDF: any;
 
@@ -38,7 +39,7 @@ export class StockReportComponent implements OnInit {
   ) {
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
     this.reportData = data.data;
-    console.log(this.reportData)
+    // console.log(this.reportData)
    }
 
    htmlToPdf() {
@@ -56,7 +57,7 @@ export class StockReportComponent implements OnInit {
       let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save('MYPdf.pdf'); // Generated PDF
+      pdf.save('Report.pdf'); // Generated PDF
     });
 }
 
