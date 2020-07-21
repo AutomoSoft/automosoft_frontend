@@ -58,6 +58,8 @@ export class MakeReservationsComponent implements OnInit {
     daterequested: ["", Validators.required],
     repairtype: ["", Validators.required],
     problembrief: ["", Validators.required],
+    //time: ["", Validators.required]
+
   });
 
   addReservation() {
@@ -67,7 +69,7 @@ export class MakeReservationsComponent implements OnInit {
       custID: this.cookie.userid,
       daterequested: this.reservationForm.value.daterequested,
       repairtype: this.reservationForm.value.repairtype,
-      //time: this.pickedTime,
+      //time: this.reservationForm.value.time,
       problembrief:this.reservationForm.value.problembrief,
       status:"pending"
     };
