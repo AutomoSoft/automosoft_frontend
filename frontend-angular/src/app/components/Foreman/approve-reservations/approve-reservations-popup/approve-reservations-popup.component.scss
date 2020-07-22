@@ -1,0 +1,122 @@
+// ----------------finished----------------------
+
+.mat-dialog-header {
+    text-align: center;
+    width: 800px;
+  
+  }
+  
+  .job-detail-container {
+    display: inline-block;
+    position: relative;
+    top: -32px;
+    left: 24px;
+  }
+  
+  table {
+    width: 100%;
+    background-color: #ddddec;
+  }
+  
+  .tec_btn {
+    color: aliceblue;
+    background-color: rgb(68, 216, 154);
+    border-color: rgb(68, 216, 154);
+    border-radius: 50px;
+    // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  }
+  
+  .compact {
+    margin: 0 !important;
+  }
+  
+  .btn_1 {
+    color: aliceblue;
+    background-color: rgb(73, 71, 72);
+    border-color: rgb(73, 71, 72);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .reg_btn {
+    color: aliceblue;
+    background-color: rgb(0, 140, 255);
+    border-color: rgb(0, 140, 255);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    // box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #c76b15!important;
+    // opacity: 1!important;
+  }
+  
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color:#c76b15!important;
+  }
+  
+  // ::ng-deep .mat-card {
+  //   height: 60px;
+  //   text-align: center;
+  //   width: 150px;
+  // }
+  
+  .del_btn {
+    color: aliceblue;
+    background-color: rgb(221, 81, 112);
+    border-color: rgb(221, 81, 112);
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .header {
+    padding: 2rem 1rem 2rem 1rem;
+  }
+  
+  .avatar-container {
+    display: inline-block;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 196px;
+    height: 196px;
+    background-color: #efefef;
+    padding-left: 0px;
+  }
+  
+  .avatar-container img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .section {
+    margin-top: 2rem;
+  }
+  
+  .section-inline {
+    display: inline-block;
+  }
+
+  .card-title{
+    font-size: 14px;
+    font-weight: 500;
+    
+  }
+
+  .rep_btn {
+    color: aliceblue;
+    background-color: teal;
+    border-color: teal;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  

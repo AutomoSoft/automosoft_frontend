@@ -39,6 +39,8 @@ import { CreateInvoiceComponent } from './components/Accountant/create-invoice/c
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
+import {ApproveReservationsPopupComponent} from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
 
@@ -90,6 +92,7 @@ const routes: Routes = [
   { path: "withdrawStock", component: WithdrawStockComponent },
   { path: "viewTechnicians", component: ViewTechniciansComponent },
   { path: "approveReservations", component: ApproveReservationsComponent },
+  { path: "approveReservationsPopup", component: ApproveReservationsPopupComponent },
 
   /****************************************** Accountant Routes ******************************************** */
   { path: "createInvoice", component: CreateInvoiceComponent },

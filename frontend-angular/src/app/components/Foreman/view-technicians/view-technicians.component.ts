@@ -89,6 +89,25 @@ export class ViewTechniciansComponent implements OnInit {
 }
 
   ngOnInit() {
+  const url = "http://localhost:3000/technician/getTechniciansCat";
+
+  this.http.get<any>(url + "/" + "all").subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error loading data!", true ? "Retry" : undefined, config);
+    } else {
+      //  this.flag2 = true;
+      // //console.log(res.data);
+      // this.techExpertise = res.data;
+
+      this.TABLE_DATA = res.data;   //add response data in to data array
+      //this.propicName = res.data.filepath;
+      console.log(this.TABLE_DATA);
+      this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+
+    }
+  });
   }
 
 
