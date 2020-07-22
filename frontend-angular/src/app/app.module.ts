@@ -92,6 +92,7 @@ import { ViewTechnicianJobComponent } from './components/Foreman/view-technician
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
 import { StockWithdrawalPopupComponent } from './components/Foreman/stock-withdrawal-popup/stock-withdrawal-popup.component';
+import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
 
 
 
@@ -144,6 +145,7 @@ import { StockWithdrawalPopupComponent } from './components/Foreman/stock-withdr
     ReservationsComponent,
     ApproveReservationsComponent,
     StockWithdrawalPopupComponent,
+    ApproveReservationsPopupComponent,
 
   ],
   imports: [

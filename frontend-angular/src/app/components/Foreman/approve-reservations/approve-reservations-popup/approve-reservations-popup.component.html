@@ -1,0 +1,101 @@
+<div class="mat-dialog-header" mat-ripple>
+    <h1 mat-dialog-title>VIEW RESERVATON REQUEST DETAILS</h1>
+    <mat-dialog-content class="mat-typography">
+    <mat-divider></mat-divider>
+    <div class="container">
+
+        <mat-grid-list cols="3" rowHeight="2:1">
+          <mat-grid-tile>
+            <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
+              <mat-card-title class="card-title">REPAIR TYPE:</mat-card-title>
+              <mat-card-content>
+                <p>
+                    {{reservation_data.repairtype}}
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
+              <mat-card-title class="card-title">REQUESTED DATE:</mat-card-title>
+              <mat-card-content>
+                <p>
+                  {{reservation_data.daterequested}}
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
+              <mat-card-title class="card-title" >REQUESTED TIME:</mat-card-title>
+              <mat-card-content>
+                <p>
+                  {{reservation_data.time}}
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+  
+        </mat-grid-list>
+  
+        <br />
+        <mat-divider></mat-divider>
+      </div>
+
+    <form [formGroup]="reservationDataForm">
+        <br>
+    
+        <div class="container">
+    
+            <!-- <mat-form-field appearance="outline">
+                  <mat-label>Customer ID</mat-label>
+                  <input matInput class="form-control box_border" formControlName="customerid" [(ngModel)]="customer.custID">
+                </mat-form-field> -->
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Customer First Name:</mat-label>
+                    <input matInput class="form-control box_border" formControlName="fname"
+                        [(ngModel)]="customer.firstname">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Customer Last Name:</mat-label>
+                    <input matInput placeholder="LKR" formControlName="lname" [(ngModel)]="customer.lastname">
+                </mat-form-field>
+            </div>
+            <div class="row">
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput placeholder="LKR" formControlName="contact" [(ngModel)]="customer.contactnumber">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Email:</mat-label>
+                    <input matInput formControlName="email" [(ngModel)]="customer.email">
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Problem Description:</mat-label>
+                <textarea matInput formControlName="probdef" [(ngModel)]="reservation_data.problembrief"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Posted Date:</mat-label>
+                <input matInput formControlName="postedon" [(ngModel)]="reservation_data.dateposted">
+            </mat-form-field>
+            <div class="row">
+                <button mat-raised-button type="submit" class="my-4 btn-block del_btn">BACK</button>
+                <button mat-raised-button type="submit" (click)="viewReservation(element)" class="rep_btn"
+                    color="primary">CONFIRM</button>
+            </div>
+            <br>
+            <mat-divider></mat-divider>
+        </div>
+    
+    
+    </form>
+      
+    </mat-dialog-content>
+</div>
+            

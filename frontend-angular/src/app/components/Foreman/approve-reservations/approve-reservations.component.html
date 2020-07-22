@@ -44,11 +44,6 @@
                         <div >
                           <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource">
 
-                            <!-- User ID Column -->
-                            <ng-container matColumnDef="customerid">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CUSTOMER ID </th>
-                              <td mat-cell *matCellDef="let element"> {{element.custID}} </td>
-                            </ng-container>
 
                             <!-- User Type Column -->
                             <ng-container matColumnDef="repairtype">
@@ -84,7 +79,7 @@
                               <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
                               <td mat-cell *matCellDef="let element" >
                                    <!-- <button mat-raised-button   type="submit" class="my-4 btn-block reg_btn"  >ACCEPT</button> -->
-                                   <button mat-raised-button type="submit" class="rep_btn" color="primary">ACCEPT</button>
+                                   <button mat-raised-button type="submit" (click)="viewReservation(element)" class="rep_btn" color="primary">ACCEPT</button>
                               </td>
                             </ng-container>
 
