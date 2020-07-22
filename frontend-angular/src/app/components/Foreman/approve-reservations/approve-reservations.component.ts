@@ -7,6 +7,7 @@ import { FormBuilder } from '@angular/forms';
 
 interface reservation{
     custID: String;
+    dateposted:String;
     daterequested:String;
     time: String;
     repairtype: String;
@@ -16,7 +17,8 @@ interface reservation{
 
 //table data
 export interface PeriodicElement {
-  custID: String;
+    custID: String;
+    dateposted: String;
     daterequested:String;
     time: String;
     repairtype: String;
@@ -30,7 +32,7 @@ export interface PeriodicElement {
 })
 export class ApproveReservationsComponent implements OnInit {
 
-  displayedColumns: string[] = ['customerid', 'repairtype', 'daterequested','time','problembrief','action']; // Table Columns will displayed according to this order
+  displayedColumns: string[] = ['customerid', 'repairtype', 'daterequested','time','problembrief', 'action']; // Table Columns will displayed according to this order
   cookie;
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;

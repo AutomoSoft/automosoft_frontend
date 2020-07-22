@@ -62,10 +62,11 @@ export class MakeReservationsComponent implements OnInit {
   });
 
   addReservation() {
-    //let date=Date();
+    let date=Date();
     const reserveTime = {
       usertype : "Customer",
       custID: this.cookie.userid,
+      dateposted:date,
       daterequested: this.reservationForm.value.daterequested,
       repairtype: this.reservationForm.value.repairtype,
       time: this.reservationForm.value.time,
