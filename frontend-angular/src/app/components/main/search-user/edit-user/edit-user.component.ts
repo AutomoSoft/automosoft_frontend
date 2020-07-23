@@ -58,7 +58,7 @@ export class EditUserComponent implements OnInit {
       gender: [""],
       nicnumber: ["", Validators.required],
       address: ["", Validators.required],
-      contactNo: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
+      contactNo: ["", Validators.required],
       email: ["", [Validators.email]],
       addedon: [""],
       lastmodifiedon: [""],

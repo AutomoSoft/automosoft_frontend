@@ -59,6 +59,8 @@ export class MakeReservationsComponent implements OnInit {
     time: ["", Validators.required],
     repairtype: ["", Validators.required],
     problembrief: ["", Validators.required],
+    //time: ["", Validators.required]
+
   });
 
   addReservation() {
@@ -111,5 +113,5 @@ export class MakeReservationsComponent implements OnInit {
 }
   }
 
- 
+
 }

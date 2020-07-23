@@ -29,7 +29,7 @@ export class ViewJobComponent implements OnInit {
     this.job = data.jobDetails;
     this.technicians = data.jobDetails.technicians;
     this.items = data.jobDetails.itemsUsed;
-    //console.log(this.technicians )
+    console.log(this.technicians )
   }
 
   ngOnInit() {
@@ -43,6 +43,7 @@ export class ViewJobComponent implements OnInit {
       jobNo: status.jobNo,
       jobStatus: status.jobStatus,
       custId: status.custId,
+      customer: status.customer
     };
 
     this.dialog.open(SelectJobStatusComponent, dialogConfig);
