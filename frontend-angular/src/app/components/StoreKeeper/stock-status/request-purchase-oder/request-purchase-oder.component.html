@@ -4,7 +4,7 @@
   <mat-divider></mat-divider>
   <div class="header">
     <div class="avatar-container">
-      <img class="avatar">
+      <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
     </div>
     <div class="item-detail-container">
       <h3 class="mat-display-1 compact">ITEM ID</h3>
@@ -19,8 +19,8 @@
       <input matInput name="quantity" formControlName="quantity">
     </mat-form-field>
     <br>
-    <button class="reg_btn" mat-raised-button color="primary">request</button>
-    <button mat-raised-button type="submit" class="my-4 btn-block del_btn ">cancel</button>
+    <button class="reg_btn" mat-raised-button color="primary" (click)="requestQuantity">request</button>
+    <button mat-raised-button type="submit" class="my-4 btn-block del_btn " (click)="reset">cancel</button>
   </mat-card>
 
 </div>

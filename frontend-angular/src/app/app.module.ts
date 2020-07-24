@@ -79,7 +79,7 @@ import { ViewTechniciansComponent } from './components/Foreman/view-technicians/
 import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
 import { ReplyEmailComponent } from './components/Admin/reply-email/reply-email.component';
 import { StockReportComponent } from './components/StoreKeeper/stock-report/stock-report.component';
-import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
+import { RequestPurchaseOderComponent } from './components/StoreKeeper/stock-status/request-purchase-oder/request-purchase-oder.component';
 import { AddItemPopupComponent } from './components/Admin/supplier-info/add-item-popup/add-item-popup.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';

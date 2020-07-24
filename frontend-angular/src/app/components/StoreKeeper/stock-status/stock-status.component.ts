@@ -15,7 +15,7 @@ import {
   Form
 } from "@angular/forms";
 import { StockReportComponent } from '../stock-report/stock-report.component';
-import { RequestPurchaseOderComponent } from '../request-purchase-oder/request-purchase-oder.component';
+import { RequestPurchaseOderComponent } from './request-purchase-oder/request-purchase-oder.component';
 
 
 interface item {
