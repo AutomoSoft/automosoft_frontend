@@ -235,7 +235,8 @@ export class SearchUserComponent implements OnInit {
         //console.log(this.userdata)
         this.propicName = res.data.filepath;
         this.custVehicles = res.data.vehicles
-        //console.log(this.userdata)
+        //console.log(this.custVehicles)
+        //console.log(this.userdata)//
         //console.log(this.propicName)
         //console.log(this.custVehicles)
       }
