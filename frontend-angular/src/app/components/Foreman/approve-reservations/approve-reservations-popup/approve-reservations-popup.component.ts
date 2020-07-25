@@ -62,6 +62,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
     private fb: FormBuilder,
     private cookies: MycookiesService,
     public snackBar: MatSnackBar,
+    private dialogRef: MatDialogRef<ApproveReservationsPopupComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any,
     //private dialogRef: MatDialogRef<ViewJobComponent>,
 
@@ -103,4 +104,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
     });
   }
 
+  onCancelClick(): void {
+    this.dialogRef.close();
+  }
 }

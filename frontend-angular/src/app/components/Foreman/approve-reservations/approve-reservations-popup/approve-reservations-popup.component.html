@@ -1,5 +1,5 @@
 <div class="mat-dialog-header" mat-ripple>
-    <h1 mat-dialog-title>VIEW RESERVATON REQUEST DETAILS</h1>
+    <h1 mat-dialog-title>ACCEPT RESERVATON REQUEST</h1>
     <mat-dialog-content class="mat-typography">
     <mat-divider></mat-divider>
     <div class="container">
@@ -85,7 +85,7 @@
                 <input matInput formControlName="postedon" [(ngModel)]="reservation_data.dateposted">
             </mat-form-field>
             <div class="row">
-                <button mat-raised-button type="submit" class="my-4 btn-block del_btn">BACK</button>
+                <button mat-raised-button type="submit" class="my-4 btn-block del_btn" (click)="onCancelClick()">BACK</button>
                 <button mat-raised-button type="submit" (click)="viewReservation(element)" class="rep_btn"
                     color="primary">CONFIRM</button>
             </div>
