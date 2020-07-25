@@ -108,7 +108,7 @@ export class OngoingJobsComponent implements OnInit {
               //console.log(dialogConfig.data)
               this.dialog.open(ViewJobComponent, dialogConfig);
 
-          }
+          }//
         });
     }
   });

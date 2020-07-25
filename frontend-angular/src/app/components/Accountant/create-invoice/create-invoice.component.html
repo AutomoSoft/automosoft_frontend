@@ -77,6 +77,7 @@
                             <input readonly matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" [ngModel]="getData.vehicle.vehicleRegNo"/>
                             <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
+
                           <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
                             <mat-label>Engine No </mat-label>
                             <input readonly matInput name="EngineNo" formControlName="engineNo" placeholder="" [ngModel]="getData.vehicle.EngineNo"/>
@@ -84,86 +85,39 @@
                           </mat-form-field>
 
                           <br>
-                          <!--Item details array-->
-                          <div formArrayName="itemDetails">
-                            <div *ngFor=" let team of withdrawalForm.get('itemDetails').controls;let teamIndex = index "
-                              [formGroupName]="teamIndex">
 
-                              <div style="display: inline-flex;width: 80%;">
-                              <mat-form-field appearance="outline" style="width:25%;margin-right: 3px;margin-left: 4px;">
-                                <mat-label>Item No::</mat-label>
-                                <input matInput name="itemNo" formControlName="itemNo"
-                                  placeholder="ex- P001" required>
-                                <mat-icon matSuffix>settings</mat-icon>
-                              </mat-form-field>
-
-                              <mat-form-field appearance="outline" style="width:24%; margin-left: 3px;margin-right: 3px;">
-                                <mat-label>Description:</mat-label>
-                                <input matInput name="description" formControlName="description" required>
-                                <mat-icon matSuffix></mat-icon>
-                              </mat-form-field>
-
-                              <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
-                                <mat-label>Quantitiy</mat-label>
-                                <input matInput name="qty" formControlName="qty" required>
-                                <mat-icon matSuffix>directions_car</mat-icon>
-                              </mat-form-field>
-                              <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
-                                <mat-label>Unit Price</mat-label>
-                                <input matInput name="price" formControlName="price" required>
-                                <mat-icon matSuffix></mat-icon>
-                              </mat-form-field>
-                            </div>
-                            </div>
-                            <div class="button-container">
-                              <button mat-button type="submit" class="btn1" (click)="addVehicle()">
-                                Add More
-                              </button>
-                            </div>
-                          </div>
-                          <br>
-
-                          <div>
-                            <!--<mat-card class="section" style="text-align: center;  border-radius: 10px;">
-
-                              <mat-card-title> VEHICLE DETAILS
-                                <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
-                                  *ngIf="cookies.userData.usertype == 'Administrator'" (click)="addNew(userdata.userid)">
-                                  <mat-icon>add</mat-icon>NEW
-                                </button>
-                              </mat-card-title>
-                              <mat-card-content>-->
-                                <div class="mat-elevation-z8"
-                                  style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
+                          <div class="mat-elevation-z8" *ngIf="getData" style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
                                   <table class="table ">
                                     <thead>
                                       <tr>
                                         <th>ITEM NO</th>
-                                        <th>DESCRIPTION</th>
+                                        <th>ITEM TYPE</th>
                                         <th>QUANTITY</th>
-                                        <th>UNIT PRICE</th>
                                         <th>TOTAL PRICE</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr *ngFor="let k of custVehicles">
-                                        <td>{{k.vehicleRegNo}}</td>
-                                        <td>{{k.chasis}}</td>
-                                        <td>{{k.EngineNo}}</td>
+                                      <tr *ngFor="let k of getData.itemsUsed">
+                                        <td>{{k.itemId}}</td>
+                                        <td>{{k.itemtype}}</td>
+                                        <td>{{k.qty}}</td>
+                                        <td>{{k.charge}}</td>
                                       </tr>
                                     </tbody>
                                   </table>
                                 </div>
-                              <!--</mat-card-content>
-                               </div>
-                            </mat-card>-->
+
+                          <br>
+
+                          <div>
+
                           </div>
                           <br>
                           <br>
 
-                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
                             <mat-label>Sub Total</mat-label>
-                            <input matInput name="subTotal" formControlName="subTotal" placeholder="Total Amount" />
+                            <input matInput name="subTotal" formControlName="subTotal" placeholder="Total Amount" [ngModel]="calculateTotal()" />
                             <mat-icon matSuffix></mat-icon>
                           </mat-form-field>
                           <mat-form-field class="no-padding" style="width:80%" appearance="outline">
@@ -171,21 +125,30 @@
                             <input matInput name="tax" formControlName="tax" placeholder="Tax" />
                             <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
+
                           <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                             <mat-label>Grand Total</mat-label>
-                            <input matInput name="grandTotal" formControlName="grandTotal" placeholder="Grand Total with taxes" />
+                            <input matInput name="grandTotal" formControlName="grandTotal" placeholder="Grand Total with taxes" [ngModel]="calculateGrandTotal()" />
                             <mat-icon matSuffix>person</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline" style="display:block; width:80%; margin: auto;">
+                            <mat-label>Special Note(If any)</mat-label>
+                            <textarea matInput rows="4" name="note" formControlName="note"
+                              placeholder="Leave your note">
+                            </textarea>
+                            <mat-icon matSuffix>insert_comment</mat-icon>
                           </mat-form-field>
 
                           <mat-form-field class="no-padding" style="width:80%" appearance="outline">
                             <mat-label>Created By</mat-label>
-                            <input matInput name="foremanid" formControlName="foremanid" placeholder="" [ngModel]="userid"/>
+                            <input matInput name="foremanid" formControlName="createdBy" placeholder="" [ngModel]="userid"/>
                             <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
 
                           <div class="button-container">
                             <!-- {{customerForm.value| json}} -->
-                            <button mat-button type="submit" class="reg_btn" (click)="save()">
+                            <button mat-button type="submit" class="reg_btn" (click)="createInvoice()">
                               CREATE
                             </button>
                             <button mat-button type="submit" class="del_btn" (click)="clear()">
