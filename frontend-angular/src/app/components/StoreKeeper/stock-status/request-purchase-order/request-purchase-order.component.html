@@ -1,0 +1,28 @@
+<div class="mat-dialog-header">
+
+  <h1 mat-dialog-title>NEW REQUEST</h1>
+  <mat-divider></mat-divider>
+  <div class="header">
+    <div class="avatar-container">
+      <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
+    </div>
+    <div class="item-detail-container">
+      <h3 class="mat-display-1 compact">ITEM ID</h3>
+      <div class="mat-display-2 compact">ITEM NAME</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card class="section" style=" border-radius: 10px;">
+    <mat-card-title>Enter Request Quantity</mat-card-title>
+    <form [formGroup]="requestQuantityForm">
+      <mat-form-field appearance="outline" style="width: 100px;">
+        <mat-label>quantity</mat-label>
+        <input matInput name="quantity" formControlName="quantity">
+      </mat-form-field>
+    </form>
+    <br>
+    <button class="reg_btn" mat-raised-button color="primary" (click)="requestQuantity()">request</button>
+    <button mat-raised-button type="submit" class="my-4 btn-block del_btn " (click)="reset()">cancel</button>
+  </mat-card>
+
+</div>

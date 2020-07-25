@@ -53,7 +53,6 @@ customerForm = this.fb.group({
   //confirmPassword:["", [Validators.required, Validators.minLength(8)]],
   vehicles: this.fb.array([this.vehicles]),
 
-
 });
 
 //button event to upload profile image

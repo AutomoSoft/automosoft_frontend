@@ -29,7 +29,7 @@ import { OngoingJobsComponent } from './components/Foreman/ongoing-jobs/ongoing-
 import { EditUserComponent } from './components/main/search-user/edit-user/edit-user.component';
 import { ViewTechniciansComponent } from './components/Foreman/view-technicians/view-technicians.component';
 import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/view-job.component';
-import { RequestPurchaseOderComponent } from './components/StoreKeeper/request-purchase-oder/request-purchase-oder.component';
+import { RequestPurchaseOrderComponent } from './components/StoreKeeper/stock-status/request-purchase-order/request-purchase-order.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
 import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
@@ -73,7 +73,7 @@ const routes: Routes = [
   { path: "addStock", component: AddStockComponent },
   { path: "addOrder", component: AddOrdersComponent },
   { path: "stockStatus", component: StockStatusComponent },
-  { path: "requestItem", component: RequestPurchaseOderComponent },
+  { path: "requestItem", component: RequestPurchaseOrderComponent },
 
 
 

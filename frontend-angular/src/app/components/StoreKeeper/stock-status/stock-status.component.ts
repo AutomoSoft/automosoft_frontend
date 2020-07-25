@@ -15,7 +15,7 @@ import {
   Form
 } from "@angular/forms";
 import { StockReportComponent } from '../stock-report/stock-report.component';
-import { RequestPurchaseOderComponent } from '../request-purchase-oder/request-purchase-oder.component';
+import { RequestPurchaseOrderComponent } from './request-purchase-order/request-purchase-order.component';
 
 
 interface item {
@@ -81,7 +81,7 @@ export class StockStatusComponent implements OnInit {
     public snackBar: MatSnackBar,
     private dialog: MatDialog,
   ) {
-    this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
+     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
   }
 
   ngOnInit() {
@@ -237,8 +237,18 @@ ItemDetails (element) {
     });  
   }
 
-  requestItem() {
-    const dialogRef = this.dialog.open(RequestPurchaseOderComponent);
+  requestItem(element) {
+
+      const dialogConfig = new MatDialogConfig();
+  
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+  
+      dialogConfig.data = {
+         item:element,
+         user:this.cookie,
+      };
+    const dialogRef = this.dialog.open(RequestPurchaseOrderComponent,dialogConfig);
   }
 
 }

@@ -26,6 +26,40 @@
                   <mat-tab label="PENDING APPROVAL">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                      <div>
+                        <table class="mat-elevation-z8 table ">
+                          <thead>
+                            <tr>
+                              <th>DATE APPLIED</th>
+                              <th>ITEM ID</th>
+                              <th>QAUNTITY</th>
+                              <th>SUPPLIER ID</th>
+                              <th>DATE RECEIVED</th>
+                              <th>LAST MODIFIED BY</th>
+                              <th>LAST MODIFIED ON</th>
+                              <th>APPROVE</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let k of pendingOrders">
+                              <td style="height: 55px;">{{k.dateApplied}}</td>
+                              <td>{{k.itemid}}</td>
+                              <td>{{k.quantity}}</td>
+                              <td>{{k.supplierid}}</td>
+                              <td>{{k.dateReceived}}</td>
+                              <td>{{k.lastomodifiedby}}</td>
+                              <td>{{k.lastomodifiedon}}</td>
+                              <td>
+                                <button mat-raised-button type="submit" class="my-4 btn-block reg_btn"
+                                  (click)="approveOrder()">Approve</button>
+                                <!-- <button mat-icon-button type="submit" class=" btn-block table_btn">
+                                  <mat-icon>notification_important</mat-icon>
+                                </button> -->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </mat-card>
                   </mat-tab>
 
