@@ -101,7 +101,7 @@ export class MakeReservationsComponent implements OnInit {
       this.http.post<any>(url, reserveTime).subscribe(res => {
         if (res.state) {
           console.log(res.msg);
-          //window.location.reload();
+          window.location.reload();
           // this.customerForm.reset();
         } else {
           console.log(res.msg);

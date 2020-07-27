@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogConfig, MatSnackBarConfig, MatSnackBar } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogConfig, MatSnackBarConfig, MatSnackBar, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -57,6 +57,11 @@ export class ApproveReservationsPopupComponent implements OnInit {
   reservation_data: reservation[] = [];
   reservationDataForm: FormGroup;
 
+  displayedColumns: string[] = ['repairtype','time','problembrief']; // Table Columns will displayed according to this order
+  TABLE_DATA: PeriodicElement[] = [];
+  dataSource;
+  reservation_date;
+
   constructor(private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
@@ -78,15 +83,47 @@ export class ApproveReservationsPopupComponent implements OnInit {
   ngOnInit() {
     const url = "http://localhost:3000/reservations/findReservation"   //backend url
 
+    const reservArr = []; // to convert reservation_data object to an array
+
+
     this.http.get<any>(url + "/" + this.reservationID).subscribe(res => {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+
       } else {
+
           console.log(res.data);
           this.reservation_data=res.data;
           console.log(this.reservation_data);
+          
+          // entering object's value to the array
+          for (var x in this.reservation_data){
+            this.reservation_data.hasOwnProperty(x) && reservArr.push(this.reservation_data[x])
+         }
+            console.log(reservArr);
+
+//******************************************** View Accepted Reservations For The Date ********************************************************
+   
+            const url_popup = "http://localhost:3000/reservations/viewAcceptedReservationsForTheDate";
+            console.log(reservArr[3]);
+           
+              this.http.get<any>(url_popup +"/" + reservArr[3]).subscribe(res2 => {
+                if (res2.state == false) {
+
+                  let config2 = new MatSnackBarConfig();
+                  config2.duration = true ? 2000 : 0;
+                  this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config2);
+
+                } else {
+          
+                  this.TABLE_DATA = res2.data;
+                  console.log(this.TABLE_DATA);
+                  this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+                }
+              });
+
       }
     });
 
@@ -102,7 +139,12 @@ export class ApproveReservationsPopupComponent implements OnInit {
       //vehicles: this.fb.array([this.custVehicles]),
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
+
+    //******************************************** View Accepted Reservations For The Date ********************************************************
+   
+    
   }
+
 
   onCancelClick(): void {
     this.dialogRef.close();
