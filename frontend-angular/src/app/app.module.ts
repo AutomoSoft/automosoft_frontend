@@ -204,7 +204,8 @@ import { ApproveReservationsPopupComponent } from './components/Foreman/approve-
     AddItemPopupComponent,
     ItemDetailsComponent,
     ViewTechnicianJobComponent,
-    StockWithdrawalPopupComponent
+    StockWithdrawalPopupComponent,
+    NewPurchaseOrderComponent
   ],
 })
 export class AppModule { }
