@@ -15,6 +15,7 @@ export class ApproveOrdersComponent implements OnInit {
 
   pendingOrders; 
   cookie;
+  order:any;
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -36,6 +37,7 @@ export class ApproveOrdersComponent implements OnInit {
 
       const url = "http://localhost:3000/purchaseOrders/getPendingOrders";
 
+
       this.http.get<any>(url).subscribe(res => {
         if (res.state == false) {
           let config = new MatSnackBarConfig();
@@ -49,5 +51,34 @@ export class ApproveOrdersComponent implements OnInit {
         }
       });
   }
+
+  approveOrder(order){
+
+    const data =  {
+                  id: order._id
+                };
+
+    const url = "http://localhost:3000/purchaseOrders/approveOrder";
+
+    this.http.put<any>(url,data).subscribe(res => {
+      if (res.state) {
+        let config = new MatSnackBarConfig();
+        const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+        snackBarRef.afterDismissed().subscribe(() => {
+          window.location.reload();
+        });
+
+      } else {
+        console.log(res.msg);
+        alert("Error!! Try Again");
+
+      }
+    });
+
+   
+    }
+  
+
+  
 
 }
