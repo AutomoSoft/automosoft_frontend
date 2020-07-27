@@ -85,6 +85,7 @@ export class RequestPurchaseOrderComponent implements OnInit {
   }
   reset() {
     this.requestQuantityForm.reset();
+    this.dialogRef.close();
   }
 
 }
