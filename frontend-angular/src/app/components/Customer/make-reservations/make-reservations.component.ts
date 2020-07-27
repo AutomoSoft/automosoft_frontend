@@ -69,7 +69,7 @@ export class MakeReservationsComponent implements OnInit {
       usertype : "Customer",
       custID: this.cookie.userid,
       dateposted:date,
-      daterequested: this.reservationForm.value.daterequested,
+      daterequested: this.reservationForm.value.daterequested.slice(0,10),
       repairtype: this.reservationForm.value.repairtype,
       time: this.reservationForm.value.time,
       problembrief:this.reservationForm.value.problembrief,
