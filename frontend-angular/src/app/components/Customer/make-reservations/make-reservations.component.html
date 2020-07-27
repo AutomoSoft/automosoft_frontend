@@ -34,7 +34,8 @@
                         <!-- {{jobCardForm.value | json}} -->
                         <mat-form-field appearance="outline">
                             <mat-label>Choose a date</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="daterequested" name ="daterequested">
+                            <input matInput [matDatepicker]="picker" formControlName="daterequested" name ="daterequested" type="datetime" date-time min-view="date" auto-close="true"
+                            view="date" maxlength="10" format="yyyy-MM-dd">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>

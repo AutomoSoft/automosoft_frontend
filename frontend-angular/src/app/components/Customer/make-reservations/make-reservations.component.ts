@@ -65,11 +65,13 @@ export class MakeReservationsComponent implements OnInit {
 
   addReservation() {
     let date=Date();
+    let inputDate = this.reservationForm.value.daterequested.toString();
+    let reqDate = inputDate.slice(0,15);
     const reserveTime = {
       usertype : "Customer",
       custID: this.cookie.userid,
-      dateposted:date,
-      daterequested: this.reservationForm.value.daterequested.slice(0,10),
+      dateposted:date.slice(0,24),
+      daterequested: reqDate,
       repairtype: this.reservationForm.value.repairtype,
       time: this.reservationForm.value.time,
       problembrief:this.reservationForm.value.problembrief,
@@ -99,7 +101,7 @@ export class MakeReservationsComponent implements OnInit {
       this.http.post<any>(url, reserveTime).subscribe(res => {
         if (res.state) {
           console.log(res.msg);
-          window.location.reload();
+          //window.location.reload();
           // this.customerForm.reset();
         } else {
           console.log(res.msg);
