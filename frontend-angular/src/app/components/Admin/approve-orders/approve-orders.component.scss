@@ -141,3 +141,14 @@ table {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.pending-approval-table-body {
+  tr:hover {
+    background-color: #ced8d6;
+  }
+  border: 0;
+}
+
+.purchase-orders-table {
+  padding: 5px;
+}

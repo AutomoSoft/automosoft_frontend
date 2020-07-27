@@ -13,16 +13,17 @@ import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/conf
 })
 export class ApproveOrdersComponent implements OnInit {
 
-  pendingOrders; 
+  pendingOrders;
+  approvedOrders;
   cookie;
-  order:any;
+  order: any;
   constructor(
     private router: Router,
     private http: HttpClient,
     private cookies: MycookiesService,
     private dialog: MatDialog,
     public snackBar: MatSnackBar,
-  )  {
+  ) {
     if (this.cookies.getCookie("userAuth") != "") {
       this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
     }
@@ -30,44 +31,62 @@ export class ApproveOrdersComponent implements OnInit {
 
   ngOnInit() {
     var temp = this.cookies.getCookie("userAuth");
-    if(temp==""){
+    if (temp == "") {
       this.router.navigate(['/login']);
     }
-      // *************************************************** Get Pending Orders ********************************************************
-
-      const url = "http://localhost:3000/purchaseOrders/getPendingOrders";
-
-
-      this.http.get<any>(url).subscribe(res => {
-        if (res.state == false) {
-          let config = new MatSnackBarConfig();
-          config.duration = true ? 2000 : 0;
-          this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
-        } else {
-  
-          this.pendingOrders = res.data;
-          //console.log(this.pendingOrders);
-  
-        }
-      });
+    // *************************************************** Get Pending Orders ********************************************************
+    this.fetchPendingOrders();
+    this.fetchApprovedOrders();
   }
 
-  approveOrder(order){
+  fetchPendingOrders() {
+    const url = "http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=0";
 
-    const data =  {
-                  id: order._id
-                };
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+        this.pendingOrders = res.data;
+      }
+    });
+  }
+
+  fetchApprovedOrders() {
+    const url = "http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=1";
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+
+        this.approvedOrders = res.data;
+        //console.log(this.pendingOrders);
+
+      }
+    });
+  }
+
+  approveOrder(order) {
+
+    const data = {
+      id: order._id
+    };
 
     const url = "http://localhost:3000/purchaseOrders/approveOrder";
 
-    this.http.put<any>(url,data).subscribe(res => {
+    this.http.put<any>(url, data).subscribe(res => {
       if (res.state) {
+        this.fetchPendingOrders();
+        this.fetchApprovedOrders();
         let config = new MatSnackBarConfig();
         const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
         snackBarRef.afterDismissed().subscribe(() => {
           window.location.reload();
         });
-
       } else {
         console.log(res.msg);
         alert("Error!! Try Again");
@@ -75,10 +94,10 @@ export class ApproveOrdersComponent implements OnInit {
       }
     });
 
-   
-    }
-  
 
-  
+  }
+
+
+
 
 }
