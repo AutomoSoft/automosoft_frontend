@@ -85,7 +85,6 @@ import { AddNewVehicleComponent } from './components/main/search-user/add-new-ve
 import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
-import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
 import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
 import { ItemDetailsComponent } from './components/StoreKeeper/stock-status/item-details/item-details.component';
 import { ViewTechnicianJobComponent } from './components/Foreman/view-technicians/view-technician-job/view-technician-job.component';
@@ -93,6 +92,7 @@ import { ReservationsComponent } from './components/Admin/reservations/reservati
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
 import { StockWithdrawalPopupComponent } from './components/Foreman/stock-withdrawal-popup/stock-withdrawal-popup.component';
 import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
+import { NewPurchaseOrderComponent } from './components/Accountant/purchase-order-requests/new-purchase-order/new-purchase-order.component';
 
 
 
@@ -138,7 +138,6 @@ import { ApproveReservationsPopupComponent } from './components/Foreman/approve-
     SelectJobStatusComponent,
     CreateInvoiceComponent,
     InvoiceHistoryComponent,
-    NewPurchaseOrderComponent,
     PurchaseOrderRequestsComponent,
     ItemDetailsComponent,
     ViewTechnicianJobComponent,
@@ -146,6 +145,7 @@ import { ApproveReservationsPopupComponent } from './components/Foreman/approve-
     ApproveReservationsComponent,
     StockWithdrawalPopupComponent,
     ApproveReservationsPopupComponent,
+    NewPurchaseOrderComponent
 
   ],
   imports: [
@@ -205,7 +205,7 @@ import { ApproveReservationsPopupComponent } from './components/Foreman/approve-
     ItemDetailsComponent,
     ViewTechnicianJobComponent,
     StockWithdrawalPopupComponent,
-    NewPurchaseOrderComponent
+    NewPurchaseOrderComponent,
   ],
 })
 export class AppModule { }

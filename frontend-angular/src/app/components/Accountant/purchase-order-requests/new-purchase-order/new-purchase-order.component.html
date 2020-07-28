@@ -1,1 +1,42 @@
-<p>new-purchase-order works!</p>
+<div class="mat-dialog-header">
+
+    <h1 mat-dialog-title>NEW REQUEST</h1>
+    <mat-divider></mat-divider>
+    <mat-card>
+        <div class="form-row mb-4">
+            <table class="purchase-orders-table">
+                <thead style="font-size: 13px;">
+                    <tr>
+                        <th>SUPPLIER ID</th>
+                        <th>SUPPLIER NAME</th>
+                        <th>SUPPLIER EMAIL</th>
+                        <th>SELECT SUPPLIER</th>
+                    </tr>
+                </thead>
+                <tbody class="pending-approval-table-body" style="font-size: 13px;">
+                    <tr *ngFor="let supplier of suppliers">
+                        <td>{{supplier.supid}}</td>
+                        <td>{{supplier.supname}}</td>
+                        <td>{{supplier.email}}</td>
+                        <td>
+                            <button mat-mini-fab type="submit" matTooltip="Select" class="my-4 btn-block rep_btn"
+                                (click)="selectSupplier(supplier)">
+                                <span class="material-icons">
+                                    done
+                                </span>
+                            </button>
+                        </td>
+                        <td>
+                            <button mat-raised-button ="submit" matTooltip="Send Email" class="my-4 btn-block rep_btn"
+                            (click)="sendEmail(supplier)">
+                            <mat-label>Send</mat-label>
+                        </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-card>
+
+
+</div>

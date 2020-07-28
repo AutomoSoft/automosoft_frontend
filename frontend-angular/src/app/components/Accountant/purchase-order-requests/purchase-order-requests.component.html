@@ -36,6 +36,7 @@
                                 <th>STATUS</th>
                                 <th>SUPPLIER ID</th>
                                 <th>DATE RECEIVED</th>
+                                <th>SEND ORDER</th>
                               </tr>
                             </thead>
                             <tbody class="pending-approval-table-body" style="font-size: 13px;">
@@ -46,6 +47,14 @@
                                 <td>{{k.status === 1 ? 'APPROVED': 'NOT APPROVED'}}</td>
                                 <td>{{k.supplierid || 'N/A'}}</td>
                                 <td>{{k.dateReceived || 'N/A'}}</td>
+                                <td>
+                                  <button mat-mini-fab type="submit" matTooltip="Send Order"
+                                    class="my-4 btn-block rep_btn" (click)="sendOrder(k)">
+                                    <span class="material-icons">
+                                      done
+                                    </span>
+                                  </button>
+                                </td>
                               </tr>
                             </tbody>
                           </table>

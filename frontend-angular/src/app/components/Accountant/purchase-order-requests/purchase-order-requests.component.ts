@@ -4,6 +4,7 @@ import { MycookiesService } from "../../Admin/mycookies.service";
 import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from "@angular/common/http";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+import { NewPurchaseOrderComponent } from './new-purchase-order/new-purchase-order.component';
 
 @Component({
   selector: 'app-purchase-order-requests',
@@ -40,8 +41,20 @@ export class PurchaseOrderRequestsComponent implements OnInit {
         this.approvedOrders = res.data;
       }
     });
-
-
   }
 
+  sendOrder(element) {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+       supplierid  :element,
+      
+    };
+  const dialogRef = this.dialog.open(NewPurchaseOrderComponent,dialogConfig);
+}
+ 
 }
