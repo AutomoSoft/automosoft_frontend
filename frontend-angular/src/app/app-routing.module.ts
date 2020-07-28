@@ -32,7 +32,7 @@ import { ViewJobComponent } from './components/Foreman/ongoing-jobs/view-job/vie
 import { RequestPurchaseOrderComponent } from './components/StoreKeeper/stock-status/request-purchase-order/request-purchase-order.component';
 import { AddNewVehicleComponent } from './components/main/search-user/add-new-vehicle/add-new-vehicle.component';
 import { SelectJobStatusComponent } from './components/Foreman/ongoing-jobs/select-job-status/select-job-status.component';
-import { NewPurchaseOrderComponent } from './components/Accountant/new-purchase-order/new-purchase-order.component';
+import { NewPurchaseOrderComponent } from './components/Accountant/purchase-order-requests/new-purchase-order/new-purchase-order.component';
 import { PurchaseOrderRequestsComponent } from './components/Accountant/purchase-order-requests/purchase-order-requests.component';
 
 import { CreateInvoiceComponent } from './components/Accountant/create-invoice/create-invoice.component';
