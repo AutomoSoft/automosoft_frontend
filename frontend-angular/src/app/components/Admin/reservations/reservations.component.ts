@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MycookiesService } from "../../Admin/mycookies.service";
-import { MatDialog, MatSnackBar, MatSnackBarConfig,MatTableDataSource, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatSnackBar, MatSnackBarConfig, MatTableDataSource, MatDialogConfig } from "@angular/material";
 import { HttpClient } from "@angular/common/http";
 import { FormBuilder } from '@angular/forms';
 
-interface reservation{
+interface reservation {
   custID: String;
-  daterequested:String;
+  daterequested: String;
   time: String;
   repairtype: String;
   problembrief: String;
@@ -16,8 +16,8 @@ interface reservation{
 
 //table data
 export interface PeriodicElement {
-custID: String;
-  daterequested:String;
+  custID: String;
+  daterequested: String;
   time: String;
   repairtype: String;
   problembrief: String;
@@ -31,7 +31,7 @@ custID: String;
 })
 export class ReservationsComponent implements OnInit {
 
-  displayedColumns: string[] = ['customerid', 'repairtype', 'daterequested','time','problembrief','status']; // Table Columns will displayed according to this order
+  displayedColumns: string[] = ['customerid', 'repairtype', 'daterequested', 'time', 'problembrief', 'status']; // Table Columns will displayed according to this order
   cookie;
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
@@ -44,12 +44,12 @@ export class ReservationsComponent implements OnInit {
     private dialog: MatDialog,
     public snackBar: MatSnackBar,
   ) {
-      if (this.cookies.getCookie("userAuth") != "") {
-        this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
-      }
-   }
+    if (this.cookies.getCookie("userAuth") != "") {
+      this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
+    }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     var temp = this.cookies.getCookie("userAuth");
     if (temp == "") {
       this.router.navigate(['/login']);

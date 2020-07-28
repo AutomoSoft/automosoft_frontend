@@ -37,7 +37,6 @@
                             </mat-select>
                           </mat-form-field>
 
-
                           <mat-form-field appearance="outline">
                             <mat-label>Item ID:</mat-label>
                             <input matInput class="form-control box_border" formControlName="itemid">
@@ -52,25 +51,25 @@
 
                           <mat-form-field appearance="outline">
                             <mat-label>Buying Price:</mat-label>
-                            <input matInput  formControlName="buying">
+                            <input matInput formControlName="buying">
                           </mat-form-field>
 
                           <mat-form-field appearance="outline">
                             <mat-label>Selling Price:</mat-label>
-                            <input matInput  formControlName="selling">
+                            <input matInput formControlName="selling">
                           </mat-form-field>
 
                           <!-- {{itemForm.value | json}} -->
 
 
                         </div>
-                        <input type="file" class="file_upload" style="display: none" name="profilepic"
-                        accept="image/*"  (change)="selectImage($event)"
-                        #fileInput>
+                        <input type="file" class="file_upload" style="display: none" name="profilepic" accept="image/*"
+                          (change)="selectImage($event)" #fileInput>
 
                         <div class="form-row mb-4">
-                          <button class="pick_btn" type="button"  (click)="fileInput.click()" accept="image/*">Choose Item Image</button>
-                          <small class="form-text text-muted mb-4"style=" text-align: left; margin-top: -18px;">
+                          <button class="pick_btn" type="button" (click)="fileInput.click()" accept="image/*">Choose
+                            Item Image</button>
+                          <small class="form-text text-muted mb-4" style=" text-align: left; margin-top: -18px;">
                             Resolution : (320 x 280)p / 8 : 7 {{filename}}
                           </small>
                         </div>
@@ -80,7 +79,7 @@
                           Register
                         </button>
 
-                        <button mat-raised-button  type="submit" class="my-4 btn-block btn_1  ">
+                        <button mat-raised-button type="submit" class="my-4 btn-block btn_1  ">
                           Cancel
                         </button>
                       </mat-card>
