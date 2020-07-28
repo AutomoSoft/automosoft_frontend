@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import {MycookiesService} from '../../Admin/mycookies.service';
+import { MycookiesService } from '../../Admin/mycookies.service';
 import { MatDialog, MatSnackBar, MatSnackBarConfig} from "@angular/material";
 import { HttpClient } from "@angular/common/http";
 import {
@@ -51,13 +51,14 @@ export class CreateInvoiceComponent implements OnInit {
     private dialog: MatDialog,
     public snackBar: MatSnackBar,) {
       if (cookies.userData && cookies.userData.userid) {
-        this.userid = cookies.userData.userid;
+        this.cookie = cookies.userData.userid;
       }
     }
+
     withdrawalForm = this.fb.group({
       invoiceNo: ["",Validators.required],
       invoiceDate: ["",Validators.required],
-      po: ["", Validators.required],
+      // po: ["", Validators.required],
       foremanid: ["", Validators.required],
       createdBy: ["", Validators.required],
       job: ["", Validators.required],
@@ -73,6 +74,8 @@ export class CreateInvoiceComponent implements OnInit {
       grandTotal: ["", Validators.required],
       tax: ["", Validators.required],
       subTotal: ["", Validators.required],
+      amountPaid: ["", Validators.required],
+      balance: ["", Validators.required],
       note: ["", Validators.required]
     });
 
@@ -97,6 +100,7 @@ export class CreateInvoiceComponent implements OnInit {
   }
   this.getCompletedJobs();
   }
+
   clear(){
     this.withdrawalForm.reset();
   }
@@ -175,6 +179,12 @@ export class CreateInvoiceComponent implements OnInit {
      const grandTotal = this.withdrawalForm.value.subTotal+ this.withdrawalForm.value.tax/100*this.withdrawalForm.value.subTotal;
      return grandTotal;
   }
+
+  public calculateremBalance() {
+    const balance = this.withdrawalForm.value.grandTotal- this.withdrawalForm.value.amountPaid;
+    return balance;
+ }
+
   selectJob () {
     this.getData = this.withdrawalForm.value.job;
     this.getCustomerDetails();
@@ -186,11 +196,11 @@ export class CreateInvoiceComponent implements OnInit {
   }
 
   createInvoice() {
-    //let date=Date();
+    let date=Date();
     const createInvoice = {
       invoiceNo: this.withdrawalForm.value.invoiceNo,
-      invoiceDate: this.withdrawalForm.value.invoiceDate,
-      po: this.withdrawalForm.value.po,
+      invoiceDate: date,
+      // po: this.withdrawalForm.value.po,
       jobNo: this.withdrawalForm.value.job.jobNo,
       jobDate: this.withdrawalForm.value.jobDate,
       custId: this.withdrawalForm.value.customerid,
@@ -202,6 +212,8 @@ export class CreateInvoiceComponent implements OnInit {
       subTotal: this.withdrawalForm.value.subTotal,
       tax: this.withdrawalForm.value.tax,
       grandTotal: this.withdrawalForm.value.grandTotal,
+      amountPaid: this.withdrawalForm.value.amountPaid,
+      balance: this.withdrawalForm.value.balance,
       note: this.withdrawalForm.value.note,
       createdBy: this.withdrawalForm.value.createdBy
     };
