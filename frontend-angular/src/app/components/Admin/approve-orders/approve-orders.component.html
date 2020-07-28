@@ -10,7 +10,7 @@
             <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
               <!-- <span><mat-icon>menu
                   <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
-  
+
                 </mat-icon>
                 </span> -->
               <br />
@@ -33,24 +33,33 @@
                               <th>DATE APPLIED</th>
                               <th>ITEM ID</th>
                               <th>QAUNTITY</th>
+                              <th>STATUS</th>
                               <th>SUPPLIER ID</th>
                               <th>DATE RECEIVED</th>
-                              <th>APPROVE</th>
+                              <th></th>
                             </tr>
                           </thead>
-                          <tbody style="font-size: 13px;">
+                          <tbody class="pending-approval-table-body" style="font-size: 13px;">
                             <tr *ngFor="let k of pendingOrders">
-                              <td style="width: 10px;">{{k.dateApplied}}</td>
-                              <td style="width: 10px;">{{k.itemid}}</td>
-                              <td style="width: 10px;">{{k.quantity}}</td>
-                              <td style="width: 10px;">{{k.supplierid}}</td>
-                              <td style="width: 10px;">{{k.dateReceived}}</td>
-                              <td style="height:55px;">
-                                <button mat-raised-button type="submit" class="my-4 btn-block rep_btn"
-                                  (click)="approveOrder(k)">Approve</button>
-                                  <button mat-raised-button  type="submit" class="my-4 btn-block del_btn" (click)="clear()">
-                                    Cancel
-                                  </button>
+                              <td>{{k.dateApplied || 'N/A' | date }}</td>
+                              <td>{{k.itemid || 'N/A'}}</td>
+                              <td>{{k.quantity || 'N/A'}}</td>
+                              <td>{{k.status === 1 ? 'APPROVED': 'NOT APPROVED'}}</td>
+                              <td>{{k.supplierid || 'N/A'}}</td>
+                              <td>{{k.dateReceived || 'N/A'}}</td>
+                              <td>
+                                <button mat-mini-fab type="submit" matTooltip="Approve Order"
+                                  class="my-4 btn-block rep_btn" (click)="approveOrder(k)">
+                                  <span class="material-icons">
+                                    done
+                                  </span>
+                                </button>
+                                <button mat-mini-fab type="submit" class="my-4 btn-block del_btn" (click)="clear()"
+                                  matTooltip="Cancel Order">
+                                  <span class="material-icons">
+                                    clear
+                                  </span>
+                                </button>
                                 <!-- <button mat-icon-button type="submit" class=" btn-block table_btn">
                                   <mat-icon>notification_important</mat-icon>
                                 </button> -->
@@ -68,27 +77,25 @@
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
                       <div>
-                        <table>
+                        <table class="purchase-orders-table">
                           <thead style="font-size: 13px;">
                             <tr>
                               <th>DATE APPLIED</th>
                               <th>ITEM ID</th>
                               <th>QAUNTITY</th>
+                              <th>STATUS</th>
                               <th>SUPPLIER ID</th>
                               <th>DATE RECEIVED</th>
-                              <th>APPROVE</th>
                             </tr>
                           </thead>
-                          <tbody style="font-size: 13px;">
-                            <tr *ngFor="let k of pendingOrders">
-                              <td style="width: 10px;">{{k.dateApplied}}</td>
-                              <td style="width: 10px;">{{k.itemid}}</td>
-                              <td style="width: 10px;">{{k.quantity}}</td>
-                              <td style="width: 10px;">{{k.supplierid}}</td>
-                              <td style="width: 10px;">{{k.dateReceived}}</td>
-                              <td style="height:55px;">
-                                
-                              </td>
+                          <tbody class="pending-approval-table-body" style="font-size: 13px;">
+                            <tr *ngFor="let k of approvedOrders">
+                              <td>{{k.dateApplied || 'N/A'  | date }}</td>
+                              <td>{{k.itemid || 'N/A'}}</td>
+                              <td>{{k.quantity || 'N/A'}}</td>
+                              <td>{{k.status === 1 ? 'APPROVED': 'NOT APPROVED'}}</td>
+                              <td>{{k.supplierid || 'N/A'}}</td>
+                              <td>{{k.dateReceived || 'N/A'}}</td>
                             </tr>
                           </tbody>
                         </table>

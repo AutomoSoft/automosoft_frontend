@@ -1,51 +1,72 @@
 <div style="padding-top: 60px;">
-    <mat-sidenav-container>
-      <mat-sidenav class="example-container" #sidenav mode="side" opened >
-        <app-main></app-main>
-      </mat-sidenav>
-      <mat-sidenav-content>
-  
-        <div class="row">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
-  
-                <br />
-                <div class="test">
-                  <h2 class="topic">PURCHASE ORDER REQUESTS</h2>
-                </div>
-                <mat-divider></mat-divider>
-                <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
-  
-                  <mat-tab-group class="p-5 reg-frm">
-  
-                    <!-- ***************************************************NEW PURCHASE ORDER************************************************************************** -->
-                    <mat-tab label="PURCHASE ORDER REQUESTS">
-                      <form>
-  
-                        <mat-card>
-                          <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
-  
-                          <div class="form-row mb-4">
-                          </div>
-  
-                  
-                        </mat-card>
-                        <!-- {{jobCardForm.value | json}} -->
-                      </form>
-                    </mat-tab>
-  
-  
-                  </mat-tab-group>
-  
-                </div>
-  
+  <mat-sidenav-container>
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
+      <app-main></app-main>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+
+              <br />
+              <div class="test">
+                <h2 class="topic">PURCHASE ORDER REQUESTS</h2>
               </div>
+              <mat-divider></mat-divider>
+              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+
+                <mat-tab-group class="p-5 reg-frm">
+
+                  <!-- ***************************************************PURCHASE ORDER REQUESTS************************************************************************** -->
+                  <mat-tab label="PURCHASE ORDER REQUESTS">
+                    <form>
+
+                      <mat-card>
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+
+                        <div class="form-row mb-4">
+                          <table class="purchase-orders-table">
+                            <thead style="font-size: 13px;">
+                              <tr>
+                                <th>DATE APPLIED</th>
+                                <th>ITEM ID</th>
+                                <th>QAUNTITY</th>
+                                <th>STATUS</th>
+                                <th>SUPPLIER ID</th>
+                                <th>DATE RECEIVED</th>
+                              </tr>
+                            </thead>
+                            <tbody class="pending-approval-table-body" style="font-size: 13px;">
+                              <tr *ngFor="let k of approvedOrders">
+                                <td>{{k.dateApplied || 'N/A'  | date }}</td>
+                                <td>{{k.itemid || 'N/A'}}</td>
+                                <td>{{k.quantity || 'N/A'}}</td>
+                                <td>{{k.status === 1 ? 'APPROVED': 'NOT APPROVED'}}</td>
+                                <td>{{k.supplierid || 'N/A'}}</td>
+                                <td>{{k.dateReceived || 'N/A'}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+
+                      </mat-card>
+                      <!-- {{jobCardForm.value | json}} -->
+                    </form>
+                  </mat-tab>
+
+
+                </mat-tab-group>
+
+              </div>
+
             </div>
           </div>
-  
         </div>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-  
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
