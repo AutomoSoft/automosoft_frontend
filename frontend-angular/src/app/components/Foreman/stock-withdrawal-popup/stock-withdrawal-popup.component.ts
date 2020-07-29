@@ -71,6 +71,8 @@ export class StockWithdrawalPopupComponent implements OnInit {
   addItem() {
     const newItemId = this.withdrawalForm.value.item.itemid;
     const newItemType = this.withdrawalForm.value.itemtype;
+    const newItemName = this.withdrawalForm.value.item.itemname;
+    const newUnitPrice = this.withdrawalForm.value.item.selling;
     const newQty = this.withdrawalForm.value.qty;
     const newcharge = this.withdrawalForm.value.item.selling*this.withdrawalForm.value.qty;
 
@@ -86,7 +88,7 @@ export class StockWithdrawalPopupComponent implements OnInit {
       return itemObject;
     });
     if (notFound) {
-      this.items.push({ itemId: newItemId,itemtype: newItemType, qty: newQty, charge: newcharge });
+      this.items.push({ itemId: newItemId,itemtype: newItemType,itemname: newItemName,unitprice: newUnitPrice, qty: newQty, charge: newcharge });
     }
     // console.log(this.items);
   }
