@@ -128,7 +128,7 @@ export class CreateInvoiceComponent implements OnInit {
 
   getCustomerDetails() {
     this.userid = this.getData.custId;
-    console.log(this.userid);
+    // console.log(this.userid);
     const url = "http://localhost:3000/users/searchUsers"   //backend url
 
     this.http.get<any>(url + "/" + this.userid).subscribe(res => {
@@ -174,7 +174,7 @@ export class CreateInvoiceComponent implements OnInit {
     //this.selectedJob = this.invoiceForm.value.job;
     if (this.getCustomers.vehicle) {
       this.getCustomers.vehicle = JSON.parse(this.getCustomers.vehicle);
-      console.log(this.getCustomers);
+      // console.log(this.getCustomers);
     }
   }
 
@@ -232,7 +232,7 @@ export class CreateInvoiceComponent implements OnInit {
       note: this.invoiceForm.value.note,
       createdBy: this.invoiceForm.value.createdBy
     };
-    console.log(createInvoice);
+    // console.log(createInvoice);
 
   var url = "http://localhost:3000/invoice/createInvoice";
   var url2 = "http://localhost:3000/jobs/updateCharges";      //update job charges
@@ -269,7 +269,7 @@ export class CreateInvoiceComponent implements OnInit {
           this.router.navigate([this.cookie.userid,'createInvoice']);
         }
       });
-      console.log(createInvoice);
+      // console.log(createInvoice);
     }
   });
 

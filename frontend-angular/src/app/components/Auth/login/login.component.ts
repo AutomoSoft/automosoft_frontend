@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   user: any;
   authtoken: any;
   mySubscription: any;
+  hide = true;
 
   constructor(
     private router: Router,
