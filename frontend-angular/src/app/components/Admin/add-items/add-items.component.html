@@ -28,7 +28,7 @@
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
                             <!-- <mat-label>Select User Type:</mat-label> -->
-                            <mat-select placeholder="Select Item Category:" formControlName="itemtype">
+                            <mat-select placeholder="Select Item Category:" formControlName="itemtype" #t (selectionChange)="togglefunction(t.value)">
                               <mat-option value="Paints">Paints</mat-option>
                               <mat-option value="Tools">Tools</mat-option>
                               <mat-option value="Spare Parts">Spare Parts</mat-option>
@@ -37,12 +37,40 @@
                             </mat-select>
                           </mat-form-field>
 
-                          <mat-form-field appearance="outline">
+                          <mat-form-field *ngIf="flag == 'tool'" appearance="outline">
                             <mat-label>Item ID:</mat-label>
-                            <input matInput class="form-control box_border" formControlName="itemid">
-                            <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+                            <input matInput readonly  [(ngModel)]="newItemId" formControlName="itemid" />
+                            <span matPrefix >TL00&nbsp;</span>
+                            <mat-icon matSuffix>build</mat-icon>
                           </mat-form-field>
 
+                          <mat-form-field *ngIf="flag == 'sp'" appearance="outline">
+                            <mat-label>Item ID:</mat-label>
+                            <input matInput readonly  [(ngModel)]="newItemId" formControlName="itemid" />
+                            <span matPrefix >SP00&nbsp;</span>
+                            <mat-icon matSuffix>build</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'tyre'" appearance="outline">
+                            <mat-label>Item ID:</mat-label>
+                            <input matInput readonly  [(ngModel)]="newItemId" formControlName="itemid" />
+                            <span matPrefix >TY00&nbsp;</span>
+                            <mat-icon matSuffix>build</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'ep'" appearance="outline">
+                            <mat-label>Item ID:</mat-label>
+                            <input matInput readonly  [(ngModel)]="newItemId" formControlName="itemid" />
+                            <span matPrefix >EP00&nbsp;</span>
+                            <mat-icon matSuffix>build</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'paint'" appearance="outline">
+                            <mat-label>Item ID:</mat-label>
+                            <input matInput readonly  [(ngModel)]="newItemId" formControlName="itemid" />
+                            <span matPrefix >PNT00&nbsp;</span>
+                            <mat-icon matSuffix>build</mat-icon>
+                          </mat-form-field>
 
                           <mat-form-field appearance="outline">
                             <mat-label>Item Name:</mat-label>

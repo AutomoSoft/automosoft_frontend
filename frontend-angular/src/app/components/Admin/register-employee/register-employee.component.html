@@ -24,14 +24,14 @@
                     <form [formGroup]="employeeForm">
 
                       <mat-card>
-                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" /> 
 
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline" >
                             <!-- <mat-label>Select User Type:</mat-label> -->
                             <mat-select placeholder="Select Employee Category:" formControlName="usertype" #t (selectionChange)="togglefunction(t.value)">
                               <mat-option value="Administrator">Admin</mat-option>
-                              <mat-option value="Accountant">Accountant</mat-option> 
+                              <mat-option value="Accountant">Accountant</mat-option>
                               <mat-option value="Foreman">Foreman</mat-option>
                               <mat-option value="Store-Keeper">Store-Keeper</mat-option>
                               <mat-option value="Technician">Technician</mat-option>
@@ -39,10 +39,40 @@
                           </mat-form-field>
 
 
-                          <mat-form-field appearance="outline">
-                            <mat-label>Employee ID:</mat-label>
-                            <input matInput class="form-control box_border" formControlName="userid">
-                            <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
+
+                          <mat-form-field *ngIf="flag == 'tech'" appearance="outline">
+                            <mat-label>Employee ID</mat-label>
+                            <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" />
+                            <span matPrefix >TEC00&nbsp;</span>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'stk'" appearance="outline">
+                            <mat-label>Employee ID</mat-label>
+                            <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" />
+                            <span matPrefix >STK00&nbsp;</span>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'acc'" appearance="outline">
+                            <mat-label>Employee ID</mat-label>
+                            <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" />
+                            <span matPrefix >ACC00&nbsp;</span>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'adm'" appearance="outline">
+                            <mat-label>Employee ID</mat-label>
+                            <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" />
+                            <span matPrefix >ADM00&nbsp;</span>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field *ngIf="flag == 'fore'" appearance="outline">
+                            <mat-label>Employee ID</mat-label>
+                            <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" />
+                            <span matPrefix >FOR00&nbsp;</span>
+                            <mat-icon matSuffix>perm_identity</mat-icon>
                           </mat-form-field>
 
                           <h4 >+ PROFILE IMAGE</h4>
@@ -102,7 +132,7 @@
                           </mat-form-field>
                         </div>
                         <!-- technician skills fields -->
-                        <div class="form-row mb-4" *ngIf="flag" formGroupName="skills">
+                        <div class="form-row mb-4" *ngIf="flag == 'tech'" formGroupName="skills">
                           <h3 >TECHNICIAN PROFESSIONAL SKILLS</h3>
                           <mat-form-field appearance="outline">
                             <mat-label>Expertise Category:</mat-label>
