@@ -27,7 +27,7 @@
 
                         <mat-form-field style="width: 82%" appearance="outline">
                           <mat-label>User ID</mat-label>
-                          <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" placeholder="Ex-U002" />
+                          <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid"/>
                           <span matPrefix >CUS00&nbsp;</span>
                           <mat-icon matSuffix>perm_identity</mat-icon>
                         </mat-form-field>
@@ -100,25 +100,25 @@
                             [formGroupName]="teamIndex">
 
                             <div style="display: inline-flex;margin-right: 4px;margin-left: 4px;">
-                            <mat-form-field appearance="outline" style="width:25%;margin-right: 3px;margin-left: 4px;">
-                              <mat-label>Vehicle Registration Number:</mat-label>
-                              <input matInput name="vehicleRegNo" formControlName="vehicleRegNo"
-                                placeholder="ex- ABC xx-xxxx" required>
-                              <mat-icon matSuffix>directions_car</mat-icon>
-                            </mat-form-field>
+                              <mat-form-field appearance="outline" style="width:25%;margin-right: 3px;margin-left: 4px;">
+                                <mat-label>Vehicle Registration Number:</mat-label>
+                                <input matInput name="vehicleRegNo" formControlName="vehicleRegNo"
+                                  placeholder="ex- ABC xx-xxxx" required>
+                                <mat-icon matSuffix>directions_car</mat-icon>
+                              </mat-form-field>
 
-                            <mat-form-field appearance="outline" style="width:24%; margin-left: 3px;margin-right: 3px;">
-                              <mat-label>Chasis Number:</mat-label>
-                              <input matInput name="chasis" formControlName="chasis" required>
-                              <mat-icon matSuffix>directions_car</mat-icon>
-                            </mat-form-field>
+                              <mat-form-field appearance="outline" style="width:24%; margin-left: 3px;margin-right: 3px;">
+                                <mat-label>Chasis Number:</mat-label>
+                                <input matInput name="chasis" formControlName="chasis" required>
+                                <mat-icon matSuffix>directions_car</mat-icon>
+                              </mat-form-field>
 
-                            <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
-                              <mat-label>Engine Number:</mat-label>
-                              <input matInput name="EngineNo" formControlName="EngineNo" required>
-                              <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/engine--v2.png"/></mat-icon>
-                            </mat-form-field>
-                          </div>
+                              <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
+                                <mat-label>Engine Number:</mat-label>
+                                <input matInput name="EngineNo" formControlName="EngineNo" required>
+                                <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/engine--v2.png"/></mat-icon>
+                              </mat-form-field>
+                            </div>
                           </div>
                           <div class="button-container">
                             <button mat-button type="submit" class="btn1" (click)="addVehicle()">
