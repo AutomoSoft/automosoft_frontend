@@ -26,7 +26,14 @@ export class RegisterEmployeeComponent implements OnInit {
   cookie;
   images;
   filename;
-  flag; //used to show/hide technician skills fields
+  flag; //used to show/hide user fields fields
+
+  getIdurl;         //url to get last registered employee id
+  lastUserString;      //Userid string of last registered employee
+  lastUserId;          //Userif of last registered employee excluding "CUS"
+  newUserId;           //Userid of new employee
+  newUserString;       //Userid string of new employee
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -68,7 +75,7 @@ selectImage(event) {
     this.filename = file.name;
     //console.log(file);
   }
-} 
+}
 
 addEmployee() {
 
@@ -82,7 +89,7 @@ addEmployee() {
         //append the data to the form
         formData.append('profileImage', this.images)
         formData.append('usertype', this.employeeForm.value.usertype)
-        formData.append('userid', this.employeeForm.value.userid)
+        formData.append('userid', this.newUserString)
         formData.append('firstName', this.employeeForm.value.firstName)
         formData.append('lastName', this.employeeForm.value.lastName)
         formData.append('gender', this.employeeForm.value.gender)
@@ -150,19 +157,82 @@ addEmployee() {
 reset(){
   this.employeeForm.reset();
 }
-  ngOnInit() {
-    var temp = this.cookies.getCookie("userAuth");
-    if(temp==""){
-      this.router.navigate(['/login']);
-    }
-  }
 
-  togglefunction(value) {
-    if (value == "Technician") {
-      this.flag = true;
-    } else {
-      this.flag = false;
-    }
+ngOnInit() {
+  var temp = this.cookies.getCookie("userAuth");
+  if(temp==""){
+    this.router.navigate(['/login']);
   }
+}
+
+
+togglefunction(value) {
+
+      // ******************************************** Get Last Employee Id  ************************************************************
+
+      const url = "http://localhost:3000/getLastId/getLastEmpId";
+
+      this.http.get<any>(url + "/" + value).subscribe(res => {
+        if (res.state == false) {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+        } else {
+
+          if (value == "Technician") {
+            this.flag = "tech";
+            this.lastUserString = res.data[0].userid;
+            var splitted = this.lastUserString.split("TEC", 2);
+            this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+            this.newUserId = this.lastUserId + 1;
+            this.newUserString = 'TEC00'+this.newUserId;
+            // console.log(this.newUserString);
+
+          } else if (value == "Foreman") {
+            this.flag = "fore";
+            this.lastUserString = res.data[0].userid;
+            var splitted = this.lastUserString.split("FOR", 2);
+            this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+            this.newUserId = this.lastUserId + 1;
+            this.newUserString = 'FOR00'+this.newUserId;
+            // console.log(this.newUserId);
+
+          } else if (value == "Accountant") {
+            this.flag = "acc";
+            this.lastUserString = res.data[0].userid;
+            var splitted = this.lastUserString.split("ACC", 2);
+            this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+            this.newUserId = this.lastUserId + 1;
+            this.newUserString = 'ACC00'+this.newUserId;
+            // console.log(this.newUserId);
+
+          } else if (value == "Administrator") {
+            this.flag = "adm";
+            this.lastUserString = res.data[0].userid;
+            var splitted = this.lastUserString.split("ADM", 2);
+            this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+            this.newUserId = this.lastUserId + 1;
+            this.newUserString = 'ADM00'+this.newUserId;
+            // console.log(this.newUserId);
+
+          } else if (value == "Store-Keeper") {
+            this.flag = "stk";
+            this.lastUserString = res.data[0].userid;
+            var splitted = this.lastUserString.split("STK", 2);
+            this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+            this.newUserId = this.lastUserId + 1;
+            this.newUserString = 'STK00'+this.newUserId;
+            // console.log(this.newUserId);
+
+          }else {
+            this.flag = false;
+          }
+
+
+        }
+      });
+
+
+}
 
 }
