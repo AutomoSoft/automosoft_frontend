@@ -10,13 +10,16 @@ import { ViewHistoryComponent } from '../view-history.component';
 export class JobDetailsComponent implements OnInit {
 
   details;
+  vehicles;
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ViewHistoryComponent>,
   ) {
 
     this.details = data.jobDetails;
-    console.log(this.details.jobNo )
+    this.vehicles = data.vehicles;
+    console.log(this.vehicles.vehicleRegNo )
+
   }
 
   ngOnInit() {

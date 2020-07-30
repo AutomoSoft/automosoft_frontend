@@ -34,6 +34,7 @@ interface job {
 export class ViewHistoryComponent implements OnInit {
 
   cookie;
+  vehicles;
   jobDetails;
   jobHis;   //job history
   userdata: user[] = [];
@@ -85,7 +86,7 @@ export class ViewHistoryComponent implements OnInit {
 
         }*/
         res.data.forEach(element => {
-          console.log(JSON.parse(element.vehicle));
+          //console.log(JSON.parse(element.vehicle));
           element.vehicle = JSON.parse(element.vehicle);
 
         });
@@ -119,12 +120,22 @@ export class ViewHistoryComponent implements OnInit {
       } else {
 
         this.jobDetails = res.data;
-        //this.custVehicles= res.data.jobNo;
-        //console.log(res.data["jobStatus"]);
+
+        this.vehicles = JSON.parse(res.data.vehicle);
+        console.log(this.vehicles);
+        /*res.data.forEach(element => {
+          console.log(JSON.parse(element.vehicle));
+          element.vehicle = JSON.parse(element.vehicle);
+
+        });*/
+
+
         const dialogConfig = new MatDialogConfig();
         dialogConfig.data = {
 
           jobDetails: this.jobDetails,
+          vehicles: this.vehicles
+
 
       };
       console.log(dialogConfig.data)
