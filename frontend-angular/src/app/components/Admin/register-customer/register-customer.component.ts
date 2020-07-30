@@ -14,6 +14,7 @@ import {
 } from "@angular/forms";
 
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+//import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 
 
 @Component({
@@ -22,6 +23,12 @@ import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/conf
   styleUrls: ['./register-customer.component.scss']
 })
 export class RegisterCustomerComponent implements OnInit {
+
+  /*separateDialCode = true;
+	SearchCountryField = SearchCountryField;
+	TooltipLabel = TooltipLabel;
+	CountryISO = CountryISO;
+	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];*/
 
 
   cookie;
@@ -52,8 +59,12 @@ customerForm = this.fb.group({
   password: ["", [Validators.required, Validators.minLength(8)]],
   //confirmPassword:["", [Validators.required, Validators.minLength(8)]],
   vehicles: this.fb.array([this.vehicles]),
+  //phone: new FormControl(undefined, [Validators.required])
 
 });
+/*changePreferredCountries() {
+  this.preferredCountries = [CountryISO.India, CountryISO.Canada];
+}*/
 
 //button event to upload profile image
 selectImage(event) {
