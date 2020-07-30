@@ -191,7 +191,7 @@ export class RegisterSupplierComponent implements OnInit {
       this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
     } else {
 
-      this.lastSupString = res.data[0].userid;
+      this.lastSupString = res.data[0].supid;
       var splitted = this.lastSupString.split("SUP", 2);
       this.lastSupId = parseInt(splitted[1], 10)          //extract the numeric part
       this.newSupId = this.lastSupId + 1;

@@ -26,9 +26,8 @@ export class RegisterEmployeeComponent implements OnInit {
   cookie;
   images;
   filename;
-  flag; //used to show/hide user fields fields
+  flag; //used to show/hide user form fields
 
-  getIdurl;         //url to get last registered employee id
   lastUserString;      //Userid string of last registered employee
   lastUserId;          //Userif of last registered employee excluding "CUS"
   newUserId;           //Userid of new employee
