@@ -11,6 +11,8 @@ export class JobDetailsComponent implements OnInit {
 
   details;
   vehicles;
+  itemsUsed;
+  technicians;
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ViewHistoryComponent>,
@@ -18,11 +20,16 @@ export class JobDetailsComponent implements OnInit {
 
     this.details = data.jobDetails;
     this.vehicles = data.vehicles;
-    console.log(this.vehicles.vehicleRegNo )
+    this.itemsUsed = data.itemsUsed;
+    this.technicians = data.technicians;
+    console.log(this.technicians[0]);
+
+    //console.log(this.itemsUsed)
 
   }
 
   ngOnInit() {
+
   }
 
 }

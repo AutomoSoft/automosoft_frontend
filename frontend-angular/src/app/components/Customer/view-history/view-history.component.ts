@@ -36,7 +36,9 @@ export class ViewHistoryComponent implements OnInit {
   cookie;
   vehicles;
   jobDetails;
-  jobHis;   //job history
+  itemsUsed;
+  jobHis;
+  technicians;  //job history
   userdata: user[] = [];
   job: job[] = [];
   userid;
@@ -120,6 +122,9 @@ export class ViewHistoryComponent implements OnInit {
       } else {
 
         this.jobDetails = res.data;
+        this.itemsUsed = res.data.itemsUsed;
+        this.technicians = res.data.technicians
+        //console.log(this.itemsUsed);
 
         this.vehicles = JSON.parse(res.data.vehicle);
         console.log(this.vehicles);
@@ -134,11 +139,13 @@ export class ViewHistoryComponent implements OnInit {
         dialogConfig.data = {
 
           jobDetails: this.jobDetails,
-          vehicles: this.vehicles
+          vehicles: this.vehicles,
+          itemsUsed: this.itemsUsed,
+          technicians: this.technicians
 
 
       };
-      console.log(dialogConfig.data)
+      //console.log(dialogConfig.data)
       this.dialog.open(JobDetailsComponent, dialogConfig);
 
 
