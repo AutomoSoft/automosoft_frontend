@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ViewHistoryComponent } from '../view-history.component';
 
 @Component({
   selector: 'app-job-details',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobDetailsComponent implements OnInit {
 
-  constructor() { }
+  details;
+  constructor(
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private dialogRef: MatDialogRef<ViewHistoryComponent>,
+  ) {
+
+    this.details = data.jobDetails;
+    console.log(this.details.jobNo )
+  }
 
   ngOnInit() {
   }

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MycookiesService } from '../../Admin/mycookies.service';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog, MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarConfig, MatDialogConfig } from '@angular/material';
+import { JobDetailsComponent } from './job-details/job-details.component';
 
 interface user {
   _id: String;
@@ -33,6 +34,7 @@ interface job {
 export class ViewHistoryComponent implements OnInit {
 
   cookie;
+  jobDetails;
   jobHis;   //job history
   userdata: user[] = [];
   job: job[] = [];
@@ -41,6 +43,7 @@ export class ViewHistoryComponent implements OnInit {
   flag2 = false;  //show technicians section
   custID;
   custVehicles;
+  jobNo;
 
   constructor(
     private router: Router,
@@ -59,8 +62,10 @@ export class ViewHistoryComponent implements OnInit {
     if (temp == "") {
       this.router.navigate(['/login']);
     }
+    this.jobHistory();
 
-
+  }
+  jobHistory(){
     const url = "http://localhost:3000/jobs/viewServices";
 
     this.http.get<any>(url + "/" + this.cookie.userid).subscribe(res => {
@@ -71,12 +76,64 @@ export class ViewHistoryComponent implements OnInit {
       } else {
 
         this.jobHis = res.data;
-        this.custVehicles= res.data.jobNo;
-        console.log(res.data["jobStatus"]);
+
+
+        /*for(let v in res.data){
+          var cusV= res.data[v].vehicle;
+          console.log(JSON.parse(cusV));
+          //console.log(v.vehicle.vehicleRegNo);
+
+        }*/
+        res.data.forEach(element => {
+          console.log(JSON.parse(element.vehicle));
+          element.vehicle = JSON.parse(element.vehicle);
+
+        });
+
+
+
+
+        //console.log(res.data["jobStatus"]);
+        //console.log(res.data[0].vehicle);
+
 
 
       }
     });
+
+  }
+
+  viewJob(element){
+
+
+
+    //console.log(element.jobNo);
+
+    const url = "http://localhost:3000/jobs/viewJob";
+
+    this.http.get<any>(url + "/" + element.jobNo).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+
+        this.jobDetails = res.data;
+        //this.custVehicles= res.data.jobNo;
+        //console.log(res.data["jobStatus"]);
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+
+          jobDetails: this.jobDetails,
+
+      };
+      console.log(dialogConfig.data)
+      this.dialog.open(JobDetailsComponent, dialogConfig);
+
+
+      }
+    });
+
 
 
   }

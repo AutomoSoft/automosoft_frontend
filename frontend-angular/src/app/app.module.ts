@@ -213,6 +213,7 @@ import { JobDetailsComponent } from './components/Customer/view-history/job-deta
     ViewTechnicianJobComponent,
     StockWithdrawalPopupComponent,
     NewPurchaseOrderComponent,
+    JobDetailsComponent
   ],
 })
 export class AppModule { }
