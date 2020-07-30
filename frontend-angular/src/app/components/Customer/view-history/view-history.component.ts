@@ -20,6 +20,7 @@ interface job {
   jobStatus: String;
   technicians: String;
   itemsUsed: String;
+  vehicle: String;
 }
 
 @Component({
@@ -36,6 +37,10 @@ export class ViewHistoryComponent implements OnInit {
   userdata: user[] = [];
   job: job[] = [];
   userid;
+  flag1 = false;  //show select vehicles field
+  flag2 = false;  //show technicians section
+  custID;
+  custVehicles;
 
   constructor(
     private router: Router,
@@ -66,12 +71,15 @@ export class ViewHistoryComponent implements OnInit {
       } else {
 
         this.jobHis = res.data;
-        console.log(this.jobHis);
-        console.log()
+        this.custVehicles= res.data.jobNo;
+        console.log(res.data["jobStatus"]);
+
 
       }
     });
+
+
   }
 
+
 }
-//
