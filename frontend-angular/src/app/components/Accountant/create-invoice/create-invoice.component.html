@@ -22,55 +22,46 @@
                       <mat-card>
                           <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
-                          <form [formGroup]="withdrawalForm">
-                            <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
+                          <form [formGroup]="invoiceForm">
+
+                          <div style="display:inline-flex; width: 80%;" >
+
+                            <mat-form-field class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                               <mat-label>Invoice No</mat-label>
                               <input matInput name="invoiceno" formControlName="invoiceNo" placeholder="INV001" />
                               <mat-icon matSuffix></mat-icon>
                             </mat-form-field>
 
-                            <!-- <mat-form-field class="no-padding" style="width:80%" appearance="outline">
-                              <mat-label>Invoice Date</mat-label>
-                              <input matInput [matDatepicker]="picker"  formControlName="invoiceDate">
-                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                              <mat-datepicker #picker></mat-datepicker>
-                            </mat-form-field> -->
-
-                            <!-- <mat-form-field class="no-padding" style="width:80%;" appearance="outline">
-                              <mat-label>PO</mat-label>
-                              <input matInput name="po" formControlName="po" placeholder="INV001" />
-                              <mat-icon matSuffix></mat-icon>
-                            </mat-form-field> -->
-
-                            <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                            <mat-form-field class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                               <mat-label>Job Number</mat-label>
                             <mat-select name="job" formControlName="job" placeholder="" (selectionChange)="selectJob()">
                               <mat-option *ngFor="let job of jobs" [value]="job">{{job.jobNo}}</mat-option>
                             </mat-select>
                             </mat-form-field>
 
+                          </div>
+
                             <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
                               <mat-label>Job Date</mat-label>
                               <input readonly matInput name="jobDate" formControlName="jobDate" placeholder="" [ngModel]="getData.addedon" />
-                              <mat-icon matSuffix>person</mat-icon>
+                              <mat-icon matSuffix>calendar_today</mat-icon>
                             </mat-form-field>
-
-
-                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
-                            <mat-label>Customer ID</mat-label>
-                            <input readonly matInput name="customerid" formControlName="customerid" placeholder="" [ngModel]="getData.custId" />
-                            <mat-icon matSuffix>person</mat-icon>
-                          </mat-form-field>
 
                           <div style="display:inline-flex; width: 80%;" >
 
-                            <mat-form-field *ngIf="getData" style="width:50%;" appearance="outline" >
+                            <mat-form-field *ngIf="getData" class="no-padding" style="width:33.34%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                              <mat-label>Customer ID</mat-label>
+                              <input readonly matInput name="customerid" formControlName="customerid" placeholder="" [ngModel]="getData.custId" />
+                              <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+
+                            <mat-form-field *ngIf="getData" style="width:33.34%; margin-right: 4px;margin-left: 4px;" appearance="outline" >
                               <mat-label>First name</mat-label>
                               <input matInput name="firstName" formControlName="firstName" placeholder="Ex-Kavini" [(ngModel)]="getData.firstName"/>
                               <mat-icon matSuffix>person</mat-icon>
                             </mat-form-field>
 
-                            <mat-form-field *ngIf="getData"style="width: 50%;margin-left: 2px;" appearance ="outline" >
+                            <mat-form-field *ngIf="getData" style="width:33.34%; margin-right: 4px;margin-left: 4px;" appearance ="outline" >
                               <mat-label>Last name</mat-label>
                               <input matInput name="lastName" formControlName="lastName" placeholder="Ex-Nanayakkara"[(ngModel)]="getData.lastName" />
                               <mat-icon matSuffix>person</mat-icon>
@@ -78,21 +69,23 @@
 
                           </div>
 
-                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
+                        <div style="display:inline-flex; width: 80%;" >
+
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                             <mat-label>Vehicle Number </mat-label>
                             <input readonly matInput name="vehicleNo" formControlName="vehicleNo" placeholder="" [ngModel]="getData.vehicle.vehicleRegNo"/>
-                            <mat-icon matSuffix>person</mat-icon>
+                            <mat-icon matSuffix>drive_eta</mat-icon>
                           </mat-form-field>
 
-                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                             <mat-label>Engine No </mat-label>
                             <input readonly matInput name="EngineNo" formControlName="engineNo" placeholder="" [ngModel]="getData.vehicle.EngineNo"/>
-                            <mat-icon matSuffix>person</mat-icon>
+                            <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/engine--v2.png"/></mat-icon>
                           </mat-form-field>
 
-                          <br>
+                        </div>
 
-                          <div class="mat-elevation-z8" *ngIf="getData" style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
+                          <div class="mat-elevation-z8" *ngIf="getData" style="width:60%; margin-bottom: 20px; margin: auto; margin-top: 20px;">
                                   <table class="table ">
                                     <thead>
                                       <tr>
@@ -114,41 +107,65 @@
                                     </tbody>
                                   </table>
                                 </div>
-
-                          <br>
-
                           <div>
 
                           </div>
+                          <br>
 
-                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
+                        <div style="display:inline-flex; width: 80%;" >
+
+                          <!-- Total Bill Value without Tax -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:33.34%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                             <mat-label>Sub Total</mat-label>
-                            <input matInput name="subTotal" formControlName="subTotal" placeholder="Total Amount" [ngModel]="calculateTotal()" />
+                            <input matInput readonly name="subTotal" formControlName="subTotal" placeholder="Total Amount" [ngModel]="calculateTotal()" />
                             <mat-icon matSuffix></mat-icon>
                             <mat-icon matSuffix>functions</mat-icon>
                           </mat-form-field>
 
-                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                          <!-- Fixed Tax Rate -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:33.34%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                             <mat-label>Tax</mat-label>
-                            <input matInput name="tax" formControlName="tax" placeholder="%" />
-                            <mat-icon matSuffix>add</mat-icon>
+                            <input matInput readonly name="tax" formControlName="tax" [ngModel]="taxRate" />
+                            <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/percentage--v1.png"/></mat-icon>
                           </mat-form-field>
 
-                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                          <!-- Total Bill Value with Tax -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:33.34%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                             <mat-label>Grand Total</mat-label>
-                            <input matInput name="grandTotal" formControlName="grandTotal" placeholder="Grand Total with taxes" [ngModel]="calculateGrandTotal()" />
+                            <input matInput readonly name="grandTotal" formControlName="grandTotal" placeholder="Grand Total with taxes" [ngModel]="calculateGrandTotal()" />
                             <mat-icon matSuffix>receipt</mat-icon>
                           </mat-form-field>
 
-                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
+                        </div>
+
+                        <div style="display:inline-flex; width: 80%;" >
+                          <!-- Amount Already Paid -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                             <mat-label>Amount Paid</mat-label>
-                            <input matInput name="amountPaid" formControlName="amountPaid" placeholder="Amount Paid" />
-                            <mat-icon matSuffix>receipt</mat-icon>
+                            <input matInput readonly placeholder="Amount Paid" formControlName="paidAmount" [ngModel]="calculatepaidAmount()" />
+                            <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/paid-bill.png"/></mat-icon>
                           </mat-form-field>
 
-                          <mat-form-field class="no-padding" style="width:80%" appearance="outline">
-                            <mat-label>Balance</mat-label>
-                            <input matInput name="balance" formControlName="balance" placeholder="Balance"  [ngModel]="calculateremBalance()" />
+                          <!-- Balance Remaining to Pay -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
+                            <mat-label>Due Balance</mat-label>
+                            <input matInput readonly placeholder="Due Balance" formControlName="dueBalance" [ngModel]="calculatedueBalance()" />
+                            <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/heck-for-payment.png"/></mat-icon>
+                          </mat-form-field>
+
+                        </div>
+
+                          <!-- New Amount paid at present -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
+                            <mat-label>New Amount</mat-label>
+                            <input matInput name="amountPaid" formControlName="amountPaid" placeholder="New Amount" />
+                            <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/bill--v1.png"/></mat-icon>
+                          </mat-form-field>
+
+                          <!-- Balance Remaining after new payment  -->
+                          <mat-form-field *ngIf="getData" class="no-padding" style="width:80%" appearance="outline">
+                            <mat-label>New Balance</mat-label>
+                            <input matInput name="balance" formControlName="newBalance" placeholder="New Balance"  [ngModel]="calculateremBalance()" />
                             <mat-icon matSuffix>receipt</mat-icon>
                           </mat-form-field>
 
@@ -167,7 +184,7 @@
                           </mat-form-field>
 
                           <div class="button-container">
-                            {{withdrawalForm.value.firstName| json}}
+                            <!-- {{invoiceForm.value| json}} -->
                             <button mat-button type="submit" class="reg_btn" (click)="createInvoice()">
                               Create
                             </button>
@@ -175,11 +192,6 @@
                               Cancel
                             </button>
                           </div>
-
-
-
-
-
                           <br>
                         </form>
 
