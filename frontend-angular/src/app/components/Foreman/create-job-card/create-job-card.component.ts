@@ -72,7 +72,7 @@ ngOnInit() {
 
     // ******************************************** Get Last Job Number  ************************************************************
 
-    const url = "http://localhost:3000/jobs/getLastJobNo";
+    const url = "http://localhost:3000/getLastId/getLastJobNo";
 
     this.http.get<any>(url).subscribe(res => {
       if (res.state == false) {
@@ -223,7 +223,7 @@ createJobCard() {
   let date=Date();
   const createJob = {
     jobType : this.jobCardForm.value.jobType,
-    jobNo: 'JOB'+this.jobCardForm.value.jobNo,
+    jobNo: 'JOB00'+this.jobCardForm.value.jobNo,
     custId: this.jobCardForm.value.custId,
     vehicle: JSON.stringify(this.jobCardForm.value.vehicle),
     probCus: this.jobCardForm.value.probCus,

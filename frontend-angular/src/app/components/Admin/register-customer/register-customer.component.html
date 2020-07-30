@@ -27,7 +27,8 @@
 
                         <mat-form-field style="width: 82%" appearance="outline">
                           <mat-label>User ID</mat-label>
-                          <input matInput name="userid" formControlName="userid" placeholder="Ex-U002" />
+                          <input matInput readonly name="userid" [(ngModel)]="newUserId" formControlName="userid" placeholder="Ex-U002" />
+                          <span matPrefix >CUS00&nbsp;</span>
                           <mat-icon matSuffix>perm_identity</mat-icon>
                         </mat-form-field>
 
@@ -115,7 +116,7 @@
                             <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
                               <mat-label>Engine Number:</mat-label>
                               <input matInput name="EngineNo" formControlName="EngineNo" required>
-                              <mat-icon matSuffix>directions_car</mat-icon>
+                              <mat-icon matSuffix><img src="https://img.icons8.com/material/24/000000/engine--v2.png"/></mat-icon>
                             </mat-form-field>
                           </div>
                           </div>

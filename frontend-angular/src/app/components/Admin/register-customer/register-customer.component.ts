@@ -27,6 +27,11 @@ export class RegisterCustomerComponent implements OnInit {
   cookie;
   images;
   filename;
+
+  lastUserString;      //Userid string of last registered user
+  lastUserId;          //Userif of last registered user excluding "CUS"
+  newUserId;           //Userid of new Customer
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -91,7 +96,7 @@ addCustomer() {
         //append the data to the form
         formData.append('profileImage', this.images)
         formData.append('usertype', "Customer")
-        formData.append('userid', this.customerForm.value.userid)
+        formData.append('userid', 'CUS00'+this.newUserId)
         formData.append('firstName', this.customerForm.value.firstName)
         formData.append('lastName', this.customerForm.value.lastName)
         formData.append('gender', this.customerForm.value.gender)
@@ -160,7 +165,29 @@ reset(){
     if(temp==""){
       this.router.navigate(['/login']);
     }
+
+  // ******************************************** Get Last Customer Id  ************************************************************
+
+  const url = "http://localhost:3000/getLastId/getLastCusId";
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      this.lastUserString = res.data[0].userid;
+      var splitted = this.lastUserString.split("CUS", 2);
+      this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+      this.newUserId = this.lastUserId + 1;
+      //console.log(this.lastUserId);
+    }
+  });
+
   }
+
+
 
 }
 

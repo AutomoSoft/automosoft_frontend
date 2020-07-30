@@ -54,9 +54,11 @@ employeeForm = this.fb.group({
   skills: this.fb.group({
     expertise: [""],
     capacity: [""]
-  })
+  }),
+  vehicles: this.fb.array([""])
 
 });
+
 
 //button event to upload profile image
 selectImage(event) {
@@ -66,7 +68,7 @@ selectImage(event) {
     this.filename = file.name;
     //console.log(file);
   }
-}
+} 
 
 addEmployee() {
 
@@ -88,6 +90,7 @@ addEmployee() {
         formData.append('address', this.employeeForm.value.address)
         formData.append('contactnumber', this.employeeForm.value.contactNo)
         formData.append('email', this.employeeForm.value.email)
+        formData.append('vehicles', JSON.stringify(this.employeeForm.value.vehicles))
         formData.append('password', this.employeeForm.value.password)
         formData.append('expertise', this.employeeForm.value.skills.expertise)
         formData.append('capacity', this.employeeForm.value.skills.capacity)
