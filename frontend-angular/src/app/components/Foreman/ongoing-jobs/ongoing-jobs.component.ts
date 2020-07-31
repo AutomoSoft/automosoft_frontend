@@ -76,7 +76,7 @@ export class OngoingJobsComponent implements OnInit {
   viewCard(element) {
 
   this.userid = element.custId;
-  //console.log(element.jobNo)
+  console.log(element.jobNo)
 
   const url = "http://localhost:3000/users/searchUsers"   //backend url
 

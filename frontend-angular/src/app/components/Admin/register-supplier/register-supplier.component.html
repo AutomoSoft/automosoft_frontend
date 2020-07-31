@@ -27,16 +27,18 @@
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
                         <div class="form-row mb-4" formGroupName="supDetails">
                           <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
+
+                            <mat-label>Supplier ID</mat-label>
+                            <input matInput name="supid" formControlName="supid" [(ngModel)]="newSupId" required>
+                            <span matPrefix >SUP00&nbsp;</span>
+                            <mat-icon matSuffix>person</mat-icon>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                             <mat-label>Supplier Name</mat-label>
                             <input matInput name="supname" formControlName="supname"
                               placeholder="ex-Jason Smith" required>
                             <mat-icon matSuffix>perm_identity</mat-icon>
-                          </mat-form-field>
-
-                          <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
-                            <mat-label>Supplier ID</mat-label>
-                            <input matInput name="supid" formControlName="supid" placeholder="ex- S0001" required>
-                            <mat-icon matSuffix>person</mat-icon>
                           </mat-form-field>
 
                           <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
@@ -47,8 +49,7 @@
 
                           <mat-form-field appearance="outline" style="display:block; width:65%; margin: auto;">
                             <mat-label>Address</mat-label>
-                            <input matInput name="address" formControlName="address"
-                              placeholder="ex-no.45, sri devamittha mawatha, Galle" required>
+                            <textarea matInput formControlName="address"  placeholder="ex-no.45, sri devamittha mawatha, Galle" required></textarea>
                             <mat-icon matSuffix>home</mat-icon>
                           </mat-form-field>
 
@@ -59,7 +60,6 @@
                             <mat-icon matSuffix>phone_in_talk</mat-icon>
                           </mat-form-field>
 
-  <!--test-->
 
 
                         </div>
@@ -68,52 +68,39 @@
                         <div formArrayName="supitem">
 
 
-
                           <div *ngFor=" let team of supplierForm.get('supitem').controls;let teamIndex = index "[formGroupName]="teamIndex" >
+                            <div style="display: inline-flex;margin-right: 4px;margin-left: 4px;">
 
-                            <!--<mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-                              <mat-label>Select Item Type</mat-label>
-                              <mat-select name="itemtype" placeholder="Select Item" formControlName="itemtype" required>
-                                <mat-option *ngFor="let item of items" [value]="item.value">
-                                  {{item.viewValue}}
-                                </mat-option>
-                              </mat-select>
-                              <mat-icon matSuffix>build</mat-icon>
-                            </mat-form-field>-->
-                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-                                <mat-select placeholder="Select Item Category:" [(ngModel)]="itemCat" (ngModelChange)="selectItems($event)" formControlName="itemtype">
-                                  <mat-option value="Paints">Paints</mat-option>
-                                  <mat-option value="Tools">Tools</mat-option>
-                                  <mat-option value="Spare Parts">Spare Parts</mat-option>
-                                  <mat-option value="Tyres">Tyres</mat-option>
-                                  <mat-option value="Electric Parts">Electric Parts</mat-option>
+                              <mat-form-field appearance="outline" style="width:33.34%;margin-right: 3px;margin-left: 4px;">
+                                  <mat-select placeholder="Select Item Category:" [(ngModel)]="itemCat" (ngModelChange)="selectItems($event)" formControlName="itemtype">
+                                    <mat-option value="Paints">Paints</mat-option>
+                                    <mat-option value="Tools">Tools</mat-option>
+                                    <mat-option value="Spare Parts">Spare Parts</mat-option>
+                                    <mat-option value="Tyres">Tyres</mat-option>
+                                    <mat-option value="Electric Parts">Electric Parts</mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+
+                              <mat-form-field *ngIf="flag1" appearance="outline" style="width:33.34%;margin-right: 3px;margin-left: 4px;">
+                                <mat-select placeholder="Select Item:" formControlName="itemid">
+                                  <mat-option [value] ="k.itemid" *ngFor="let k of selectedItems">{{k.itemid}}</mat-option>
                                 </mat-select>
-                            </mat-form-field>
-                            <mat-form-field *ngIf="flag1" appearance="outline" style="display:block; width:35%; margin: auto;">
-                              <mat-select placeholder="Select Item:" formControlName="itemid">
-                                <mat-option [value] ="k.itemid" *ngFor="let k of selectedItems">{{k.itemid}}</mat-option>
-                              </mat-select>
-                            </mat-form-field>
+                              </mat-form-field>
 
-
-
-                            <!--<mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-                              <mat-label>Item ID</mat-label>
-                              <input matInput name="itemid" formControlName="itemid" placeholder="ex- SP0001" required>
-                              <mat-icon matSuffix>settings</mat-icon>
-                            </mat-form-field>-->
-
-                            <mat-form-field appearance="outline" style="display:block; width:35%; margin: auto;">
-                              <mat-label>Brand/Model</mat-label>
-                              <input matInput name="brand" formControlName="brand" placeholder="ex-Toyota" required>
-                              <mat-icon matSuffix>input</mat-icon>
-                            </mat-form-field>
+                              <mat-form-field appearance="outline" style="width:33.34%;margin-right: 3px;margin-left: 4px;">
+                                <mat-label>Brand/Model</mat-label>
+                                <input matInput name="brand" formControlName="brand" placeholder="ex-Toyota" required>
+                                <mat-icon matSuffix>input</mat-icon>
+                              </mat-form-field>
+                            </div>
                           </div>
+
                           <div class="button-container">
                             <button mat-button type="submit" class="array_btn" (click)="addItem()">
                               Add More
                             </button>
                           </div>
+
                         </div>
                         <br>
 

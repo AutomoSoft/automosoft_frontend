@@ -1,0 +1,131 @@
+<div class="mat-dialog-header" style="text-align: center; min-width: 720px;">
+  <mat-dialog-content>
+    <h1 mat-dialog-title>ITEM DETAILS</h1>
+    <mat-divider></mat-divider>
+    <div class="header">
+      <!--<div class="avatar-container">
+        <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
+      </div>-->
+      <br />
+      <div class="container">
+        <table class="table-container">
+          <tr>
+            <th>JOB ID</th>
+            <td>{{details.jobNo}}</td>
+          </tr>
+          <tr>
+            <th>JOB TYPE</th>
+            <td>{{details.jobType}}</td>
+          </tr>
+          <tr>
+            <th>CUSTOMER ID</th>
+            <td>{{details.custId}}</td>
+          </tr>
+         <tr>
+            <th>VEHICLE REG NO</th>
+            <td>{{vehicles.vehicleRegNo}}</td>
+          </tr>
+          <tr>
+            <th>CHASIS</th>
+            <td>{{vehicles.chasis}}</td>
+          </tr>
+          <tr>
+            <th>ENGINE NO</th>
+            <td>{{vehicles.EngineNo}}</td>
+          </tr>
+          <tr>
+            <th>PROBLEM</th>
+            <td>{{details.probCus}}</td>
+          </tr>
+          <tr>
+            <th>FOREMAN OBSERVATION</th>
+            <td>{{details.foremanObv}}</td>
+          </tr>
+          <tr>
+            <th>ESTIMATED CHARGE</th>
+            <td>{{details.estCharge}}</td>
+          </tr>
+        </table>
+      </div>
+        <mat-card class="section">
+          <mat-card-title>ITEMS USED :</mat-card-title>
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>ITEM ID</th>
+              <th>ITEM TYPE</th>
+              <th>ITEM NAME</th>
+              <th>QUANTITY</th>
+              <th>UNIT PRICE</th>
+              <th>CHARGES</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let k of itemsUsed">
+              <td>{{k.itemId}}</td>
+              <td>{{k.itemtype}}</td>
+              <td>{{k.itemname}}</td>
+              <td>{{k.qty}}</td>
+              <td>{{k.unitprice}}</td>
+              <td>{{k.charge}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card>
+      <br><br>
+      <mat-card class="section">
+        <mat-card-title>TECHNICIANS :</mat-card-title>
+      <table class="table ">
+        <thead>
+          <tr>
+            <th>TECH ID</th>
+            <th>ADDED ON</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of technicians">
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card>
+    <br><br>
+      <div class="container">
+        <table class="table-container">
+          <tr>
+            <th>SUB TOTAL</th>
+            <td>{{details.subTotal}}</td>
+          </tr>
+          <tr>
+            <th>TAX</th>
+            <td>{{details.tax}}</td>
+          </tr>
+          <tr>
+            <th>GRAND TOTAL</th>
+            <td>{{details.grandTotal}}</td>
+          </tr>
+          <tr>
+            <th>AMOUNT PAID</th>
+            <td>{{details.amountPaid}}</td>
+          </tr>
+          <tr>
+            <th>BALANCE</th>
+            <td>{{details.balance}}</td>
+          </tr>
+          <tr>
+            <th>LAST PAID ON</th>
+            <td>{{details.lastpaymentdate}}</td>
+          </tr>
+          <tr>
+            <th>JOB STATUS</th>
+            <td>{{details.jobStatus}}</td>
+          </tr>
+        </table>
+
+
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>

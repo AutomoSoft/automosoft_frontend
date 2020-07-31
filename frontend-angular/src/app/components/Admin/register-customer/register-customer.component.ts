@@ -14,6 +14,7 @@ import {
 } from "@angular/forms";
 
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
+//import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 
 
 @Component({
@@ -23,10 +24,21 @@ import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/conf
 })
 export class RegisterCustomerComponent implements OnInit {
 
+  /*separateDialCode = true;
+	SearchCountryField = SearchCountryField;
+	TooltipLabel = TooltipLabel;
+	CountryISO = CountryISO;
+	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];*/
+
 
   cookie;
   images;
   filename;
+
+  lastUserString;      //Userid string of last registered user
+  lastUserId;          //Userif of last registered user excluding "CUS"
+  newUserId;           //Userid of new Customer
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -52,8 +64,12 @@ customerForm = this.fb.group({
   password: ["", [Validators.required, Validators.minLength(8)]],
   //confirmPassword:["", [Validators.required, Validators.minLength(8)]],
   vehicles: this.fb.array([this.vehicles]),
+  //phone: new FormControl(undefined, [Validators.required])
 
 });
+/*changePreferredCountries() {
+  this.preferredCountries = [CountryISO.India, CountryISO.Canada];
+}*/
 
 //button event to upload profile image
 selectImage(event) {
@@ -86,12 +102,12 @@ addCustomer() {
     this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
     return;
   }else {
-    let date=Date();
+    let date=Date(); 
     const formData = new FormData();
         //append the data to the form
         formData.append('profileImage', this.images)
         formData.append('usertype', "Customer")
-        formData.append('userid', this.customerForm.value.userid)
+        formData.append('userid', 'CUS00'+this.newUserId)
         formData.append('firstName', this.customerForm.value.firstName)
         formData.append('lastName', this.customerForm.value.lastName)
         formData.append('gender', this.customerForm.value.gender)
@@ -160,7 +176,29 @@ reset(){
     if(temp==""){
       this.router.navigate(['/login']);
     }
+
+  // ******************************************** Get Last Customer Id  ************************************************************
+
+  const url = "http://localhost:3000/getLastId/getLastCusId";
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      this.lastUserString = res.data[0].userid;
+      var splitted = this.lastUserString.split("CUS", 2);
+      this.lastUserId = parseInt(splitted[1], 10)          //extract the numeric part
+      this.newUserId = this.lastUserId + 1;
+      //console.log(this.lastUserId);
+    }
+  });
+
   }
+
+
 
 }
 

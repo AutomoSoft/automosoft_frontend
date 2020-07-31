@@ -36,6 +36,10 @@ export class RegisterSupplierComponent implements OnInit {
   itemCat;       //filter items
   selectedItems;   //registered items from selected category
 
+  lastSupString;      //Supid string of last registered Supplier
+  lastSupId;          //Supif of last registered Supplier excluding "CUS"
+  newSupId;           //Supid of new Customer
+
   items: Item[] = [
     {value: 'Spare Parts', viewValue: 'Spare Parts'},
     {value: 'Tools', viewValue: 'Tools'},
@@ -175,6 +179,27 @@ export class RegisterSupplierComponent implements OnInit {
     if(temp==""){
       this.router.navigate(['/login']);
     }
+
+// ******************************************** Get Last Supplier Id  ************************************************************
+
+  const url = "http://localhost:3000/getLastId/getLastSupId";
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      this.lastSupString = res.data[0].supid;
+      var splitted = this.lastSupString.split("SUP", 2);
+      this.lastSupId = parseInt(splitted[1], 10)          //extract the numeric part
+      this.newSupId = this.lastSupId + 1;
+      //console.log(this.lastSupId);
+    }
+  });
+
+
   }
 
 }

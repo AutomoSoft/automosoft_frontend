@@ -33,6 +33,9 @@ export class CreateJobCardComponent implements OnInit {
   itemsUsed = [];
   dateAdded;
 
+  lastJobString;      //jobNo of the last created job(String)
+  lastJobNo;          //jobNo of the last created job (Part excluding "JOB")
+  newJobNo;           //jobNo of the new Job
 
   constructor(
     private router: Router,
@@ -66,6 +69,25 @@ ngOnInit() {
     if(temp==""){
       this.router.navigate(['/login']);
     }
+
+    // ******************************************** Get Last Job Number  ************************************************************
+
+    const url = "http://localhost:3000/getLastId/getLastJobNo";
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+
+        this.lastJobString = res.data[0].jobNo;
+        var splitted = this.lastJobString.split("JOB", 2);
+        this.lastJobNo = parseInt(splitted[1], 10)          //extract the numeric part
+        this.newJobNo = this.lastJobNo + 1;
+        //console.log(this.lastJobNo);
+      }
+    });
 
 }
 
@@ -201,7 +223,7 @@ createJobCard() {
   let date=Date();
   const createJob = {
     jobType : this.jobCardForm.value.jobType,
-    jobNo: this.jobCardForm.value.jobNo,
+    jobNo: 'JOB00'+this.jobCardForm.value.jobNo,
     custId: this.jobCardForm.value.custId,
     vehicle: JSON.stringify(this.jobCardForm.value.vehicle),
     probCus: this.jobCardForm.value.probCus,

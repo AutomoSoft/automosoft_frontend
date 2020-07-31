@@ -14,6 +14,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+//import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+
+
 
 //material
 import {
@@ -93,6 +96,7 @@ import { ApproveReservationsComponent } from './components/Foreman/approve-reser
 import { StockWithdrawalPopupComponent } from './components/Foreman/stock-withdrawal-popup/stock-withdrawal-popup.component';
 import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
 import { NewPurchaseOrderComponent } from './components/Accountant/purchase-order-requests/new-purchase-order/new-purchase-order.component';
+import { JobDetailsComponent } from './components/Customer/view-history/job-details/job-details.component';
 
 
 
@@ -145,7 +149,8 @@ import { NewPurchaseOrderComponent } from './components/Accountant/purchase-orde
     ApproveReservationsComponent,
     StockWithdrawalPopupComponent,
     ApproveReservationsPopupComponent,
-    NewPurchaseOrderComponent
+    NewPurchaseOrderComponent,
+    JobDetailsComponent
 
   ],
   imports: [
@@ -187,6 +192,8 @@ import { NewPurchaseOrderComponent } from './components/Accountant/purchase-orde
     MatRadioModule,
     MaterialTimePickerModule,
     NgxMaterialTimepickerModule,
+    //NgxIntlTelInputModule,
+
     //PopupModule.forRoot(),
     //ViewChild
 
@@ -206,6 +213,7 @@ import { NewPurchaseOrderComponent } from './components/Accountant/purchase-orde
     ViewTechnicianJobComponent,
     StockWithdrawalPopupComponent,
     NewPurchaseOrderComponent,
+    JobDetailsComponent
   ],
 })
 export class AppModule { }

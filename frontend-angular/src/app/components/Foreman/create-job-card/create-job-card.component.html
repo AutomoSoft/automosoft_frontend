@@ -29,6 +29,12 @@
                         <div class="form-row mb-4">
 
                           <mat-form-field appearance="outline">
+                            <mat-label>Job No:</mat-label>
+                            <input matInput readonly class="form-control box_border" [(ngModel)]="newJobNo" formControlName="jobNo">
+                            <span matPrefix >JOB00&nbsp;</span>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
                             <!-- <mat-label>Select User Type:</mat-label> -->
                             <mat-select placeholder="Job Type:" [(ngModel)]="jobCat" (ngModelChange)="selectTechnician($event)" formControlName="jobType">
                               <mat-option value="Paint Job">Paint Job</mat-option>
@@ -38,13 +44,6 @@
                               <mat-option value="Other">Other</mat-option>
                             </mat-select>
                           </mat-form-field>
-
-
-                          <mat-form-field appearance="outline">
-                            <mat-label>Job No:</mat-label>
-                            <input matInput class="form-control box_border" formControlName="jobNo">
-                          </mat-form-field>
-
 
                           <mat-form-field appearance="outline">
                             <mat-label>Customer ID:</mat-label>

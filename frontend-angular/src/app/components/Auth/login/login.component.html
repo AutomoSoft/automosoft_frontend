@@ -14,9 +14,11 @@
         </mat-form-field>
         <mat-form-field appearance="outline" style="display: block;width: 60%;margin: auto;">
           <mat-label style="color:#c76b15;">Password</mat-label>
-          <input style="color:white" matInput type="password" name="password" [(ngModel)]="password"
+          <input style="color:white" matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password"
             placeholder="i.e : abc@123">
-          <mat-icon style="color: white;" matSuffix>lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon style="color: white;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
           <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
 

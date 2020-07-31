@@ -77,7 +77,80 @@
                   <!-- ======================================= MY RESERVATIONS ============================================ -->
                   <mat-tab label="MY RESERVATIONS">
                     <mat-card>
-                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+                      <br>
+                      <h3 class="topic" style="margin-left: -600px;">SELECT JOB TYPE:</h3>
+                      <div class="form-row mb-4">
+                        <mat-form-field appearance="outline">
+                          <mat-select placeholder="Job Type" [(ngModel)]="repairtype_1"
+                            (ngModelChange)="selectJob_1($event)">
+                            <mat-option value="Paint Job">Paint Job</mat-option>
+                            <mat-option value="Accident Repair">Accident Repair</mat-option>
+                            <mat-option value="Vehicle Valuation">Vehicle Valuation</mat-option>
+                            <mat-option value="Full Service">Full Service</mat-option>
+                            <mat-option value="Other">Other</mat-option>
+                            <mat-option value="all">ALL</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <!-- {{searchText}} -->
+                      </div>
+                      <br>
+                      <br>
+                      <div>
+                        <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource_1">
+
+
+                          <!-- User Type Column -->
+                          <ng-container matColumnDef="repairtype">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> JOB
+                              TYPE </th>
+                            <td mat-cell *matCellDef="let element"> {{element.repairtype}} </td>
+                          </ng-container>
+
+                          <!-- User Type Column -->
+                          <ng-container matColumnDef="daterequested">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">
+                              REQUESTED DATE </th>
+                            <td mat-cell *matCellDef="let element"> {{element.daterequested}} </td>
+                          </ng-container>
+
+                          <!-- First Name Column -->
+                          <ng-container matColumnDef="time">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">
+                              REQUESTED TIME </th>
+                            <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+                          </ng-container>
+
+                          <!-- E-mail Column -->
+                          <ng-container matColumnDef="problembrief">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> PROBLEM
+                              DESCRIPTION </th>
+                            <td mat-cell *matCellDef="let element"> {{element.problembrief}} </td>
+                          </ng-container>
+
+                          <!-- User Type Column -->
+                          <ng-container matColumnDef="dateaccepted">
+                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACCEPTED ON </th>
+                              <td mat-cell *matCellDef="let element"> {{element.dateaccepted}} </td>
+                            </ng-container>
+
+                          <!-- <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACTION
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                             
+                              <button mat-raised-button type="submit" (click)="viewReservation(element)" class="rep_btn"
+                                color="primary">ACCEPT</button>
+                            </td>
+                          </ng-container> -->
+
+
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns_1"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns_1;"></tr>
+                        </table>
+
+                        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+                      </div>
                     </mat-card>
                   </mat-tab>
                 </mat-tab-group>

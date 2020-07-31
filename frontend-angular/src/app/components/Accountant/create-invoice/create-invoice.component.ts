@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import {MycookiesService} from '../../Admin/mycookies.service';
+import { MycookiesService } from '../../Admin/mycookies.service';
 import { MatDialog, MatSnackBar, MatSnackBarConfig} from "@angular/material";
 import { HttpClient } from "@angular/common/http";
 import {
@@ -44,6 +44,10 @@ export class CreateInvoiceComponent implements OnInit {
   getCustomers;
   customerData:customer[] =[];
   allItems = [];
+  taxRate = 12;                 //edit tax rate here
+  paidAmount;                   //paid amount from total bill
+  dueBalance;                   //balance remaining to pay
+
   constructor( private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
@@ -51,13 +55,13 @@ export class CreateInvoiceComponent implements OnInit {
     private dialog: MatDialog,
     public snackBar: MatSnackBar,) {
       if (cookies.userData && cookies.userData.userid) {
-        this.userid = cookies.userData.userid;
+        this.cookie = cookies.userData.userid;
       }
     }
-    withdrawalForm = this.fb.group({
+
+    invoiceForm = this.fb.group({
       invoiceNo: ["",Validators.required],
       invoiceDate: ["",Validators.required],
-      po: ["", Validators.required],
       foremanid: ["", Validators.required],
       createdBy: ["", Validators.required],
       job: ["", Validators.required],
@@ -73,6 +77,12 @@ export class CreateInvoiceComponent implements OnInit {
       grandTotal: ["", Validators.required],
       tax: ["", Validators.required],
       subTotal: ["", Validators.required],
+
+      paidAmount: ["", Validators.required],      //already paid amount
+      dueBalance: ["", Validators.required],      //remaining balance to pay
+
+      amountPaid: ["", Validators.required],      //current paying amount
+      newBalance: ["", Validators.required],         //new balance remaining to pay
       note: ["", Validators.required]
     });
 
@@ -87,7 +97,7 @@ export class CreateInvoiceComponent implements OnInit {
     }
     addVehicle ()
     {
-      (this.withdrawalForm.get("itemDetails") as FormArray).push(this.itemDetails);
+      (this.invoiceForm.get("itemDetails") as FormArray).push(this.itemDetails);
     }
 
   ngOnInit() {
@@ -97,8 +107,9 @@ export class CreateInvoiceComponent implements OnInit {
   }
   this.getCompletedJobs();
   }
+
   clear(){
-    this.withdrawalForm.reset();
+    this.invoiceForm.reset();
   }
 
   getCompletedJobs() {
@@ -117,7 +128,7 @@ export class CreateInvoiceComponent implements OnInit {
 
   getCustomerDetails() {
     this.userid = this.getData.custId;
-    console.log(this.userid);
+    // console.log(this.userid);
     const url = "http://localhost:3000/users/searchUsers"   //backend url
 
     this.http.get<any>(url + "/" + this.userid).subscribe(res => {
@@ -131,7 +142,7 @@ export class CreateInvoiceComponent implements OnInit {
           this.getData.firstName = res.data["firstname"];
           this.getData.lastName = res.data["lastname"];
           //console.log(res.data["firstname"]);
-          //console.log(this.withdrawalForm.value.job)
+          //console.log(this.invoiceForm.value.job)
 
       }
     });
@@ -159,11 +170,11 @@ export class CreateInvoiceComponent implements OnInit {
     });
   }
   getNames(){
-    this.getCustomers = this.withdrawalForm.value.customerid;
-    //this.selectedJob = this.withdrawalForm.value.job;
+    this.getCustomers = this.invoiceForm.value.customerid;
+    //this.selectedJob = this.invoiceForm.value.job;
     if (this.getCustomers.vehicle) {
       this.getCustomers.vehicle = JSON.parse(this.getCustomers.vehicle);
-      console.log(this.getCustomers);
+      // console.log(this.getCustomers);
     }
   }
 
@@ -172,42 +183,59 @@ export class CreateInvoiceComponent implements OnInit {
   }
 
   public calculateGrandTotal() {
-     const grandTotal = this.withdrawalForm.value.subTotal+ this.withdrawalForm.value.tax/100*this.withdrawalForm.value.subTotal;
+     const grandTotal = this.invoiceForm.value.subTotal+ this.taxRate/100*this.invoiceForm.value.subTotal;
      return grandTotal;
   }
+
+  public calculatepaidAmount() {    //amount already paid
+    const paidAmount = this.invoiceForm.value.job.amountPaid;
+    return paidAmount;
+ }
+ public calculatedueBalance() {     //amount remaining to pay
+  const dueBalance = this.invoiceForm.value.grandTotal - this.invoiceForm.value.paidAmount;
+  return dueBalance;
+}
+  public calculateremBalance() {    //amount remaining after current paying amount
+    const balance = this.invoiceForm.value.dueBalance -this.invoiceForm.value.amountPaid;
+    return balance;
+ }
+
   selectJob () {
-    this.getData = this.withdrawalForm.value.job;
+    this.getData = this.invoiceForm.value.job;
     this.getCustomerDetails();
-    //this.selectedJob = this.withdrawalForm.value.job;
+    this.paidAmount=this.invoiceForm.value.job.amountPaid;
+    this.dueBalance=this.invoiceForm.value.job.balance;
     if (this.getData.vehicle) {
       this.getData.vehicle = JSON.parse(this.getData.vehicle);
-      console.log(this.getData.itemsUsed);
+      // console.log(this.dueBalance);
     }
   }
 
   createInvoice() {
-    //let date=Date();
+    let date=Date();
     const createInvoice = {
-      invoiceNo: this.withdrawalForm.value.invoiceNo,
-      invoiceDate: this.withdrawalForm.value.invoiceDate,
-      po: this.withdrawalForm.value.po,
-      jobNo: this.withdrawalForm.value.job.jobNo,
-      jobDate: this.withdrawalForm.value.jobDate,
-      custId: this.withdrawalForm.value.customerid,
-      firstname: this.withdrawalForm.value.firstName,
-      lastName: this.withdrawalForm.value.lastName,
-      vehicleNo: this.withdrawalForm.value.vehicleNo,
-      engineNo: this.withdrawalForm.value.engineNo,
+      invoiceNo: this.invoiceForm.value.invoiceNo,
+      invoiceDate: date,
+      jobNo: this.invoiceForm.value.job.jobNo,
+      jobDate: this.invoiceForm.value.jobDate,
+      custId: this.invoiceForm.value.customerid,
+      firstname: this.invoiceForm.value.firstName,
+      lastName: this.invoiceForm.value.lastName,
+      vehicleNo: this.invoiceForm.value.vehicleNo,
+      engineNo: this.invoiceForm.value.engineNo,
       itemsUsed: this.getData.itemsUsed,
-      subTotal: this.withdrawalForm.value.subTotal,
-      tax: this.withdrawalForm.value.tax,
-      grandTotal: this.withdrawalForm.value.grandTotal,
-      note: this.withdrawalForm.value.note,
-      createdBy: this.withdrawalForm.value.createdBy
+      subTotal: this.invoiceForm.value.subTotal,
+      tax: this.taxRate,
+      grandTotal: this.invoiceForm.value.grandTotal,
+      amountPaid: this.invoiceForm.value.amountPaid,
+      balance: this.invoiceForm.value.newBalance,
+      note: this.invoiceForm.value.note,
+      createdBy: this.invoiceForm.value.createdBy
     };
-    console.log(createInvoice);
+    // console.log(createInvoice);
 
   var url = "http://localhost:3000/invoice/createInvoice";
+  var url2 = "http://localhost:3000/jobs/updateCharges";      //update job charges
 
   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
     data: {
@@ -224,52 +252,27 @@ export class CreateInvoiceComponent implements OnInit {
     if (confirmed) {
       this.http.post<any>(url, createInvoice).subscribe(res => {
         if (res.state) {
-          console.log(res.msg);
-          window.location.reload();
-          // this.customerForm.reset();
+          this.http.post<any>(url2, createInvoice).subscribe(res => {
+            if (res.state) {
+              console.log(res.msg);
+              window.location.reload();
+            } else {
+              console.log(res.msg);
+              alert("Error!! Try Again");
+              this.router.navigate([this.cookie.userid,'createInvoice']);
+            }
+          });
+
         } else {
           console.log(res.msg);
           alert("Error!! Try Again");
           this.router.navigate([this.cookie.userid,'createInvoice']);
         }
       });
-      console.log(createInvoice);
+      // console.log(createInvoice);
     }
   });
 
-  /*if (this.withdrawalForm.invalid) {
-    let config = new MatSnackBarConfig();
-    this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
-    return;
-  }else {
-  const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-    data: {
-      message: "Are you sure want to Add?",
-      buttonText: {
-        ok: "Yes",
-        cancel: "No"
-      }
-    }
-  });
-
-  dialogRef.afterClosed().subscribe((confirmed: boolean) => {
-
-    if (confirmed) {
-      this.http.post<any>(url, createInvoice).subscribe(res => {
-        if (res.state) {
-          console.log(res.msg);
-          window.location.reload();
-          // this.customerForm.reset();
-        } else {
-          console.log(res.msg);
-          alert("Error!! Try Again");
-          this.router.navigate([this.cookie.userid,'createInvoice']);
-        }
-      });
-      console.log(createInvoice);
-    }
-  });
-}*/
   }
 
 

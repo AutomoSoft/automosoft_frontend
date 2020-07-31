@@ -45,6 +45,7 @@ export interface PeriodicElement {
     time: String;
     repairtype: String;
     problembrief: String;
+    dateaccepted: String;
 }
 
 @Component({
@@ -54,11 +55,15 @@ export interface PeriodicElement {
 })
 export class ApproveReservationsComponent implements OnInit {
 
-  displayedColumns: string[] = ['repairtype', 'daterequested','time','problembrief', 'action']; // Table Columns will displayed according to this order
+  displayedColumns_1: string[] = ['repairtype', 'daterequested','time','problembrief', 'action']; // Table Columns will displayed according to this order
+  displayedColumns_2: string[] = ['repairtype', 'daterequested','time','problembrief', 'dateaccepted']; // Table Columns will displayed according to this order
   cookie;
-  TABLE_DATA: PeriodicElement[] = [];
-  dataSource;
-  repairtype: String;
+  TABLE_DATA_1: PeriodicElement[] = [];
+  TABLE_DATA_2: PeriodicElement[] = [];
+  dataSource_1;
+  dataSource_2;
+  repairtype_1: String;
+  repairtype_2: String;
   custID: String;
   customerdata: user[] = [];
   
@@ -92,9 +97,26 @@ export class ApproveReservationsComponent implements OnInit {
         this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
       } else {
 
-        this.TABLE_DATA = res.data;
+        this.TABLE_DATA_1 = res.data;
         //console.log(this.TABLE_DATA);
-        this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+        this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
+      }
+    });
+
+  // *************************************************** Get All Accepted Reservation Requests OnInit********************************************************
+
+    const url_2 = "http://localhost:3000/reservations/viewAllAcceptedReservations";
+
+    this.http.get<any>(url_2).subscribe(res_2 => {
+      if (res_2.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+
+        this.TABLE_DATA_2 = res_2.data;
+        //console.log(this.TABLE_DATA);
+        this.dataSource_2 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_2);
       }
     });
   }
@@ -102,7 +124,7 @@ export class ApproveReservationsComponent implements OnInit {
 
   //******************************************** View Reservations Job Category Wise ********************************************************
 
-  selectJob(category){
+  selectJob_1(category){
 
     console.log(category)
 
@@ -114,15 +136,39 @@ export class ApproveReservationsComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
       } else {
-        this.TABLE_DATA = res.data;   //add response data in to data array
-          console.log(this.TABLE_DATA);
-          this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
+        this.TABLE_DATA_1 = res.data;   //add response data in to data array
+          console.log(this.TABLE_DATA_1);
+          this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
 
       }
     });
     
 
   }
+
+    //******************************************** View All Accepted Reservations Job Category Wise ********************************************************
+
+    selectJob_2(category){
+
+      console.log(category)
+  
+      const url = "http://localhost:3000/reservations/getAcceptedReservations"; 
+  
+      this.http.get<any>(url + "/" + category).subscribe(res => {
+        if (res.state == false) {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
+        } else {
+          this.TABLE_DATA_2 = res.data;   //add response data in to data array
+            console.log(this.TABLE_DATA_2);
+            this.dataSource_2 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_2);
+  
+        }
+      });
+      
+  
+    }
 
   //****************************************************** View Reservations Popup  ****************************************************************
 
