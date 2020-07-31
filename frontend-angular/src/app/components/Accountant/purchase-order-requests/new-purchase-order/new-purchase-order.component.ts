@@ -28,14 +28,7 @@ export class NewPurchaseOrderComponent implements OnInit {
     private cookies: MycookiesService,
     private dialog: MatDialog,
     public snackBar: MatSnackBar,
-  ) {
-    this.item = data.item;
-    console.log(this.item);
-    if (this.cookies.getCookie("userAuth") != "") {
-      this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
-    }
-
-  }
+  ) {}
 
   ngOnInit() {
 
@@ -56,14 +49,16 @@ export class NewPurchaseOrderComponent implements OnInit {
     this.dialogRef.close();
   }
    
-  sendEmail() {
+  sendEmail(supplier) {
 
       const formData = {
-        itemid: this.item.itemid,
-        userid: this.data.user.userid
+        purchaseOrderid: this.data.purchaseOrderID,
+        itemid: this.data.itemid,
+        quantity: this.data.quantity,
+        supplierid: supplier._id, 
       };
       
-      var url = "http://localhost:3000/purchaseOrders/";
+      var url = "http://localhost:3000/purchaseOrders/sendEmail";
 
       this.http.post<any>(url, formData).subscribe(res => {
         if (res.state) {

@@ -43,7 +43,7 @@ export class PurchaseOrderRequestsComponent implements OnInit {
     });
   }
 
-  sendOrder(element) {
+  sendOrder(k) {
 
     const dialogConfig = new MatDialogConfig();
 
@@ -51,8 +51,9 @@ export class PurchaseOrderRequestsComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-       supplierid  :element,
-      
+       itemid:k.itemid,
+       quantity:k.quantity,
+       purchaseOrderID:k._id     
     };
   const dialogRef = this.dialog.open(NewPurchaseOrderComponent,dialogConfig);
 }

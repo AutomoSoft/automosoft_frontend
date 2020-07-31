@@ -19,17 +19,9 @@
                         <td>{{supplier.supname}}</td>
                         <td>{{supplier.email}}</td>
                         <td>
-                            <button mat-mini-fab type="submit" matTooltip="Select" class="my-4 btn-block rep_btn"
-                                (click)="selectSupplier(supplier)">
-                                <span class="material-icons">
-                                    done
-                                </span>
-                            </button>
-                        </td>
-                        <td>
                             <button mat-raised-button ="submit" matTooltip="Send Email" class="my-4 btn-block rep_btn"
                             (click)="sendEmail(supplier)">
-                            <mat-label>Send</mat-label>
+                            <mat-label>Select and send</mat-label>s
                         </button>
                         </td>
                     </tr>
