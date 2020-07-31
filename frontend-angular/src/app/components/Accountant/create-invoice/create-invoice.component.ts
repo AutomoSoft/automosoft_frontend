@@ -130,7 +130,7 @@ export class CreateInvoiceComponent implements OnInit {
     this.userid = this.getData.custId;
     // console.log(this.userid);
     const url = "http://localhost:3000/users/searchUsers"   //backend url
-
+ 
     this.http.get<any>(url + "/" + this.userid).subscribe(res => {
       if (res.state == false) {
         let config = new MatSnackBarConfig();
