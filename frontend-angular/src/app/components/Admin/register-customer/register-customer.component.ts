@@ -102,7 +102,7 @@ addCustomer() {
     this.snackBar.open("Please Check Marked Form Errors", true ? "OK" : undefined, config);
     return;
   }else {
-    let date=Date(); 
+    let date=Date();
     const formData = new FormData();
         //append the data to the form
         formData.append('profileImage', this.images)
@@ -173,7 +173,7 @@ reset(){
 
   ngOnInit() {
     var temp = this.cookies.getCookie("userAuth");
-    if(temp==""){
+    if(temp==""){ 
       this.router.navigate(['/login']);
     }
 
