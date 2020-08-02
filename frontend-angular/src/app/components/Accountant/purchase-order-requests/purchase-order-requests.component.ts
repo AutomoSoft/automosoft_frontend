@@ -43,17 +43,16 @@ export class PurchaseOrderRequestsComponent implements OnInit {
     });
   }
 
-  sendOrder(k) {
-
+  sendOrder(order) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-       itemid:k.itemid,
-       quantity:k.quantity,
-       purchaseOrderID:k._id     
+       itemid: order.itemid,
+       quantity: order.quantity,
+       purchaseOrderID: order._id     
     };
   const dialogRef = this.dialog.open(NewPurchaseOrderComponent,dialogConfig);
 }

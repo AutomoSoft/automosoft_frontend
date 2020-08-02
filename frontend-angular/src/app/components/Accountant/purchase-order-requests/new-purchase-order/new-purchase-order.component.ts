@@ -48,33 +48,33 @@ export class NewPurchaseOrderComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-   
+
   sendEmail(supplier) {
-
-      const formData = {
-        purchaseOrderid: this.data.purchaseOrderID,
-        itemid: this.data.itemid,
-        quantity: this.data.quantity,
-        supplierid: supplier._id, 
-      };
+    const formData = {
+      purchaseOrderid: this.data.purchaseOrderID,
+      itemid: this.data.itemid,
+      quantity: this.data.quantity,
+      supplierid: supplier._id, 
+      suppliername: supplier.supname,
+      supplieremail: supplier.email
+    };
       
-      var url = "http://localhost:3000/purchaseOrders/sendEmail";
+    const url = "http://localhost:3000/purchaseOrders/sendEmail";
 
-      this.http.post<any>(url, formData).subscribe(res => {
-        if (res.state) {
-          let config = new MatSnackBarConfig();
-          const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
-          snackBarRef.afterDismissed().subscribe(() => {
-            window.location.reload();
-          });
+    this.http.post<any>(url, formData).subscribe(res => {
+      if (res.state) {
+        let config = new MatSnackBarConfig();
+        const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+        snackBarRef.afterDismissed().subscribe(() => {
+          window.location.reload();
+        });
 
-        } else {
-          console.log(res.msg);
-          alert("Error!! Try Again");
+      } else {
+        console.log(res.msg);
+        alert("Error!! Try Again");
 
-        }
-      });
-
-    }
+      }
+    });
+  }
 }
 
