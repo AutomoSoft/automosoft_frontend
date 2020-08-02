@@ -48,6 +48,10 @@ export class CreateInvoiceComponent implements OnInit {
   paidAmount;                   //paid amount from total bill
   dueBalance;                   //balance remaining to pay
 
+  lastInvString;      //Invoice Number string of last invoice
+  lastInvNo;          //Invoice Number of last invoice excluding "INV"
+  newInvNo;           //Invoice Number of new Invoice
+
   constructor( private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
@@ -106,6 +110,25 @@ export class CreateInvoiceComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   this.getCompletedJobs();
+
+// ******************************************** Get Last Invoice Number  ************************************************************
+
+const url = "http://localhost:3000/getLastId/getLastInvoiceNo";
+
+this.http.get<any>(url).subscribe(res => {
+  if (res.state == false) {
+    let config = new MatSnackBarConfig();
+    config.duration = true ? 2000 : 0;
+    this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+  } else {
+
+    this.lastInvString = res.data[0].invoiceNo;
+    var splitted = this.lastInvString.split("INV", 2);
+    this.lastInvNo = parseInt(splitted[1], 10)          //extract the numeric part
+    this.newInvNo = this.lastInvNo + 1;
+    console.log(this.lastInvNo);
+  }
+});
   }
 
   clear(){
@@ -214,7 +237,7 @@ export class CreateInvoiceComponent implements OnInit {
   createInvoice() {
     let date=Date();
     const createInvoice = {
-      invoiceNo: this.invoiceForm.value.invoiceNo,
+      invoiceNo: 'INV00'+this.newInvNo,
       invoiceDate: date,
       jobNo: this.invoiceForm.value.job.jobNo,
       jobDate: this.invoiceForm.value.jobDate,
@@ -269,7 +292,7 @@ export class CreateInvoiceComponent implements OnInit {
           this.router.navigate([this.cookie.userid,'createInvoice']);
         }
       });
-      // console.log(createInvoice);
+      //  console.log(createInvoice);
     }
   });
 

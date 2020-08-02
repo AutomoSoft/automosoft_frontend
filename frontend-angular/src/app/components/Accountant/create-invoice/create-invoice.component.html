@@ -28,8 +28,9 @@
 
                             <mat-form-field class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
                               <mat-label>Invoice No</mat-label>
-                              <input matInput name="invoiceno" formControlName="invoiceNo" placeholder="INV001" />
-                              <mat-icon matSuffix></mat-icon>
+                              <input matInput readonly [(ngModel)]="newInvNo" name="invoiceno" formControlName="invoiceNo" />
+                              <span matPrefix >INV00&nbsp;</span>
+                              <mat-icon matSuffix>receipt</mat-icon>
                             </mat-form-field>
 
                             <mat-form-field class="no-padding" style="width:50%; margin-right: 4px;margin-left: 4px;" appearance="outline">
