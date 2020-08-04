@@ -33,6 +33,9 @@ export class OngoingJobsComponent implements OnInit {
 
   cookie;
   currJobs;   //ongoing jobs
+  queuedJobs: job[] = [];    //queued jobs
+  startedJobs: job[] = [];    //started jobs
+  halfJobs : job[] = [];       //halfway completed
   userdata: user[] = [];
   job: job[] = [];
   userid;
@@ -67,7 +70,18 @@ export class OngoingJobsComponent implements OnInit {
       } else {
 
         this.currJobs = res.data;
-        //console.log(this.currJobs);
+        // console.log(this.currJobs);
+        this.currJobs.forEach(element => {
+          if(element.jobStatus == "Queued"){
+            this.queuedJobs.push(element)
+          } else if(element.jobStatus == "Started"){
+          this.startedJobs.push(element)
+          } else if(element.jobStatus == "Halfway"){
+            this.halfJobs.push(element)
+          }
+
+        });
+        // console.log(this.queuedJobs)
 
       }
     });
