@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 //import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -192,6 +193,7 @@ import { JobDetailsComponent } from './components/Customer/view-history/job-deta
     MatRadioModule,
     MaterialTimePickerModule,
     NgxMaterialTimepickerModule,
+    ChartsModule,
     //NgxIntlTelInputModule,
 
     //PopupModule.forRoot(),
