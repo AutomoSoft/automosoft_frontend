@@ -15,7 +15,7 @@
               <mat-divider></mat-divider>
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
                 <mat-tab-group class="p-5 reg-frm">
-                  <mat-tab label="CURRENT JOBS">
+                  <mat-tab label="QUEUED">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px; padding-bottom: 10px;" />
                       <div >
@@ -30,7 +30,77 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let k of currJobs" >
+                            <tr *ngFor="let k of queuedJobs"  >
+                              <td style="height: 55px;" >{{k.jobNo}}</td>
+                              <td>{{k.jobType}}</td>
+                              <td>{{k.custId}}</td>
+                              <td>{{k.jobStatus}}</td>
+                              <td>
+                                <button mat-icon-button type="submit" class=" btn-block btn_1"
+                                  (click)="viewCard(k)">
+                                  <mat-icon>search</mat-icon>
+                                </button>
+                                <!-- <button mat-icon-button type="submit" class=" btn-block table_btn">
+                                  <mat-icon>notification_important</mat-icon>
+                                </button> -->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card>
+                  </mat-tab>
+                  <mat-tab label="STARTED">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px; padding-bottom: 10px;" />
+                      <div >
+                        <table class="mat-elevation-z8 table ">
+                          <thead>
+                            <tr>
+                              <th>JOB NUMBER</th>
+                              <th>JOB TYPE</th>
+                              <th>CUSTOEMR ID</th>
+                              <th>JOB STATUS</th>
+                              <th>ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let k of startedJobs" >
+                              <td style="height: 55px;">{{k.jobNo}}</td>
+                              <td>{{k.jobType}}</td>
+                              <td>{{k.custId}}</td>
+                              <td>{{k.jobStatus}}</td>
+                              <td>
+                                <button mat-icon-button type="submit" class=" btn-block btn_1"
+                                  (click)="viewCard(k)">
+                                  <mat-icon>search</mat-icon>
+                                </button>
+                                <!-- <button mat-icon-button type="submit" class=" btn-block table_btn">
+                                  <mat-icon>notification_important</mat-icon>
+                                </button> -->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card>
+                  </mat-tab>
+                  <mat-tab label="HALFWAY">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px; padding-bottom: 10px;" />
+                      <div >
+                        <table class="mat-elevation-z8 table ">
+                          <thead>
+                            <tr>
+                              <th>JOB NUMBER</th>
+                              <th>JOB TYPE</th>
+                              <th>CUSTOEMR ID</th>
+                              <th>JOB STATUS</th>
+                              <th>ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let k of halfJobs" >
                               <td style="height: 55px;">{{k.jobNo}}</td>
                               <td>{{k.jobType}}</td>
                               <td>{{k.custId}}</td>

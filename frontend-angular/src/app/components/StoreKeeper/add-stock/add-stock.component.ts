@@ -84,7 +84,7 @@ selectItems(category){
   const stock = {
     itemType : this.addStockForm.value.itemType,
     itemId: this.addStockForm.value.itemId,
-    quantity: this.addStockForm.value.quantity,
+    quantity: this.addStockForm.value.quantity, 
     lastmodifiedby: this.cookie.userid,
     lastmodifiedon: date,
   };
