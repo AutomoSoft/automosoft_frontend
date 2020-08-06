@@ -14,6 +14,9 @@
                     </tr>
                 </thead>
                 <tbody class="pending-approval-table-body" style="font-size: 13px;">
+                    <tr *ngIf="suppliers && suppliers.length === 0">
+                      <td colspan="4"><i>No suppliers are available for this item</i></td>
+                    </tr>
                     <tr *ngFor="let supplier of suppliers">
                         <td>{{supplier.supid}}</td>
                         <td>{{supplier.supname}}</td>

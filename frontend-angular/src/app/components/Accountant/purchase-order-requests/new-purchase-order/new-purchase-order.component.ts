@@ -33,10 +33,9 @@ export class NewPurchaseOrderComponent implements OnInit {
 
   ngOnInit() {
 
-    var url = "http://localhost:3000/supplier/searchSuppliers/item/:itemid";
-
+    var url = `http://localhost:3000/supplier/searchSuppliers/item/${this.data.itemid}`;
     this.http.get<any>(url).subscribe(res => {
-      if (res.state == false) {
+      if (res.state === false) {
         let config = new MatSnackBarConfig();
         config.duration = true ? 2000 : 0;
         this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
@@ -76,14 +75,14 @@ export class NewPurchaseOrderComponent implements OnInit {
 
       if (confirmed) {
         this.http.post<any>(url, formData).subscribe(res => {
-          if (res.state) {
-            console.log(res.msg);
-            window.location.reload();
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          if (res.state === false) {
+            this.snackBar.open(res.msg, true ? "Retry" : undefined, config);
           } else {
-            console.log(res.msg);
-            alert("Error!! Try Again");
+            this.snackBar.open(res.msg, true ? "Retry" : undefined, config);      }
           }
-        });
+        );
       }
     });
   }
@@ -92,6 +91,7 @@ export class NewPurchaseOrderComponent implements OnInit {
     window.location.reload();
   }
 }
+
 
 
 
