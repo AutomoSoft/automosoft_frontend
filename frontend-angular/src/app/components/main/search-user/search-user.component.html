@@ -58,8 +58,16 @@
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
+                      <mat-form-field class="search-form-field">
+                        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+                        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </mat-form-field>
+
                       <h3 class="topic" style="margin-left: -600px;">SELECT USER CATEGORY:</h3>
                       <div class="form-row mb-4">
+
                         <mat-form-field appearance="outline">
                           <mat-select placeholder="User Category:" [(ngModel)]="userType" (ngModelChange)="selectUser($event)">
                             <mat-option value="Administrator">Admin</mat-option>
@@ -170,7 +178,7 @@
                       <mat-divider></mat-divider>
                       <br />
 
-                      <div class="container">
+                      <div class="container">//
 
                         <mat-grid-list cols="4" rowHeight="2:1">
                           <mat-grid-tile>

@@ -61,6 +61,7 @@ export class SearchUserComponent implements OnInit {
   displayedColumns: string[] = ['userid', 'usertype', 'firstname', 'email', 'contactnumber', 'action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
+  searchKey: string;
 
   userdata: user[] = [];
   userSearchForm: FormGroup;
@@ -140,6 +141,8 @@ export class SearchUserComponent implements OnInit {
     });
   }
 
+
+
   /*************************************************** View Categorized Users *************************************************/
 
   selectUser(category){
@@ -181,7 +184,13 @@ export class SearchUserComponent implements OnInit {
 
   }
   /*************************************************** Search User  ***********************************************************/
-
+  applyFilter(){
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+  onSearchClear(){
+    this.searchKey ="";
+    this.applyFilter();
+  }
   searchUser() {
     this.userid = this.userSearchForm.value.userid; //get user id
 
@@ -226,7 +235,7 @@ export class SearchUserComponent implements OnInit {
       } else {
         if (res.data.usertype == "Customer") {
           this.userflag = true;
-        }
+        }//
         else {
           this.userflag = false;
         }
