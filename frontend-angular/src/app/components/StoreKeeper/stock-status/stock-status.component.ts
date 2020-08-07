@@ -16,7 +16,12 @@ import {
 } from "@angular/forms";
 import { StockReportComponent } from '../stock-report/stock-report.component';
 import { RequestPurchaseOrderComponent } from './request-purchase-order/request-purchase-order.component';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
 
+import {  
+  PURCHASE_ORDERS
+} from '../../../constants/index';
 
 interface item {
   _id: String;
@@ -72,7 +77,8 @@ export class StockStatusComponent implements OnInit {
   userdata;
   items = [];
   item;
-
+  approvedOrders;
+  PURCHASE_ORDERS = PURCHASE_ORDERS;
   constructor(
     private http: HttpClient,
     private cookies: MycookiesService,
@@ -84,10 +90,34 @@ export class StockStatusComponent implements OnInit {
      this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
   }
 
+    /**********************************************************************chart options***********************************************************************************/
+    // barChartOptions: ChartOptions = {
+    //   responsive: true,
+    // };
+    // barChartLabels: Label[] = ['1st Term', '2nd Term', '3rd Term'];
+    // barChartType: ChartType = 'line';
+    // barChartLegend = true;
+    // barChartPlugins = [];
+
+    // barChartData: ChartDataSets[] = [
+    //   { data: [0, 0, 0], label: 'ITEM: ' },
+    // ];
+    // chartColors: Array<any> = [
+    //   { // first color
+    //     backgroundColor: 'rgba(0, 140, 255,0.5)',
+    //     borderColor: 'rgba(2, 113, 204,0.5)',
+    //     pointBackgroundColor: 'rgba(0, 65, 100,0.5)',
+    //     pointBorderColor: 'rgba(2, 50, 50)',
+    //     pointHoverBackgroundColor: '#fff',
+    //     pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+    //   }
+    // ];
+
   ngOnInit() {
     var cookie = this.cookies.getCookie("userAuth");
     if (cookie == "") {
       this.router.navigate(['/login']);
+
     }
 
     this.itemSearchForm = this.fb.group({
@@ -127,6 +157,8 @@ export class StockStatusComponent implements OnInit {
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA);
       }
     });
+
+    this.fetchApprovedOrders();
   }
 
   /*************************************************** Search Item  ***********************************************************/
@@ -234,21 +266,40 @@ ItemDetails (element) {
     const dialogRef = this.dialog.open(StockReportComponent, {
       width: '640px',
       data: this.dataSource
-    });  
+    });
   }
 
   requestItem(element) {
 
       const dialogConfig = new MatDialogConfig();
-  
+
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
-  
+
       dialogConfig.data = {
          item:element,
          user:this.cookie,
       };
     const dialogRef = this.dialog.open(RequestPurchaseOrderComponent,dialogConfig);
   }
+
+ // ******************************************** View Approved Orders ********************************************************
+
+fetchApprovedOrders() {
+  const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.APPROVED}`;
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      this.approvedOrders = res.data;
+      console.log(this.approvedOrders);
+
+    }
+  });
+}
 
 }

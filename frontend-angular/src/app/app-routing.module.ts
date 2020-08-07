@@ -99,7 +99,6 @@ const routes: Routes = [
   /****************************************** Accountant Routes ******************************************** */
   { path: "createInvoice", component: CreateInvoiceComponent },
   { path: "invoiceHistory", component: InvoiceHistoryComponent },
-  { path: "newPurchaseOrder", component: NewPurchaseOrderComponent },
   { path: "purchaseOrderRequests", component: PurchaseOrderRequestsComponent },
 
 ];

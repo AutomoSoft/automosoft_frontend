@@ -138,10 +138,11 @@ export class StockWithdrawalPopupComponent implements OnInit {
         date: date,
       };
 
-      //  console.log(form);
+       console.log(form);
 
      var url1 = "http://localhost:3000/items/withdrawStock";  //withdraw stock from store
-     var url2 = "http://localhost:3000/jobs/addJobItems";     //add used items for a particular job
+     var url2 = "http://localhost:3000/items/updateItemUsage";     //update item usage model
+     var url3 = "http://localhost:3000/jobs/addJobItems";     //add used items for a particular job
 
 
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -161,10 +162,25 @@ export class StockWithdrawalPopupComponent implements OnInit {
 
               this.http.post<any>(url2, form).subscribe(res => {
                 if (res.state) {
-                  let config = new MatSnackBarConfig();
-                  const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
-                  snackBarRef.afterDismissed().subscribe(() => {
-                    window.location.reload();
+                  // let config = new MatSnackBarConfig();
+                  // const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+                  // snackBarRef.afterDismissed().subscribe(() => {
+                  //   window.location.reload();
+                  // });
+                  console.log("heree")
+                  this.http.post<any>(url3, form).subscribe(res => {
+                    if (res.state) {
+                      let config = new MatSnackBarConfig();
+                      const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+                      snackBarRef.afterDismissed().subscribe(() => {
+                        window.location.reload();
+                      });
+
+                    } else {
+                      console.log(res.msg);
+                      alert("Error!! Try Again");
+                      //this.router.navigate([this.cookie.userid,'ongoingJobs']);
+                    }
                   });
 
                 } else {

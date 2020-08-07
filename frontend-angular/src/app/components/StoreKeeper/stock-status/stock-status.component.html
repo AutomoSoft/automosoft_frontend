@@ -234,9 +234,54 @@
                     </mat-card>
                   </mat-tab>
 
+                   <!-- ***************************************************************************** View Approved Orders ************************************************************************** -->
+
+
+                  <mat-tab label="APPROVED ORDERS">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                      <div>
+                        <table class="purchase-orders-table">
+                          <thead style="font-size: 13px;">
+                            <tr>
+                              <th>DATE APPLIED</th>
+                              <th>ITEM ID</th>
+                              <th>QAUNTITY</th>
+                              <th>STATUS</th>
+                              <th>SUPPLIER ID</th>
+                              <th>DATE RECEIVED</th>
+                            </tr>
+                          </thead>
+                          <tbody class="pending-approval-table-body" style="font-size: 13px;">
+                            <tr *ngFor="let k of approvedOrders">
+                              <td>{{k.dateApplied || 'N/A'  | date }}</td>
+                              <td>{{k.itemid || 'N/A'}}</td>
+                              <td>{{k.quantity || 'N/A'}}</td>
+                              <td>{{k.status || 'N/A'}}</td>
+                              <td>{{k.supplierid || 'N/A'}}</td>
+                              <td>{{k.dateReceived || 'N/A'}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card>
+                  </mat-tab>
+
                 </mat-tab-group>
 
               </div>
+              <!-- <div class="container" style="margin-bottom: 50px; " >
+                <div class="row"
+                    style="margin: auto;width: 97%;background-color: rgb(255, 255, 255);border-radius: 4px;border: rgb(231, 231, 231) solid 1px">
+                    <div class="chart-wrapper">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                            [options]="barChartOptions" [plugins]="barChartPlugins"
+                            [legend]="barChartLegend" [chartType]="barChartType"
+                            [colors]="chartColors">
+                        </canvas>
+                    </div>
+                </div>
+            </div> -->
 
             </div>
           </div>
