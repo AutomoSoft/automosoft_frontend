@@ -44,7 +44,7 @@
                               <td>{{k.dateApplied || 'N/A' | date }}</td>
                               <td>{{k.itemid || 'N/A'}}</td>
                               <td>{{k.quantity || 'N/A'}}</td>
-                              <td>{{k.status === 1 ? 'APPROVED': 'NOT APPROVED'}}</td>
+                              <td>{{k.status  || 'N/A'}}</td>
                               <td>{{k.supplierid || 'N/A'}}</td>
                               <td>{{k.dateReceived || 'N/A'}}</td>
                               <td>
@@ -93,7 +93,7 @@
                               <td>{{k.dateApplied || 'N/A'  | date }}</td>
                               <td>{{k.itemid || 'N/A'}}</td>
                               <td>{{k.quantity || 'N/A'}}</td>
-                              <td>{{k.status === 1 ? 'APPROVED': 'NOT APPROVED'}}</td>
+                              <td>{{k.status || 'N/A'}}</td>
                               <td>{{k.supplierid || 'N/A'}}</td>
                               <td>{{k.dateReceived || 'N/A'}}</td>
                             </tr>

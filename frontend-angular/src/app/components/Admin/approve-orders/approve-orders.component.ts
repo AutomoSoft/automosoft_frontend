@@ -5,6 +5,9 @@ import { MatSnackBar, MatDialog, MatSnackBarConfig, MatTableDataSource, MatPagin
 import { HttpClient } from "@angular/common/http";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 
+import {  
+  PURCHASE_ORDERS
+} from '../../../constants/index';
 
 @Component({
   selector: 'app-approve-orders',
@@ -17,6 +20,7 @@ export class ApproveOrdersComponent implements OnInit {
   approvedOrders;
   cookie;
   order: any;
+  PURCHASE_ORDERS = PURCHASE_ORDERS;
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -40,7 +44,7 @@ export class ApproveOrdersComponent implements OnInit {
   }
 
   fetchPendingOrders() {
-    const url = "http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=0";
+    const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.NOT_APPROVED}`;
 
     this.http.get<any>(url).subscribe(res => {
       if (res.state == false) {
@@ -54,7 +58,7 @@ export class ApproveOrdersComponent implements OnInit {
   }
 
   fetchApprovedOrders() {
-    const url = "http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=1";
+    const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.APPROVED}`;
 
     this.http.get<any>(url).subscribe(res => {
       if (res.state == false) {

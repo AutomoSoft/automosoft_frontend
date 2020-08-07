@@ -6,6 +6,10 @@ import { HttpClient } from "@angular/common/http";
 import { ConfirmationDialogComponent } from "../../Auth/confirmation-dialog/confirmation-dialog.component";
 import { NewPurchaseOrderComponent } from './new-purchase-order/new-purchase-order.component';
 
+import {  
+  PURCHASE_ORDERS
+} from '../../../constants/index';
+
 @Component({
   selector: 'app-purchase-order-requests',
   templateUrl: './purchase-order-requests.component.html',
@@ -15,7 +19,7 @@ export class PurchaseOrderRequestsComponent implements OnInit {
 
   approvedOrders;
   cookie;
-
+  PURCHASE_ORDERS = PURCHASE_ORDERS;
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -30,7 +34,7 @@ export class PurchaseOrderRequestsComponent implements OnInit {
 
   ngOnInit() {
 
-    const url = "http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=1";
+    const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.APPROVED}`;
 
     this.http.get<any>(url).subscribe(res => {
       if (res.state == false) {

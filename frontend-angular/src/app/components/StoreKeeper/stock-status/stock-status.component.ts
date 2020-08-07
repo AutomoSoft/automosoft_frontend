@@ -19,6 +19,9 @@ import { RequestPurchaseOrderComponent } from './request-purchase-order/request-
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 
+import {  
+  PURCHASE_ORDERS
+} from '../../../constants/index';
 
 interface item {
   _id: String;
@@ -74,7 +77,8 @@ export class StockStatusComponent implements OnInit {
   userdata;
   items = [];
   item;
-
+  approvedOrders;
+  PURCHASE_ORDERS = PURCHASE_ORDERS;
   constructor(
     private http: HttpClient,
     private cookies: MycookiesService,
@@ -113,6 +117,7 @@ export class StockStatusComponent implements OnInit {
     var cookie = this.cookies.getCookie("userAuth");
     if (cookie == "") {
       this.router.navigate(['/login']);
+
     }
 
     this.itemSearchForm = this.fb.group({
@@ -153,7 +158,7 @@ export class StockStatusComponent implements OnInit {
       }
     });
 
-
+    this.fetchApprovedOrders();
   }
 
   /*************************************************** Search Item  ***********************************************************/
@@ -277,5 +282,24 @@ ItemDetails (element) {
       };
     const dialogRef = this.dialog.open(RequestPurchaseOrderComponent,dialogConfig);
   }
+
+ // ******************************************** View Approved Orders ********************************************************
+
+fetchApprovedOrders() {
+  const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.APPROVED}`;
+
+  this.http.get<any>(url).subscribe(res => {
+    if (res.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+    } else {
+
+      this.approvedOrders = res.data;
+      console.log(this.approvedOrders);
+
+    }
+  });
+}
 
 }
