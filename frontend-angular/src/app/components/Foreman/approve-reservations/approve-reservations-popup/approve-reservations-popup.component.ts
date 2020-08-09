@@ -36,6 +36,21 @@ vehicles: [];
 // filepath: String;
 }
 
+//table data
+export interface PeriodicElement_2 {
+  userid: String;
+  firstname: String;
+  lastname: String;
+  email: String;
+  password: String;
+  contactnumber: String;
+  gender: String;
+  nicnumber: String;
+  address: String;
+  expertise: String;
+  capacity: String;
+}
+
 export interface PeriodicElement {
   _id: String;
   custID: String;
@@ -53,14 +68,19 @@ export interface PeriodicElement {
 })
 export class ApproveReservationsPopupComponent implements OnInit {
   cookie;
+  category;
   reservationID;
   customer;
   reservation_data: reservation[] = [];
   reservationDataForm: FormGroup;
+  techExpertise: [];
 
   displayedColumns: string[] = ['repairtype','time','problembrief']; // Table Columns will displayed according to this order
+  displayedColumns_2: string[] = ['userid', 'firstname','lastname', 'capacity', 'currentjobCap']; // Table Columns will displayed according to this order Technicians Availability
   TABLE_DATA: PeriodicElement[] = [];
+  TABLE_DATA_2: PeriodicElement_2[] = [];
   dataSource;
+  dataSource_2;
   reservation_date;
 
   constructor(private router: Router,
@@ -79,6 +99,8 @@ export class ApproveReservationsPopupComponent implements OnInit {
       this.reservationID =data.reservationID;
       console.log(this.reservationID);
       this.customer=data.customerData;
+      this.category= data.category;
+      console.log(this.category);
     }
 
   ngOnInit() {
@@ -104,6 +126,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
             this.reservation_data.hasOwnProperty(x) && reservArr.push(this.reservation_data[x])
          }
             console.log(reservArr);
+            
 
 //******************************************** View Accepted Reservations For The Date ********************************************************
    
@@ -128,7 +151,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
       }
     });
 
-
+    
     this.reservationDataForm = this.fb.group({
       customerid: ["", Validators.required],
       fname: ["", Validators.required],
@@ -141,9 +164,26 @@ export class ApproveReservationsPopupComponent implements OnInit {
       //password: ["", [Validators.required, Validators.minLength(8)]],
     });
 
-    //******************************************** View Accepted Reservations For The Date ********************************************************
+    //******************************************** View Technicians Availability ********************************************************
    
     
+    console.log(this.category);
+  const url_2 = "http://localhost:3000/technician/getTechnicians";
+
+  this.http.get<any>(url_2 + "/" + this.category).subscribe(res_2 => {
+    if (res_2.state == false) {
+      let config = new MatSnackBarConfig();
+      config.duration = true ? 2000 : 0;
+      this.snackBar.open("Error !!! Please Check Job Category", true ? "Retry" : undefined, config);
+    } else {
+      this.TABLE_DATA_2 = res_2.data;   //add response data in to data array
+      //this.propicName = res.data.filepath;
+      console.log(this.TABLE_DATA);
+      this.dataSource_2 = new MatTableDataSource<PeriodicElement_2>(this.TABLE_DATA_2);
+    }
+  });
+    
+
   }
 
 
