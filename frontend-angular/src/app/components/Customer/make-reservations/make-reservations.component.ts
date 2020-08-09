@@ -209,8 +209,28 @@ export class MakeReservationsComponent implements OnInit {
         this.TABLE_DATA_1 = res_1.data;
         console.log(this.TABLE_DATA_1);
 
-        console.log(this.TABLE_DATA_1[0]);
-        for (let i = 0; i < this.TABLE_DATA_1.length; i++) {
+        this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
+        console.log("datasource");
+        console.log(this.dataSource_1);
+      }
+    });
+
+    // *************************************************** Get All Reservations For Calendar View OnInit********************************************************
+
+    const url_2 = "http://localhost:3000/reservations/viewAllReservations";
+
+    this.http.get<any>(url_2).subscribe(res_2 => {
+      if (res_2.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+
+        this.TABLE_DATA_2 = res_2.data;
+        console.log(this.TABLE_DATA_2);
+
+        console.log(this.TABLE_DATA_2[0]);
+        for (let i = 0; i < this.TABLE_DATA_2.length; i++) {
 
           var mnths = {
             Jan: "01",
@@ -226,7 +246,7 @@ export class MakeReservationsComponent implements OnInit {
             Nov: "11",
             Dec: "12"
           },
-          date = this.TABLE_DATA_1[i].daterequested.split(" ");
+          date = this.TABLE_DATA_2[i].daterequested.split(" ");
       
           let from = [date[3], mnths[date[1]], date[2]].join("-"); // YYYY-MM-DD
           //var from = '11-04-2017' // OR $("#datepicker").val();
@@ -238,7 +258,7 @@ export class MakeReservationsComponent implements OnInit {
               this.events = [
             ...this.events,
             {
-              title: (this.TABLE_DATA_1[i].repairtype).toString() + " at " + this.TABLE_DATA_1[i].time,
+              title: (this.TABLE_DATA_2[i].repairtype).toString() + " at " + this.TABLE_DATA_2[i].time,
               start: startOfDay(f),
               end: endOfDay(f),
               color: colors.red,
@@ -251,9 +271,9 @@ export class MakeReservationsComponent implements OnInit {
           ];
         }
 
-        this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
+        this.dataSource_2 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_2);
         console.log("datasource");
-        console.log(this.dataSource_1);
+        console.log(this.dataSource_2);
       }
     });
 
