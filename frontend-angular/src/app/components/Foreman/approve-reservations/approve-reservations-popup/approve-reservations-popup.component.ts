@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MycookiesService } from 'src/app/components/Admin/mycookies.service';
 import { ConfirmationDialogComponent } from 'src/app/components/Auth/confirmation-dialog/confirmation-dialog.component';
+import { userInfo } from 'os';
 
 interface reservation{
   _id: String;
@@ -75,6 +76,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
   reservation_data: reservation[] = [];
   reservationDataForm: FormGroup;
   techExpertise: [];
+  reservArray = [];
 
   displayedColumns: string[] = ['repairtype','time','problembrief']; // Table Columns will displayed according to this order
   displayedColumns_2: string[] = ['userid', 'firstname','lastname', 'capacity', 'currentjobCap']; // Table Columns will displayed according to this order Technicians Availability
@@ -106,7 +108,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
         this.customer.hasOwnProperty(x) && this.customerArray.push(this.customer[x])
       }
       console.log("this.customerArray");
-      console.log(this.customerArray[3]); // access customer data like this
+      console.log(this.customerArray[3]);// access customer data like this
 
 
       this.category= data.category;
@@ -135,7 +137,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
           for (var x in this.reservation_data){
             this.reservation_data.hasOwnProperty(x) && reservArr.push(this.reservation_data[x])
           }
-          console.log(reservArr);
+          //console.log(reservArr);
 
 
 //******************************************** View Accepted Reservations For The Date ********************************************************
@@ -206,19 +208,49 @@ export class ApproveReservationsPopupComponent implements OnInit {
   onAcceptClick() {
 
 
+    const url = "http://localhost:3000/reservations/findReservation"   //backend url
+
+    const reservArr = []; // to convert reservation_data object to an array
+
+
+    this.http.get<any>(url + "/" + this.reservationID).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+
+      } else {
+
+          console.log(res.data);
+          this.reservation_data=res.data;
+          console.log(this.reservation_data);
+
+          // entering object's value to the array
+          for (var x in this.reservation_data){
+            this.reservation_data.hasOwnProperty(x) && reservArr.push(this.reservation_data[x])
+          }
+
+
       let date=Date();
+
 
       const reqDetails ={
         foremanid: this.cookie.userid,
         dateaccepted:date.slice(0,24),
         custID: this.customerArray[2],
-        contactnumber: this.customerArray[8]
+        contactnumber: this.customerArray[8],
+        email: this.customerArray[6],
+        daterequested:  reservArr[3],
+        time: reservArr[4]
       };
+
+      //console.log(reservArr);
 
 
       console.log(reqDetails);
-      console.log(this.customerArray)
-      const url = 'http://localhost:3000/reservations/acceptReservation/';    //backend url
+      //console.log(this.customerArray)
+      const url = 'http://localhost:3000/reservations/acceptReservation/';
+      const url2 = 'http://localhost:3000/reservations/sendAcceptMail/';    //backend url
 
 
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -245,9 +277,25 @@ export class ApproveReservationsPopupComponent implements OnInit {
               this.snackBar.open("Error in Update User..! ", true ? "Retry" : undefined, config);
             }
           });
+
+          this.http.post<any>(url2,reqDetails).subscribe(res => {
+            if (res.state) {
+              let config = new MatSnackBarConfig();
+              config.duration = true ? 2000 : 0;
+              this.snackBar.open("Successfully Updated..! ", true ? "Done" : undefined, config);
+            }
+            else {
+              let config = new MatSnackBarConfig();
+              config.duration = true ? 2000 : 0;
+              this.snackBar.open("Error in Update User..! ", true ? "Retry" : undefined, config);
+            }
+          });
           window.location.reload();
         }
       })
+    }
+  });
 
   }
+
 }
