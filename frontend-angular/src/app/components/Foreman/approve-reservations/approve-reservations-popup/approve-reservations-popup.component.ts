@@ -71,6 +71,7 @@ export class ApproveReservationsPopupComponent implements OnInit {
   category;
   reservationID;
   customer;
+  customerArray = [];
   reservation_data: reservation[] = [];
   reservationDataForm: FormGroup;
   techExpertise: [];
@@ -99,6 +100,15 @@ export class ApproveReservationsPopupComponent implements OnInit {
       this.reservationID =data.reservationID;
       console.log(this.reservationID);
       this.customer=data.customerData;
+
+      // entering object's value to the array
+      for (var x in this.customer){
+        this.customer.hasOwnProperty(x) && this.customerArray.push(this.customer[x])
+      }
+      console.log("this.customerArray");
+      console.log(this.customerArray[3]); // access customer data like this 
+      
+
       this.category= data.category;
       console.log(this.category);
     }
@@ -124,8 +134,8 @@ export class ApproveReservationsPopupComponent implements OnInit {
           // entering object's value to the array
           for (var x in this.reservation_data){
             this.reservation_data.hasOwnProperty(x) && reservArr.push(this.reservation_data[x])
-         }
-            console.log(reservArr);
+          }
+          console.log(reservArr);
             
 
 //******************************************** View Accepted Reservations For The Date ********************************************************
