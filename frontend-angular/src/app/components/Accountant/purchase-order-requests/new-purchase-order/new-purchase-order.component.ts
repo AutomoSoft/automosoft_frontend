@@ -19,6 +19,7 @@ export class NewPurchaseOrderComponent implements OnInit {
   cookie;
   item;
   suppliers;
+  isConfirmed = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<PurchaseOrderRequestsComponent>,
@@ -45,8 +46,8 @@ export class NewPurchaseOrderComponent implements OnInit {
     });
 
   }
-  close() {
-    this.dialogRef.close();
+  closeDialog() {
+    this.dialogRef.close(this.isConfirmed);
   }
 
   sendEmail(supplier) {
@@ -74,21 +75,19 @@ export class NewPurchaseOrderComponent implements OnInit {
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 
       if (confirmed) {
+        this.isConfirmed = confirmed;
         this.http.post<any>(url, formData).subscribe(res => {
           let config = new MatSnackBarConfig();
           config.duration = true ? 2000 : 0;
           if (res.state === false) {
             this.snackBar.open(res.msg, true ? "Retry" : undefined, config);
           } else {
-            this.snackBar.open(res.msg, true ? "Retry" : undefined, config);      }
+            this.snackBar.open(res.msg, true ? "Ok" : undefined, config);      }
           }
         );
+        this.closeDialog();
       }
     });
-  }
-  onConfirmClick(): void {
-    this.dialogRef.close(true);
-    window.location.reload();
   }
 }
 
