@@ -288,7 +288,7 @@
                               <td>{{k.quantity || 'N/A'}}</td>
                               <td>{{k.status || 'N/A'}}</td>
                               <td>{{k.supplierid || 'N/A'}}</td>
-                              <td>{{k.dateReceived || 'N/A'}}</td>
+                              <td>{{k.dateReceived || 'N/A' | date}}</td>
                               <td><button mat-mini-fab type="submit" matTooltip="Add to stock"
                                 class="my-4 btn-block rep_btn" (click)="addToStock(k)">
                                 <span class="material-icons">
