@@ -21,7 +21,7 @@ import { ConfirmationDialogComponent } from "../../../Auth/confirmation-dialog/c
 })
 export class RequestPurchaseOrderComponent implements OnInit {
 
-
+  elements;
   cookie;
   item;
   constructor(
@@ -66,26 +66,42 @@ export class RequestPurchaseOrderComponent implements OnInit {
       
       var url = "http://localhost:3000/purchaseOrders/requestQuantity";
 
-      this.http.post<any>(url, formData).subscribe(res => {
-        if (res.state) {
-          let config = new MatSnackBarConfig();
-          const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
-          snackBarRef.afterDismissed().subscribe(() => {
-            window.location.reload();
-          });
-
-        } else {
-          console.log(res.msg);
-          alert("Error!! Try Again");
-
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        data: {
+          message: "Are you sure want to send?",
+          buttonText: {
+            ok: "Yes",
+            cancel: "No"
+          }
         }
       });
 
+      dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+        if (confirmed) {
+          this.http.post<any>(url, formData).subscribe(res => {
+            if (res.state)  {
+              let config = new MatSnackBarConfig();
+              const snackBarRef = this.snackBar.open(res.msg, true ? "OK" : undefined, config);
+              snackBarRef.afterDismissed().subscribe(() => {
+              window.location.reload();
+              });
+             } else {
+              console.log(res.msg);
+              alert("Error!! Try Again");
+            }
+          });
+ 
+        }
+      });
     }
   }
   reset() {
     this.requestQuantityForm.reset();
     this.dialogRef.close();
   }
+
+
+
 
 }

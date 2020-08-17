@@ -210,6 +210,7 @@ export class StockStatusComponent implements OnInit {
   addToStock(order) {
     const data ={
       id: order._id,
+      itemName:order.itemname,
       itemId: order.itemid,
       quantity: order.quantity,
     };
@@ -238,6 +239,7 @@ export class StockStatusComponent implements OnInit {
             this.snackBar.open(res.msg, true ? "Ok" : undefined, config);
           }
           this.fetchReceivedOrders();
+          
         });
       }
     });
