@@ -15,8 +15,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
-//import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-//import { FlatpickrModule } from 'angularx-flatpickr';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FlatpickrModule } from 'angularx-flatpickr';
 //import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { ChartsModule } from 'ng2-charts';
 

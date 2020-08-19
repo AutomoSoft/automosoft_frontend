@@ -19,7 +19,7 @@ import { RequestPurchaseOrderComponent } from './request-purchase-order/request-
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 
-import {  
+import {
   PURCHASE_ORDERS
 } from '../../../constants/index';
 
@@ -93,27 +93,27 @@ export class StockStatusComponent implements OnInit {
   }
 
     /**********************************************************************chart options***********************************************************************************/
-    // barChartOptions: ChartOptions = {
-    //   responsive: true,
-    // };
-    // barChartLabels: Label[] = ['1st Term', '2nd Term', '3rd Term'];
-    // barChartType: ChartType = 'line';
-    // barChartLegend = true;
-    // barChartPlugins = [];
+    barChartOptions: ChartOptions = {
+      responsive: true,
+    };
+    barChartLabels: Label[] = ['1st Term', '2nd Term', '3rd Term', '3rd Term'];
+    barChartType: ChartType = 'line';
+    barChartLegend = true;
+    barChartPlugins = [];
 
-    // barChartData: ChartDataSets[] = [
-    //   { data: [0, 0, 0], label: 'ITEM: ' },
-    // ];
-    // chartColors: Array<any> = [
-    //   { // first color
-    //     backgroundColor: 'rgba(0, 140, 255,0.5)',
-    //     borderColor: 'rgba(2, 113, 204,0.5)',
-    //     pointBackgroundColor: 'rgba(0, 65, 100,0.5)',
-    //     pointBorderColor: 'rgba(2, 50, 50)',
-    //     pointHoverBackgroundColor: '#fff',
-    //     pointHoverBorderColor: 'rgba(225,10,24,0.2)'
-    //   }
-    // ];
+    barChartData: ChartDataSets[] = [
+      { data: [0, 0, 0, 0], label: 'ITEM USAGE: ' },
+    ];
+    chartColors: Array<any> = [
+      { // first color
+        backgroundColor: 'rgba(0, 140, 255,0.5)',
+        borderColor: 'rgba(2, 113, 204,0.5)',
+        pointBackgroundColor: 'rgba(0, 65, 100,0.5)',
+        pointBorderColor: 'rgba(2, 50, 50)',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+      }
+    ];
 
   ngOnInit() {
     var cookie = this.cookies.getCookie("userAuth");
@@ -207,6 +207,10 @@ export class StockStatusComponent implements OnInit {
     this.itemSearchForm.reset(); // clear the input fields
   }
 
+  onArrowClick() {
+    this.dataform = false;
+  }
+
   addToStock(order) {
     const data ={
       id: order._id,
@@ -239,7 +243,7 @@ export class StockStatusComponent implements OnInit {
             this.snackBar.open(res.msg, true ? "Ok" : undefined, config);
           }
           this.fetchReceivedOrders();
-          
+
         });
       }
     });

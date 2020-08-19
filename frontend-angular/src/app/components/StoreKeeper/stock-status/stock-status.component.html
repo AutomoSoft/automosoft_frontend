@@ -12,6 +12,10 @@
 
               <br />
               <div class="test">
+                <button [routerLink]="['/stockStatus']" mat-icon-button style="float: left; padding-left:45px; "
+                  *ngIf="dataform" (click)=onArrowClick()>
+                  <mat-icon>arrow_back</mat-icon>
+                </button>
                 <h2 class="topic">STOCK STATUS</h2>
               </div>
               <mat-divider></mat-divider>
@@ -44,104 +48,113 @@
                         </button>
                       </mat-card>
                     </form>
-                    <!-- add here -->
+
                     <div class="container" *ngIf="dataform">
-                      <form [formGroup] = "itemDataForm">
-                        <br>
-
-                          <div class="form-row mb-4">
 
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Item ID:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="itemid" [(ngModel)]="itemdata.itemid">
-                              <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
-                            </mat-form-field>
+                      <mat-card class="p-5 reg-frm" style="margin-top: 10px; margin-bottom: 40px;">
+                        <div class="container">
 
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Item Name:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="itemname" [(ngModel)]="itemdata.itemname">
-
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Buying Rate:</mat-label>
-                              <input matInput placeholder="LKR" formControlName="buying" [(ngModel)]="itemdata.buying">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Selling Rate:</mat-label>
-                              <input matInput placeholder="LKR" formControlName="selling" [(ngModel)]="itemdata.selling">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Stock Quantity:</mat-label>
-                              <input matInput formControlName="storequantity" [(ngModel)]="itemdata.storequantity">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Last stock update:</mat-label>
-                              <input matInput formControlName="lastmodifiedon" [(ngModel)]="itemdata.lastmodifiedon">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Last stock updated by:</mat-label>
-                              <input matInput formControlName="lastmodifiedby" [(ngModel)]="itemdata.lastmodifiedby">
-                            </mat-form-field>
-
-                            <button mat-raised-button (click)="back()"  type="submit" class="my-4 btn-block del_btn">Back</button>
-
-
-
-                            <!-- <div *ngIf="cookies.userData.usertype == 'Administrator'">
-                              <h3>SUPPLIED ITEMS
-                                <button mat-raised-button (click)="addItem()"  type="submit" class="my-4 btn-block add_btn">
-                                  <mat-icon >add</mat-icon>NEW
-                                </button>
-                              </h3>
-
-                              <div class="mat-elevation-z8" style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
-                               <table class="table ">
-                                 <thead>
-                                   <tr>
-                                     <th>ITEM TYPE</th>
-                                     <th>ITEM ID</th>
-                                     <th>BRAND</th>
-                                   </tr>
-                                 </thead>
-                                 <tbody>
-                                   <tr *ngFor= "let k of supItems">
-                                     <td>{{k.itemtype}}</td>
-                                     <td>{{k.itemid}}</td>
-                                     <td>{{k.brand}}</td>
-                                   </tr>
-                                 </tbody>
-                               </table>
-
+                          <div class="header">
+                            <div class="avatar-container">
+                              <img class="avatar" src="http://localhost:3000/items/itemImage/{{itemdata.filepath}}">
+                              <div class="avatar-hover">
+                                <mat-icon>camera_alt</mat-icon>
                               </div>
+                            </div>
+                            <div class="user-detail-container">
+                              <div class="mat-display-2 compact"> {{itemdata.itemid}}</div>
+                              <h2 class="mat-display-1 compact">{{itemdata.itemname}}</h2>
 
-                            </div> -->
+                              <br>
+
+                              <button class="reg_btn" (click)="onEditUser()" mat-raised-button
+                                color="primary">Edit</button>
+                              <button mat-raised-button (click)=deleteTable(userdata.userid,userdata.filepath)
+                                type="submit" class="my-4 btn-block del_btn ">Delete</button>
 
 
-
+                            </div>
 
                           </div>
 
-                          <!-- <button mat-raised-button (click)=updateSupplier() type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
-                            Update
-                          </button>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <br />
 
-                          <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
-                            Cancel
-                          </button>
+                        <div class="container">
 
-                          <button mat-raised-button (click)=delete() type="submit" class="my-4 btn-block del_btn">
-                            Delete
-                          </button>
-                          <br>
-                          <br> -->
-                      </form>
+                          <mat-grid-list cols="4" rowHeight="2:1">
+                            <mat-grid-tile>
+                              <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                                <mat-card-title>TYPE:</mat-card-title>
+                                <mat-card-content>
+                                  <p>
+                                    {{itemdata.itemtype}}
+                                  </p>
+                                </mat-card-content>
+                              </mat-card>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                              <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                                <mat-card-title>QUANTITY :</mat-card-title>
+                                <mat-card-content>
+                                  <p>
+                                    {{itemdata.storequantity}}
+                                  </p>
+                                </mat-card-content>
+                              </mat-card>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                              <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                                <mat-card-title>BUYING PRICE :</mat-card-title>
+                                <mat-card-content>
+                                  <p>
+                                    {{itemdata.buying}}
+                                  </p>
+                                </mat-card-content>
+                              </mat-card>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                              <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                                <mat-card-title>SELLING PRICE :</mat-card-title>
+                                <mat-card-content>
+                                  <p>
+                                    {{itemdata.selling}}
+                                  </p>
+                                </mat-card-content>
+                              </mat-card>
+                            </mat-grid-tile>
+
+
+                          </mat-grid-list>
+                          <br />
+                          <mat-divider></mat-divider>
+                          <br />
+                          <div class="container" style="margin-bottom: 50px; " >
+                            <div class="row"
+                                style="margin: auto;width: 97%;background-color: rgb(255, 255, 255);border-radius: 4px;border: rgb(231, 231, 231) solid 1px">
+                                <div class="chart-wrapper">
+                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                                        [options]="barChartOptions" [plugins]="barChartPlugins"
+                                        [legend]="barChartLegend" [chartType]="barChartType"
+                                        [colors]="chartColors">
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <mat-divider></mat-divider>
+
+                        <div style="text-align: left;  border-radius: 10px;">
+                          <mat-divider></mat-divider><br>
+                          <p>Added On : {{itemdata.addedon}}</p>
+                          <p>Last Modified On : {{itemdata.lastmodifiedon}}</p>
+                          <p>Last Modified By : {{itemdata.lastmodifiedby}}</p>
+                        </div>
+                        </div>
+
+                      </mat-card>
                     </div>
 
                   </mat-tab>
@@ -238,7 +251,7 @@
                    <!-- ***************************************************************************** View Approved Orders ************************************************************************** -->
 
 
-                  <mat-tab label="APPROVED ORDERS">
+                  <mat-tab label="APPROVED ORDERS" *ngIf="!dataform">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
                       <div>
@@ -267,7 +280,7 @@
                       </div>
                     </mat-card>
                   </mat-tab>
-                  <mat-tab label="RECEIVED ORDERS">
+                  <mat-tab label="RECEIVED ORDERS" *ngIf="!dataform">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
                       <div>
@@ -306,18 +319,7 @@
                 </mat-tab-group>
 
               </div>
-              <!-- <div class="container" style="margin-bottom: 50px; " >
-                <div class="row"
-                    style="margin: auto;width: 97%;background-color: rgb(255, 255, 255);border-radius: 4px;border: rgb(231, 231, 231) solid 1px">
-                    <div class="chart-wrapper">
-                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
-                            [options]="barChartOptions" [plugins]="barChartPlugins"
-                            [legend]="barChartLegend" [chartType]="barChartType"
-                            [colors]="chartColors">
-                        </canvas>
-                    </div>
-                </div>
-            </div> -->
+
 
             </div>
           </div>

@@ -143,3 +143,118 @@
     opacity: 1 !important;
   }
 
+
+
+/************************************************************* Item Profile CSS ***************************************************/
+
+
+.topic {
+  color: #0a0929;
+  font-weight: 400;
+  margin-left: 100px;
+}
+
+.example-container {
+  background-color: #414142;
+}
+
+
+.header {
+  padding: 4rem 1rem 2rem 1rem;
+  text-align: center;
+}
+
+
+.avatar-container {
+  display: inline-block;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 196px;
+  height: 196px;
+  background-color: #efefef;
+  padding-left: 0px;
+}
+
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.avatar-hover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: white;
+  background-color: #00000055;
+  z-index: 10;
+  opacity: 0;
+}
+
+
+.avatar-hover:hover {
+  transition: all 0.5s ease-out;
+  opacity: 1;
+}
+
+.avatar-hover .mat-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -8% 0 0 -8%;
+}
+
+.avatar-hover .material-icons{
+  font-size: 36px;
+}
+
+.user-detail-container {
+  display: inline-block;
+  position: relative;
+  top: -32px;
+  left: 24px;
+}
+
+.compact {
+  margin: 0 !important;
+}
+
+
+
+.section {
+  margin-top: 2rem;
+}
+
+.section-inline {
+  display: inline-block;
+}
+
+table {
+  width: 100%;
+  background-color: #ddddec;
+}
+
+.veh_btn {
+  color: aliceblue;
+  background-color: #c76b15;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.veh_btn:hover {
+  color: #000000;
+  transition: 0.5s;
+}
+
+
+
