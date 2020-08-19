@@ -32,7 +32,6 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
-import * as moment from 'moment';
 
 const colors: any = {
   red: {
@@ -107,44 +106,44 @@ export class MakeReservationsComponent implements OnInit {
   refresh: Subject<any> = new Subject();
 
   events: CalendarEvent[] = [
-    // {
-    //   start: subDays(startOfDay(new Date()), 1),
-    //   end: addDays(new Date(), 1),
-    //   title: 'A 3 day event',
-    //   color: colors.red,
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
-    // {
-    //   start: startOfDay(new Date()),
-    //   title: 'An event with no end date',
-    //   color: colors.yellow,
-    //   actions: this.actions,
-    // },
-    // {
-    //   start: subDays(endOfMonth(new Date()), 3),
-    //   end: addDays(endOfMonth(new Date()), 3),
-    //   title: 'A long event that spans 2 months',
-    //   color: colors.blue,
-    //   allDay: true,
-    // },
-    // {
-    //   start: addHours(startOfDay(new Date()), 2),
-    //   end: addHours(new Date(), 2),
-    //   title: 'A draggable and resizable event',
-    //   color: colors.yellow,
-    //   actions: this.actions,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
+    {
+      start: subDays(startOfDay(new Date()), 1),
+      end: addDays(new Date(), 1),
+      title: 'A 3 day event',
+      color: colors.red,
+      actions: this.actions,
+      allDay: true,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
+    {
+      start: startOfDay(new Date()),
+      title: 'An event with no end date',
+      color: colors.yellow,
+      actions: this.actions,
+    },
+    {
+      start: subDays(endOfMonth(new Date()), 3),
+      end: addDays(endOfMonth(new Date()), 3),
+      title: 'A long event that spans 2 months',
+      color: colors.blue,
+      allDay: true,
+    },
+    {
+      start: addHours(startOfDay(new Date()), 2),
+      end: addHours(new Date(), 2),
+      title: 'A draggable and resizable event',
+      color: colors.yellow,
+      actions: this.actions,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    },
   ];
 
   activeDayIsOpen: boolean = true;
@@ -162,7 +161,6 @@ export class MakeReservationsComponent implements OnInit {
     //console.log(this.pickedTime);
   }
 
-  isShow;
   displayedColumns_2: string[] = ['repairtype', 'daterequested','time','problembrief', 'action']; // Table Columns will displayed according to this order
   displayedColumns_1: string[] = ['repairtype', 'daterequested','time','problembrief', 'dateaccepted']; // Table Columns will displayed according to this order
   TABLE_DATA_1: PeriodicElement[] = [];
@@ -188,7 +186,6 @@ export class MakeReservationsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isShow = false;
     var temp = this.cookies.getCookie("userAuth");
     if(temp==""){
       this.router.navigate(['/login']);
@@ -208,72 +205,7 @@ export class MakeReservationsComponent implements OnInit {
 
         this.TABLE_DATA_1 = res_1.data;
         console.log(this.TABLE_DATA_1);
-
         this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
-        console.log("datasource");
-        console.log(this.dataSource_1);
-      }
-    });
-
-    // *************************************************** Get All Reservations For Calendar View OnInit********************************************************
-
-    const url_2 = "http://localhost:3000/reservations/viewAllReservations";
-
-    this.http.get<any>(url_2).subscribe(res_2 => {
-      if (res_2.state == false) {
-        let config = new MatSnackBarConfig();
-        config.duration = true ? 2000 : 0;
-        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
-      } else {
-
-        this.TABLE_DATA_2 = res_2.data;
-        console.log(this.TABLE_DATA_2);
-
-        console.log(this.TABLE_DATA_2[0]);
-        for (let i = 0; i < this.TABLE_DATA_2.length; i++) {
-
-          var mnths = {
-            Jan: "01",
-            Feb: "02",
-            Mar: "03",
-            Apr: "04",
-            May: "05",
-            Jun: "06",
-            Jul: "07",
-            Aug: "08",
-            Sep: "09",
-            Oct: "10",
-            Nov: "11",
-            Dec: "12"
-          },
-          date = this.TABLE_DATA_2[i].daterequested.split(" ");
-      
-          let from = [date[3], mnths[date[1]], date[2]].join("-"); // YYYY-MM-DD
-          //var from = '11-04-2017' // OR $("#datepicker").val();
-          var milliseconds = moment(from, "YYYY-MM-DD").toDate();
-          var f = new Date(milliseconds)
-          console.log(from);
-          console.log(f);
-
-              this.events = [
-            ...this.events,
-            {
-              title: (this.TABLE_DATA_2[i].repairtype).toString() + " at " + this.TABLE_DATA_2[i].time,
-              start: startOfDay(f),
-              end: endOfDay(f),
-              color: colors.red,
-              draggable: false,
-              resizable: {
-                beforeStart: true,
-                afterEnd: true,
-              },
-            },
-          ];
-        }
-
-        this.dataSource_2 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_2);
-        console.log("datasource");
-        console.log(this.dataSource_2);
       }
     });
 
@@ -341,14 +273,6 @@ export class MakeReservationsComponent implements OnInit {
     }
   }
 
-  cancel(){
-    this.isShow = false;
-  }
-
-  show(){
-    this.isShow = true;
-  }
-
 
 //******************************************** View Customer's Reservations Job Category Wise ********************************************************
 
@@ -382,8 +306,6 @@ export class MakeReservationsComponent implements OnInit {
     //+++++++++++++= ++++++++++++++++++++++ +++++++++++++++++++
 
     dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-      console.log("DAY CLICKED");
-      console.log(date);
       if (isSameMonth(date, this.viewDate)) {
         if (
           (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
@@ -416,7 +338,6 @@ export class MakeReservationsComponent implements OnInit {
     }
   
     handleEvent(action: string, event: CalendarEvent): void {
-      console.log("HANDLE EVENT");
       this.modalData = { event, action };
       this.modal.open(this.modalContent, { size: 'lg' });
     }
@@ -429,7 +350,7 @@ export class MakeReservationsComponent implements OnInit {
           start: startOfDay(new Date()),
           end: endOfDay(new Date()),
           color: colors.red,
-          draggable: false,
+          draggable: true,
           resizable: {
             beforeStart: true,
             afterEnd: true,
@@ -443,7 +364,6 @@ export class MakeReservationsComponent implements OnInit {
     }
   
     setView(view: CalendarView) {
-      console.log("SET VIEW");
       this.view = view;
     }
   

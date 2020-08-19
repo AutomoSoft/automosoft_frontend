@@ -267,6 +267,41 @@
                       </div>
                     </mat-card>
                   </mat-tab>
+                  <mat-tab label="RECEIVED ORDERS">
+                    <mat-card>
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
+                      <div>
+                        <table class="purchase-orders-table">
+                          <thead style="font-size: 13px;">
+                            <tr>
+                              <th>DATE APPLIED</th>
+                              <th>ITEM ID</th>
+                              <th>QAUNTITY</th>
+                              <th>STATUS</th>
+                              <th>SUPPLIER ID</th>
+                              <th>DATE RECEIVED</th>
+                            </tr>
+                          </thead>
+                          <tbody class="pending-approval-table-body" style="font-size: 13px;">
+                            <tr *ngFor="let k of receivedOrders">
+                              <td>{{k.dateApplied || 'N/A'  | date }}</td>
+                              <td>{{k.itemid || 'N/A'}}</td>
+                              <td>{{k.quantity || 'N/A'}}</td>
+                              <td>{{k.status || 'N/A'}}</td>
+                              <td>{{k.supplierid || 'N/A'}}</td>
+                              <td>{{k.dateReceived || 'N/A' | date}}</td>
+                              <td><button mat-mini-fab type="submit" matTooltip="Add to stock"
+                                class="my-4 btn-block rep_btn" (click)="addToStock(k)">
+                                <span class="material-icons">
+                                  done
+                                </span>
+                              </button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card>
+                  </mat-tab>
 
                 </mat-tab-group>
 

@@ -47,12 +47,11 @@ mat-datepicker-toggle {
   background-color: #c76b15;
 }
 .btn1 {
-  padding-left: 80px;
-  padding-right: 80px;
   border-radius: 20px;
   float:rig;
   color:white;
   height: 40px;
+  width: 100px;
   font-family: side_font;
   font-weight: bolder;
   background-color: #c76b15;
@@ -89,16 +88,15 @@ mat-datepicker-toggle {
   width: 100%;
 }
 
-.button-container {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
 
 .button-container {
+  margin-top: 0.6rem;
   width: 100%;
+ 
+}
+.button-container1 {
   margin-top: 0.8rem;
+  width: 100%;
 }
 
 .customer-register-form-container .btn {

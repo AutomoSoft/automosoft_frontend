@@ -153,50 +153,6 @@
   </div>
 
   </mat-tab>
-
-
-  <mat-tab label="TECHNICIANS AVAILABILITY">
-    <div >
-      <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource_2">
-
-        <!-- User ID Column -->
-        <ng-container matColumnDef="userid">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER ID </th>
-          <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
-        </ng-container>
-
-        <!-- User Type Column -->
-        <ng-container matColumnDef="firstname">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> FIRST NAME </th>
-          <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
-        </ng-container>
-
-        <!-- First Name Column -->
-        <ng-container matColumnDef="lastname">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  LAST NAME </th>
-          <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
-        </ng-container>
-
-        <!-- E-mail Column -->
-        <ng-container  matColumnDef="capacity">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CAPACITY </th>
-          <td mat-cell *matCellDef="let element"> {{element.capacity}} </td>
-        </ng-container>
-
-        <!-- contact No Column -->
-        <ng-container matColumnDef="currentjobCap">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CURRENT WORK STATUS </th>
-          <td mat-cell *matCellDef="let element"> {{element.currentjobCap}} </td>
-        </ng-container>
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns_2"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns_2;"></tr>
-      </table>
-
-      <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-    </div>
-  </mat-tab>
   </mat-tab-group>
 
   <form [formGroup]="reservationDataForm">

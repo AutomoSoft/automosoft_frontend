@@ -79,6 +79,8 @@ export class StockStatusComponent implements OnInit {
   item;
   approvedOrders;
   PURCHASE_ORDERS = PURCHASE_ORDERS;
+  receivedOrders;
+
   constructor(
     private http: HttpClient,
     private cookies: MycookiesService,
@@ -159,6 +161,21 @@ export class StockStatusComponent implements OnInit {
     });
 
     this.fetchApprovedOrders();
+    this.fetchReceivedOrders();
+  }
+
+  fetchReceivedOrders() {
+    const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.RECEIVED}`;
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+        this.receivedOrders = res.data;
+      }
+    });
   }
 
   /*************************************************** Search Item  ***********************************************************/
@@ -188,6 +205,44 @@ export class StockStatusComponent implements OnInit {
   back() {
     this.dataform = false; //data form div hide
     this.itemSearchForm.reset(); // clear the input fields
+  }
+
+  addToStock(order) {
+    const data ={
+      id: order._id,
+      itemName:order.itemname,
+      itemId: order.itemid,
+      quantity: order.quantity,
+    };
+
+    const url = "http://localhost:3000/purchaseOrders/addToStock";
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: "Are you sure you want to add to stock ?",
+        buttonText: {
+          ok: "Yes",
+          cancel: "No"
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+      if (confirmed) {
+        this.http.put<any>(url, data).subscribe(res => {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          if (res.state === false) {
+            this.snackBar.open(res.msg, true ? "Retry" : undefined, config);
+          } else {
+            this.snackBar.open(res.msg, true ? "Ok" : undefined, config);
+          }
+          this.fetchReceivedOrders();
+          
+        });
+      }
+    });
   }
 
 

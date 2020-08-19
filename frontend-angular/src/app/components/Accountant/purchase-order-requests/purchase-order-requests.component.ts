@@ -20,6 +20,7 @@ export class PurchaseOrderRequestsComponent implements OnInit {
   approvedOrders;
   cookie;
   PURCHASE_ORDERS = PURCHASE_ORDERS;
+  pendingOrders;
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -32,8 +33,12 @@ export class PurchaseOrderRequestsComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit() { 
+    this.fetchApprovedOrders();
+    this.fetchPendingOrders(); 
+  }
 
+  fetchApprovedOrders() {
     const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.APPROVED}`;
 
     this.http.get<any>(url).subscribe(res => {
@@ -47,16 +52,72 @@ export class PurchaseOrderRequestsComponent implements OnInit {
     });
   }
 
+  fetchPendingOrders() {
+    const url = `http://localhost:3000/purchaseOrders/fetchOrdersByStatus?status=${PURCHASE_ORDERS.ORDER_STATUS.REQUESTED}`;
+
+    this.http.get<any>(url).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error Try Again !!! ", true ? "Retry" : undefined, config);
+      } else {
+        this.pendingOrders = res.data;
+      }
+    });
+
+  }
+
+  markReceived(order) {
+    const data ={
+      id: order._id
+    };
+
+    const url = "http://localhost:3000/purchaseOrders/markReceived";
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: "Are you sure want to mark this order as received?",
+        buttonText: {
+          ok: "Yes",
+          cancel: "No"
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+
+      if (confirmed) {
+        this.http.put<any>(url, data).subscribe(res => {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          if (res.state === false) {
+            this.snackBar.open(res.msg, true ? "Retry" : undefined, config);
+          } else {
+            this.snackBar.open(res.msg, true ? "Ok" : undefined, config);
+          }
+          this.fetchPendingOrders();
+        });
+      }
+    });
+
+  }
+
   sendOrder(order) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-
     dialogConfig.data = {
        itemid: order.itemid,
        quantity: order.quantity,
        purchaseOrderID: order._id
     };
-  const dialogRef = this.dialog.open(NewPurchaseOrderComponent,dialogConfig);
+    const dialogRef = this.dialog.open(NewPurchaseOrderComponent,dialogConfig);
+
+    dialogRef.afterClosed().subscribe((isConfirmed) => {
+      if (isConfirmed) {
+        this.fetchApprovedOrders();
+        this.fetchPendingOrders();
+      }
+    });
 }
 
 }
