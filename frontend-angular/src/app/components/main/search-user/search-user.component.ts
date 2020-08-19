@@ -37,6 +37,7 @@ interface user {
   lastmodifiedby: String;
   vehicles: [];
 
+
   // filepath: String;
 }
 
@@ -72,6 +73,7 @@ export class SearchUserComponent implements OnInit {
   userType;
   custVehicles;
   userflag: Boolean = false;  //to show/hide customer vehicle fields
+  searchKey: string;
 
   constructor(
     private http: HttpClient,
@@ -202,6 +204,14 @@ export class SearchUserComponent implements OnInit {
         this.custVehicles = res.data.vehicles;
       }
     });
+  }
+
+  applyFilter(){
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+  onSearchClear(){
+    this.searchKey ="";
+    this.applyFilter();
   }
 
   resetSearch() {

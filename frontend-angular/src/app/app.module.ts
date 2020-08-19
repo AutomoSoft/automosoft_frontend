@@ -17,7 +17,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FlatpickrModule } from 'angularx-flatpickr';
-//import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { ChartsModule } from 'ng2-charts';
 
 
