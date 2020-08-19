@@ -16,13 +16,13 @@
     <mat-card-title>Enter Request Quantity</mat-card-title>
     <form [formGroup]="requestQuantityForm">
       <mat-form-field appearance="outline" style="width: 100px;">
-        <mat-label>quantity</mat-label>
+        <mat-label>Quantity</mat-label>
         <input matInput name="quantity" formControlName="quantity">
       </mat-form-field>
     </form>
     <br>
-    <button class="reg_btn" mat-raised-button color="primary" (click)="requestQuantity()">request</button>
-    <button mat-raised-button type="submit" class="my-4 btn-block del_btn " (click)="reset()">cancel</button>
+    <button class="reg_btn" mat-raised-button color="primary" (click)="requestQuantity()">Request</button>
+    <button mat-raised-button type="submit" class="my-4 btn-block del_btn " (click)="reset()">Cancel</button>
   </mat-card>
 
 </div>

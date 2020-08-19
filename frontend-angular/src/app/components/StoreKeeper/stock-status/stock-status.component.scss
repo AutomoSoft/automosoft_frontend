@@ -38,7 +38,7 @@
   }
 
   .reg-frm {
-    box-shadow: 0px 10px 10px rgb(134, 132, 245);
+    // box-shadow: 0px 10px 10px rgb(134, 132, 245);
     background-color: rgb(255, 255, 255);
     padding-top: 10px;
     width: 85%;
@@ -136,5 +136,10 @@
     border-radius: 20px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .mat-tab-label-active{
+    background-color: red ;
+    opacity: 1 !important;
   }
 
