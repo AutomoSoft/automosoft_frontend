@@ -80,6 +80,8 @@ export class StockStatusComponent implements OnInit {
   approvedOrders;
   PURCHASE_ORDERS = PURCHASE_ORDERS;
   receivedOrders;
+  chartLabels = [];
+  chartData = [];
 
   constructor(
     private http: HttpClient,
@@ -96,18 +98,19 @@ export class StockStatusComponent implements OnInit {
     barChartOptions: ChartOptions = {
       responsive: true,
     };
-    barChartLabels: Label[] = ['1st Term', '2nd Term', '3rd Term', '3rd Term'];
+
+    barChartLabels: Label[] = [];
     barChartType: ChartType = 'line';
     barChartLegend = true;
     barChartPlugins = [];
 
     barChartData: ChartDataSets[] = [
-      { data: [0, 0, 0, 0], label: 'ITEM USAGE: ' },
+      { data: [0, 0, 0, 0], label: 'ITEM USAGE (MONTHLY RATE OF USE): ' },
     ];
     chartColors: Array<any> = [
       { // first color
-        backgroundColor: 'rgba(0, 140, 255,0.5)',
-        borderColor: 'rgba(2, 113, 204,0.5)',
+        backgroundColor: 'rgba(56, 201, 170,0.5)',
+        borderColor: 'rgba(35, 122, 104,0.5)',
         pointBackgroundColor: 'rgba(0, 65, 100,0.5)',
         pointBorderColor: 'rgba(2, 50, 50)',
         pointHoverBackgroundColor: '#fff',
@@ -183,7 +186,12 @@ export class StockStatusComponent implements OnInit {
   searchItem() {
     this.itemid = this.itemSearchForm.value.itemid; //get supplier id
 
+    for (var i = 0; i < 3; i++) {
+      this.barChartData[0].data[i] = 0
+    }
+
     const url = "http://localhost:3000/items/searchItembyId"   //backend url
+    const url1 = "http://localhost:3000/items/itemChartData"
 
     this.http.get<any>(url + "/" + this.itemid).subscribe(res => {
       if (res.state == false) {
@@ -194,6 +202,29 @@ export class StockStatusComponent implements OnInit {
         this.dataform = true; //data form div show
         this.itemdata = res.data;   //add response data in to datadata array
         console.log(this.itemdata)
+
+        this.http.get<any>(url1 + "/" + this.itemid).subscribe(res => {
+          if (res.state == false) {
+            let config = new MatSnackBarConfig();
+            config.duration = true ? 2000 : 0;
+            this.snackBar.open("Item Not Found..! ", true ? "Retry" : undefined, config);
+          } else {
+
+            console.log(res)
+            for (var i = 3; i >= 0; i--) {
+              this.chartData.push(res[i].Rate);
+
+              this.chartLabels.push(res[i].month);
+              // console.log(this.chartLabels)
+            }
+            for ( var j=0; j<4;j++){
+              this.barChartData[0].data[j] = this.chartData[j]
+            }
+            this.barChartLabels = this.chartLabels;
+            // this.barChartData = this.chartData;
+            // console.log(this.barChartData[0].data)
+          }
+        });
       }
     });
   }
