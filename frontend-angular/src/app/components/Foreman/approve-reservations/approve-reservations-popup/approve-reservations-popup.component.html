@@ -1,170 +1,213 @@
 <div class="mat-dialog-header" mat-ripple>
-    <h1 mat-dialog-title>ACCEPT RESERVATON REQUEST</h1>
-    <mat-dialog-content class="mat-typography">
-    <mat-divider></mat-divider>
-    <div class="container">
+  <h1 mat-dialog-title>ACCEPT RESERVATON REQUEST</h1>
+  <mat-dialog-content class="mat-typography">
+  <mat-divider></mat-divider>
+  <div class="container">
 
-        <mat-grid-list cols="3" rowHeight="2:1">
-          <mat-grid-tile>
-            <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
-              <mat-card-title class="card-title">REPAIR TYPE:</mat-card-title>
-              <mat-card-content>
-                <p>
-                    {{reservation_data.repairtype}}
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
-              <mat-card-title class="card-title">REQUESTED DATE:</mat-card-title>
-              <mat-card-content>
-                <p>
-                  {{reservation_data.daterequested}}
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
-              <mat-card-title class="card-title" >REQUESTED TIME:</mat-card-title>
-              <mat-card-content>
-                <p>
-                  {{reservation_data.time}}
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-grid-tile>
+      <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>
+          <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
+            <mat-card-title class="card-title">REPAIR TYPE:</mat-card-title>
+            <mat-card-content>
+              <p>
+                  {{reservation_data.repairtype}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
+            <mat-card-title class="card-title">REQUESTED DATE:</mat-card-title>
+            <mat-card-content>
+              <p>
+                {{reservation_data.daterequested}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 30px;">
+            <mat-card-title class="card-title" >REQUESTED TIME:</mat-card-title>
+            <mat-card-content>
+              <p>
+                {{reservation_data.time}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+      <br />
+    </div>
+
+
+  <!-- *************************************************************** TABS ************************************************************** -->
+
+  <mat-tab-group>
+
+  <mat-tab label="CUSTOMER DETAILS">
+  <form [formGroup]="reservationDataForm">
+      <br>
   
-        </mat-grid-list>
+      <div class="container">
   
-        <br />
+          <!-- <mat-form-field appearance="outline">
+                <mat-label>Customer ID</mat-label>
+                <input matInput class="form-control box_border" formControlName="customerid" [(ngModel)]="customer.custID">
+              </mat-form-field> -->
+          <div class="row">
+              <mat-form-field appearance="outline">
+                  <mat-label>Customer First Name:</mat-label>
+                  <input matInput class="form-control box_border" formControlName="fname"
+                      [(ngModel)]="customer.firstname">
+              </mat-form-field>
+  
+              <mat-form-field appearance="outline">
+                  <mat-label>Customer Last Name:</mat-label>
+                  <input matInput placeholder="LKR" formControlName="lname" [(ngModel)]="customer.lastname">
+              </mat-form-field>
+          </div>
+          <div class="row">
+  
+              <mat-form-field appearance="outline">
+                  <mat-label>Contact Number</mat-label>
+                  <input matInput placeholder="LKR" formControlName="contact" [(ngModel)]="customer.contactnumber">
+              </mat-form-field>
+  
+              <mat-form-field appearance="outline">
+                  <mat-label>Email:</mat-label>
+                  <input matInput formControlName="email" [(ngModel)]="customer.email">
+              </mat-form-field>
+          </div>
+          <mat-form-field appearance="outline">
+              <mat-label>Problem Description:</mat-label>
+              <textarea matInput formControlName="probdef" [(ngModel)]="reservation_data.problembrief"></textarea>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+              <mat-label>Posted Date:</mat-label>
+              <input matInput formControlName="postedon" [(ngModel)]="reservation_data.dateposted">
+          </mat-form-field>
+          
+          <br>
+          <mat-divider></mat-divider>
       </div>
 
+      
+  
+  
+  </form>
+</mat-tab>
 
-    <!-- *************************************************************** TABS ************************************************************** -->
+<!-- ******************************************************************** TABLE *********************************************************** -->
+<mat-tab label="ACCEPTED RESERVATONS FOR THE DATE">
+<div >
+  <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource">
 
-    <mat-tab-group>
 
-    <mat-tab label="CUSTOMER DETAILS">
-    <form [formGroup]="reservationDataForm">
-        <br>
-    
-        <div class="container">
-    
-            <!-- <mat-form-field appearance="outline">
-                  <mat-label>Customer ID</mat-label>
-                  <input matInput class="form-control box_border" formControlName="customerid" [(ngModel)]="customer.custID">
-                </mat-form-field> -->
-            <div class="row">
-                <mat-form-field appearance="outline">
-                    <mat-label>Customer First Name:</mat-label>
-                    <input matInput class="form-control box_border" formControlName="fname"
-                        [(ngModel)]="customer.firstname">
-                </mat-form-field>
-    
-                <mat-form-field appearance="outline">
-                    <mat-label>Customer Last Name:</mat-label>
-                    <input matInput placeholder="LKR" formControlName="lname" [(ngModel)]="customer.lastname">
-                </mat-form-field>
-            </div>
-            <div class="row">
-    
-                <mat-form-field appearance="outline">
-                    <mat-label>Contact Number</mat-label>
-                    <input matInput placeholder="LKR" formControlName="contact" [(ngModel)]="customer.contactnumber">
-                </mat-form-field>
-    
-                <mat-form-field appearance="outline">
-                    <mat-label>Email:</mat-label>
-                    <input matInput formControlName="email" [(ngModel)]="customer.email">
-                </mat-form-field>
-            </div>
-            <mat-form-field appearance="outline">
-                <mat-label>Problem Description:</mat-label>
-                <textarea matInput formControlName="probdef" [(ngModel)]="reservation_data.problembrief"></textarea>
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-                <mat-label>Posted Date:</mat-label>
-                <input matInput formControlName="postedon" [(ngModel)]="reservation_data.dateposted">
-            </mat-form-field>
-            
-            <br>
-            <mat-divider></mat-divider>
-        </div>
+    <!-- User Type Column -->
+    <ng-container matColumnDef="repairtype">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> JOB TYPE </th>
+        <td mat-cell *matCellDef="let element"> {{element.repairtype}} </td>
+      </ng-container>
 
-        
-    
-    
-    </form>
-  </mat-tab>
+    <!-- User Type Column -->
+    <!-- <ng-container matColumnDef="daterequested">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> REQUESTED DATE </th>
+      <td mat-cell *matCellDef="let element"> {{element.daterequested}} </td>
+    </ng-container> -->
 
-  <!-- ******************************************************************** TABLE *********************************************************** -->
-  <mat-tab label="ACCEPTED RESERVATONS FOR THE DATE">
+    <!-- First Name Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  REQUESTED TIME </th>
+      <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+    </ng-container>
+
+    <!-- E-mail Column -->
+    <ng-container  matColumnDef="problembrief">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> PROBLEM DESCRIPTION </th>
+      <td mat-cell *matCellDef="let element"> {{element.problembrief}} </td>
+    </ng-container>
+
+    <!-- User Type Column -->
+    <!-- <ng-container matColumnDef="dateposted">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> POSTED ON </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateposted}} </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="action">
+      <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
+      <td mat-cell *matCellDef="let element" >
+            <button mat-raised-button   type="submit" class="my-4 btn-block reg_btn"  >ACCEPT</button>
+            <button mat-raised-button type="submit" (click)="viewReservation(element)" class="rep_btn" color="primary">ACCEPT</button>
+      </td>
+    </ng-container> -->
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+</div>
+
+</mat-tab>
+
+
+<mat-tab label="TECHNICIANS AVAILABILITY">
   <div >
-    <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource">
+    <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource_2">
 
+      <!-- User ID Column -->
+      <ng-container matColumnDef="userid">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> USER ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
+      </ng-container>
 
       <!-- User Type Column -->
-      <ng-container matColumnDef="repairtype">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> JOB TYPE </th>
-          <td mat-cell *matCellDef="let element"> {{element.repairtype}} </td>
-        </ng-container>
-
-      <!-- User Type Column -->
-      <!-- <ng-container matColumnDef="daterequested">
-        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> REQUESTED DATE </th>
-        <td mat-cell *matCellDef="let element"> {{element.daterequested}} </td>
-      </ng-container> -->
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> FIRST NAME </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
 
       <!-- First Name Column -->
-      <ng-container matColumnDef="time">
-        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  REQUESTED TIME </th>
-        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  LAST NAME </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
       </ng-container>
 
       <!-- E-mail Column -->
-      <ng-container  matColumnDef="problembrief">
-        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> PROBLEM DESCRIPTION </th>
-        <td mat-cell *matCellDef="let element"> {{element.problembrief}} </td>
+      <ng-container  matColumnDef="capacity">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CAPACITY </th>
+        <td mat-cell *matCellDef="let element"> {{element.capacity}} </td>
       </ng-container>
 
-      <!-- User Type Column -->
-      <!-- <ng-container matColumnDef="dateposted">
-        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> POSTED ON </th>
-        <td mat-cell *matCellDef="let element"> {{element.dateposted}} </td>
-      </ng-container> -->
-
-      <!-- <ng-container matColumnDef="action">
-        <th mat-header-cell  *matHeaderCellDef style="text-align: center; font-weight: 900;" > ACTION </th>
-        <td mat-cell *matCellDef="let element" >
-              <button mat-raised-button   type="submit" class="my-4 btn-block reg_btn"  >ACCEPT</button>
-              <button mat-raised-button type="submit" (click)="viewReservation(element)" class="rep_btn" color="primary">ACCEPT</button>
-        </td>
-      </ng-container> -->
+      <!-- contact No Column -->
+      <ng-container matColumnDef="currentjobCap">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CURRENT WORK STATUS </th>
+        <td mat-cell *matCellDef="let element"> {{element.currentjobCap}} </td>
+      </ng-container>
 
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns_2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns_2;"></tr>
     </table>
 
     <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
   </div>
+</mat-tab>
+</mat-tab-group>
 
-  </mat-tab>
-  </mat-tab-group>
-
-  <form [formGroup]="reservationDataForm">
-    <br>
-    <div class="foot">
-      <button mat-raised-button type="submit" class="my-4 btn-block del_btn" (click)="onCancelClick()">CLOSE</button>
-      <button mat-raised-button type="submit" (click)="onAcceptClick()" class="rep_btn"
-          color="primary">CONFIRM</button>
-    </div>
-    <br>
-  </form>
-      
-    </mat-dialog-content>
+<form [formGroup]="reservationDataForm">
+  <br>
+  <div class="foot">
+    <button mat-raised-button type="submit" class="my-4 btn-block del_btn" (click)="onCancelClick()">CLOSE</button>
+    <button mat-raised-button type="submit" (click)="onAcceptClick()" class="rep_btn"
+        color="primary">CONFIRM</button>
+  </div>
+  <br>
+</form>
+    
+  </mat-dialog-content>
 </div>
-            

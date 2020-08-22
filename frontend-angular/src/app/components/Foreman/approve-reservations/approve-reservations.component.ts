@@ -190,7 +190,8 @@ export class ApproveReservationsComponent implements OnInit {
         const dialogConfig = new MatDialogConfig();
                   dialogConfig.data = {
                     customerData: this.customerdata,
-                    reservationID: element._id,   
+                    reservationID: element._id,  
+                    category: element.repairtype, 
                 };
         this.dialog.open(ApproveReservationsPopupComponent, dialogConfig);        
       }
