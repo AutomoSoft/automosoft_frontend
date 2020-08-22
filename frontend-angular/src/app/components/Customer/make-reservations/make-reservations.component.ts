@@ -255,13 +255,20 @@ export class MakeReservationsComponent implements OnInit {
           console.log(from);
           console.log(f);
 
+          let pointColour;
+          if(this.TABLE_DATA_2[i].status == "accepted"){
+            pointColour = colors.red;
+          }else{
+            pointColour = colors.blue;
+          }
+
               this.events = [
             ...this.events,
             {
               title: (this.TABLE_DATA_2[i].repairtype).toString() + " at " + this.TABLE_DATA_2[i].time,
               start: startOfDay(f),
               end: endOfDay(f),
-              color: colors.red,
+              color: pointColour,
               draggable: false,
               resizable: {
                 beforeStart: true,
