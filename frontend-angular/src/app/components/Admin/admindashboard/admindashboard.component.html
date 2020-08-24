@@ -1,7 +1,36 @@
 <div style="padding-top: 50px;">
-  <div style="min-height: 450px;background-color:#9D8D8F;">
+  <!-- <div style="min-height: 450px;background-color:#9D8D8F;"> -->
 
-    <mat-card class="card_clr">
+
+  <div style="padding-bottom: 20px; min-height: 820px;background-color:#28343a;">
+    <mat-grid-list cols="4" rowHeight="2:1" style="min-height: 250px;">
+      <mat-card class="card_clr">
+        <h2 style="text-transform: uppercase;">{{userdata.usertype}} DASHBOARD</h2>
+
+        <mat-divider></mat-divider>
+
+        <div class="header">
+          <div class="avatar-container">
+            <img class="avatar" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+            <div class="avatar-hover">
+              <mat-icon>camera_alt</mat-icon>
+            </div>
+          </div>
+          <div class="user-detail-container">
+            <div class="mat-display-2 compact"> {{userdata.firstname}}</div>
+            <h2 class="mat-display-1 compact">{{userdata.lastname}}</h2>
+            <br>
+            <div>{{userdata.email}}</div>
+            <div>{{userdata.contactnumber}}</div>
+            <br>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-card>
+    </mat-grid-list>
+
+    <mat-card class="card_clr" style="margin-top: 20px; margin-left: 40px; margin-right: 40px; border-radius: 10px;">
       <mat-grid-list cols="4" rowHeight="2:1">
         <mat-grid-tile>
           <mat-card class="container-fluid tct">
@@ -64,7 +93,7 @@
     </mat-card>
 
     <!-- ************************************REGISTRATION************************************************************************************* -->
-    <mat-card class="card_clr">
+    <mat-card class="card_clr" style="margin-top: 20px; margin-left: 40px; margin-right: 40px; border-radius: 10px;">
       <!-- <h2 class="topic">REGISTRATION</h2> -->
       <mat-grid-list cols="4" rowHeight="2:1">
 
@@ -126,7 +155,8 @@
       </mat-grid-list>
     </mat-card>
     <!-- ******************************************************************************************************************************* -->
-    <mat-card class="card_clr">
+    <mat-card class="card_clr"
+      style="margin-top: 20px; margin-bottom: 20px; margin-left: 40px; margin-right: 40px; border-radius: 10px;">
       <mat-grid-list cols="4" rowHeight="2:1">
         <mat-grid-tile>
           <mat-card class="container-fluid tct">
