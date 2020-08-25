@@ -1,19 +1,16 @@
 .opened {
-    margin-top: 8px;
-    width: 250px;
-    background-color: #3d4549;
-
+    background-image: linear-gradient(to bottom , #3d4549,#1b2225);
+    height:100%;
     color: black;
   }
 
   .collapsed {
-    margin-top: 8px;
     width: 90px;
-    background-color: #3d4549;
-
+    background-image: linear-gradient(to bottom , #3d4549,#1b2225);
+    height:100%;
     color: black;
   }
-
+  
   .sidebar_button {
     margin-left: 21px;
     margin-top: 7px;
@@ -36,11 +33,12 @@
     background-color: #607d8b;
   }
 
+  .mb-15px:hover{
+    background-color: #607d8b;
+  }
+
   .sidebar_items {
     margin-top: 14px;
     margin-left: 30px;
     color: #c76b15;
   }
-  
-
-

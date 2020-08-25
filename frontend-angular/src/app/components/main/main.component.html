@@ -1,7 +1,7 @@
 <div [ngClass]="collapsed ?'collapsed':'opened'">
   <br>
-  <!-- ================================= ALL USERS ============================================= -->
   <div style="background-color: #28343a; height: 53px;" class="mb-15px">
+    <!-- ================================= ALL USERS ============================================= -->
     <div class="row">
       <div class="col-md-9">
         <button mat-icon-button (click)=toggle() class="sidebar_button"
@@ -144,4 +144,51 @@
     </div>
     <br>
   </mat-accordion>
+
+  <!-- ====================================== CUSTOMER ======================================== -->
+  <mat-accordion *ngIf="cookies.userData.usertype == 'Customer'">
+    <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #z>
+      <mat-expansion-panel-header>
+        <mat-panel-description style="color: #c76b15; margin-left: 7px;">
+          <mat-icon *ngIf="!z.expanded">arrow_drop_down</mat-icon>
+          <mat-icon *ngIf="z.expanded">arrow_drop_up</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-md-9">
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>assignment</mat-icon>
+              <h4 mat-line> MY SERVICES </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>add_box</mat-icon>
+              <h4 mat-line> MAKE RESERVATIONS </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>analytics</mat-icon>
+              <h4 mat-line> JOB HISTORY </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>fact_check</mat-icon>
+              <h4 mat-line> VIEW STATUS </h4>
+            </a>
+          </mat-nav-list>
+
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <br>
+  </mat-accordion>
+
 </div>
