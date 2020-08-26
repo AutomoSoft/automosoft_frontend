@@ -191,4 +191,43 @@
     <br>
   </mat-accordion>
 
+  <!-- ===================================== STORE KEEPER ====================================== -->
+  <mat-accordion *ngIf="cookies.userData.usertype == 'Store-Keeper'">
+    <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #z>
+      <mat-expansion-panel-header>
+        <mat-panel-description style="color: #c76b15; margin-left: 7px;">
+          <mat-icon *ngIf="!z.expanded">arrow_drop_down</mat-icon>
+          <mat-icon *ngIf="z.expanded">arrow_drop_up</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-md-9">
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>inventory</mat-icon>
+              <h4 mat-line> ADD STOCK </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>ballot</mat-icon>
+              <h4 mat-line> STOCK STATUS </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>timeline</mat-icon>
+              <h4 mat-line> PURCHASE ORDER STATUS </h4>
+            </a>
+          </mat-nav-list>
+
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <br>
+  </mat-accordion>
+
 </div>
