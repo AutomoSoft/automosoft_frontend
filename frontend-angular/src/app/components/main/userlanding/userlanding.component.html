@@ -1,5 +1,5 @@
 <div style="padding-top: 50px;">
-  <div style="padding-bottom: px; min-height: 800px;background-color:#28343a;">
+  <div style="padding-bottom: 40px; min-height: 800px;background-color:#28343a;">
     <mat-grid-list cols="4" rowHeight="2:1" style="min-height: 250px;">
       <mat-card class="card_clr">
         <h2 style="text-transform: uppercase;">{{userdata.usertype}} DASHBOARD</h2>
@@ -22,12 +22,11 @@
             <br>
           </div>
         </div>
-        <mat-divider></mat-divider>
-        <br />
-
+        <mat-divider></mat-divider><br>
 
       </mat-card>
     </mat-grid-list>
+
     <!-- ****************************************************************************************************************************************** -->
     <mat-card class="card_clr" style="margin-top: 75px; margin-left: 40px; margin-right: 40px; border-radius: 10px;">
 
@@ -95,87 +94,84 @@
 
       <!-- ************************************ Foreman Functions ************************************************************************************* -->
 
-      <mat-card class="card_clr" *ngIf="cookies.userData.usertype == 'Foreman'">
-        <mat-grid-list cols="4" rowHeight="2:1">
+      <mat-grid-list cols="3" rowHeight="4:1" *ngIf="cookies.userData.usertype == 'Foreman'">
 
-          <mat-grid-tile>
-            <mat-card class="container-fluid tct">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="row frist_div" routerLink="/createJob">
-                    <div class="col-md-3 btn_txt btn_icn" style="text-align: left;">
-                      <i class="material-icons btn_icn">add_circle</i> NEW JOB
-                    </div>
+        <mat-grid-tile>
+          <mat-card class="container-fluid tct">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="row frist_div" routerLink="/createJob">
+                  <div class="col-md-3 btn_txt btn_icn" style="text-align: left;">
+                    <i class="material-icons btn_icn">add_circle</i> NEW JOB
                   </div>
                 </div>
               </div>
-            </mat-card>
-          </mat-grid-tile>
+            </div>
+          </mat-card>
+        </mat-grid-tile>
 
-          <mat-grid-tile>
-            <mat-card class="container-fluid tct">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="row frist_div" routerLink="/ongoingJobs">
-                    <div class="col-md-3 btn_txt btn_icn" style="text-align-last:center;padding-top:2px;">
-                      <i class="material-icons btn_icn">miscellaneous_services</i> ONGOING JOBS
-                      <label class="notice_label ">1</label>
-                    </div>
+        <mat-grid-tile>
+          <mat-card class="container-fluid tct">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="row frist_div" routerLink="/ongoingJobs">
+                  <div class="col-md-3 btn_txt btn_icn" style="text-align-last:center;padding-top:2px;">
+                    <i class="material-icons btn_icn">miscellaneous_services</i> ONGOING JOBS
+                    <label class="notice_label ">1</label>
                   </div>
                 </div>
               </div>
-            </mat-card>
-          </mat-grid-tile>
+            </div>
+          </mat-card>
+        </mat-grid-tile>
 
-          <mat-grid-tile>
-            <mat-card class="container-fluid tct">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="row frist_div" routerLink="/viewTechnicians">
-                    <div class="col-md-3 btn_txt btn_icn" style="text-align-last:center;padding-top:2px;">
-                      <i class="material-icons btn_icn">assignment_ind</i> VIEW TECHNICIANS
-                    </div>
+        <mat-grid-tile>
+          <mat-card class="container-fluid tct">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="row frist_div" routerLink="/viewTechnicians">
+                  <div class="col-md-3 btn_txt btn_icn" style="text-align-last:center;padding-top:2px;">
+                    <i class="material-icons btn_icn">assignment_ind</i> VIEW TECHNICIANS
                   </div>
                 </div>
               </div>
-            </mat-card>
-          </mat-grid-tile>
+            </div>
+          </mat-card>
+        </mat-grid-tile>
 
-          <mat-grid-tile>
-            <mat-card class="container-fluid tct">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="row frist_div" routerLink="/withdrawStock">
-                    <div class="col-md-3 btn_txt btn_icn" style="text-align: left;">
-                      <i class="material-icons btn_icn">store</i> WITHDRAW STOCK
-                    </div>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="4:1" *ngIf="cookies.userData.usertype == 'Foreman'">
+
+        <mat-grid-tile>
+          <mat-card class="container-fluid tct">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="row frist_div" routerLink="/withdrawStock">
+                  <div class="col-md-3 btn_txt btn_icn" style="text-align: left;">
+                    <i class="material-icons btn_icn">store</i> WITHDRAW STOCK
                   </div>
                 </div>
               </div>
-            </mat-card>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </mat-card>
+            </div>
+          </mat-card>
+        </mat-grid-tile>
 
-      <mat-card class="card_clr" *ngIf="cookies.userData.usertype == 'Foreman'">
-        <mat-grid-list cols="4" rowHeight="2:1">
-
-          <mat-grid-tile>
-            <mat-card class="container-fluid tct">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="row frist_div" routerLink="/approveReservations">
-                    <div class="col-md-3 btn_txt btn_icn" style="text-align: left;">
-                      <i class="material-icons btn_icn">rule_folder</i> APPROVE RESERVATIONS
-                    </div>
+        <mat-grid-tile>
+          <mat-card class="container-fluid tct">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="row frist_div" routerLink="/approveReservations">
+                  <div class="col-md-3 btn_txt btn_icn" style="text-align: left;">
+                    <i class="material-icons btn_icn">rule_folder</i> APPROVE RESERVATIONS
                   </div>
                 </div>
               </div>
-            </mat-card>
-          </mat-grid-tile>
+            </div>
+          </mat-card>
+        </mat-grid-tile>
 
-        </mat-grid-list>
-      </mat-card>
+      </mat-grid-list>
 
 
       <!-- ************************************ Accountant Functions ************************************************************************************* -->
@@ -280,7 +276,5 @@
       </mat-grid-list>
 
     </mat-card>
-
-
   </div>
 </div>

@@ -1,3 +1,5 @@
+// ====== FINISHED =======
+
 .tct {
   background-color: #000000;
   margin-top: 20px;
@@ -8,15 +10,6 @@
   border-radius: 20px;
 }
 
-.test {
-  background-color: #5e5555;
-  margin-left: 50px;
-  margin-right: 50px;
-  height: 180px;
-  border-radius: 10px;
-  padding-top: 10px;
-  // opacity: 50%;
-}
 .frist_div {
   height: 50px;
   color: #a35a16;
@@ -63,44 +56,10 @@
   margin-left: 3px;
 }
 
-.topic {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  padding-top: 10px;
-  font-family: topic_font;
-}
-
 .card_clr{
   background-color: #3d4549;
   // background-image:linear-gradient(#28343a,#06a3f1) ;
   text-align: center;
-}
-
-
-/************************************************************* User Profile CSS ***************************************************/
-
-
-.topic {
-  color: #0a0929;
-  font-weight: 400;
-  margin-left: 100px;
-}
-
-.example-container {
-  background-color: #414142;
-}
-
-.reg-frm {
-  box-shadow: 0px 10px 10px rgb(134, 132, 245);
-  background-color: rgb(255, 255, 255);
-  padding-top: 10px;
-  width: 85%;
-  min-height: 500px;
-
-  margin: auto;
-  margin-bottom: 10px;
-  // border: 3px solid #414142;
-  border-radius: 20px;
 }
 
 .header {
@@ -174,32 +133,3 @@
 .compact {
   margin: 0 !important;
 }
-
-
-
-.section {
-  margin-top: 2rem;
-}
-
-.section-inline {
-  display: inline-block;
-}
-
-table {
-  width: 100%;
-  background-color: #ddddec;
-}
-
-.veh_btn {
-  color: aliceblue;
-  background-color: #c76b15;
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.veh_btn:hover {
-  color: #000000;
-  transition: 0.5s;
-}
-

@@ -158,21 +158,21 @@
         <div class="col-md-9">
 
           <mat-nav-list>
-            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+            <a mat-list-item [routerLink]="'/myServices'" routerLinkActive="selected">
               <mat-icon mat-list-icon>assignment</mat-icon>
               <h4 mat-line> MY SERVICES </h4>
             </a>
           </mat-nav-list>
 
           <mat-nav-list>
-            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+            <a mat-list-item [routerLink]="'/makeReservation'" routerLinkActive="selected">
               <mat-icon mat-list-icon>add_box</mat-icon>
               <h4 mat-line> MAKE RESERVATIONS </h4>
             </a>
           </mat-nav-list>
 
           <mat-nav-list>
-            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+            <a mat-list-item [routerLink]="'/jobHistory'" routerLinkActive="selected">
               <mat-icon mat-list-icon>analytics</mat-icon>
               <h4 mat-line> JOB HISTORY </h4>
             </a>
@@ -221,6 +221,99 @@
             <a mat-list-item [routerLink]="" routerLinkActive="selected">
               <mat-icon mat-list-icon>timeline</mat-icon>
               <h4 mat-line> PURCHASE ORDER STATUS </h4>
+            </a>
+          </mat-nav-list>
+
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <br>
+  </mat-accordion>
+
+  <!-- ===================================== ACCOUNTANT ====================================== -->
+  <mat-accordion *ngIf="cookies.userData.usertype == 'Accountant'">
+    <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #z>
+      <mat-expansion-panel-header>
+        <mat-panel-description style="color: #c76b15; margin-left: 7px;">
+          <mat-icon *ngIf="!z.expanded">arrow_drop_down</mat-icon>
+          <mat-icon *ngIf="z.expanded">arrow_drop_up</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-md-9">
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>check_circle</mat-icon>
+              <h4 mat-line> PO REQUESTS </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>receipt</mat-icon>
+              <h4 mat-line> CREATE INVOICE </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="" routerLinkActive="selected">
+              <mat-icon mat-list-icon>history</mat-icon>
+              <h4 mat-line> INVOICE HISTORY </h4>
+            </a>
+          </mat-nav-list>
+
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <br>
+  </mat-accordion>
+
+
+  <!-- ===================================== FOREMAN ====================================== -->
+  <mat-accordion *ngIf="cookies.userData.usertype == 'Foreman'">
+    <mat-expansion-panel style="background-color: #28343a" class="mb-15px" hideToggle="true" #z>
+      <mat-expansion-panel-header>
+        <mat-panel-description style="color: #c76b15; margin-left: 7px;">
+          <mat-icon *ngIf="!z.expanded">arrow_drop_down</mat-icon>
+          <mat-icon *ngIf="z.expanded">arrow_drop_up</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-md-9">
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="'/createJob'" routerLinkActive="selected">
+              <mat-icon mat-list-icon>add_circle</mat-icon>
+              <h4 mat-line> NEW JOB </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="'/ongoingJobs'" routerLinkActive="selected">
+              <mat-icon mat-list-icon>miscellaneous_services</mat-icon>
+              <h4 mat-line> ONGOING JOBS </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="'/viewTechnicians'" routerLinkActive="selected">
+              <mat-icon mat-list-icon>assignment_ind</mat-icon>
+              <h4 mat-line> VIEW TECHNICIANS </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="'/withdrawStock'" routerLinkActive="selected">
+              <mat-icon mat-list-icon>store</mat-icon>
+              <h4 mat-line> WITHDRAW STOCK </h4>
+            </a>
+          </mat-nav-list>
+
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="'/approveReservations'" routerLinkActive="selected">
+              <mat-icon mat-list-icon>rule_folder</mat-icon>
+              <h4 mat-line> APPROVE RESERVATIONS </h4>
             </a>
           </mat-nav-list>
 
