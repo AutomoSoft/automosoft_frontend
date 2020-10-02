@@ -1,56 +1,52 @@
 <div class="mat-dialog-header" style="text-align: center; min-width: 720px;">
-  <mat-dialog-content>
-    <h1 mat-dialog-title>ITEM DETAILS</h1>
+  <h1 mat-dialog-title>ITEM DETAILS</h1>
+  <mat-dialog-content class="mat-typography">
     <mat-divider></mat-divider>
     <div class="header">
       <div class="avatar-container">
         <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
       </div>
-      <br />
-      <div class="container">
-        <table class="table-container">
-          <tr>
-            <th>ITEM ID</th>
-            <td>{{item.itemid}}</td>
-          </tr>
-          <tr>
-            <th>ITEM NAME </th>
-            <td>{{item.itemname}}</td>
-          </tr>
-          <tr>
-            <th>ITEM TYPE </th>
-            <td>{{item.itemtype}}</td>
-          </tr>
-          <tr>
-            <th>STORE QUANTITY</th>
-            <td> {{item.storequantity}}</td>
-          </tr>
-          <tr>
-            <th>BUYING PRICE</th>
-            <td>{{item.buying}}</td>
-          </tr>
-          <tr>
-            <th>SELLING PRICE</th>
-            <td>{{item.selling}}</td>
-          </tr>
-          <tr>
-            <th>ADDED BY </th>
-            <td>{{item.addedby}}</td>
-          </tr>
-          <tr>
-            <th>ADDED ON</th>
-            <td>{{item.addedon}}</td>
-          </tr>
-          <tr>
-            <th>LAST MODIFIED BY </th>
-            <td>{{item.lastmodifiedby}}</td>
-          </tr>
-          <tr>
-            <th>LAST MODIFIED ON </th>
-            <td>{{item.lastmodifiedon}}</td>
-          </tr>
-        </table>
+      <div class="item-detail-container">
+        <h3 class="mat-display-1 compact">{{item.itemname}}</h3>
+        <div class="mat-display-2 compact">{{item.itemid}}</div>
       </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="container">
+      <table class="table-container">
+        <tr>
+          <th>ITEM TYPE </th>
+          <td>{{item.itemtype}}</td>
+        </tr>
+        <tr>
+          <th>STORE QUANTITY</th>
+          <td> {{item.storequantity}}</td>
+        </tr>
+        <tr>
+          <th>BUYING PRICE</th>
+          <td>{{item.buying}}</td>
+        </tr>
+        <tr>
+          <th>SELLING PRICE</th>
+          <td>{{item.selling}}</td>
+        </tr>
+        <tr>
+          <th>ADDED BY </th>
+          <td>{{item.addedby}}</td>
+        </tr>
+        <tr>
+          <th>ADDED ON</th>
+          <td>{{item.addedon}}</td>
+        </tr>
+        <tr>
+          <th>LAST MODIFIED BY </th>
+          <td>{{item.lastmodifiedby}}</td>
+        </tr>
+        <tr>
+          <th>LAST MODIFIED ON </th>
+          <td>{{item.lastmodifiedon}}</td>
+        </tr>
+      </table>
     </div>
   </mat-dialog-content>
 </div>
