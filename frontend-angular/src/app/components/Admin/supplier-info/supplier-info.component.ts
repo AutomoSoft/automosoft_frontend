@@ -157,8 +157,7 @@ export class SupplierInfoComponent implements OnInit {
   }
 
   cancel() {
-    // this.UserDataForm.reset();
-    window.location.reload();
+    this.dataform = false
   }
 
   //view supplier from table
