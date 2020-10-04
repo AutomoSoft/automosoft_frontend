@@ -39,8 +39,9 @@ import { CreateInvoiceComponent } from './components/Accountant/create-invoice/c
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
-import {ApproveReservationsPopupComponent} from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
+import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
 import { from } from 'rxjs';
+import { ViewSupplierComponent } from './components/Admin/supplier-info/view-supplier/view-supplier.component';
 
 
 
@@ -67,6 +68,7 @@ const routes: Routes = [
   { path: "messages", component: MessageComponent },
   { path: "AddItems", component: AddItemsComponent },
   { path: "supplierInfo", component: SupplierInfoComponent },
+  { path: "viewSupplier", component: ViewSupplierComponent },
   { path: "viewReservations", component: ReservationsComponent },
 
 
@@ -104,7 +106,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

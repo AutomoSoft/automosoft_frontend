@@ -101,6 +101,7 @@ import { StockWithdrawalPopupComponent } from './components/Foreman/stock-withdr
 import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
 import { NewPurchaseOrderComponent } from './components/Accountant/purchase-order-requests/new-purchase-order/new-purchase-order.component';
 import { JobDetailsComponent } from './components/Customer/view-history/job-details/job-details.component';
+import { ViewSupplierComponent } from './components/Admin/supplier-info/view-supplier/view-supplier.component';
 
 
 
@@ -154,7 +155,8 @@ import { JobDetailsComponent } from './components/Customer/view-history/job-deta
     StockWithdrawalPopupComponent,
     ApproveReservationsPopupComponent,
     NewPurchaseOrderComponent,
-    JobDetailsComponent
+    JobDetailsComponent,
+    ViewSupplierComponent
 
   ],
   imports: [
