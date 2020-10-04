@@ -17,7 +17,7 @@ interface supplier {
   address: String;
   contactnumber: String;
   email: String;
-  note:String;
+  note: String;
   addedon: String;
   addedby: String;
   lastmodifiedon: String;
@@ -41,7 +41,7 @@ export interface PeriodicElement {
   styleUrls: ['./supplier-info.component.scss']
 })
 export class SupplierInfoComponent implements OnInit {
-  displayedColumns: String[] = ['supid', 'supname', 'items','email','action'];
+  displayedColumns: String[] = ['supid', 'supname', 'items', 'email', 'action'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
   cookie;
@@ -50,7 +50,7 @@ export class SupplierInfoComponent implements OnInit {
   supid;
   dataform: Boolean = false;
   supItems;
-   //items supplied by a praticular supplier
+  //items supplied by a praticular supplier
 
   supplierdata: supplier[] = [];
 
@@ -72,7 +72,7 @@ export class SupplierInfoComponent implements OnInit {
   ngOnInit() {
     //this.dataSource.paginator = this.paginator;
     var cookie = this.cookies.getCookie("userAuth");
-    if(cookie==""){
+    if (cookie == "") {
       this.router.navigate(['/login']);
     }
 
@@ -85,7 +85,7 @@ export class SupplierInfoComponent implements OnInit {
       supid: [""],
       supplierName: ["", Validators.required],
       address: ["", Validators.required],
-      contactnumber: ["", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
+      contactnumber: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ["", [Validators.required, Validators.email]],
       addedon: [""],
       lastmodifiedby: [""],
@@ -93,7 +93,7 @@ export class SupplierInfoComponent implements OnInit {
       // items: this.fb.array([this.supItems]),
     });
 
-/*************************************************** Table Data  ***********************************************************/
+    /*************************************************** Table Data  ***********************************************************/
 
     const url = "http://localhost:3000/supplier/searchAllSuppliers"   //backend url
 
@@ -135,14 +135,14 @@ export class SupplierInfoComponent implements OnInit {
       } else {
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to data array
-        this.supItems =res.data.items;
+        this.supItems = res.data.items;
         //console.log(this.supplierdata);
 
       }
     });
   }
 
-  resetSearch(){
+  resetSearch() {
     this.SupplierSearchForm.reset();
   }
 
@@ -151,14 +151,14 @@ export class SupplierInfoComponent implements OnInit {
     const dialogRef = this.dialog.open(AddItemPopupComponent, {
       width: '500px',
       data: {
-        sup:id,
+        sup: id,
       }
     });
   }
 
-  cancel(){
+  cancel() {
     // this.UserDataForm.reset();
-     window.location.reload();
+    window.location.reload();
   }
 
   //view supplier from table
@@ -172,12 +172,12 @@ export class SupplierInfoComponent implements OnInit {
         config.duration = true ? 2000 : 0;
         this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
       } else {
-        if(res.data.usertype=="Supplier"){
-         // this.userflag = true;
+        if (res.data.usertype == "Supplier") {
+          // this.userflag = true;
         }
         this.dataform = true; //data form div show
         this.supplierdata = res.data;   //add response data in to data array
-        this.supItems =res.data.items;
+        this.supItems = res.data.items;
         //console.log(this.supplierdata);
 
       }
@@ -196,22 +196,22 @@ export class SupplierInfoComponent implements OnInit {
       return;
     }
     else {
-      let date=Date();
+      let date = Date();
 
-    const formData ={
-      usertype:k.usertype,
-      supid:k.supid,
-      supname:this.SupplierDataForm.value.supplierName,
-      address:this.SupplierDataForm.value.address,
-      contactnumber:this.SupplierDataForm.value.contactnumber,
-      email:this.SupplierDataForm.value.email,
-      addedby:this.SupplierDataForm.value.addedby,
-      addedon:this.SupplierDataForm.value.addedon,
-      items:this.supItems,
-      lastmodifiedby: this.cookie.userid,
-      lastmodifiedon:date,
+      const formData = {
+        usertype: k.usertype,
+        supid: k.supid,
+        supname: this.SupplierDataForm.value.supplierName,
+        address: this.SupplierDataForm.value.address,
+        contactnumber: this.SupplierDataForm.value.contactnumber,
+        email: this.SupplierDataForm.value.email,
+        addedby: this.SupplierDataForm.value.addedby,
+        addedon: this.SupplierDataForm.value.addedon,
+        items: this.supItems,
+        lastmodifiedby: this.cookie.userid,
+        lastmodifiedon: date,
 
-    };
+      };
 
 
       console.log(formData);
@@ -250,7 +250,7 @@ export class SupplierInfoComponent implements OnInit {
 
   /*************************************************** Delete Supplier ***********************************************************/
 
-  delete(){
+  delete() {
     const url2 = "http://localhost:3000/supplier/deleteSupplier/"  //delete data from tha database
 
     //confirmaration box
@@ -284,7 +284,7 @@ export class SupplierInfoComponent implements OnInit {
   }
 
   //delete from table
-  deleteTable(id){
+  deleteTable(id) {
     //console.log(id);
 
 
@@ -324,6 +324,9 @@ export class SupplierInfoComponent implements OnInit {
     });
   }
 
+  onArrowClick() {
+    this.dataform = false;
+  }
 
 }
 

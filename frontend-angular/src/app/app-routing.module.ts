@@ -41,7 +41,6 @@ import { ReservationsComponent } from './components/Admin/reservations/reservati
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
 import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
 import { from } from 'rxjs';
-import { ViewSupplierComponent } from './components/Admin/supplier-info/view-supplier/view-supplier.component';
 
 
 
@@ -68,7 +67,6 @@ const routes: Routes = [
   { path: "messages", component: MessageComponent },
   { path: "AddItems", component: AddItemsComponent },
   { path: "supplierInfo", component: SupplierInfoComponent },
-  { path: "viewSupplier", component: ViewSupplierComponent },
   { path: "viewReservations", component: ReservationsComponent },
 
 

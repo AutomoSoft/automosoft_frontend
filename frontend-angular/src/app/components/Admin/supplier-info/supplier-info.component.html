@@ -1,6 +1,6 @@
 <div style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -9,197 +9,192 @@
         <div class="container-fluid">
           <div class="row">
             <div class="container-fluid" style="background-color: #ddddec;">
-              <br />
+              <br>
               <div class="test">
+                <button [routerLink]="['/supplierInfo']" mat-icon-button style="float: left; padding-left:45px; "
+                  *ngIf="dataform" (click)=onArrowClick()>
+                  <mat-icon>arrow_back</mat-icon>
+                </button>
                 <h2 class="topic">SUPPLIER INFORMATION</h2>
               </div>
               <mat-divider></mat-divider>
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
-
-                <mat-tab-group class="p-5 reg-frm">
-
-                <mat-tab label="SEARCH BY SUPPLIER ID">
-                    <form [formGroup] = SupplierSearchForm *ngIf="!dataform">
-
-
-                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 30px; margin-top: 20px;" />
-
-                        <h3 class="topic" style="margin-left: -600px;" >ENTER Supplier ID:</h3>
+                <mat-tab-group class="p-5 reg-frm" *ngIf="!dataform">
+                  <mat-tab label="SEARCH BY SUPPLIER ID">
+                    <form [formGroup]=SupplierSearchForm>
+                      <mat-card>
+                        <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
+                        <h3 class="topic" style="margin-left: -600px;">ENTER Supplier ID:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
                             <mat-label>SUPPLIER ID:</mat-label>
-                            <input matInput class="form-control box_border" formControlName = "supid" >
+                            <input matInput class="form-control box_border" formControlName="userid">
                           </mat-form-field>
                         </div>
                         <br>
                         <br>
-                        <button mat-raised-button type="submit" (click)="searchSupplier()" class="my-4 btn-block reg_btn ">
+                        <button mat-raised-button type="submit" (click)="searchSupplier()"
+                          class="my-4 btn-block reg_btn ">
                           Search
                         </button>
-
                         <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block btn_1  ">
                           Cancel
                         </button>
+                      </mat-card>
                     </form>
-
-                    <div class="container" *ngIf="dataform">
-                      <form [formGroup] = SupplierDataForm>
-                        <br>
-
-                          <div class="form-row mb-4">
-
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Supplier ID:</mat-label>
-                              <input matInput class="form-control box_border" readonly formControlName="supid" [(ngModel)]="supplierdata.supid">
-                            </mat-form-field>
-
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Supplier Name:</mat-label>
-                              <input matInput class="form-control box_border" formControlName="supplierName" [(ngModel)]="supplierdata.supname">
-
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Address:</mat-label>
-                              <textarea matInput formControlName="address" [(ngModel)]="supplierdata.address"></textarea>
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Contact Number:</mat-label>
-                              <input matInput placeholder="Ex. 081xxxxxxx" formControlName="contactnumber" [(ngModel)]="supplierdata.contactnumber">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Email:</mat-label>
-                              <input matInput placeholder="Ex. abc@example.com" formControlName="email" [(ngModel)]="supplierdata.email">
-                            </mat-form-field>
-
-
-
-                            <div *ngIf="cookies.userData.usertype == 'Administrator'">
-                              <h3>SUPPLIED ITEMS
-                                <button mat-raised-button (click)="addItem(supplierdata.supid)"  type="submit" class="my-4 btn-block add_btn">
-                                  <mat-icon >add</mat-icon>NEW
-                                </button>
-                              </h3>
-
-                              <div class="mat-elevation-z8" style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
-                               <table class="table ">
-                                 <thead>
-                                   <tr>
-                                     <th>ITEM TYPE</th>
-                                     <th>ITEM ID</th>
-                                     <th>BRAND</th>
-                                   </tr>
-                                 </thead>
-                                 <tbody>
-                                   <tr *ngFor= "let k of supItems">
-                                     <td>{{k.itemtype}}</td>
-                                     <td>{{k.itemid}}</td>
-                                     <td>{{k.brand}}</td>
-                                   </tr>
-                                 </tbody>
-                               </table>
-
-                              </div>
-                            <br>
-                            </div>
-
-                            <mat-form-field appearance="outline" >
-                              <mat-label>Added on:</mat-label>
-                              <input matInput readonly formControlName="addedon" [(ngModel)]="supplierdata.addedon">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" >
-                              <mat-label>Last Modified By:</mat-label>
-                              <input matInput readonly formControlName="lastmodifiedon" [(ngModel)]="supplierdata.lastmodifiedon">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" >
-                              <mat-label>Last Modified On:</mat-label>
-                              <input matInput readonly formControlName="lastmodifiedby" [(ngModel)]="supplierdata.lastmodifiedby">
-                            </mat-form-field>
-
-
-                          </div>
-
-                          <button mat-raised-button (click)=updateSupplier(supplierdata) type="submit" class="my-4 btn-block reg_btn" *ngIf="cookies.userData.usertype == 'Administrator'">
-                            Update
-                          </button>
-
-                          <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
-                            Cancel
-                          </button>
-
-                          <button mat-raised-button (click)=delete() type="submit" class="my-4 btn-block del_btn">
-                            Delete
-                          </button>
-                          <br>
-                          <br>
-                      </form>
-                    </div>
                   </mat-tab>
-<!-- ***************************************************************************** View All Supppliers ************************************************************************** -->
 
-                  <mat-tab label="VIEW ALL SUPPLIERS" *ngIf="!dataform">
+                  <!-- ********************************** VIEW ALL SUPPLIERS ************************************* -->
+
+                  <mat-tab label="VIEW ALL SUPPLIERS">
                     <mat-card>
-                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 30px; margin-top: 20px;" />
-                      <div class="mat-elevation-z8">
-                        <table mat-table [dataSource]="dataSource">
+                      <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
 
-                          <!-- User ID Column -->
+                      <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="dataSource ">
+
+                          <!-- Supplier ID Column -->
                           <ng-container matColumnDef="supid">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-style: Bold;"> Supplier ID </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">
+                              Supplier ID </th>
                             <td mat-cell *matCellDef="let element"> {{element.supid}} </td>
                           </ng-container>
 
-                          <!-- Supplier Name Column -->
+                          <!-- First Name Column -->
                           <ng-container matColumnDef="supname">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;">  Name </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Name
+                            </th>
                             <td mat-cell *matCellDef="let element"> {{element.supname}} </td>
                           </ng-container>
 
-                          <!-- Contact Number Column -->
-                          <ng-container  matColumnDef="items">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Contact Number </th>
-                            <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
-                          </ng-container>
-                          <!-- Email Column -->
+                          <!-- E-mail Column -->
                           <ng-container matColumnDef="email">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Email Address </th>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> EMAIL
+                            </th>
                             <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                           </ng-container>
 
-
-                          <ng-container matColumnDef="action">
-                            <th mat-header-cell  *matHeaderCellDef style="text-align: center;" > Actions </th>
-                            <td mat-cell *matCellDef="let element" >
-                                 <button mat-raised-button (click)="viewSupplier(element.supid)" type="submit" class="my-4 btn-block reg_btn" style="width: 5%; border-radius: 25px;" >View</button>
-                                 <button  mat-raised-button (click)="deleteTable(element.supid)" type="submit" class="my-4 btn-block del_btn "style="width: 5%; border-radius: 25px;" >Delete</button>
-                            </td>
+                          <!-- contact No Column -->
+                          <ng-container matColumnDef="items">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> CONTACT
+                              NO: </th>
+                            <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
                           </ng-container>
 
+                          <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACTION
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                              <button mat-raised-button (click)="viewSupplier(element.supid)" type="submit"
+                                class="my-4 btn-block table_btn">View</button>
+                              <button mat-raised-button (click)="deleteTable(element.supid)" type="submit"
+                                class="my-4 btn-block del_btn ">Delete</button>
+                            </td>
+                          </ng-container>
 
                           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
-
                         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
                       </div>
                     </mat-card>
-
                   </mat-tab>
-
                 </mat-tab-group>
 
-              </div>
+                <!-- ************************************ SUPPLIER PROFILE ************************************************************* -->
+                <mat-tab-group class="p-5 reg-frm" *ngIf="dataform">
+                  <mat-tab label="SUPPLIER PROFILE">
+                    <mat-card>
 
+                      <div mat-dialog-content class="content" fxLayout="column" fxLayoutAlign="center">
+                        <form class="edit-form" [formGroup]="SupplierDataForm">
+
+                          <mat-form-field class="form-full-width" style="width: 80%;">
+                            <input matInput type="text" readonly formControlName="supid" placeholder="Name"
+                              [(ngModel)]="supplierdata.supid">
+                          </mat-form-field><br>
+
+                          <mat-form-field class="form-full-width" style="width: 80%;">
+                            <input matInput type="text" formControlName="supplierName" placeholder="Name"
+                              [(ngModel)]="supplierdata.supname">
+                          </mat-form-field><br>
+
+                          <mat-form-field class="form-full-width" style="width: 80%;">
+                            <input matInput type="text" formControlName="contactnumber" placeholder="Contact Number"
+                              [(ngModel)]="supplierdata.contactnumber">
+                          </mat-form-field><br>
+
+                          <mat-form-field class="form-full-width" style="width: 80%;">
+                            <input matInput type="email" formControlName="email" placeholder="Email"
+                              [(ngModel)]="supplierdata.email">
+                          </mat-form-field><br>
+
+                          <mat-form-field class="form-full-width" style="width: 80%;">
+                            <input matInput type="text" formControlName="address" placeholder="Address"
+                              [(ngModel)]="supplierdata.address">
+                          </mat-form-field>
+
+                          <div *ngIf="userflag">
+                            <mat-divider></mat-divider><br>
+                            <mat-card class="section" style="text-align: center;  border-radius: 10px;">
+                              <mat-card-title> SUPPLIED ITEMS
+                                <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
+                                  *ngIf="cookies.userData.usertype == 'Administrator'"
+                                  (click)="addItem(supplierdata.supid)">
+                                  <mat-icon>add</mat-icon>NEW
+                                </button>
+                              </mat-card-title>
+                              <mat-card-content>
+                                <div class="mat-elevation-z8"
+                                  style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
+                                  <table class="table ">
+                                    <thead>
+                                      <tr>
+                                        <th>ITEM TYPE</th>
+                                        <th>ITEM ID</th>
+                                        <th>BRAND</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let k of supItems">
+                                        <td>{{k.itemtype}}</td>
+                                        <td>{{k.itemid}}</td>
+                                        <td>{{k.brand}}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </mat-card-content>
+                            </mat-card>
+                          </div><br><br>
+
+                          <mat-divider></mat-divider><br>
+
+                          <div mat-dialog-actions style="margin: auto; justify-content: center">
+                            <button mat-button class="my-4 btn-block reg_btn" color="primary"
+                              (click)="updateSupplier(supplierdata)">Update</button>
+                            <button mat-button class="my-4 btn-block del_btn" (click)="delete()">Delete</button>
+                            <button mat-button class="my-4 btn-block btn_1" (click)="cancel()">Cancel</button>
+                          </div><br>
+                          <div style="text-align: left;  border-radius: 10px;">
+                            <mat-divider></mat-divider><br>
+                            <p>Added On : {{supplierdata.addedon}}</p>
+                            <p>Last Modified On : {{supplierdata.lastmodifiedon}}</p>
+                            <p>Last Modified By : {{supplierdata.lastmodifiedby}}</p>
+                          </div>
+
+
+                          <!-- {{editForm.value | json}} -->
+                        </form>
+                      </div>
+
+                    </mat-card>
+                  </mat-tab>
+                </mat-tab-group>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
