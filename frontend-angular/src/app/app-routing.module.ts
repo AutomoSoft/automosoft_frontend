@@ -39,7 +39,7 @@ import { CreateInvoiceComponent } from './components/Accountant/create-invoice/c
 import { InvoiceHistoryComponent } from './components/Accountant/invoice-history/invoice-history.component';
 import { ReservationsComponent } from './components/Admin/reservations/reservations.component';
 import { ApproveReservationsComponent } from './components/Foreman/approve-reservations/approve-reservations.component';
-import {ApproveReservationsPopupComponent} from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
+import { ApproveReservationsPopupComponent } from './components/Foreman/approve-reservations/approve-reservations-popup/approve-reservations-popup.component';
 import { from } from 'rxjs';
 
 
@@ -104,7 +104,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

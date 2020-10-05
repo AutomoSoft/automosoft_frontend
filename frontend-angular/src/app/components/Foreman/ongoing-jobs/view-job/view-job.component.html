@@ -11,7 +11,8 @@
         <p class="compact" style="font-size: xx-small; color: darkgray;">JOB NUMBER</p>
         <h1 class="compact">{{job.jobNo}}</h1>
         <br>
-        <button mat-raised-button type="submit" class="my-4 btn-block btn_1 " (click)="withdrawStock(job)">Get Stock</button>
+        <button mat-raised-button type="submit" class="my-4 btn-block btn_1 " (click)="withdrawStock(job)">Get
+          Stock</button>
         <button mat-raised-button type="submit" class="my-4 btn-block reg_btn ">Notify</button>
       </div>
     </div>
@@ -42,9 +43,9 @@
         <mat-grid-tile>
           <mat-card style="width: 150px; text-align: center; border-radius: 10px; height: 60px;">
             <mat-card-title>STATUS:</mat-card-title>
-            <mat-card-content >
+            <mat-card-content>
               <mat-chip-list>
-                <mat-chip (removed)="selectStatus(job)" >
+                <mat-chip (removed)="selectStatus(job)">
                   {{job.jobStatus}}
                   <mat-icon matChipRemove>cancel</mat-icon>
                 </mat-chip>
@@ -88,7 +89,6 @@
           <thead>
             <tr>
               <th>ITEM ID</th>
-              <!-- <th>ITEM NAME</th> -->
               <th>QUANTITY</th>
               <th>CHARGES</th>
             </tr>

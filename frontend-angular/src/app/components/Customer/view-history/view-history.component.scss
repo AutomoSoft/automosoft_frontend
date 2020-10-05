@@ -1,17 +1,14 @@
-// @font-face {
-//   font-family: topic_font;
-//   src: url(../../../../assets/Fonts/RobotoSlab.ttf);
-// }
-.test {
-  margin-left: 100px;
-}
+
+
 .topic {
   color: #0a0929;
   font-weight: 400;
+  margin-left: 210px;
 }
 
 .example-container {
-  background-color: #414142;
+  // background-color: #414142;
+  background-image: linear-gradient(to bottom,#3d4549, #030200);
 }
 
 .body {

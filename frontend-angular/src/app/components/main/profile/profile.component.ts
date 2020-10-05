@@ -45,7 +45,9 @@ export class ProfileComponent implements OnInit {
   userdata: user[] = [];
   userid;
   cookie;
-  veh;
+  // veh;
+  custVehicles;
+  userflag: Boolean = false;  //to show/hide customer vehicle fields
 
   constructor(
     private http: HttpClient,
@@ -56,30 +58,37 @@ export class ProfileComponent implements OnInit {
     private dialog: MatDialog,
   ) {
     this.cookie = JSON.parse(this.cookies.getCookie("userAuth"));
-   }
+  }
 
   ngOnInit() {
     var cookie = this.cookies.getCookie("userAuth");
-    if(cookie==""){
+    if (cookie == "") {
       this.router.navigate(['/login']);
     } else {
-      this.userid=this.cookie.userid;
+      this.userid = this.cookie.userid;
 
       const url = "http://localhost:3000/users/searchUsers"   //backend url
 
-    this.http.get<any>(url + "/" + this.userid).subscribe(res => {
-      if (res.state == false) {
-        let config = new MatSnackBarConfig();
-        config.duration = true ? 2000 : 0;
-        this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
-      } else {
-        this.userdata = res.data;   //add response data in to data array
-        this.veh = JSON.parse(res.data.vehicles);
-        //console.log(this.userdata);
-        //console.log(this.veh[1]);
+      this.http.get<any>(url + "/" + this.userid).subscribe(res => {
+        if (res.state == false) {
+          let config = new MatSnackBarConfig();
+          config.duration = true ? 2000 : 0;
+          this.snackBar.open("No User Found..! ", true ? "Retry" : undefined, config);
+        } else {
+          if (res.data.usertype == "Customer") {
+            this.userflag = true;
+          }
+          else {
+            this.userflag = false;
+          }
+          this.userdata = res.data;   //add response data in to data array
+          // this.veh = JSON.parse(res.data.vehicles);
+          this.custVehicles = res.data.vehicles
+          //console.log(this.userdata);
+          //console.log(this.veh[1]);
 
-      }
-    });
+        }
+      });
     }
   }
 

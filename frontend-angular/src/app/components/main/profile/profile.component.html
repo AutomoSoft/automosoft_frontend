@@ -1,6 +1,6 @@
 <div style="padding-top: 60px;">
   <mat-sidenav-container>
-    <mat-sidenav class="example-container" #sidenav mode="side" opened >
+    <mat-sidenav class="example-container" #sidenav mode="side" opened>
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -17,109 +17,183 @@
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
 
                 <mat-tab-group class="p-5 reg-frm">
-<!-- ***************************************************************************** User Information************************************************************************************* -->
+                  <!-- ***************************************************************************** User Information************************************************************************************* -->
 
-                <mat-tab label="USER INFO">
-                    <div class="container">
-                      <form >
-                        <br>
-                        <br>
-                        <div>
-                          <mat-card class="profile-card">
-                              <img class="profile-pic" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+                  <mat-tab label="USER INFO">
+
+                    <mat-card>
+                      <div class="container">
+
+                        <div class="header">
+                          <div class="avatar-container">
+                            <img class="avatar" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
+                            <div class="avatar-hover">
+                              <mat-icon>camera_alt</mat-icon>
+                            </div>
+                          </div>
+                          <div class="user-detail-container">
+                            <div class="mat-display-2 compact"> {{userdata.firstname}}</div>
+                            <h2 class="mat-display-1 compact">{{userdata.lastname}}</h2>
+                            <div>{{userdata.email}}</div>
+
+                            <br>
+
+
+                          </div>
+                        </div>
+
+                      </div>
+                      <mat-divider></mat-divider>
+                      <br />
+
+                      <div class="container">
+
+                        <mat-grid-list cols="4" rowHeight="2:1">
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>User ID:</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.userid}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>NIC :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.nicnumber}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Contact :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.contactnumber}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>User Category:</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.usertype}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+
+                        </mat-grid-list>
+
+                        <mat-grid-list cols="3" rowHeight="2:1" *ngIf="userdata.usertype == 'Technician'">
+
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Expertise :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.expertise}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Capacity (Hrs) :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.capacity}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+                          <mat-grid-tile>
+                            <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
+                              <mat-card-title>Current (Hrs) :</mat-card-title>
+                              <mat-card-content>
+                                <p>
+                                  {{userdata.currentjobCap}}
+                                </p>
+                              </mat-card-content>
+                            </mat-card>
+                          </mat-grid-tile>
+
+                        </mat-grid-list>
+
+                        <br />
+                        <mat-divider></mat-divider>
+                        <mat-card class="section" style=" border-radius: 10px;">
+                          <mat-card-title>Address :</mat-card-title>
+                          <p>
+                            {{userdata.address}}
+                          </p>
+                        </mat-card>
+
+                        <div *ngIf="userflag">
+                          <mat-card class="section" style="text-align: center;  border-radius: 10px;">
+
+                            <mat-card-title> VEHICLE DETAILS</mat-card-title>
+                            <mat-card-content>
+                              <div class="mat-elevation-z8"
+                                style="width:60%; margin-bottom: 10px; margin: auto; margin-top: 20px;">
+                                <table class="table ">
+                                  <thead>
+                                    <tr>
+                                      <th>VEHICLE REG. No</th>
+                                      <th>CHASIS</th>
+                                      <th>ENGINE No</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let k of custVehicles">
+                                      <td>{{k.vehicleRegNo}}</td>
+                                      <td>{{k.chasis}}</td>
+                                      <td>{{k.EngineNo}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </mat-card-content>
                           </mat-card>
                         </div>
                         <br>
-                          <div class="form-row mb-4">
-                            <mat-form-field appearance="outline">
-                              <!-- <mat-label>Select User Type:</mat-label> -->
-                              <mat-select placeholder="User Category:" disabled name="usertype" [(ngModel)]="userdata.usertype">
-                                <mat-option value="Administrator">Admin</mat-option>
-                                <mat-option value="Accountant">Accountant</mat-option>
-                                <mat-option value="Forman">Forman</mat-option>
-                                <mat-option value="Store-Keeper">Store-Keeper</mat-option>
-                                <mat-option value="Technician">Technician</mat-option>
-                                <mat-option value="Customer">Customer</mat-option>
-                              </mat-select>
-                            </mat-form-field>
+                        <br>
+
+                        <div style="text-align: left;  border-radius: 10px;">
+                          <mat-divider></mat-divider><br>
+                          <p>Added On : {{userdata.addedon}}</p>
+                          <p>Last Modified On : {{userdata.lastmodifiedon}}</p>
+                          <p>Last Modified By : {{userdata.lastmodifiedby}}</p>
+                        </div>
+
+                      </div>
+
+                    </mat-card>
 
 
-                            <mat-form-field appearance="outline">
-                              <mat-label>Employee ID:</mat-label>
-                              <input matInput readonly class="form-control box_border" name="userid" [(ngModel)]="userdata.userid">
-                              <!-- <mat-hint>Maximum Characters: 255</mat-hint> -->
-                            </mat-form-field>
-
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>First Name:</mat-label>
-                              <input matInput readonly class="form-control box_border" name="firstname" [(ngModel)]="userdata.firstname">
-
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Last Name:</mat-label>
-                              <input matInput readonly class="form-control box_border" name="lasntname" [(ngModel)]="userdata.lastname">
-
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" >
-                              <mat-select placeholder="Gender" disabled name="gender" readonly [(ngModel)]="userdata.gender">
-                                <mat-option value="Male">Male</mat-option>
-                                <mat-option value="Female">Female</mat-option>
-                              </mat-select>
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>NIC Number:</mat-label>
-                              <input matInput readonly placeholder="96xxxxxxxV" name="nicnumber" [(ngModel)]="userdata.nicnumber">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Address:</mat-label>
-                              <textarea matInput readonly name="adress" [(ngModel)]="userdata.address"></textarea>
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Contact Number:</mat-label>
-                              <input matInput readonly placeholder="Ex. 081xxxxxxx" name="contactnumber" [(ngModel)]="userdata.contactnumber">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                              <mat-label>Email:</mat-label>
-                              <input matInput readonly placeholder="Ex. abc@example.com" name="email" [(ngModel)]="userdata.email">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" >
-                              <mat-label>Addedon:</mat-label>
-                              <input matInput readonly readonly name="addedon" [(ngModel)]="userdata.addedon">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" *ngIf="cookies.userData.usertype == 'Customer'" >
-                              <mat-label>Vehicle Registration Number:</mat-label>
-                              <input matInput readonly  name="vehiclenumber" [(ngModel)]="veh">
-                            </mat-form-field>
-                          </div>
-                          <br>
-                          <br>
-                      </form>
-                    </div>
                   </mat-tab>
-<!-- ***************************************************************************** Service History (Customer) ************************************************************************** -->
+                  <!-- ***************************************************************************** Service History (Customer) ************************************************************************** -->
 
-                  <mat-tab label="SERVICE HISTORY">
+                  <mat-tab label="SERVICE HISTORY" *ngIf="cookies.userData.usertype == 'Customer'">
                     hide this for non customers
                   </mat-tab>
 
-<!-- ***************************************************************************** Job History (Technician - specific only) ************************************************************ -->
+                  <!-- ***************************************************************************** Job History (Technician - specific only) ************************************************************ -->
 
-                  <mat-tab label="JOB HISTORY">
-                      show this only for technicians
+                  <mat-tab label="JOB HISTORY" *ngIf="cookies.userData.usertype == 'Technicians'">
+                    show this only for technicians
                   </mat-tab>
 
-<!-- ***************************************************************************** Job History (Forman - all jobs) ********************************************************************* -->
+                  <!-- ***************************************************************************** Job History (Forman - all jobs) ********************************************************************* -->
 
-                  <mat-tab label="JOB HISTORY">
+                  <mat-tab label="JOB HISTORY" *ngIf="cookies.userData.usertype == 'Foreman'">
                     show this only for forman
                   </mat-tab>
                 </mat-tab-group>

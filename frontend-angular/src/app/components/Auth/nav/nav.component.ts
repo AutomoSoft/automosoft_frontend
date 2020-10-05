@@ -24,24 +24,24 @@ export class NavComponent implements OnInit {
 
   logoutUser() {
 
-    this.cookies.setCookie("userAuth","",-1);
+    this.cookies.setCookie("userAuth", "", -1);
     let config = new MatSnackBarConfig();
     config.duration = true ? 2000 : 0;
     this.snackBar.open("Logout Successfully..! ", true ? "Done" : undefined, config);
-    this.cookies.logingstatus=false;
+    this.cookies.logingstatus = false;
     this.router.navigate(['/login']);
 
   }
 
   dashboard() {
     var id = this.cookies.userData.userid;
-    this.router.navigate([id,'admin_dashboard']);
+    this.router.navigate([id, 'admin_dashboard']);
 
   }
 
   menu() {
     var id = this.cookies.userData.userid;
-    this.router.navigate([id,'landing']);
+    this.router.navigate([id, 'landing']);
   }
 
 }
