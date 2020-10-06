@@ -7,7 +7,7 @@
       <div class="row">
         <div class="container-fluid">
           <div class="row">
-            <div class="container-fluid" style="background-color: #ddddec;">
+            <div class="container-fluid" style="background-color: #ddddec; background-image: linear-gradient(to bottom right, #fdfcfb,#2f3a46);">
               <br><br>
               <div class="test">
                 <button [routerLink]="['/searchUser']" mat-icon-button style="float: left; padding-left:45px; "
@@ -47,14 +47,14 @@
                   <mat-tab label="VIEW ALL USERS">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-                      <mat-form-field class="search-form-field" appearance="outline">
+                      <!-- <mat-form-field class="search-form-field" appearance="outline">
                         <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off"
                           (keyup)="applyFilter()">
                         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
                           (click)="onSearchClear()">
                           <mat-icon>close</mat-icon>
                         </button>
-                      </mat-form-field>
+                      </mat-form-field> -->
 
                       <h3 class="topic" style="margin-left: -600px;">SELECT USER CATEGORY:</h3>
                       <div class="form-row mb-4">
@@ -71,7 +71,20 @@
                           </mat-select>
                         </mat-form-field>
                         <!-- {{searchText}} -->
-                      </div><br><br>
+                      </div>
+
+                      <div class="form-row mb-4">
+                        <!-- <h3 style="margin-left: -600px;">SEARCH:</h3> -->
+                        <mat-form-field class="search-form-field" appearance="outline">
+                          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off"
+                            (keyup)="applyFilter()" >
+                          <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
+                            (click)="onSearchClear()">
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </mat-form-field>
+                      </div>
+
                       <div class="mat-elevation-z8">
                         <table mat-table [dataSource]="dataSource ">
 

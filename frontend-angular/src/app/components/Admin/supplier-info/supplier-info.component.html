@@ -8,7 +8,7 @@
       <div class="row">
         <div class="container-fluid">
           <div class="row">
-            <div class="container-fluid" style="background-color: #ddddec;">
+            <div class="container-fluid" style="background-color: #ddddec; background-image: linear-gradient(to bottom right, #fdfcfb,#2f3a46);">
               <br>
               <div class="test">
                 <button [routerLink]="['/supplierInfo']" mat-icon-button style="float: left; padding-left:45px; "
@@ -24,7 +24,7 @@
                     <form [formGroup]=SupplierSearchForm>
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-                        <h3 class="topic" style="margin-left: -600px;">ENTER Supplier ID:</h3>
+                        <h3 class="topic" style="margin-left: -600px;">ENTER SUPPLIER ID:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
                             <mat-label>SUPPLIER ID:</mat-label>
@@ -56,13 +56,13 @@
                           <!-- Supplier ID Column -->
                           <ng-container matColumnDef="supid">
                             <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">
-                              Supplier ID </th>
+                              SUPPLIER ID </th>
                             <td mat-cell *matCellDef="let element"> {{element.supid}} </td>
                           </ng-container>
 
                           <!-- First Name Column -->
                           <ng-container matColumnDef="supname">
-                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> Name
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> NAME
                             </th>
                             <td mat-cell *matCellDef="let element"> {{element.supname}} </td>
                           </ng-container>
@@ -95,7 +95,7 @@
                           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
-                        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
                       </div>
                     </mat-card>
                   </mat-tab>

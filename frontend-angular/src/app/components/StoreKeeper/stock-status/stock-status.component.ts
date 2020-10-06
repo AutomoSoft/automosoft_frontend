@@ -109,8 +109,8 @@ export class StockStatusComponent implements OnInit {
     ];
     chartColors: Array<any> = [
       { // first color
-        backgroundColor: 'rgba(56, 201, 170,0.5)',
-        borderColor: 'rgba(35, 122, 104,0.5)',
+        backgroundColor: 'rgba(78, 253, 119, 1)',
+        borderColor: 'rgba(78, 253, 119, 1)',
         pointBackgroundColor: 'rgba(0, 65, 100,0.5)',
         pointBorderColor: 'rgba(2, 50, 50)',
         pointHoverBackgroundColor: '#fff',

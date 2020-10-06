@@ -38,7 +38,8 @@ export class RegisterSupplierComponent implements OnInit {
 
   lastSupString;      //Supid string of last registered Supplier
   lastSupId;          //Supif of last registered Supplier excluding "CUS"
-  newSupId;           //Supid of new Customer
+  newSupId;           //Supid of new Supplier
+  newSupString        //Supid String of new Supplier
 
   items: Item[] = [
     {value: 'Spare Parts', viewValue: 'Spare Parts'},
@@ -92,7 +93,7 @@ export class RegisterSupplierComponent implements OnInit {
     let date=Date();
     const registerSupplier = {
       usertype : "Supplier",
-      supid: this.supplierForm.value.supDetails.supid,
+      supid: this.newSupString,
       supname: this.supplierForm.value.supDetails.supname,
       address: this.supplierForm.value.supDetails.address,
       contactnumber: this.supplierForm.value.supDetails.contactNo,
@@ -195,6 +196,7 @@ export class RegisterSupplierComponent implements OnInit {
       var splitted = this.lastSupString.split("SUP", 2);
       this.lastSupId = parseInt(splitted[1], 10)          //extract the numeric part
       this.newSupId = this.lastSupId + 1;
+      this.newSupString = 'SUP00'+this.newSupId;
       //console.log(this.lastSupId);
     }
   });
