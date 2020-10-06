@@ -8,7 +8,7 @@
       <div class="row">
         <div class="container-fluid">
           <div class="row">
-            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;">
+            <div class="container-fluid" style="background-color: #ddddec; min-height: 1300px;"><br>
 
               <div class="test">
                 <h2 class="topic">CUSTOMER REGISTRATION</h2>
@@ -22,7 +22,7 @@
                     <form [formGroup]="customerForm">
 
 
-                      <mat-card style="width: initial;" >
+                      <mat-card style="width: initial;">
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:45%; margin-bottom: 5px" />
 
                         <mat-form-field style="width: 52%" appearance="outline">
@@ -117,9 +117,9 @@
                           <div *ngFor=" let team of customerForm.get('vehicles').controls;let teamIndex = index "
                             [formGroupName]="teamIndex">
 
-                            <div style="display: inline-flex;margin-inline-start:168px;">
+                            <div style="display: inline-flex;margin-right: 4px;margin-left: 4px;">
                               <mat-form-field appearance="outline"
-                                style="width:25%;margin-right: 3px;margin-left: 4px;">
+                                style="width:33.34%;margin-right: 3px;margin-left: 4px;">
                                 <mat-label>Vehicle Registration Number:</mat-label>
                                 <input matInput name="vehicleRegNo" formControlName="vehicleRegNo"
                                   placeholder="ex- ABC xx-xxxx" required>
@@ -127,13 +127,13 @@
                               </mat-form-field>
 
                               <mat-form-field appearance="outline"
-                                style="width:25%; margin-left: 3px;margin-right: 3px;">
+                                style="width:33.34%; margin-left: 3px;margin-right: 3px;">
                                 <mat-label>Chasis Number:</mat-label>
                                 <input matInput name="chasis" formControlName="chasis" required>
                                 <mat-icon matSuffix>directions_car</mat-icon>
                               </mat-form-field>
 
-                              <mat-form-field appearance="outline" style="width:25%; margin-left: 3px;">
+                              <mat-form-field appearance="outline" style="width:33.34%; margin-left: 3px;">
                                 <mat-label>Engine Number:</mat-label>
                                 <input matInput name="EngineNo" formControlName="EngineNo" required>
                                 <mat-icon matSuffix><img
@@ -144,7 +144,7 @@
                         </div>
 
                         <div class="button-container">
-                          <button mat-button type="submit" class="btn1" (click)="addVehicle()">
+                          <button mat-button type="submit" class="array_btn" (click)="addVehicle()">
                             Add More
                           </button>
                         </div>

@@ -1,28 +1,28 @@
-<div class="mat-dialog-header" style="height: 500px;">
-
+<div class="mat-dialog-header" style="text-align: center; min-width: 720px;">
   <h1 mat-dialog-title>NEW REQUEST</h1>
-  <mat-divider></mat-divider>
-  <div class="header">
-    <div class="avatar-container">
-      <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
+  <mat-dialog-content class="mat-typography">
+    <mat-divider></mat-divider>
+    <div class="header">
+      <div class="avatar-container">
+        <img class="avatar" src="http://localhost:3000/items/itemImage/{{item.filepath}}">
+      </div>
+      <div class="item-detail-container">
+        <h3 class="mat-display-1 compact">{{item.itemname}}</h3>
+        <div class="mat-display-2 compact">{{item.itemid}}</div>
+      </div>
     </div>
-    <div class="item-detail-container"> 
-      <h3 class="mat-display-1 compact">{{item.itemname}}</h3>
-      <div class="mat-display-2 compact">{{item.itemid}}</div>
-    </div>
-  </div>
-  <mat-divider></mat-divider>
-  <mat-card class="section" style=" border-radius: 10px; height: 200px;">
-    <mat-card-title>Enter Request Quantity</mat-card-title>
-    <form [formGroup]="requestQuantityForm">
-      <mat-form-field appearance="outline" style="width: 100px;">
-        <mat-label>Quantity</mat-label>
-        <input matInput name="quantity" formControlName="quantity">
-      </mat-form-field>
-    </form>
-    <br>
-    <button class="reg_btn" mat-raised-button color="primary" (click)="requestQuantity()">Request</button>
-    <button mat-raised-button type="submit" class="my-4 btn-block del_btn " (click)="reset()">Cancel</button>
-  </mat-card>
-
+    <mat-divider></mat-divider>
+    <mat-card class="section" style=" border-radius: 10px; height: 200px;">
+      <mat-card-title>Enter Request Quantity</mat-card-title>
+      <form [formGroup]="requestQuantityForm">
+        <mat-form-field appearance="outline" style="width: 100px;">
+          <mat-label>Quantity</mat-label>
+          <input matInput name="quantity" formControlName="quantity">
+        </mat-form-field>
+      </form>
+      <br>
+      <button class="reg_btn" mat-raised-button color="primary" (click)="requestQuantity()">Request</button>
+      <button mat-raised-button type="submit" class="my-4 btn-block del_btn " (click)="reset()">Cancel</button>
+    </mat-card>
+  </mat-dialog-content>
 </div>

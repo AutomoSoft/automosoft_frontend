@@ -14,7 +14,7 @@
                 <h2 class="topic">MAKE A RESERVAION</h2>
               </div>
               <mat-divider></mat-divider>
-              <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
+              <div style="padding-left: 80px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
 
                 <mat-tab-group class="p-5 reg-frm">
 
@@ -25,36 +25,22 @@
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 5px" />
 
-                        
+
                         <br>
 
                         <div class="row text-center">
                           <div class="col-md-4">
                             <div class="btn-group">
-                              <div
-                                class="btn btn-primary"
-                                mwlCalendarPreviousView
-                                [view]="view"
-                                [(viewDate)]="viewDate"
-                                (viewDateChange)="viewDateChange.next(viewDate)"
-                              >
+                              <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                                (viewDateChange)="viewDateChange.next(viewDate)">
                                 Previous
                               </div>
-                              <div
-                                class="btn btn-outline-secondary"
-                                mwlCalendarToday
-                                [(viewDate)]="viewDate"
-                                (viewDateChange)="viewDateChange.next(viewDate)"
-                              >
+                              <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate"
+                                (viewDateChange)="viewDateChange.next(viewDate)">
                                 Today
                               </div>
-                              <div
-                                class="btn btn-primary"
-                                mwlCalendarNextView
-                                [view]="view"
-                                [(viewDate)]="viewDate"
-                                (viewDateChange)="viewDateChange.next(viewDate)"
-                              >
+                              <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                                (viewDateChange)="viewDateChange.next(viewDate)">
                                 Next
                               </div>
                             </div>
@@ -64,25 +50,16 @@
                           </div>
                           <div class="col-md-4">
                             <div class="btn-group">
-                              <div
-                                class="btn btn-primary"
-                                (click)="viewChange.emit(CalendarView.Month)"
-                                [class.active]="view === CalendarView.Month"
-                              >
+                              <div class="btn btn-primary" (click)="viewChange.emit(CalendarView.Month)"
+                                [class.active]="view === CalendarView.Month">
                                 Month
                               </div>
-                              <div
-                                class="btn btn-primary"
-                                (click)="viewChange.emit(CalendarView.Week)"
-                                [class.active]="view === CalendarView.Week"
-                              >
+                              <div class="btn btn-primary" (click)="viewChange.emit(CalendarView.Week)"
+                                [class.active]="view === CalendarView.Week">
                                 Week
                               </div>
-                              <div
-                                class="btn btn-primary"
-                                (click)="viewChange.emit(CalendarView.Day)"
-                                [class.active]="view === CalendarView.Day"
-                              >
+                              <div class="btn btn-primary" (click)="viewChange.emit(CalendarView.Day)"
+                                [class.active]="view === CalendarView.Day">
                                 Day
                               </div>
                             </div>
@@ -93,49 +70,32 @@
                         <!-- dsds -->
                         <br />
                         <div [ngSwitch]="view">
-                          <mwl-calendar-month-view
-                            *ngSwitchCase="CalendarView.Month"
-                            [viewDate]="viewDate"
-                            [events]="events"
-                            [refresh]="refresh"
-                            [activeDayIsOpen]="activeDayIsOpen"
-                            (dayClicked)="dayClicked($event.day)"
-                            (eventClicked)="handleEvent('Clicked', $event.event)"
-                            (eventTimesChanged)="eventTimesChanged($event)"
-                          >
+                          <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate"
+                            [events]="events" [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen"
+                            (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)"
+                            (eventTimesChanged)="eventTimesChanged($event)">
                           </mwl-calendar-month-view>
-                          <mwl-calendar-week-view
-                            *ngSwitchCase="CalendarView.Week"
-                            [viewDate]="viewDate"
-                            [events]="events"
-                            [refresh]="refresh"
-                            (eventClicked)="handleEvent('Clicked', $event.event)"
-                            (eventTimesChanged)="eventTimesChanged($event)"
-                          >
+                          <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate"
+                            [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+                            (eventTimesChanged)="eventTimesChanged($event)">
                           </mwl-calendar-week-view>
-                          <mwl-calendar-day-view
-                            *ngSwitchCase="CalendarView.Day"
-                            [viewDate]="viewDate"
-                            [events]="events"
-                            [refresh]="refresh"
-                            (eventClicked)="handleEvent('Clicked', $event.event)"
-                            (eventTimesChanged)="eventTimesChanged($event)"
-                          >
+                          <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate"
+                            [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+                            (eventTimesChanged)="eventTimesChanged($event)">
                           </mwl-calendar-day-view>
                         </div>
-                        
+
                         <br>
                         <div *ngIf="!isShow">
-                          <button mat-raised-button (click)=show() type="submit"
-                          class="my-4 btn-block reg_btn ">
-                          MAKE A RESERVATION
-                        </button>
+                          <button mat-raised-button (click)=show() type="submit" class="my-4 btn-block reg_btn ">
+                            MAKE A RESERVATION
+                          </button>
                         </div>
                         <br>
 
                         <div *ngIf="isShow">
                           <div class="form-row mb-4">
-                            
+
                             <mat-form-field appearance="outline">
                               <mat-label>Choose a date</mat-label>
                               <input matInput [matDatepicker]="picker" formControlName="daterequested"
@@ -145,8 +105,8 @@
                               <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
 
-                            
-                            
+
+
                             <mat-form-field appearance="outline">
                               <mat-label>Choose a time</mat-label>
                               <input matInput formControlName="time" name="time" aria-label="default time"
@@ -155,7 +115,7 @@
                             </mat-form-field>
 
                             <mat-form-field appearance="outline">
-                              
+
                               <mat-select placeholder="Job Type:" formControlName="repairtype" name="repairtype">
                                 <mat-option value="Paint Job">Paint Job</mat-option>
                                 <mat-option value="Accident Repair">Accident Repair</mat-option>
@@ -178,7 +138,7 @@
                           <button mat-raised-button (click)=cancel() type="submit" class="my-4 btn-block btn_1  ">
                             Cancel
                           </button>
-                      </div>
+                        </div>
 
 
                       </mat-card>
@@ -241,9 +201,10 @@
 
                           <!-- User Type Column -->
                           <ng-container matColumnDef="dateaccepted">
-                              <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACCEPTED ON </th>
-                              <td mat-cell *matCellDef="let element"> {{element.dateaccepted}} </td>
-                            </ng-container>
+                            <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">
+                              ACCEPTED ON </th>
+                            <td mat-cell *matCellDef="let element"> {{element.dateaccepted}} </td>
+                          </ng-container>
 
                           <!-- <ng-container matColumnDef="action">
                             <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACTION
@@ -262,7 +223,7 @@
 
                         <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
                       </div>
-                      
+
                     </mat-card>
                   </mat-tab>
                 </mat-tab-group>

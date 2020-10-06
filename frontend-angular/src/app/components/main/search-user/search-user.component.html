@@ -4,13 +4,12 @@
       <app-main></app-main>
     </mat-sidenav>
     <mat-sidenav-content class="mat-typography">
-
       <div class="row">
         <div class="container-fluid">
           <div class="row">
-            <div class="container-fluid" style="background-color: #ddddec;">
-              <br />
-              <div>
+            <div class="container-fluid" style="background-color: #ddddec; background-image: linear-gradient(to bottom right, #fdfcfb,#2f3a46);">
+              <br><br>
+              <div class="test">
                 <button [routerLink]="['/searchUser']" mat-icon-button style="float: left; padding-left:45px; "
                   *ngIf="dataform" (click)=onArrowClick()>
                   <mat-icon>arrow_back</mat-icon>
@@ -18,20 +17,12 @@
                 <h2 class="topic">SEARCH USER</h2>
               </div>
               <mat-divider></mat-divider>
-
-
               <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
-
                 <mat-tab-group class="p-5 reg-frm" *ngIf="!dataform">
-
                   <mat-tab label="SEARCH BY USER ID">
-
                     <form [formGroup]=userSearchForm>
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-
-
-
                         <h3 class="topic" style="margin-left: -600px;">ENTER USER ID:</h3>
                         <div class="form-row mb-4">
                           <mat-form-field appearance="outline">
@@ -44,14 +35,11 @@
                         <button mat-raised-button type="submit" (click)="searchUser()" class="my-4 btn-block reg_btn ">
                           Search
                         </button>
-
                         <button mat-raised-button (click)="resetSearch()" type="submit" class="my-4 btn-block btn_1  ">
                           Cancel
                         </button>
                       </mat-card>
                     </form>
-
-
                   </mat-tab>
 
                   <!-- ***************************************************************************** View All Users ************************************************************************** -->
@@ -59,15 +47,14 @@
                   <mat-tab label="VIEW ALL USERS">
                     <mat-card>
                       <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-
-                      <mat-form-field class="search-form-field" appearance="outline">
+                      <!-- <mat-form-field class="search-form-field" appearance="outline">
                         <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off"
                           (keyup)="applyFilter()">
                         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
                           (click)="onSearchClear()">
                           <mat-icon>close</mat-icon>
                         </button>
-                      </mat-form-field>
+                      </mat-form-field> -->
 
                       <h3 class="topic" style="margin-left: -600px;">SELECT USER CATEGORY:</h3>
                       <div class="form-row mb-4">
@@ -85,8 +72,19 @@
                         </mat-form-field>
                         <!-- {{searchText}} -->
                       </div>
-                      <br>
-                      <br>
+
+                      <div class="form-row mb-4">
+                        <!-- <h3 style="margin-left: -600px;">SEARCH:</h3> -->
+                        <mat-form-field class="search-form-field" appearance="outline">
+                          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off"
+                            (keyup)="applyFilter()" >
+                          <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"
+                            (click)="onSearchClear()">
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </mat-form-field>
+                      </div>
+
                       <div class="mat-elevation-z8">
                         <table mat-table [dataSource]="dataSource ">
 
@@ -136,25 +134,20 @@
                             </td>
                           </ng-container>
 
-
                           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
                       </div>
-
                     </mat-card>
                   </mat-tab>
-
                 </mat-tab-group>
 
+                <!-- ***************************************************************************** View User tab ************************************************************************** -->
+
                 <mat-tab-group class="p-5 reg-frm" *ngIf="dataform">
-
-
-                  <!-- ***************************************************************************** View User tab ************************************************************************** -->
                   <mat-tab label="USER PROFILE">
                     <mat-card>
                       <div class="container">
-
                         <div class="header">
                           <div class="avatar-container">
                             <img class="avatar" src="http://localhost:3000/users/profileImage/{{userdata.filepath}}">
@@ -165,23 +158,16 @@
                           <div class="user-detail-container">
                             <div class="mat-display-2 compact"> {{userdata.firstname}}</div>
                             <h2 class="mat-display-1 compact">{{userdata.lastname}}</h2>
-                            <div>{{userdata.email}}</div>
-
-                            <br>
-
+                            <div>{{userdata.email}}</div><br>
                             <button class="reg_btn" (click)="onEditUser()" mat-raised-button
                               color="primary">Edit</button>
                             <button mat-raised-button (click)=deleteTable(userdata.userid,userdata.filepath)
                               type="submit" class="my-4 btn-block del_btn ">Delete</button>
                           </div>
                         </div>
-
                       </div>
-                      <mat-divider></mat-divider>
-                      <br />
-
+                      <mat-divider></mat-divider><br>
                       <div class="container">
-
                         <mat-grid-list cols="4" rowHeight="2:1">
                           <mat-grid-tile>
                             <mat-card style="width: 180px; text-align: center; border-radius: 10px;">
@@ -258,11 +244,10 @@
                               </mat-card-content>
                             </mat-card>
                           </mat-grid-tile>
+                        </mat-grid-list><br>
 
-                        </mat-grid-list>
-
-                        <br />
                         <mat-divider></mat-divider>
+
                         <mat-card class="section" style=" border-radius: 10px;">
                           <mat-card-title>Address :</mat-card-title>
                           <p>
@@ -272,7 +257,6 @@
 
                         <div *ngIf="userflag">
                           <mat-card class="section" style="text-align: center;  border-radius: 10px;">
-
                             <mat-card-title> VEHICLE DETAILS
                               <button mat-raised-button type="submit" class="my-4 btn-block veh_btn"
                                 *ngIf="cookies.userData.usertype == 'Administrator'" (click)="addNew(userdata.userid)">
@@ -300,31 +284,22 @@
                                 </table>
                               </div>
                             </mat-card-content>
-                            <!-- </div> -->
                           </mat-card>
-                        </div>
-                        <br>
-                        <br>
-
+                        </div><br><br>
                         <div style="text-align: left;  border-radius: 10px;">
                           <mat-divider></mat-divider><br>
                           <p>Added On : {{userdata.addedon}}</p>
                           <p>Last Modified On : {{userdata.lastmodifiedon}}</p>
                           <p>Last Modified By : {{userdata.lastmodifiedby}}</p>
                         </div>
-
                       </div>
-
                     </mat-card>
                   </mat-tab>
-
                 </mat-tab-group>
               </div>
-
             </div>
           </div>
         </div>
-
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

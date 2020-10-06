@@ -154,7 +154,7 @@ import { JobDetailsComponent } from './components/Customer/view-history/job-deta
     StockWithdrawalPopupComponent,
     ApproveReservationsPopupComponent,
     NewPurchaseOrderComponent,
-    JobDetailsComponent
+    JobDetailsComponent,
 
   ],
   imports: [

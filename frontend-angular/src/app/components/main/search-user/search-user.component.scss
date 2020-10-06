@@ -1,36 +1,12 @@
-.test {
-  margin-left: 100px;
-}
+// ====== FINISHED ===========
 .topic {
   color: #0a0929;
   font-weight: 400;
+  margin-left: 180px;
 }
 
 .example-container {
   background-color: #414142;
-}
-
-.body {
-  background-color: white;
-  // height: 100px;
-}
-.flashMessage {
-  padding-top: 5px;
-  height: 20px;
-  margin-bottom: -10px;
-  width: 100%;
-}
-#textbox {
-  height: 200px;
-}
-
-.border {
-  border-style: ridge;
-  // box-shadow: 0px 5px 5px rgb(134, 132, 245);
-  width: 1000px;
-}
-.box_border {
-  border-radius: 3px;
 }
 
 .reg-frm {
@@ -45,8 +21,6 @@
   // border: 3px solid #414142;
   border-radius: 20px;
 }
-
-
 
 .reg_btn {
   color: aliceblue;
@@ -105,25 +79,6 @@
 
 }
 
-
-
-//profile picture
-.profile-pic{
-  margin: auto;
-  text-align: center;
-  width : 280px;
-}
-
-.profile-card{
-  margin: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  text-align: center;
-  width : 280px;
-  border-radius: 5px;
-  background-color: #3d4549;
-}
-
 table {
   width: 100%;
   background-color: #ddddec;
@@ -139,37 +94,10 @@ table {
   margin-right: 10px;
 }
 
-/************************************************************* User Profile CSS ***************************************************/
-
-
-.topic {
-  color: #0a0929;
-  font-weight: 400;
-  margin-left: 100px;
-}
-
-.example-container {
-  background-color: #414142;
-}
-
-.reg-frm {
-  box-shadow: 0px 10px 10px rgb(134, 132, 245);
-  background-color: rgb(255, 255, 255);
-  padding-top: 10px;
-  width: 85%;
-  min-height: 500px;
-
-  margin: auto;
-  margin-bottom: 10px;
-  // border: 3px solid #414142;
-  border-radius: 20px;
-}
-
 .header {
   padding: 4rem 1rem 2rem 1rem;
   text-align: center;
 }
-
 
 .avatar-container {
   display: inline-block;
@@ -191,38 +119,6 @@ table {
   object-fit: cover;
 }
 
-.avatar-hover {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
-  color: white;
-  background-color: #00000055;
-  z-index: 10;
-  opacity: 0;
-}
-
-
-.avatar-hover:hover {
-  transition: all 0.5s ease-out;
-  opacity: 1;
-}
-
-.avatar-hover .mat-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 36px;
-  height: 36px;
-  margin: -8% 0 0 -8%;
-}
-
-.avatar-hover .material-icons{
-  font-size: 36px;
-}
-
 .user-detail-container {
   display: inline-block;
   position: relative;
@@ -233,8 +129,6 @@ table {
 .compact {
   margin: 0 !important;
 }
-
-
 
 .section {
   margin-top: 2rem;
@@ -262,8 +156,8 @@ table {
   transition: 0.5s;
 }
 
-
 .search-form-field{
-  margin-left: 2em;
+  margin-left: 0em;
   width: 25%;
 }
+

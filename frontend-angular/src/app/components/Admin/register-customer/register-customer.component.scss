@@ -2,19 +2,18 @@
 .example-container1 .mat-form-field + .mat-form-field {
   margin-left: 4px;
 }
-.test {
-  margin-left: 100px;
-}
+
 .topic {
   color: #0a0929;
   font-weight: 400;
+  margin-left: 100px;
 }
 .mat-option.mat-selected {
   background: #c76b15 !important;
 }
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #c76b15 !important;
-  
+
   // opacity: 1!important;
 }
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
@@ -92,7 +91,7 @@ mat-datepicker-toggle {
 .button-container {
   margin-top: 0.6rem;
   width: 100%;
- 
+
 }
 .button-container1 {
   margin-top: 0.8rem;
@@ -151,8 +150,8 @@ mat-datepicker-toggle {
 
 .test {
   margin-left: 100px;
-  
-  
+
+
 }
 .topic {
   color: #0a0929;
@@ -242,4 +241,14 @@ mat-datepicker-toggle {
   margin-right: 10px;
 
 }
+
+.array_btn {
+  color: aliceblue;
+  background-color: teal;
+  border-color: teal;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
