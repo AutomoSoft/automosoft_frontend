@@ -207,11 +207,11 @@ export class MakeReservationsComponent implements OnInit {
       } else {
 
         this.TABLE_DATA_1 = res_1.data;
-        console.log(this.TABLE_DATA_1);
+        //console.log(this.TABLE_DATA_1);
 
         this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
-        console.log("datasource");
-        console.log(this.dataSource_1);
+        //console.log("datasource1");
+        //console.log(this.dataSource_1);
       }
     });
 
@@ -227,13 +227,13 @@ export class MakeReservationsComponent implements OnInit {
       } else {
 
         this.TABLE_DATA_2 = res_2.data;
-        console.log("this.TABLE_DATA_1");
-        console.log(this.TABLE_DATA_1);
-        console.log("this.TABLE_DATA_2");
-        console.log(this.TABLE_DATA_2);
+        //console.log("this.TABLE_DATA_1");
+        //console.log(this.TABLE_DATA_1);
+        //console.log("this.TABLE_DATA_2");
+        //console.log(this.TABLE_DATA_2);
 
-        console.log(this.TABLE_DATA_2[0]);
-        for (let i = 0; i < this.TABLE_DATA_1.length; i++) {
+        //console.log(this.TABLE_DATA_2[0]);
+        for (let i = 0; i < this.TABLE_DATA_2.length; i++) {
 
           var mnths = {
             Jan: "01",
@@ -249,7 +249,7 @@ export class MakeReservationsComponent implements OnInit {
             Nov: "11",
             Dec: "12"
           },
-          date = this.TABLE_DATA_1[i].daterequested.split(" ");
+          date = this.TABLE_DATA_2[i].daterequested.split(" ");
       
           let from = [date[3], mnths[date[1]], date[2]].join("-"); // YYYY-MM-DD
           //var from = '11-04-2017' // OR $("#datepicker").val();
@@ -259,7 +259,7 @@ export class MakeReservationsComponent implements OnInit {
           console.log(f);
 
           let pointColour;
-          if(this.TABLE_DATA_1[i].status == "accepted"){
+          if(this.TABLE_DATA_2[i].status == "accepted"){
             pointColour = colors.red;
           }else{
             pointColour = colors.blue;
@@ -269,7 +269,7 @@ export class MakeReservationsComponent implements OnInit {
               this.events = [
             ...this.events,
             {
-              title: (this.TABLE_DATA_1[i].repairtype).toString() + " at " + this.TABLE_DATA_1[i].time,
+              title: (this.TABLE_DATA_2[i].repairtype).toString() + " at " + this.TABLE_DATA_2[i].time,
               start: startOfDay(f),
               end: endOfDay(f),
               color: pointColour,
@@ -283,8 +283,8 @@ export class MakeReservationsComponent implements OnInit {
         }
 
         this.dataSource_2 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_2);
-        console.log("datasource");
-        console.log(this.dataSource_2);
+        //console.log("datasource");
+        //console.log(this.dataSource_2);
       }
     });
 
@@ -366,24 +366,22 @@ export class MakeReservationsComponent implements OnInit {
     selectJob_1(category){
 
       console.log(category)
-  
-      const url = "http://localhost:3000/reservations/getReservationsByCategoryOfCust";
-      
-      var searchdata = {cat: category, 
-                        uid: this.cookie.userid}; // ERR 404
-  
-      this.http.get<any>(url + searchdata).subscribe(res => {
-        if (res.state == false) {
-          let config = new MatSnackBarConfig();
-          config.duration = true ? 2000 : 0;
-          this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
-        } else {
-          this.TABLE_DATA_1 = res.data;   //add response data in to data array
-            console.log(this.TABLE_DATA_1);
-            this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
-  
-        }
-      });
+      var uid = this.cookie.userid;
+
+    const url = "http://localhost:3000/reservations/getReservByCatOfCust"; 
+
+    this.http.get<any>(url + "/" + uid+ "/"+ category).subscribe(res => {
+      if (res.state == false) {
+        let config = new MatSnackBarConfig();
+        config.duration = true ? 2000 : 0;
+        this.snackBar.open("Error !!! Please check the Item Category", true ? "Retry" : undefined, config);
+      } else {
+        this.TABLE_DATA_1 = res.data;   //add response data in to data array
+          console.log(this.TABLE_DATA_1);
+          this.dataSource_1 = new MatTableDataSource<PeriodicElement>(this.TABLE_DATA_1);
+
+      }
+    });
       
   
     }
