@@ -80,6 +80,7 @@ export class StockStatusComponent implements OnInit {
   approvedOrders;
   PURCHASE_ORDERS = PURCHASE_ORDERS;
   receivedOrders;
+  itemSummary = []; //res is temporily stored
   chartLabels = [];
   chartData = [];
 
@@ -105,7 +106,7 @@ export class StockStatusComponent implements OnInit {
     barChartPlugins = [];
 
     barChartData: ChartDataSets[] = [
-      { data: [0, 0, 0, 0], label: 'ITEM USAGE (MONTHLY RATE OF USE): ' },
+      { data: [0, 0], label: 'ITEM USAGE (MONTHLY RATE OF USE): ' },
     ];
     chartColors: Array<any> = [
       { // first color
@@ -114,7 +115,8 @@ export class StockStatusComponent implements OnInit {
         pointBackgroundColor: 'rgba(0, 65, 100,0.5)',
         pointBorderColor: 'rgba(2, 50, 50)',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+        pointHoverBorderColor: 'rgba(225,10,24,0.2)',
+        fill: true,     //chart Fill
       }
     ];
 
@@ -186,7 +188,7 @@ export class StockStatusComponent implements OnInit {
   searchItem() {
     this.itemid = this.itemSearchForm.value.itemid; //get supplier id
 
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 2; i++) {
       this.barChartData[0].data[i] = 0
     }
 
@@ -209,20 +211,25 @@ export class StockStatusComponent implements OnInit {
             config.duration = true ? 2000 : 0;
             this.snackBar.open("Item Not Found..! ", true ? "Retry" : undefined, config);
           } else {
+            this.itemSummary = res;
 
-            console.log(res)
-            for (var i = 3; i >= 0; i--) {
-              this.chartData.push(res[i].Rate);
+            // console.log(this.itemSummary)
+            for (var i = 0; i < 2; i++) {
+              this.chartData.push(this.itemSummary[i].Rate);
+              // console.log( res[i].Rate)
+              // console.log( res[i].month)
 
-              this.chartLabels.push(res[i].month);
-              // console.log(this.chartLabels)
+              this.chartLabels.push(this.itemSummary[i].month);
+
             }
-            for ( var j=0; j<4;j++){
+            // console.log(this.chartData)
+            // console.log(this.chartLabels)
+            for ( var j=1; j>=0;j--){
               this.barChartData[0].data[j] = this.chartData[j]
             }
-            this.barChartLabels = this.chartLabels;
-            // this.barChartData = this.chartData;
-            // console.log(this.barChartData[0].data)
+            this.barChartLabels = this.chartLabels.reverse();
+            this.barChartData[0].data = this.barChartData[0].data.reverse();
+            console.log(this.barChartData[0].data)
           }
         });
       }
