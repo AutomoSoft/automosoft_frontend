@@ -2,7 +2,7 @@
   <div style="padding-bottom: 40px; min-height: 800px;background-color:#28343a;">
     <mat-grid-list cols="4" rowHeight="2:1" style="min-height: 250px;">
       <mat-card class="card_clr">
-        <h2 style="text-transform: uppercase;">{{userdata.usertype}} DASHBOARD</h2>
+        <h2 style="text-transform: uppercase; color: rgb(0, 136, 255);">{{userdata.usertype}} DASHBOARD</h2>
 
         <mat-divider></mat-divider>
 
@@ -18,7 +18,7 @@
             <h2 class="mat-display-1 compact">{{userdata.lastname}}</h2>
             <br>
             <div>{{userdata.email}}</div>
-            <div>{{userdata.contactnumber}}</div>
+            <div style="padding-top: 5px;">{{userdata.contactnumber}}</div>
             <br>
           </div>
         </div>
@@ -94,7 +94,7 @@
     <!-- ************************************ Foreman Functions ************************************************************************************* -->
     <mat-card class="card_clr" style="margin-top: 75px; margin-left: 40px; margin-right: 40px; border-radius: 10px;"
       *ngIf="cookies.userData.usertype == 'Foreman'">
-      <mat-grid-list cols="3" rowHeight="4:1">
+      <mat-grid-list cols="3" rowHeight="3:1">
 
         <mat-grid-tile>
           <mat-card class="container-fluid tct">
@@ -140,7 +140,10 @@
         </mat-grid-tile>
 
       </mat-grid-list>
+    </mat-card>
 
+    <mat-card class="card_clr" style="margin-top: 75px; margin-left: 40px; margin-right: 40px; border-radius: 10px;"
+      *ngIf="cookies.userData.usertype == 'Foreman'">
       <mat-grid-list cols="2" rowHeight="4:1" *ngIf="cookies.userData.usertype == 'Foreman'">
 
         <mat-grid-tile>
