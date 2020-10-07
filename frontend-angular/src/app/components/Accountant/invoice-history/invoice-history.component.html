@@ -18,25 +18,9 @@
   
                   <mat-tab-group class="p-5 reg-frm">
   
-                    <mat-tab label="GENERATE INVOICES">
-                        <mat-card>
-                            <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
-                            <br>
-                            
-                            <br>
-                            <br>
-                            <div class="mat-elevation-z8">
-                              
-      
-                              <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-                            </div>
-      
-                          </mat-card>
-                      
-                    </mat-tab>
-                    <!-- ***************************************************************************** View Store  ************************************************************************** -->
+                    <!-- ***************************************************************************** View Invoices  ************************************************************************** -->
   
-                    <mat-tab label="VIEW ALL ITEMS" *ngIf="!dataform">
+                    <mat-tab label="VIEW ALL INVOICES" *ngIf="!dataform">
                       <mat-card>
                         <img src="../../../../assets/logo/cc_croped2.png" style="width:35%; margin-bottom: 10px" />
                         <br>
@@ -44,7 +28,52 @@
                         <br>
                         <br>
                         <div class="mat-elevation-z8">
-                          
+                          <div >
+                            <table class="mat-elevation-z8 table" mat-table [dataSource]="dataSource">
+  
+                              <!-- User ID Column -->
+                              <ng-container matColumnDef="invoiceNo">
+                                <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> INVOICE NO </th>
+                                <td mat-cell *matCellDef="let element"> {{element.invoiceNo}} </td>
+                              </ng-container>
+  
+                              <!-- User Type Column -->
+                              <ng-container matColumnDef="invoiceDate">
+                                <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> INVOICE DATE </th>
+                                <td mat-cell *matCellDef="let element"> {{element.invoiceDate}} </td>
+                              </ng-container>
+  
+                              <!-- First Name Column -->
+                              <ng-container matColumnDef="jobNo">
+                                <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;">  JOB NO </th>
+                                <td mat-cell *matCellDef="let element"> {{element.jobNo}} </td>
+                              </ng-container>
+  
+                              <!-- E-mail Column -->
+                              <ng-container  matColumnDef="grandTotal">
+                                <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> GRAND TOTAL </th>
+                                <td mat-cell *matCellDef="let element"> {{element.grandTotal}} </td>
+                              </ng-container>
+  
+                              <!-- contact No Column -->
+                              <ng-container matColumnDef="createdBy">
+                                <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> ACCOUNTANT ID </th>
+                                <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+                              </ng-container>
+
+                              <!-- contact No Column -->
+                              <ng-container matColumnDef="vehicleNo">
+                                <th mat-header-cell *matHeaderCellDef style="text-align: center; font-weight: 900;"> VEHICLE NO </th>
+                                <td mat-cell *matCellDef="let element"> {{element.vehicleNo}} </td>
+                              </ng-container>
+  
+  
+                              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+  
+                            <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+                          </div>
   
                           <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
                         </div>
