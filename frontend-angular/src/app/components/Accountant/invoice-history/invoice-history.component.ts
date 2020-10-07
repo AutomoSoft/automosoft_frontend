@@ -52,7 +52,7 @@ export interface PeriodicElement {
 })
 export class InvoiceHistoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['invoiceNo', 'invoiceDate','jobNo', 'grandTotal', 'createdBy','vehicleNo'];
+  displayedColumns: string[] = ['invoiceNo', 'invoiceDate','jobNo', 'amountPaid', 'createdBy','vehicleNo'];
   TABLE_DATA: PeriodicElement[] = [];
   dataSource;
 
