@@ -1,18 +1,19 @@
-<div class="container footer"
+<div class="row footer"
     fxLayout="row wrap"
     fxLayout.lt-md="column"
     fxLayoutAlign="center center"
     fxLayoutGap="10px">
 
-  <div fxFlex="100" fxFlex.gt-sm="50">
-    <div fxLayout="row">
-      <div fxFlex="40" fxFlexOffset="20px">
+
+<div class="container" style="width: 90%;">
+  <div fxLayout="row">
+    <div style="width: 30%; margin: auto; padding-top: 40px; align-content: center;"  >
         <a class="navbar-brand">
-          <img src="../../../../assets/logo/cc_croped.png" class="logo" routerLink="/" style="padding-top: 30px;">
+          <img src="../../../../assets/logo/cc_croped.png" class="logo" routerLink="/" >
         </a>
         <mat-nav-list fxLayout="row">
           <mat-list-item>
-            <span class="nav-itm nav_item" >
+            <span >
               <button mat-button routerLink="" class="btn">
                 <mat-icon>home</mat-icon>
               <span>Home</span>
@@ -20,42 +21,70 @@
             </span>
           </mat-list-item>
           <mat-list-item>
-            <span class="nav-itm nav_item" >
+            <span >
               <button mat-button routerLink="/contact" class="btn ">
                 <mat-icon>call</mat-icon>
               <span>Contact</span>
               </button>
             </span>
           </mat-list-item>
+          <mat-list-item>
+            <span >
+              <button mat-button routerLink="/contact" class="btn ">
+                <mat-icon>pin_drop</mat-icon>
+              <span>Locate</span>
+              </button>
+            </span>
+          </mat-list-item>
         </mat-nav-list>
-      </div>
-      <div fxFlex="150" style="padding-top: 50px;">
-        <h4 style="padding-left: 240px;">Follow us on Social Media</h4>
-        <div style="width: 300px;padding-left: 220px;" >
-    <a mat-icon-button class="btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus fa-lg "></i></a>
-    <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
-    <a mat-icon-button class="btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
-    <a mat-icon-button class="btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
-    <a mat-icon-button class="btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
-    <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
-  </div>
-      </div>
     </div>
-</div>
-<div fxFlex="100" fxFlex.gt-sm="45">
-  <div style="padding-left: 300px;">
-    <h4 style="padding-top: 10px;padding-bottom: 20px;">Our Address</h4>
-    <address style="text-size: 80%;line-height: 25px;">
-      AutomoSoft<br> Reid Avenue,Colombo 07<br>Sri Lanka<br>
-      <i class="fa fa-phone"></i>: +942 1234 5678<br>
-      <i class="fa fa-fax"></i>: +942 8765 4321<br>
-      <i class="fa fa-envelope"></i>:
-      <a href="automosoft@gmail.com">automosoft@gmail.com</a>
-    </address>
+
+
+
+
+    <div style="text-align:left; align-content: center; width: 30%; margin: auto; ">
+      <div style="width: 300px; margin: auto; padding-top: 40px; align-content: center;"  >
+        <a mat-icon-button class="btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus fa-lg "></i></a>
+        <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+        <a mat-icon-button class="btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+        <a mat-icon-button class="btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+        <a mat-icon-button class="btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+        <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+      </div>
+
+    </div>
+
+    <div style="text-align:left;  width: 30%; margin: auto; ">
+      <div class="row" style="color: #cfdadf; padding-bottom: 10px;">
+        <div class="col-md-1   col-xs-1 ">
+            <i class="material-icons" style="color:#c76b15; padding-right: 10px;">pin_drop</i> AutomoSoft Reid Avenue, Colombo - Sri Lanka
+        </div>
+      </div>
+      <div class="row" style="color: #cfdadf; padding-bottom: 10px;">
+        <div class="col-md-1  col-xs-1 ">
+            <i class="material-icons" style="color:#c76b15; padding-right: 10px;">contact_phone</i>  +94 112 123 456
+        </div>
+      </div>
+      <div class="row" style="color: #cfdadf; padding-bottom: 10px;">
+        <div class="col-md-1  col-xs-1 ">
+            <i class="material-icons" style="color:#c76b15; padding-right: 10px;">message</i>  +94 712 123 456
+        </div>
+      </div>
+      <div class="row" style="color: #cfdadf; padding-bottom: 10px;">
+        <div class="col-md-1  col-xs-1 ">
+          <i class="material-icons" style="color:#c76b15; padding-right: 10px;">mail_outline</i>  automosoft@gmail.com
+
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
-<div style="width:100%">
+
+
+<div style="width:100%" class="container">
   <hr style="border-top: white">
   <p style="color:white;text-align: center;">© Copyright 2020 AutomoSoft</p>
+  <p class="footer_design">WEB Designed by <a class="a">Three8 Inc.&reg;</a></p>
 </div>
 </div>

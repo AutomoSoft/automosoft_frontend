@@ -13,7 +13,7 @@ a{
 }
 
 .logo {
-  width: 80%;
+  width: 50%;
   padding-left: 30px;
 
 }
@@ -31,7 +31,6 @@ a{
 
 .footer{
       background-color: $background-pale;
-      @include zero-margin(px, 10px);
 }
 .btn {
     color: #c76b15;
@@ -59,17 +58,32 @@ a{
 
   body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 12px;
   }
 
-  .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 1.3em;
-    display: grid;
-    grid-template-columns: 30% auto;
-  }
+  // .container {
+  //   width: 100%;
+  //   margin: 0 auto;
+  //   padding: 1.3em;
+  //   display: grid;
+  //   grid-template-columns: 30% auto;
+  // }
 
+  .footer_design{
+    color: #5f7e8e;
+    text-align: center;
+    font-size: 10px;
+    margin-top: -13px;
+
+    .a{
+        color: rgb(0, 136, 255);
+        cursor: pointer;
+    }
+}
+
+.footer_txt{
+  text-align: left;
+}
   section {
     width: 80%;
     margin: 0 auto;
