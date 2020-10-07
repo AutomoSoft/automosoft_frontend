@@ -11,7 +11,7 @@
 
               <br />
               <div class="test">
-                <h2 class="topic">MAKE A RESERVAION</h2>
+                <h2 class="topic">MAKE A RESERVATION</h2>
               </div>
               <mat-divider></mat-divider>
               <div style="padding-left: 80px; padding-right: 50px; padding-bottom: 50px; padding-top: 50px">
@@ -48,7 +48,7 @@
                           <div class="col-md-4">
                             <h3>{{ viewDate | calendarDate: view + 'ViewTitle':locale }}</h3>
                           </div>
-                          <div class="col-md-4">
+                          <!-- <div class="col-md-4">
                             <div class="btn-group">
                               <div class="btn btn-primary" (click)="viewChange.emit(CalendarView.Month)"
                                 [class.active]="view === CalendarView.Month">
@@ -63,9 +63,16 @@
                                 Day
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
 
+                        <div class="row">
+                        <span class="reddot" style="white-space:nowrap;">Confirmed Reservations</span>
+                        </div>
+
+                        <div class="row">
+                        <span class="bluedot" style="white-space:nowrap;">Pending Reservations</span>
+                       </div>
 
                         <!-- dsds -->
                         <br />
