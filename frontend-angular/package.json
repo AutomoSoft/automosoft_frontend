@@ -39,7 +39,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "intl-tel-input": "^14.1.0",
     "jquery": "^3.5.0",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "ng2-charts": "^2.3.2",
     "ng2-opd-popup": "^1.1.21",
     "ng2-search-filter": "^0.5.1",
